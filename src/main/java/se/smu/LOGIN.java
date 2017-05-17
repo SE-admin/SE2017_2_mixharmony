@@ -1,6 +1,5 @@
 package se.smu;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,17 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
-import javax.swing.JToolBar;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Color;
-import javax.swing.UIManager;
-import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class LOGIN extends JFrame {
 
+	/**
+	 * 
+	 */
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -26,7 +27,6 @@ public class LOGIN extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
 
 	/**
 	 * Launch the application.
@@ -73,6 +73,7 @@ public class LOGIN extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		@SuppressWarnings("rawtypes")
 		JComboBox comboBox = new JComboBox();
 		comboBox.setEditable(true);
 		comboBox.setBounds(17, 81, 459, 40);
@@ -140,14 +141,11 @@ public class LOGIN extends JFrame {
 		lblNewLabel_1.setBounds(53, 382, 178, 21);
 		contentPane.add(lblNewLabel_1);
 		
-		textField_6 = new JTextField();
-		textField_6.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_6.setText("로그인");
-		textField_6.setForeground(Color.WHITE);
-		textField_6.setFont(textField_6.getFont().deriveFont(textField_6.getFont().getStyle() | Font.BOLD, 18f));
-		textField_6.setColumns(10);
-		textField_6.setBackground(new Color(0, 0, 128));
-		textField_6.setBounds(320, 403, 156, 40);
-		contentPane.add(textField_6);
+		JButton btnNewButton = new JButton("로그인");
+		btnNewButton.setBackground(new Color(0, 0, 128));
+		btnNewButton.setFont(btnNewButton.getFont().deriveFont(btnNewButton.getFont().getStyle() | Font.BOLD, btnNewButton.getFont().getSize() + 2f));
+		btnNewButton.setForeground(new Color(0, 0, 128));
+		btnNewButton.setBounds(329, 403, 136, 40);
+		contentPane.add(btnNewButton);
 	}
 }
