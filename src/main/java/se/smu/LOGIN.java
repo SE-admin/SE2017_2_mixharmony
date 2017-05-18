@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 
 @SuppressWarnings("serial")
 public class LOGIN extends JFrame {
