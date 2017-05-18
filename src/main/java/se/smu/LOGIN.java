@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 
 @SuppressWarnings("serial")
 public class LOGIN extends JFrame {
@@ -99,12 +100,6 @@ public class LOGIN extends JFrame {
 		textField_2.setBounds(17, 197, 459, 40);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
-		
-		JLabel label_1 = new JLabel("");
-		label_1.setForeground(new Color(0, 0, 128));
-		label_1.setBackground(new Color(0, 0, 128));
-		label_1.setBounds(17, 197, 50, 40);
-		contentPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon("C:\\Users\\u1\\Desktop\\잠듬-iloveimg-resized.png"));
