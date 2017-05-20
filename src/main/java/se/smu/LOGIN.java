@@ -17,7 +17,12 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.JCheckBox;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 
 @SuppressWarnings("serial")
@@ -30,10 +35,9 @@ public class LOGIN extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JPasswordField textField_4;
-    ImageIcon img;
-    Container cPane;
-    JLabel ImageBox;
-    
+	private JLabel label_2;	
+	private BufferedImage m_numberImage; 
+	
 	public LOGIN() {
 		setTitle("로그인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,11 +46,7 @@ public class LOGIN extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
-		img = new ImageIcon("");
-		JLabel ImgBox = new JLabel(new ImageIcon("C:\\Users\\u1\\Downloads\\1146202131-school-house-clip-art-pictures-image-quotes-at-buzzquotes-com-zrxlal-clipart-iloveimg-resized.jpg"));
-		ImgBox.setBounds(17, 26, 50, 40);
-		contentPane.add(ImgBox);
+	
 		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setBackground(new Color(0, 0, 128));
@@ -115,19 +115,26 @@ public class LOGIN extends JFrame {
 		chckbxNewCheckBox.setBounds(17, 373, 199, 40);
 		contentPane.add(chckbxNewCheckBox);
 		
-		JLabel label = new JLabel(new ImageIcon("C:\\Users\\u1\\Desktop\\free-vector-business-people-icons-22530 - 복사본-iloveimg-resized.jpg"));
+		try {
+			m_numberImage = ImageIO.read(new File("C:\\Users\\u1\\Desktop\\free-vector-business-people-icons-22530 - 복사본-iloveimg-resized.jpg"));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
+
+		JLabel label = new JLabel(new ImageIcon("m_numberImage"));
 		label.setBounds(17, 142, 50, 40);
 		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel(new ImageIcon("C:\\Users\\u1\\Desktop\\잠듬-iloveimg-resized.png"));
 		label_1.setBounds(17, 257, 50, 40);
 		contentPane.add(label_1);
-	}
-	@SuppressWarnings("unused")
-	public static void main(String[] args) {
-		final int FRAME_WIDTH = 800;
-		final int FRAME_HEIGHT=600;
 		
+		label_2 = new JLabel(new ImageIcon("C:\\Users\\u1\\Downloads\\1146202131-school-house-clip-art-pictures-image-quotes-at-buzzquotes-com-zrxlal-clipart-iloveimg-resized.jpg"));
+		label_2.setBounds(17, 26, 50, 40);
+		contentPane.add(label_2);
+	}
+	public static void main(String[] args) {			
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
