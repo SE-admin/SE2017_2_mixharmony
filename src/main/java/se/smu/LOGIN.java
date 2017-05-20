@@ -35,8 +35,7 @@ public class LOGIN extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JPasswordField textField_4;
-	private JLabel label_2;	
-	private BufferedImage m_numberImage; 
+	private JLabel lblNewLabel;
 	
 	public LOGIN() {
 		setTitle("로그인");
@@ -115,24 +114,11 @@ public class LOGIN extends JFrame {
 		chckbxNewCheckBox.setBounds(17, 373, 199, 40);
 		contentPane.add(chckbxNewCheckBox);
 		
-		try {
-			m_numberImage = ImageIO.read(new File("C:\\Users\\u1\\Desktop\\free-vector-business-people-icons-22530 - 복사본-iloveimg-resized.jpg"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(17, 26, 51, 40);
+		contentPane.add(lblNewLabel);
+		
 
-		JLabel label = new JLabel(new ImageIcon("m_numberImage"));
-		label.setBounds(17, 142, 50, 40);
-		contentPane.add(label);
-		
-		JLabel label_1 = new JLabel(new ImageIcon("C:\\Users\\u1\\Desktop\\잠듬-iloveimg-resized.png"));
-		label_1.setBounds(17, 257, 50, 40);
-		contentPane.add(label_1);
-		
-		label_2 = new JLabel(new ImageIcon("C:\\Users\\u1\\Downloads\\1146202131-school-house-clip-art-pictures-image-quotes-at-buzzquotes-com-zrxlal-clipart-iloveimg-resized.jpg"));
-		label_2.setBounds(17, 26, 50, 40);
-		contentPane.add(label_2);
 	}
 	public static void main(String[] args) {			
 		EventQueue.invokeLater(new Runnable() {
