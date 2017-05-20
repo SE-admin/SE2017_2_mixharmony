@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JCheckBox;
 
-@SuppressWarnings("serial")
+package main.java.se.smu;
 public class LOGIN extends JFrame {
 
 	
@@ -31,7 +31,7 @@ public class LOGIN extends JFrame {
 	private JLabel lblNewLabel;
 	
 	public LOGIN() {
-		setTitle("로그인");
+		setTitle("로그?��");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 515, 514);
 		contentPane = new JPanel();
@@ -44,7 +44,7 @@ public class LOGIN extends JFrame {
 		textField.setBackground(new Color(0, 0, 128));
 		textField.setFont(textField.getFont().deriveFont(textField.getFont().getStyle() | Font.BOLD, 18f));
 		textField.setForeground(Color.WHITE);
-		textField.setText("학교명");
+		textField.setText("?��교명");
 		textField.setBounds(75, 26, 156, 40);
 		contentPane.add(textField);
 		textField.setColumns(10);
@@ -62,7 +62,7 @@ public class LOGIN extends JFrame {
 		
 		textField_1 = new JTextField();
 		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setText("학번");
+		textField_1.setText("?���?");
 		textField_1.setForeground(Color.WHITE);
 		textField_1.setFont(textField_1.getFont().deriveFont(textField_1.getFont().getStyle() | Font.BOLD, 18f));
 		textField_1.setColumns(10);
@@ -77,7 +77,7 @@ public class LOGIN extends JFrame {
 		
 		textField_3 = new JTextField();
 		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setText("비밀번호");
+		textField_3.setText("비�?번호");
 		textField_3.setForeground(Color.WHITE);
 		textField_3.setFont(textField_3.getFont().deriveFont(textField_3.getFont().getStyle() | Font.BOLD, 18f));
 		textField_3.setColumns(10);
@@ -90,7 +90,7 @@ public class LOGIN extends JFrame {
 		textField_4.setBounds(17, 312, 459, 40);
 		contentPane.add(textField_4);
 		
-		JButton btnNewButton = new JButton("로그인");
+		JButton btnNewButton = new JButton("로그?��");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -102,7 +102,7 @@ public class LOGIN extends JFrame {
 		btnNewButton.setBounds(329, 403, 136, 40);
 		contentPane.add(btnNewButton);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("로그인 상태 유지");
+		JCheckBox chckbxNewCheckBox = new JCheckBox("로그?�� ?��?�� ?���?");
 		chckbxNewCheckBox.setFont(chckbxNewCheckBox.getFont().deriveFont(chckbxNewCheckBox.getFont().getStyle() | Font.BOLD, chckbxNewCheckBox.getFont().getSize() + 3f));
 		chckbxNewCheckBox.setBounds(17, 373, 199, 40);
 		contentPane.add(chckbxNewCheckBox);
