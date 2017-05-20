@@ -7,23 +7,16 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
-import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 import javax.swing.JCheckBox;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 
 @SuppressWarnings("serial")
 public class LOGIN extends JFrame {
