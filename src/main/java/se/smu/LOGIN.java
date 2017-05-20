@@ -8,10 +8,21 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JTabbedPane;
+import javax.swing.JLayeredPane;
+import javax.swing.JComboBox;
 
+@SuppressWarnings("serial")
 public class LOGIN extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 
 	public static void main(String[] args) {
@@ -41,6 +52,25 @@ public class LOGIN extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(LOGIN.class.getResource("/images/학교명.jpg")));
 		lblNewLabel.setBounds(17, 27, 52, 41);
 		contentPane.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setFont(textField.getFont().deriveFont(textField.getFont().getStyle() | Font.BOLD, 21f));
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setForeground(new Color(255, 255, 255));
+		textField.setBackground(new Color(0, 0, 128));
+		textField.setText("과목명");
+		textField.setBounds(102, 27, 156, 46);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		comboBox.setEditable(true);
+		comboBox.setBounds(17, 83, 473, 41);
+		contentPane.add(comboBox);
 	}
-
 }
