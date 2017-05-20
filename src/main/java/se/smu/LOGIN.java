@@ -10,10 +10,15 @@ import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JCheckBox;
+import javax.swing.Icon;
 
 @SuppressWarnings("serial")
 public class LOGIN extends JFrame {
@@ -24,26 +29,11 @@ public class LOGIN extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LOGIN frame = new LOGIN();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	private JPasswordField textField_4;
+    ImageIcon img;
+    Container cPane;
+    JLabel ImageBox;
+    
 	public LOGIN() {
 		setTitle("로그인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,38 +43,34 @@ public class LOGIN extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setLabelFor(this);
-		lblNewLabel.setBackground(new Color(0, 0, 128));
-		lblNewLabel.setForeground(new Color(0, 0, 128));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\u1\\Desktop\\1146202131-school-house-clip-art-pictures-image-quotes-at-buzzquotes-com-zrxlal-clipart-iloveimg-resized.jpg"));
-		lblNewLabel.setBounds(17, 26, 50, 40);
-		contentPane.add(lblNewLabel);
-		
+		img = new ImageIcon("");
+		JLabel ImgBox = new JLabel(new ImageIcon("C:\\Users\\u1\\Downloads\\1146202131-school-house-clip-art-pictures-image-quotes-at-buzzquotes-com-zrxlal-clipart-iloveimg-resized.jpg"));
+		ImgBox.setBounds(17, 26, 50, 40);
+		contentPane.add(ImgBox);
 		textField = new JTextField();
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setBackground(new Color(0, 0, 128));
 		textField.setFont(textField.getFont().deriveFont(textField.getFont().getStyle() | Font.BOLD, 18f));
 		textField.setForeground(Color.WHITE);
-		textField.setText("       학교명");
+		textField.setText("학교명");
 		textField.setBounds(75, 26, 156, 40);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		@SuppressWarnings("rawtypes")
 		JComboBox comboBox = new JComboBox();
+		comboBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		comboBox.setEditable(true);
 		comboBox.setBounds(17, 81, 459, 40);
 		contentPane.add(comboBox);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\u1\\Desktop\\free-vector-business-people-icons-22530 - 복사본-iloveimg-resized.jpg"));
-		label.setForeground(new Color(0, 0, 128));
-		label.setBackground(new Color(0, 0, 128));
-		label.setBounds(17, 142, 50, 40);
-		contentPane.add(label);
-		
 		textField_1 = new JTextField();
-		textField_1.setText("        학번");
+		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_1.setText("학번");
 		textField_1.setForeground(Color.WHITE);
 		textField_1.setFont(textField_1.getFont().deriveFont(textField_1.getFont().getStyle() | Font.BOLD, 18f));
 		textField_1.setColumns(10);
@@ -97,15 +83,9 @@ public class LOGIN extends JFrame {
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("C:\\Users\\u1\\Desktop\\잠듬-iloveimg-resized.png"));
-		label_2.setForeground(new Color(0, 0, 128));
-		label_2.setBackground(new Color(0, 0, 128));
-		label_2.setBounds(17, 257, 50, 40);
-		contentPane.add(label_2);
-		
 		textField_3 = new JTextField();
-		textField_3.setText("     비밀번호");
+		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_3.setText("비밀번호");
 		textField_3.setForeground(Color.WHITE);
 		textField_3.setFont(textField_3.getFont().deriveFont(textField_3.getFont().getStyle() | Font.BOLD, 18f));
 		textField_3.setColumns(10);
@@ -113,30 +93,50 @@ public class LOGIN extends JFrame {
 		textField_3.setBounds(75, 257, 156, 40);
 		contentPane.add(textField_3);
 		
-		textField_4 = new JTextField();
+		textField_4 = new JPasswordField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(17, 312, 459, 40);
 		contentPane.add(textField_4);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(17, 379, 28, 27);
-		contentPane.add(textField_5);
-		
-		JLabel lblNewLabel_1 = new JLabel("로그인 상태 유지");
-		lblNewLabel_1.setFont(lblNewLabel_1.getFont().deriveFont(lblNewLabel_1.getFont().getStyle() | Font.BOLD, 18f));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1.setBackground(new Color(240, 240, 240));
-		lblNewLabel_1.setEnabled(false);
-		lblNewLabel_1.setForeground(new Color(0, 0, 128));
-		lblNewLabel_1.setBounds(53, 382, 178, 21);
-		contentPane.add(lblNewLabel_1);
-		
 		JButton btnNewButton = new JButton("로그인");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+		});
 		btnNewButton.setBackground(new Color(0, 0, 128));
 		btnNewButton.setFont(btnNewButton.getFont().deriveFont(btnNewButton.getFont().getStyle() | Font.BOLD, btnNewButton.getFont().getSize() + 2f));
-		btnNewButton.setForeground(new Color(0, 0, 128));
+		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBounds(329, 403, 136, 40);
 		contentPane.add(btnNewButton);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("로그인 상태 유지");
+		chckbxNewCheckBox.setFont(chckbxNewCheckBox.getFont().deriveFont(chckbxNewCheckBox.getFont().getStyle() | Font.BOLD, chckbxNewCheckBox.getFont().getSize() + 3f));
+		chckbxNewCheckBox.setBounds(17, 373, 199, 40);
+		contentPane.add(chckbxNewCheckBox);
+		
+		JLabel label = new JLabel(new ImageIcon("C:\\Users\\u1\\Desktop\\free-vector-business-people-icons-22530 - 복사본-iloveimg-resized.jpg"));
+		label.setBounds(17, 142, 50, 40);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel(new ImageIcon("C:\\Users\\u1\\Desktop\\잠듬-iloveimg-resized.png"));
+		label_1.setBounds(17, 257, 50, 40);
+		contentPane.add(label_1);
+	}
+	@SuppressWarnings("unused")
+	public static void main(String[] args) {
+		final int FRAME_WIDTH = 800;
+		final int FRAME_HEIGHT=600;
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LOGIN frame = new LOGIN();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }
