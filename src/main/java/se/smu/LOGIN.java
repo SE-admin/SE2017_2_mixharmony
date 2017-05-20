@@ -1,4 +1,4 @@
-package se.smu;
+package main.java.se.smu;
 
 import java.awt.EventQueue;
 
@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JCheckBox;
 
-package main.java.se.smu;
+
 public class LOGIN extends JFrame {
 
 	
