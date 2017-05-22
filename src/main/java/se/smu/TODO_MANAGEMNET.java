@@ -42,12 +42,12 @@ public class TODO_MANAGEMNET extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(TODO_MANAGEMNET.class.getResource("/images/alarm--alarm-icon-91768.png")));
+		label.setIcon(new ImageIcon(TODO_MANAGEMNET.class.getResource("/image/alarm--alarm-icon-91768.png")));
 		label.setBounds(449, 15, 50, 43);
 		contentPane.add(label);
 		
 		JButton button = new JButton("");
-		button.setIcon(new ImageIcon(TODO_MANAGEMNET.class.getResource("/images/add.png")));
+		button.setIcon(new ImageIcon(TODO_MANAGEMNET.class.getResource("/image/add.png")));
 		button.setBounds(53, 93, 398, 54);
 		contentPane.add(button);
 		
