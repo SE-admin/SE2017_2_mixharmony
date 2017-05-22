@@ -1,6 +1,5 @@
 package se.smu;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,7 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
-import javax.swing.JScrollBar;
 import javax.swing.ScrollPaneConstants;
 
 public class ALARM_MANAGEMENT extends JFrame {
@@ -51,7 +49,6 @@ public class ALARM_MANAGEMENT extends JFrame {
 		textField = new JTextField();
 		textField.setBounds(17, 299, 393, 259);
 		contentPane.add(textField);
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
