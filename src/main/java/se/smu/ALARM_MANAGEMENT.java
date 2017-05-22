@@ -45,7 +45,7 @@ public class ALARM_MANAGEMENT extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(ALARM_MANAGEMENT.class.getResource("/image/alarm-clipart-Alarm-Clock-15-iloveimg-resized.png")));
-		lblNewLabel.setBounds(35, 15, 375, 269);
+		lblNewLabel.setBounds(35, 15, 387, 269);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
