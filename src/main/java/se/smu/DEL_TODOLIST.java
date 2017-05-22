@@ -44,7 +44,7 @@ public class DEL_TODOLIST extends JFrame {
 		JTextArea textArea = new JTextArea();
 		textArea.setWrapStyleWord(true);
 		textArea.setToolTipText("");
-		textArea.setText("                  * 경고 *\r\n\r\nTO DO 항목을 삭제 하시겠습니까?");
+		textArea.setText("                                            * 경 고 *\r\n\r\n                           TO DO 항목을 삭제 하시겠습니까?");
 		textArea.setLineWrap(true);
 		textArea.setForeground(Color.BLACK);
 		textArea.setFont(textArea.getFont().deriveFont(textArea.getFont().getStyle() | Font.BOLD, textArea.getFont().getSize() + 6f));
