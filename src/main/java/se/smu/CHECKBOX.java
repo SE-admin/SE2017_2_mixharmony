@@ -1,4 +1,4 @@
-package java.se.smu;
+package se.smu;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -13,7 +13,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
 
-public class CHECK extends JFrame {
+public class CHECKBOX extends JFrame {
 
 	private JPanel contentPane;
 
@@ -22,7 +22,7 @@ public class CHECK extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CHECK frame = new CHECK();
+					CHECKBOX frame = new CHECKBOX();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,7 +32,7 @@ public class CHECK extends JFrame {
 	}
 
 
-	public CHECK() {
+	public CHECKBOX() {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
