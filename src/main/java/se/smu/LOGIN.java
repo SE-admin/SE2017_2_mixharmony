@@ -60,7 +60,7 @@ public class LOGIN extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(LOGIN.class.getResource("/images/학교명.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(LOGIN.class.getResource("/image/\uD559\uAD50\uBA85.jpg")));
 		lblNewLabel.setBounds(17, 27, 52, 41);
 		contentPane.add(lblNewLabel);
 		
@@ -86,7 +86,7 @@ public class LOGIN extends JFrame {
 		contentPane.add(comboBox);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(LOGIN.class.getResource("/images/free-vector-business-people-icons-22530 - 복사본-iloveimg-resized.jpg")));
+		label.setIcon(new ImageIcon(LOGIN.class.getResource("/image/free-vector-business-people-icons-22530 - \uBCF5\uC0AC\uBCF8-iloveimg-resized.jpg")));
 		label.setBounds(17, 139, 52, 41);
 		contentPane.add(label);
 		
@@ -107,7 +107,7 @@ public class LOGIN extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(LOGIN.class.getResource("/images/ilovepdf_com.png")));
+		label_1.setIcon(new ImageIcon(LOGIN.class.getResource("/image/ilovepdf_com.png")));
 		label_1.setBounds(17, 257, 52, 41);
 		contentPane.add(label_1);
 		
