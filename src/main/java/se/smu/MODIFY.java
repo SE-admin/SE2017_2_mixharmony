@@ -31,6 +31,7 @@ public class MODIFY extends JFrame {
 
 
 	public MODIFY() {
+		setTitle("확인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 328);
 		contentPane = new JPanel();
