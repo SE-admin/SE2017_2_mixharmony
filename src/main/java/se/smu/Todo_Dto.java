@@ -1,6 +1,6 @@
 package se.smu;
 
-public class TodoDTO {
+public class Todo_Dto {
 	private String itemname;
 	private String deadline;
 	private String rdeadline;
