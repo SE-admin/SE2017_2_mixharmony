@@ -1,19 +1,12 @@
 package se.smu;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLayeredPane;
-import javax.swing.JLabel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
-import javax.swing.JTextField;
-import java.awt.TextField;
 import java.awt.Font;
-import javax.swing.JTabbedPane;
-import java.awt.CardLayout;
+
 import javax.swing.JTextArea;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -55,7 +48,7 @@ public class LOGOUT extends JFrame {
 		textArea.setForeground(new Color(0, 0, 0));
 		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
-		textArea.setBounds(17, 28, 525, 146);
+		textArea.setBounds(17, 28, 525, 141);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("취소");
