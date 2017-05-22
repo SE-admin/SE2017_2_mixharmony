@@ -25,9 +25,7 @@ public class CHANGE_TODOLIST extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,9 +39,7 @@ public class CHANGE_TODOLIST extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public CHANGE_TODOLIST() {
 		setTitle("to do 항목 편집");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,12 +71,12 @@ public class CHANGE_TODOLIST extends JFrame {
 		panel.add(textField_1);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/images/imagesK5B499QW.jpg")));
+		label.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/imagesK5B499QW.jpg")));
 		label.setBounds(17, 15, 52, 41);
 		panel.add(label);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/images/Deadline-Clock.jpg")));
+		label_1.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/Deadline-Clock.jpg")));
 		label_1.setBounds(17, 132, 52, 41);
 		panel.add(label_1);
 		
@@ -104,7 +100,7 @@ public class CHANGE_TODOLIST extends JFrame {
 		panel.add(textField_3);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/images/submitalisting.jpg")));
+		label_2.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/submitalisting.jpg")));
 		label_2.setBounds(17, 244, 52, 41);
 		panel.add(label_2);
 		
@@ -128,7 +124,7 @@ public class CHANGE_TODOLIST extends JFrame {
 		panel.add(textField_5);
 		
 		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/images/565112c0bf29a_thumb900.jpg")));
+		label_3.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
 		label_3.setBounds(17, 360, 52, 41);
 		panel.add(label_3);
 		
@@ -143,22 +139,27 @@ public class CHANGE_TODOLIST extends JFrame {
 		panel.add(textField_6);
 		
 		JButton button = new JButton("");
+		button.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/star.png")));
 		button.setBounds(251, 360, 44, 41);
 		panel.add(button);
 		
 		JButton button_1 = new JButton("");
+		button_1.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/star.png")));
 		button_1.setBounds(301, 360, 44, 41);
 		panel.add(button_1);
 		
 		JButton button_2 = new JButton("");
+		button_2.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/star.png")));
 		button_2.setBounds(351, 360, 44, 41);
 		panel.add(button_2);
 		
 		JButton button_3 = new JButton("");
+		button_3.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/star.png")));
 		button_3.setBounds(398, 360, 44, 41);
 		panel.add(button_3);
 		
 		JButton button_4 = new JButton("");
+		button_4.setIcon(new ImageIcon(CHANGE_TODOLIST.class.getResource("/image/star.png")));
 		button_4.setBounds(446, 360, 44, 41);
 		panel.add(button_4);
 		
