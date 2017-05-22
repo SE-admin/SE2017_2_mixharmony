@@ -135,27 +135,27 @@ public class ADD_TODOLIST extends JFrame {
 		contentPane.add(textField_6);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/star.png")));
+		btnNewButton.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
 		btnNewButton.setBounds(251, 360, 44, 41);
 		contentPane.add(btnNewButton);
 		
 		JButton button = new JButton("");
-		button.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/star.png")));
+		button.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
 		button.setBounds(301, 360, 44, 41);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("");
-		button_1.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/star.png")));
+		button_1.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
 		button_1.setBounds(351, 360, 44, 41);
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("");
-		button_2.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/star.png")));
+		button_2.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
 		button_2.setBounds(398, 360, 44, 41);
 		contentPane.add(button_2);
 		
 		JButton button_3 = new JButton("");
-		button_3.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/star.png")));
+		button_3.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
 		button_3.setBounds(446, 360, 44, 41);
 		contentPane.add(button_3);
 		
