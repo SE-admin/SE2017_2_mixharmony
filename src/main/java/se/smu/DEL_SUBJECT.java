@@ -43,7 +43,7 @@ public class DEL_SUBJECT extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBackground(new Color(255, 255, 255));
-		textArea.setText("                  * 경고 *\r\n\r\n수강과목을 삭제 하시겠습니까?");
+		textArea.setText("                                              * 경 고 *\r\n\r\n                          해당 수강 과목을 삭제 하시겠습니까?");
 		textArea.setToolTipText("");
 		textArea.setFont(textArea.getFont().deriveFont(textArea.getFont().getStyle() | Font.BOLD, textArea.getFont().getSize() + 6f));
 		textArea.setForeground(new Color(0, 0, 0));
