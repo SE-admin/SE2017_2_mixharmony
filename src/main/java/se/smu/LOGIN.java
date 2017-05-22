@@ -1,4 +1,4 @@
-package se.smu;
+package java.se.smu;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
