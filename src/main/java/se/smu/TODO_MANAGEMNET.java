@@ -58,7 +58,7 @@ public class TODO_MANAGEMNET extends JFrame {
 		contentPane.add(scrollPane);
 		
 		JButton button_1 = new JButton("정렬");
-		button_1.setFont(button_1.getFont().deriveFont(button_1.getFont().getStyle() | Font.BOLD, button_1.getFont().getSize() + 2f));
+		button_1.setFont(button_1.getFont().deriveFont(button_1.getFont().getStyle() | Font.BOLD, button_1.getFont().getSize() + 3f));
 		button_1.setForeground(Color.WHITE);
 		button_1.setBackground(new Color(0, 0, 128));
 		button_1.setBounds(17, 440, 102, 43);
