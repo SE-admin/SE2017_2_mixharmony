@@ -42,7 +42,7 @@ public class LOGOUT extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBackground(new Color(255, 255, 255));
-		textArea.setText("                   * 경고 *\r\r\n\r\n로그아웃을 하면 다음 접속시, 재 로그인을 해야 합니다.\r\n로그아웃 하시겠습니까?");
+		textArea.setText("                                          * 경고 *\n\n로그아웃을 하면 다음 접속시, 재 로그인을 해야 합니다.\n로그아웃 하시겠습니까?");
 		textArea.setToolTipText("");
 		textArea.setFont(textArea.getFont().deriveFont(textArea.getFont().getStyle() | Font.BOLD, textArea.getFont().getSize() + 6f));
 		textArea.setForeground(new Color(0, 0, 0));
