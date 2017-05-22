@@ -65,6 +65,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		contentPane.add(panel);
 		
 		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/untitled.png")));
 		label.setBounds(28, 15, 52, 41);
 		panel.add(label);
 		
@@ -85,6 +86,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(textField_1);
 		
 		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/imagesASJC4VFF.jpg")));
 		label_1.setBounds(28, 139, 52, 41);
 		panel.add(label_1);
 		
@@ -107,6 +109,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(textField_3);
 		
 		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/imagesL3LZX0G1.jpg")));
 		label_2.setBounds(28, 251, 52, 41);
 		panel.add(label_2);
 		
@@ -121,6 +124,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(textField_4);
 		
 		JLabel label_3 = new JLabel("");
+		label_3.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/imagesL3LZX0G1.jpg")));
 		label_3.setBounds(287, 251, 52, 41);
 		panel.add(label_3);
 		
@@ -151,6 +155,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(textField_7);
 		
 		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/calendar-page-en.jpg")));
 		label_4.setBounds(28, 368, 52, 41);
 		panel.add(label_4);
 		
@@ -165,6 +170,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(textField_8);
 		
 		JLabel label_5 = new JLabel("");
+		label_5.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/calendar-page-en.jpg")));
 		label_5.setBounds(287, 363, 52, 41);
 		panel.add(label_5);
 		
@@ -195,6 +201,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(textField_11);
 		
 		JLabel label_6 = new JLabel("");
+		label_6.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/imagesAN6AYLO3.jpg")));
 		label_6.setBounds(28, 480, 52, 41);
 		panel.add(label_6);
 		
