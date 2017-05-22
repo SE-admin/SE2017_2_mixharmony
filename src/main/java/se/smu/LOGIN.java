@@ -1,4 +1,4 @@
-package java.se.smu;
+package se.smu;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -25,7 +25,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Button;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial", "unused" })
 public class LOGIN extends JFrame {
 
 	private JPanel contentPane;
@@ -74,6 +74,7 @@ public class LOGIN extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		@SuppressWarnings("rawtypes")
 		JComboBox comboBox = new JComboBox();
 		comboBox.addMouseListener(new MouseAdapter() {
 			@Override
