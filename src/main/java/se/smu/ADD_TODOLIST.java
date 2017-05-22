@@ -67,12 +67,12 @@ public class ADD_TODOLIST extends JFrame {
 		contentPane.add(textField_1);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/imagesK5B499QW.jpg")));
+		label.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/imagesK5B499QW.jpg")));
 		label.setBounds(17, 15, 52, 41);
 		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/Deadline-Clock.jpg")));
+		label_1.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/Deadline-Clock.jpg")));
 		label_1.setBounds(17, 132, 52, 41);
 		contentPane.add(label_1);
 		
@@ -96,7 +96,7 @@ public class ADD_TODOLIST extends JFrame {
 		contentPane.add(textField_3);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/submitalisting.jpg")));
+		label_2.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/submitalisting.jpg")));
 		label_2.setBounds(17, 244, 52, 41);
 		contentPane.add(label_2);
 		
@@ -120,7 +120,7 @@ public class ADD_TODOLIST extends JFrame {
 		contentPane.add(textField_5);
 		
 		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/images/565112c0bf29a_thumb900.jpg")));
+		label_3.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
 		label_3.setBounds(17, 360, 52, 41);
 		contentPane.add(label_3);
 		
