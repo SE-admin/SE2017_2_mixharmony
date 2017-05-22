@@ -1,4 +1,4 @@
-package java.se.smu;
+package se.smu;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class SUBJECT_MANAGEMENT extends JFrame {
 
@@ -42,12 +43,12 @@ public class SUBJECT_MANAGEMENT extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(SUBJECT_MANAGEMENT.class.getResource("/images/alarm--alarm-icon-91768.png")));
+		lblNewLabel.setIcon(new ImageIcon(SUBJECT_MANAGEMENT.class.getResource("/image/alarm--alarm-icon-91768.png")));
 		lblNewLabel.setBounds(392, 15, 50, 43);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(SUBJECT_MANAGEMENT.class.getResource("/images/add.png")));
+		btnNewButton.setIcon(new ImageIcon(SUBJECT_MANAGEMENT.class.getResource("/image/add.png")));
 		btnNewButton.setBounds(51, 81, 368, 54);
 		contentPane.add(btnNewButton);
 		
@@ -65,6 +66,8 @@ public class SUBJECT_MANAGEMENT extends JFrame {
 		contentPane.add(button);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(462, 0, 23, 510);
 		contentPane.add(scrollPane);
 	}
