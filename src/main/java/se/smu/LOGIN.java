@@ -1,6 +1,5 @@
 package se.smu;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,18 +13,12 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JTabbedPane;
-import javax.swing.JLayeredPane;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
-import javax.swing.JTextPane;
 import java.awt.SystemColor;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.Button;
 
-@SuppressWarnings({ "serial", "unused" })
 public class LOGIN extends JFrame {
 
 	private JPanel contentPane;
@@ -53,7 +46,7 @@ public class LOGIN extends JFrame {
 	public LOGIN() {
 		setTitle("로그인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 529, 557);
+		setBounds(100, 100, 529, 547);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
