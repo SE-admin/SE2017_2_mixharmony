@@ -13,7 +13,9 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
-
+import java.sql.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 public class ADD_SUBJECT extends JFrame {
 
 	private JPanel contentPane;
@@ -31,7 +33,16 @@ public class ADD_SUBJECT extends JFrame {
 	private JTextField textField_11;
 	private JTextField textField_12;
 	private JTextField textField_13;
-
+    private void ViewData(Subject_Dto vSub){
+        
+        String subject = vSub.getSubject();
+        String professor = vSub.getProfessor();
+        String dayofweek = vSub.getDayofweek();
+        String period = vSub.getPeriod();
+        String year = vSub.getYear();
+        String semester = vSub.getSemester();
+        String divclass = vSub.getDivclass();
+    }
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -219,7 +230,69 @@ public class ADD_SUBJECT extends JFrame {
 		btnNewButton.setFont(btnNewButton.getFont().deriveFont(btnNewButton.getFont().getStyle() | Font.BOLD, btnNewButton.getFont().getSize() + 4f));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBounds(357, 536, 144, 42);
+		btnNewButton.addMouseListener(new MouseListener()
+				{
+
+					@Override
+					public void mouseClicked(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseEntered(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseExited(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mousePressed(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						Insert_Subject();
+					}
+
+					@Override
+					public void mouseReleased(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}});
 		contentPane.add(btnNewButton);
+	}
+	//삽입
+	private void Insert_Subject(){
+		 Subject_Dto dto = getViewData();
+	     Subject_Dao dao = new Subject_Dao();       
+	     boolean ok = dao.Insert_Subject(dto);
+		
+	}
+	public Subject_Dto getViewData() {
+		Subject_Dto dto = new Subject_Dto();
+        String subject = textField_1.getText();
+        String professor = textField_3.getText();
+        String dayofweek = textField_6.getText();
+        String period = textField_7.getText();
+        String year = textField_10.getText();
+        String semester = textField_11.getText();
+        String divclass = textField_13.getText();
+        
+        
+        
+        dto.setSubject(subject);
+        dto.setProfessor(professor);
+        dto.setDayofweek(dayofweek);
+        dto.setPeriod(period);
+        dto.setYear(year);
+        dto.setSemester(semester);
+        dto.setDivclass(divclass);
+
+       
+        return dto;
 	}
 
 }
