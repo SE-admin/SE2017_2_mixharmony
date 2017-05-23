@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-public class SUBJECT_MANAGEMENT extends JFrame {
+public class Subject_Management extends JFrame {
 
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
@@ -26,7 +26,7 @@ public class SUBJECT_MANAGEMENT extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SUBJECT_MANAGEMENT frame = new SUBJECT_MANAGEMENT();
+					Subject_Management frame = new Subject_Management();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class SUBJECT_MANAGEMENT extends JFrame {
 	}
 
 	
-	public SUBJECT_MANAGEMENT() {
+	public Subject_Management() {
 		
 		setTitle("수강 과목");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,12 +47,12 @@ public class SUBJECT_MANAGEMENT extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(SUBJECT_MANAGEMENT.class.getResource("/image/alarm--alarm-icon-91768.png")));
+		lblNewLabel.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/alarm--alarm-icon-91768.png")));
 		lblNewLabel.setBounds(392, 15, 50, 43);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(SUBJECT_MANAGEMENT.class.getResource("/image/add.png")));
+		btnNewButton.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
 		btnNewButton.setBounds(51, 81, 368, 54);
 		contentPane.add(btnNewButton);
 		
