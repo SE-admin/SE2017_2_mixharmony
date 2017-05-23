@@ -47,22 +47,22 @@ public class CHECKBOX extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setWrapStyleWord(true);
-		textArea.setToolTipText("");
-		textArea.setText("                                           * 확 인 *\r\n\r\n                     모든 항목이 정상적으로 등록되었습니다.");
-		textArea.setLineWrap(true);
-		textArea.setForeground(Color.BLACK);
-		textArea.setFont(textArea.getFont().deriveFont(textArea.getFont().getStyle() | Font.BOLD, textArea.getFont().getSize() + 6f));
-		textArea.setBackground(Color.WHITE);
-		textArea.setBounds(17, 15, 525, 146);
-		contentPane.add(textArea);
+		JTextArea Anounce_Out = new JTextArea();
+		Anounce_Out.setWrapStyleWord(true);
+		Anounce_Out.setToolTipText("");
+		Anounce_Out.setText("                                           * 확 인 *\r\n\r\n                     모든 항목이 정상적으로 등록되었습니다.");
+		Anounce_Out.setLineWrap(true);
+		Anounce_Out.setForeground(Color.BLACK);
+		Anounce_Out.setFont(Anounce_Out.getFont().deriveFont(Anounce_Out.getFont().getStyle() | Font.BOLD, Anounce_Out.getFont().getSize() + 6f));
+		Anounce_Out.setBackground(Color.WHITE);
+		Anounce_Out.setBounds(17, 15, 525, 146);
+		contentPane.add(Anounce_Out);
 		
-		JButton button = new JButton("확인");
-		button.setForeground(Color.WHITE);
-		button.setFont(button.getFont().deriveFont(button.getFont().getStyle() | Font.BOLD, button.getFont().getSize() + 2f));
-		button.setBackground(new Color(0, 0, 128));
-		button.setBounds(399, 188, 136, 33);
-		contentPane.add(button);
+		JButton Check_Btn = new JButton("확인");
+		Check_Btn.setForeground(Color.WHITE);
+		Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, Check_Btn.getFont().getSize() + 2f));
+		Check_Btn.setBackground(new Color(0, 0, 128));
+		Check_Btn.setBounds(399, 188, 136, 33);
+		contentPane.add(Check_Btn);
 	}
 }

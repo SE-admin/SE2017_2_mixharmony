@@ -22,11 +22,11 @@ import java.awt.Button;
 public class LOGIN extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JPasswordField textField_4;
+	private JTextField Login_Tf;
+	private JTextField Id_Tf;
+	private JTextField Id_In;
+	private JTextField Password_Tf;
+	private JPasswordField Password_In;
 
 
 	public static void main(String[] args) {
@@ -52,91 +52,91 @@ public class LOGIN extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(LOGIN.class.getResource("/image/\uD559\uAD50\uBA85.jpg")));
-		lblNewLabel.setBounds(17, 27, 52, 41);
-		contentPane.add(lblNewLabel);
+		JLabel Login_Img = new JLabel("");
+		Login_Img.setIcon(new ImageIcon(LOGIN.class.getResource("/image/\uD559\uAD50\uBA85.jpg")));
+		Login_Img.setBounds(17, 27, 52, 41);
+		contentPane.add(Login_Img);
 		
-		textField = new JTextField();
-		textField.setFont(textField.getFont().deriveFont(textField.getFont().getStyle() | Font.BOLD, 21f));
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setForeground(new Color(255, 255, 255));
-		textField.setBackground(new Color(0, 0, 128));
-		textField.setText("학교명");
-		textField.setBounds(102, 22, 156, 46);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		Login_Tf = new JTextField();
+		Login_Tf.setFont(Login_Tf.getFont().deriveFont(Login_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Login_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Login_Tf.setForeground(new Color(255, 255, 255));
+		Login_Tf.setBackground(new Color(0, 0, 128));
+		Login_Tf.setText("학교명");
+		Login_Tf.setBounds(102, 22, 156, 46);
+		contentPane.add(Login_Tf);
+		Login_Tf.setColumns(10);
 		
 		@SuppressWarnings("rawtypes")
-		JComboBox comboBox = new JComboBox();
-		comboBox.addMouseListener(new MouseAdapter() {
+		JComboBox Login_In = new JComboBox();
+		Login_In.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		comboBox.setEditable(true);
-		comboBox.setBounds(17, 83, 473, 41);
-		contentPane.add(comboBox);
+		Login_In.setEditable(true);
+		Login_In.setBounds(17, 83, 473, 41);
+		contentPane.add(Login_In);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(LOGIN.class.getResource("/image/free-vector-business-people-icons-22530 - \uBCF5\uC0AC\uBCF8-iloveimg-resized.jpg")));
-		label.setBounds(17, 139, 52, 41);
-		contentPane.add(label);
+		JLabel Id_Img = new JLabel("");
+		Id_Img.setIcon(new ImageIcon(LOGIN.class.getResource("/image/free-vector-business-people-icons-22530 - \uBCF5\uC0AC\uBCF8-iloveimg-resized.jpg")));
+		Id_Img.setBounds(17, 139, 52, 41);
+		contentPane.add(Id_Img);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("학번");
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setForeground(Color.WHITE);
-		textField_1.setFont(textField_1.getFont().deriveFont(textField_1.getFont().getStyle() | Font.BOLD, 21f));
-		textField_1.setColumns(10);
-		textField_1.setBackground(new Color(0, 0, 128));
-		textField_1.setBounds(102, 139, 156, 46);
-		contentPane.add(textField_1);
+		Id_Tf = new JTextField();
+		Id_Tf.setText("학번");
+		Id_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Id_Tf.setForeground(Color.WHITE);
+		Id_Tf.setFont(Id_Tf.getFont().deriveFont(Id_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Id_Tf.setColumns(10);
+		Id_Tf.setBackground(new Color(0, 0, 128));
+		Id_Tf.setBounds(102, 139, 156, 46);
+		contentPane.add(Id_Tf);
 		
-		textField_2 = new JTextField();
-		textField_2.setText("");
-		textField_2.setBounds(17, 201, 473, 41);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		Id_In = new JTextField();
+		Id_In.setText("");
+		Id_In.setBounds(17, 201, 473, 41);
+		contentPane.add(Id_In);
+		Id_In.setColumns(10);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(LOGIN.class.getResource("/image/ilovepdf_com.png")));
-		label_1.setBounds(17, 257, 52, 41);
-		contentPane.add(label_1);
+		JLabel Password_Img = new JLabel("");
+		Password_Img.setIcon(new ImageIcon(LOGIN.class.getResource("/image/ilovepdf_com.png")));
+		Password_Img.setBounds(17, 257, 52, 41);
+		contentPane.add(Password_Img);
 		
-		textField_3 = new JTextField();
-		textField_3.setText("비밀번호");
-		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setForeground(Color.WHITE);
-		textField_3.setFont(textField_3.getFont().deriveFont(textField_3.getFont().getStyle() | Font.BOLD, 21f));
-		textField_3.setColumns(10);
-		textField_3.setBackground(new Color(0, 0, 128));
-		textField_3.setBounds(102, 257, 156, 46);
-		contentPane.add(textField_3);
+		Password_Tf = new JTextField();
+		Password_Tf.setText("비밀번호");
+		Password_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Password_Tf.setForeground(Color.WHITE);
+		Password_Tf.setFont(Password_Tf.getFont().deriveFont(Password_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Password_Tf.setColumns(10);
+		Password_Tf.setBackground(new Color(0, 0, 128));
+		Password_Tf.setBounds(102, 257, 156, 46);
+		contentPane.add(Password_Tf);
 		
-		textField_4 = new JPasswordField();
-		textField_4.setText("");
-		textField_4.setColumns(10);
-		textField_4.setBounds(17, 313, 473, 41);
-		contentPane.add(textField_4);
+		Password_In = new JPasswordField();
+		Password_In.setText("");
+		Password_In.setColumns(10);
+		Password_In.setBounds(17, 313, 473, 41);
+		contentPane.add(Password_In);
 		
-		JCheckBox checkBox = new JCheckBox("로그인 상태 유지");
-		checkBox.setFont(checkBox.getFont().deriveFont(checkBox.getFont().getStyle() | Font.BOLD, checkBox.getFont().getSize() + 3f));
-		checkBox.setBackground(SystemColor.control);
-		checkBox.setForeground(Color.DARK_GRAY);
-		checkBox.setBounds(17, 377, 241, 41);
-		contentPane.add(checkBox);
+		JCheckBox Stay_Login_Btn = new JCheckBox("로그인 상태 유지");
+		Stay_Login_Btn.setFont(Stay_Login_Btn.getFont().deriveFont(Stay_Login_Btn.getFont().getStyle() | Font.BOLD, Stay_Login_Btn.getFont().getSize() + 3f));
+		Stay_Login_Btn.setBackground(SystemColor.control);
+		Stay_Login_Btn.setForeground(Color.DARK_GRAY);
+		Stay_Login_Btn.setBounds(17, 377, 241, 41);
+		contentPane.add(Stay_Login_Btn);
 		
-		Button button = new Button("로그인");
-		button.addMouseListener(new MouseAdapter() {
+		Button Login_Btn = new Button("로그인");
+		Login_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		button.setForeground(new Color(255, 255, 255));
-		button.setFont(new Font("굴림체", Font.BOLD, 18));
-		button.setBackground(new Color(0, 0, 128));
-		button.setBounds(338, 425, 146, 41);
-		contentPane.add(button);
+		Login_Btn.setForeground(new Color(255, 255, 255));
+		Login_Btn.setFont(new Font("굴림체", Font.BOLD, 18));
+		Login_Btn.setBackground(new Color(0, 0, 128));
+		Login_Btn.setBounds(338, 425, 146, 41);
+		contentPane.add(Login_Btn);
 	}
 }

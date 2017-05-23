@@ -20,17 +20,17 @@ import javax.swing.JButton;
 public class ADD_TODOLIST extends JFrame {
 
 	private final JPanel contentPane;
-	private JTextField Todo_name;
-	private JTextField Jtf_todo_name;
-	private JTextField Deadline;
-	private JTextField Jtf_dead_month;
-	private JTextField Jtf_dead_date;
-	private JTextField Jtf_dead_time;
-	private JTextField Real_deadline;
-	private JTextField Jtf_realDead_month;
-	private JTextField Jtf_realDead_date;
-	private JTextField Jtf_realDead_time;
-	private JTextField Priority;
+	private JTextField Itemname_Tf;
+	private JTextField Itemname_In;
+	private JTextField Deadline_Tf;
+	private JTextField Deadline_Mon;
+	private JTextField Deadline_Date;
+	private JTextField Deadline_Time;
+	private JTextField Rdeadline_Tf;
+	private JTextField Rdeadline_Mon;
+	private JTextField Rdeadline_Date;
+	private JTextField Rdeadline_Time;
+	private JTextField Importance_Tf;
     private void ViewData(Todo_Dto vTo){
         
         String itemname = vTo.getItemname();
@@ -66,171 +66,171 @@ public class ADD_TODOLIST extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		Todo_name = new JTextField();
-		Todo_name.setText("항목명");
-		Todo_name.setHorizontalAlignment(SwingConstants.CENTER);
-		Todo_name.setForeground(Color.WHITE);
-		Todo_name.setFont(Todo_name.getFont().deriveFont(Todo_name.getFont().getStyle() | Font.BOLD, 21f));
-		Todo_name.setColumns(10);
-		Todo_name.setBackground(new Color(0, 0, 128));
-		Todo_name.setBounds(86, 15, 156, 46);
-		contentPane.add(Todo_name);
+		Itemname_Tf = new JTextField();
+		Itemname_Tf.setText("항목명");
+		Itemname_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Itemname_Tf.setForeground(Color.WHITE);
+		Itemname_Tf.setFont(Itemname_Tf.getFont().deriveFont(Itemname_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Itemname_Tf.setColumns(10);
+		Itemname_Tf.setBackground(new Color(0, 0, 128));
+		Itemname_Tf.setBounds(86, 15, 156, 46);
+		contentPane.add(Itemname_Tf);
 		
-		Jtf_todo_name = new JTextField();
-		Jtf_todo_name.setText("");
-		Jtf_todo_name.setColumns(10);
-		Jtf_todo_name.setBounds(17, 71, 473, 41);
-		contentPane.add(Jtf_todo_name);
+		Itemname_In = new JTextField();
+		Itemname_In.setText("");
+		Itemname_In.setColumns(10);
+		Itemname_In.setBounds(17, 71, 473, 41);
+		contentPane.add(Itemname_In);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/imagesK5B499QW.jpg")));
-		label.setBounds(17, 15, 52, 41);
-		contentPane.add(label);
+		JLabel Itemname_Img = new JLabel("");
+		Itemname_Img.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/imagesK5B499QW.jpg")));
+		Itemname_Img.setBounds(17, 15, 52, 41);
+		contentPane.add(Itemname_Img);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/Deadline-Clock.jpg")));
-		label_1.setBounds(17, 132, 52, 41);
-		contentPane.add(label_1);
+		JLabel Deadline_Img = new JLabel("");
+		Deadline_Img.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/Deadline-Clock.jpg")));
+		Deadline_Img.setBounds(17, 132, 52, 41);
+		contentPane.add(Deadline_Img);
 		
-		Deadline = new JTextField();
-		Deadline.setText("마감 기한");
-		Deadline.setHorizontalAlignment(SwingConstants.CENTER);
-		Deadline.setForeground(Color.WHITE);
-		Deadline.setFont(Deadline.getFont().deriveFont(Deadline.getFont().getStyle() | Font.BOLD, 21f));
-		Deadline.setColumns(10);
-		Deadline.setBackground(new Color(0, 0, 128));
-		Deadline.setBounds(86, 127, 156, 46);
-		contentPane.add(Deadline);
+		Deadline_Tf = new JTextField();
+		Deadline_Tf.setText("마감 기한");
+		Deadline_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Deadline_Tf.setForeground(Color.WHITE);
+		Deadline_Tf.setFont(Deadline_Tf.getFont().deriveFont(Deadline_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Deadline_Tf.setColumns(10);
+		Deadline_Tf.setBackground(new Color(0, 0, 128));
+		Deadline_Tf.setBounds(86, 127, 156, 46);
+		contentPane.add(Deadline_Tf);
 		
-		Jtf_dead_month = new JTextField();
-		Jtf_dead_month.setText("");
-		Jtf_dead_month.setColumns(10);
-		Jtf_dead_month.setBounds(17, 183, 135, 41);
-		contentPane.add(Jtf_dead_month);
+		Deadline_Mon = new JTextField();
+		Deadline_Mon.setText("");
+		Deadline_Mon.setColumns(10);
+		Deadline_Mon.setBounds(17, 183, 135, 41);
+		contentPane.add(Deadline_Mon);
 		
-		JLabel Jlb_dead_month = new JLabel("월");
-		Jlb_dead_month.setFont(Jlb_dead_month.getFont().deriveFont(Jlb_dead_month.getFont().getStyle() | Font.BOLD, 17f));
-		Jlb_dead_month.setBounds(155, 183, 30, 30);
-		contentPane.add(Jlb_dead_month);
+		JLabel Deadline_Mon_Lb = new JLabel("월");
+		Deadline_Mon_Lb.setFont(Deadline_Mon_Lb.getFont().deriveFont(Deadline_Mon_Lb.getFont().getStyle() | Font.BOLD, 18f));
+		Deadline_Mon_Lb.setBounds(155, 183, 30, 41);
+		contentPane.add(Deadline_Mon_Lb);
 		
-		Jtf_dead_date = new JTextField();
-		Jtf_dead_date.setText("");
-		Jtf_dead_date.setColumns(10);
-		Jtf_dead_date.setBounds(180, 183, 135, 41);
-		contentPane.add(Jtf_dead_date);
+		Deadline_Date = new JTextField();
+		Deadline_Date.setText("");
+		Deadline_Date.setColumns(10);
+		Deadline_Date.setBounds(180, 183, 135, 41);
+		contentPane.add(Deadline_Date);
 		
-		JLabel Jlb_dead_date = new JLabel("일");
-		Jlb_dead_date.setFont(Jlb_dead_month.getFont().deriveFont(Jlb_dead_date.getFont().getStyle() | Font.BOLD, 17f));
-		Jlb_dead_date.setBounds(318, 183, 30, 30);
-		contentPane.add(Jlb_dead_date);
+		JLabel Deadline_Date_Lb = new JLabel("일");
+		Deadline_Date_Lb.setFont(Deadline_Date_Lb.getFont().deriveFont(Deadline_Date_Lb.getFont().getStyle() | Font.BOLD, 18f));
+		Deadline_Date_Lb.setBounds(318, 188, 30, 30);
+		contentPane.add(Deadline_Date_Lb);
 		
-		Jtf_dead_time = new JTextField();
-		Jtf_dead_time.setText("");
-		Jtf_dead_time.setColumns(10);
-		Jtf_dead_time.setBounds(343, 183, 135, 41);
-		contentPane.add(Jtf_dead_time);
+		Deadline_Time = new JTextField();
+		Deadline_Time.setText("");
+		Deadline_Time.setColumns(10);
+		Deadline_Time.setBounds(343, 183, 135, 41);
+		contentPane.add(Deadline_Time);
 		
-		JLabel Jlb_dead_time = new JLabel("시");
-		Jlb_dead_time.setFont(Jlb_dead_time.getFont().deriveFont(Jlb_dead_time.getFont().getStyle() | Font.BOLD, 15f));
-		Jlb_dead_time.setBounds(481, 183, 30, 30);
-		contentPane.add(Jlb_dead_time);
+		JLabel Deadline_Time_Lb = new JLabel("시");
+		Deadline_Time_Lb.setFont(Deadline_Time_Lb.getFont().deriveFont(Deadline_Time_Lb.getFont().getStyle() | Font.BOLD, 18f));
+		Deadline_Time_Lb.setBounds(481, 188, 30, 30);
+		contentPane.add(Deadline_Time_Lb);
 	
 	
 		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/submitalisting.jpg")));
-		label_2.setBounds(17, 244, 52, 41);
-		contentPane.add(label_2);
+		JLabel Rdeadline_Img = new JLabel("");
+		Rdeadline_Img.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/submitalisting.jpg")));
+		Rdeadline_Img.setBounds(17, 244, 52, 41);
+		contentPane.add(Rdeadline_Img);
 		
-		Real_deadline = new JTextField();
-		Real_deadline.setText("실제 마감일");
-		Real_deadline.setHorizontalAlignment(SwingConstants.CENTER);
-		Real_deadline.setForeground(Color.WHITE);
-		Real_deadline.setFont(Real_deadline.getFont().deriveFont(Real_deadline.getFont().getStyle() | Font.BOLD, 21f));
-		Real_deadline.setColumns(10);
-		Real_deadline.setBackground(new Color(0, 0, 128));
-		Real_deadline.setBounds(86, 239, 156, 46);
-		contentPane.add(Real_deadline);
+		Rdeadline_Tf = new JTextField();
+		Rdeadline_Tf.setText("실제 마감일");
+		Rdeadline_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Rdeadline_Tf.setForeground(Color.WHITE);
+		Rdeadline_Tf.setFont(Rdeadline_Tf.getFont().deriveFont(Rdeadline_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Rdeadline_Tf.setColumns(10);
+		Rdeadline_Tf.setBackground(new Color(0, 0, 128));
+		Rdeadline_Tf.setBounds(86, 239, 156, 46);
+		contentPane.add(Rdeadline_Tf);
 		
-		Jtf_realDead_month = new JTextField();
-		Jtf_realDead_month.setText("");
-		Jtf_realDead_month.setColumns(10);
-		Jtf_realDead_month.setBounds(17, 299, 135, 41);
-		contentPane.add(Jtf_realDead_month);
+		Rdeadline_Mon = new JTextField();
+		Rdeadline_Mon.setText("");
+		Rdeadline_Mon.setColumns(10);
+		Rdeadline_Mon.setBounds(17, 299, 135, 41);
+		contentPane.add(Rdeadline_Mon);
 		
-		JLabel Jlb_realDead_month = new JLabel("월");
-		Jlb_realDead_month.setFont(Jlb_realDead_month.getFont().deriveFont(Jlb_realDead_month.getFont().getStyle() | Font.BOLD, 17f));
-		Jlb_realDead_month.setBounds(155, 299, 30, 30);
-		contentPane.add(Jlb_realDead_month);
+		JLabel Rdeadline_Mon_Lb = new JLabel("월");
+		Rdeadline_Mon_Lb.setFont(Rdeadline_Mon_Lb.getFont().deriveFont(Rdeadline_Mon_Lb.getFont().getStyle() | Font.BOLD, 18f));
+		Rdeadline_Mon_Lb.setBounds(155, 304, 30, 30);
+		contentPane.add(Rdeadline_Mon_Lb);
 		
-		Jtf_realDead_date = new JTextField();
-		Jtf_realDead_date.setText("");
-		Jtf_realDead_date.setColumns(10);
-		Jtf_realDead_date.setBounds(180, 299, 135, 41);
-		contentPane.add(Jtf_realDead_date);
+		Rdeadline_Date = new JTextField();
+		Rdeadline_Date.setText("");
+		Rdeadline_Date.setColumns(10);
+		Rdeadline_Date.setBounds(180, 299, 135, 41);
+		contentPane.add(Rdeadline_Date);
 		
-		JLabel Jlb_realDead_date = new JLabel("일");
-		Jlb_realDead_date.setFont(Jlb_realDead_date.getFont().deriveFont(Jlb_realDead_date.getFont().getStyle() | Font.BOLD, 17f));
-		Jlb_realDead_date.setBounds(318, 299, 30, 30);
-		contentPane.add(Jlb_realDead_date);
+		JLabel Rdeadline_Date_Lb = new JLabel("일");
+		Rdeadline_Date_Lb.setFont(Rdeadline_Date_Lb.getFont().deriveFont(Rdeadline_Date_Lb.getFont().getStyle() | Font.BOLD, 18f));
+		Rdeadline_Date_Lb.setBounds(318, 304, 30, 30);
+		contentPane.add(Rdeadline_Date_Lb);
 
-		Jtf_realDead_time = new JTextField();
-		Jtf_realDead_time.setText("");
-		Jtf_realDead_time.setColumns(10);
-		Jtf_realDead_time.setBounds(343, 299, 135, 41);
-		contentPane.add(Jtf_realDead_time);
+		Rdeadline_Time = new JTextField();
+		Rdeadline_Time.setText("");
+		Rdeadline_Time.setColumns(10);
+		Rdeadline_Time.setBounds(343, 299, 135, 41);
+		contentPane.add(Rdeadline_Time);
 		
-		JLabel Jlb_realDead_time = new JLabel("시");
-		Jlb_realDead_time.setFont(Jlb_realDead_time.getFont().deriveFont(Jlb_realDead_time.getFont().getStyle() | Font.BOLD, 15f));
-		Jlb_realDead_time.setBounds(481, 299, 30, 30);
-		contentPane.add(Jlb_realDead_time);
+		JLabel Rdeadline_Time_Lb = new JLabel("시");
+		Rdeadline_Time_Lb.setFont(Rdeadline_Time_Lb.getFont().deriveFont(Rdeadline_Time_Lb.getFont().getStyle() | Font.BOLD, 18f));
+		Rdeadline_Time_Lb.setBounds(481, 304, 30, 30);
+		contentPane.add(Rdeadline_Time_Lb);
 		
-		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-		label_3.setBounds(17, 360, 52, 41);
-		contentPane.add(label_3);
+		JLabel Importance_Img = new JLabel("");
+		Importance_Img.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		Importance_Img.setBounds(17, 360, 52, 41);
+		contentPane.add(Importance_Img);
 		
-		Priority = new JTextField();
-		Priority.setText("중요도");
-		Priority.setHorizontalAlignment(SwingConstants.CENTER);
-		Priority.setForeground(Color.WHITE);
-		Priority.setFont(Priority.getFont().deriveFont(Priority.getFont().getStyle() | Font.BOLD, 21f));
-		Priority.setColumns(10);
-		Priority.setBackground(new Color(0, 0, 128));
-		Priority.setBounds(86, 355, 156, 46);
-		contentPane.add(Priority);
+		Importance_Tf = new JTextField();
+		Importance_Tf.setText("중요도");
+		Importance_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Importance_Tf.setForeground(Color.WHITE);
+		Importance_Tf.setFont(Importance_Tf.getFont().deriveFont(Importance_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Importance_Tf.setColumns(10);
+		Importance_Tf.setBackground(new Color(0, 0, 128));
+		Importance_Tf.setBounds(86, 355, 156, 46);
+		contentPane.add(Importance_Tf);
 		
-		JButton button = new JButton("");
-		button.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
-		button.setBounds(251, 360, 44, 41);
-		contentPane.add(button);
+		JButton Importance_Star_Btn1 = new JButton("");
+		Importance_Star_Btn1.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn1.setBounds(251, 360, 44, 41);
+		contentPane.add(Importance_Star_Btn1);
 		
-		JButton button_1 = new JButton("");
-		button_1.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
-		button_1.setBounds(301, 360, 44, 41);
-		contentPane.add(button_1);
+		JButton Importance_Star_Btn2 = new JButton("");
+		Importance_Star_Btn2.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn2.setBounds(301, 360, 44, 41);
+		contentPane.add(Importance_Star_Btn2);
 		
-		JButton button_2 = new JButton("");
-		button_2.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
-		button_2.setBounds(351, 360, 44, 41);
-		contentPane.add(button_2);
+		JButton Importance_Star_Btn3 = new JButton("");
+		Importance_Star_Btn3.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn3.setBounds(351, 360, 44, 41);
+		contentPane.add(Importance_Star_Btn3);
 		
-		JButton button_3 = new JButton("");
-		button_3.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
-		button_3.setBounds(398, 360, 44, 41);
-		contentPane.add(button_3);
+		JButton Importance_Star_Btn4 = new JButton("");
+		Importance_Star_Btn4.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn4.setBounds(398, 360, 44, 41);
+		contentPane.add(Importance_Star_Btn4);
 		
-		JButton button_4 = new JButton("");
-		button_4.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
-		button_4.setBounds(446, 360, 44, 41);
-		contentPane.add(button_4);
+		JButton Importance_Star_Btn5 = new JButton("");
+		Importance_Star_Btn5.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn5.setBounds(446, 360, 44, 41);
+		contentPane.add(Importance_Star_Btn5);
 		
-		JButton button_5 = new JButton("등록");
-		button_5.setForeground(Color.WHITE);
-		button_5.setFont(button_5.getFont().deriveFont(button_5.getFont().getStyle() | Font.BOLD, button_5.getFont().getSize() + 4f));
-		button_5.setBackground(new Color(0, 0, 128));
-		button_5.setBounds(372, 433, 118, 42);
-		button_5.addMouseListener(new MouseListener()
+		JButton Signup_Btn = new JButton("등록");
+		Signup_Btn.setForeground(Color.WHITE);
+		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
+		Signup_Btn.setBackground(new Color(0, 0, 128));
+		Signup_Btn.setBounds(372, 433, 118, 42);
+		Signup_Btn.addMouseListener(new MouseListener()
 		{
 
 			@Override
@@ -262,7 +262,7 @@ public class ADD_TODOLIST extends JFrame {
 				// TODO Auto-generated method stub
 				
 			}});
-			contentPane.add(button_5);
+			contentPane.add(Signup_Btn);
 	}
 //삽입
 	private void Insert_Todo(){
@@ -272,9 +272,9 @@ public class ADD_TODOLIST extends JFrame {
 	}
 	public Todo_Dto getViewData() {
 		Todo_Dto dto = new Todo_Dto();
-		String itemname = Jtf_todo_name.getText();
-		String deadline = Jtf_dead_month.getText();
-		String rdeadline = Jtf_realDead_month.getText();
+		String itemname = Itemname_In.getText();
+		String deadline = Deadline_Mon.getText();
+		String rdeadline = Rdeadline_Mon.getText();
 //		String importance = priority.getText();
 //		String comment = textField_10.getText();
 		

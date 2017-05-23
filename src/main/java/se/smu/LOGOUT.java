@@ -40,39 +40,39 @@ public class LOGOUT extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBackground(new Color(255, 255, 255));
-		textArea.setText("                                          * 경고 *\r\n\r\n           로그아웃을 하면 다음 접속시, 재 로그인을 해야 합니다.\r\n           로그아웃 하시겠습니까?");
-		textArea.setToolTipText("");
-		textArea.setFont(textArea.getFont().deriveFont(textArea.getFont().getStyle() | Font.BOLD, textArea.getFont().getSize() + 6f));
-		textArea.setForeground(new Color(0, 0, 0));
-		textArea.setWrapStyleWord(true);
-		textArea.setLineWrap(true);
-		textArea.setBounds(17, 28, 525, 141);
-		contentPane.add(textArea);
+		JTextArea Warning_Out = new JTextArea();
+		Warning_Out.setBackground(new Color(255, 255, 255));
+		Warning_Out.setText("                                          * 경고 *\r\n\r\n           로그아웃을 하면 다음 접속시, 재 로그인을 해야 합니다.\r\n           로그아웃 하시겠습니까?");
+		Warning_Out.setToolTipText("");
+		Warning_Out.setFont(Warning_Out.getFont().deriveFont(Warning_Out.getFont().getStyle() | Font.BOLD, Warning_Out.getFont().getSize() + 6f));
+		Warning_Out.setForeground(new Color(0, 0, 0));
+		Warning_Out.setWrapStyleWord(true);
+		Warning_Out.setLineWrap(true);
+		Warning_Out.setBounds(17, 28, 525, 141);
+		contentPane.add(Warning_Out);
 		
-		JButton btnNewButton = new JButton("취소");
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JButton Cancel_Btn = new JButton("취소");
+		Cancel_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		btnNewButton.setFont(btnNewButton.getFont().deriveFont(btnNewButton.getFont().getStyle() | Font.BOLD, btnNewButton.getFont().getSize() + 2f));
-		btnNewButton.setBackground(new Color(0, 0, 128));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBounds(221, 198, 136, 33);
-		contentPane.add(btnNewButton);
+		Cancel_Btn.setFont(Cancel_Btn.getFont().deriveFont(Cancel_Btn.getFont().getStyle() | Font.BOLD, Cancel_Btn.getFont().getSize() + 2f));
+		Cancel_Btn.setBackground(new Color(0, 0, 128));
+		Cancel_Btn.setForeground(new Color(255, 255, 255));
+		Cancel_Btn.setBounds(221, 198, 136, 33);
+		contentPane.add(Cancel_Btn);
 		
-		JButton button = new JButton("확인");
-		button.addMouseListener(new MouseAdapter() {
+		JButton Check_Btn = new JButton("확인");
+		Check_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		button.setForeground(Color.WHITE);
-		button.setFont(button.getFont().deriveFont(button.getFont().getStyle() | Font.BOLD, button.getFont().getSize() + 2f));
-		button.setBackground(new Color(0, 0, 128));
-		button.setBounds(406, 198, 136, 33);
-		contentPane.add(button);
+		Check_Btn.setForeground(Color.WHITE);
+		Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, Check_Btn.getFont().getSize() + 2f));
+		Check_Btn.setBackground(new Color(0, 0, 128));
+		Check_Btn.setBounds(406, 198, 136, 33);
+		contentPane.add(Check_Btn);
 	}
 }

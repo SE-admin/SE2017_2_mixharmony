@@ -41,33 +41,33 @@ public class DEL_TODOLIST extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setWrapStyleWord(true);
-		textArea.setToolTipText("");
-		textArea.setText("                                            * 경 고 *\r\n\r\n                           TO DO 항목을 삭제 하시겠습니까?");
-		textArea.setLineWrap(true);
-		textArea.setForeground(Color.BLACK);
-		textArea.setFont(textArea.getFont().deriveFont(textArea.getFont().getStyle() | Font.BOLD, textArea.getFont().getSize() + 6f));
-		textArea.setBackground(Color.WHITE);
-		textArea.setBounds(17, 15, 525, 146);
-		contentPane.add(textArea);
+		JTextArea Warning_Out = new JTextArea();
+		Warning_Out.setWrapStyleWord(true);
+		Warning_Out.setToolTipText("");
+		Warning_Out.setText("                                            * 경 고 *\r\n\r\n                           TO DO 항목을 삭제 하시겠습니까?");
+		Warning_Out.setLineWrap(true);
+		Warning_Out.setForeground(Color.BLACK);
+		Warning_Out.setFont(Warning_Out.getFont().deriveFont(Warning_Out.getFont().getStyle() | Font.BOLD, Warning_Out.getFont().getSize() + 6f));
+		Warning_Out.setBackground(Color.WHITE);
+		Warning_Out.setBounds(17, 15, 525, 146);
+		contentPane.add(Warning_Out);
 		
-		JButton button = new JButton("취소");
-		button.setForeground(Color.WHITE);
-		button.setFont(button.getFont().deriveFont(button.getFont().getStyle() | Font.BOLD, button.getFont().getSize() + 2f));
-		button.setBackground(new Color(0, 0, 128));
-		button.setBounds(240, 196, 136, 33);
-		contentPane.add(button);
+		JButton Cancel_Btn = new JButton("취소");
+		Cancel_Btn.setForeground(Color.WHITE);
+		Cancel_Btn.setFont(Cancel_Btn.getFont().deriveFont(Cancel_Btn.getFont().getStyle() | Font.BOLD, Cancel_Btn.getFont().getSize() + 2f));
+		Cancel_Btn.setBackground(new Color(0, 0, 128));
+		Cancel_Btn.setBounds(240, 196, 136, 33);
+		contentPane.add(Cancel_Btn);
 		
-		JButton button_1 = new JButton("확인");
-		button_1.addActionListener(new ActionListener() {
+		JButton Check_Btn = new JButton("확인");
+		Check_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		button_1.setForeground(Color.WHITE);
-		button_1.setFont(button_1.getFont().deriveFont(button_1.getFont().getStyle() | Font.BOLD, button_1.getFont().getSize() + 2f));
-		button_1.setBackground(new Color(0, 0, 128));
-		button_1.setBounds(406, 196, 136, 33);
-		contentPane.add(button_1);
+		Check_Btn.setForeground(Color.WHITE);
+		Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, Check_Btn.getFont().getSize() + 2f));
+		Check_Btn.setBackground(new Color(0, 0, 128));
+		Check_Btn.setBounds(406, 196, 136, 33);
+		contentPane.add(Check_Btn);
 	}
 }

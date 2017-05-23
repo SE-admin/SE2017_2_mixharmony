@@ -15,7 +15,7 @@ import javax.swing.ScrollPaneConstants;
 public class ALARM_MANAGEMENT extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField Alarm_Tf;
 
 
 	public static void main(String[] args) {
@@ -41,20 +41,20 @@ public class ALARM_MANAGEMENT extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(ALARM_MANAGEMENT.class.getResource("/image/alarm-clipart-Alarm-Clock-15-iloveimg-resized.png")));
-		lblNewLabel.setBounds(35, 15, 387, 269);
-		contentPane.add(lblNewLabel);
+		JLabel Alarm_Img = new JLabel("");
+		Alarm_Img.setIcon(new ImageIcon(ALARM_MANAGEMENT.class.getResource("/image/alarm-clipart-Alarm-Clock-15-iloveimg-resized.png")));
+		Alarm_Img.setBounds(35, 15, 387, 269);
+		contentPane.add(Alarm_Img);
 		
-		textField = new JTextField();
-		textField.setBounds(17, 299, 393, 259);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		JScrollPane Alarm_Scroll = new JScrollPane();
+		Alarm_Scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		Alarm_Scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		Alarm_Scroll.setBounds(17, 297, 421, 261);
+		contentPane.add(Alarm_Scroll);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setBounds(17, 297, 421, 261);
-		contentPane.add(scrollPane);
+		Alarm_Tf = new JTextField();
+		Alarm_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Alarm_Scroll.setViewportView(Alarm_Tf);
+		Alarm_Tf.setColumns(10);
 	}
 }
