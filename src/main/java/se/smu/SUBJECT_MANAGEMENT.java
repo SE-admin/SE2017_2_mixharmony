@@ -11,12 +11,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 public class SUBJECT_MANAGEMENT extends JFrame {
 
 	private JPanel contentPane;
+	private JScrollPane scrollPane;
+	private JTable table;
 
 
 	public static void main(String[] args) {
@@ -34,6 +37,7 @@ public class SUBJECT_MANAGEMENT extends JFrame {
 
 	
 	public SUBJECT_MANAGEMENT() {
+		
 		setTitle("수강 과목");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 507, 566);
