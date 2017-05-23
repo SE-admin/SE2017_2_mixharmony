@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import java.sql.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-public class ADD_SUBJECT extends JFrame {
+public class Add_Subject extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -47,7 +47,7 @@ public class ADD_SUBJECT extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ADD_SUBJECT frame = new ADD_SUBJECT();
+					Add_Subject frame = new Add_Subject();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class ADD_SUBJECT extends JFrame {
 	}
 
 
-	public ADD_SUBJECT() {
+	public Add_Subject() {
 		setTitle("수강 과목 등록");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 551, 649);
@@ -67,7 +67,7 @@ public class ADD_SUBJECT extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ADD_SUBJECT.class.getResource("/image/untitled.png")));
+		label.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/untitled.png")));
 		label.setBounds(28, 15, 52, 41);
 		contentPane.add(label);
 		
@@ -88,7 +88,7 @@ public class ADD_SUBJECT extends JFrame {
 		contentPane.add(textField_1);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(ADD_SUBJECT.class.getResource("/image/imagesASJC4VFF.jpg")));
+		label_1.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/imagesASJC4VFF.jpg")));
 		label_1.setBounds(28, 139, 52, 41);
 		contentPane.add(label_1);
 		
@@ -111,7 +111,7 @@ public class ADD_SUBJECT extends JFrame {
 		contentPane.add(textField_3);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(ADD_SUBJECT.class.getResource("/image/imagesL3LZX0G1.jpg")));
+		label_2.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/imagesL3LZX0G1.jpg")));
 		label_2.setBounds(28, 251, 52, 41);
 		contentPane.add(label_2);
 		
@@ -126,7 +126,7 @@ public class ADD_SUBJECT extends JFrame {
 		contentPane.add(textField_4);
 		
 		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(ADD_SUBJECT.class.getResource("/image/imagesL3LZX0G1.jpg")));
+		label_3.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/imagesL3LZX0G1.jpg")));
 		label_3.setBounds(287, 251, 52, 41);
 		contentPane.add(label_3);
 		
@@ -157,7 +157,7 @@ public class ADD_SUBJECT extends JFrame {
 		contentPane.add(textField_7);
 		
 		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon(ADD_SUBJECT.class.getResource("/image/calendar-page-en.jpg")));
+		label_4.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/calendar-page-en.jpg")));
 		label_4.setBounds(28, 368, 52, 41);
 		contentPane.add(label_4);
 		
@@ -172,7 +172,7 @@ public class ADD_SUBJECT extends JFrame {
 		contentPane.add(textField_8);
 		
 		JLabel label_5 = new JLabel("");
-		label_5.setIcon(new ImageIcon(ADD_SUBJECT.class.getResource("/image/calendar-page-en.jpg")));
+		label_5.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/calendar-page-en.jpg")));
 		label_5.setBounds(287, 363, 52, 41);
 		contentPane.add(label_5);
 		
@@ -203,7 +203,7 @@ public class ADD_SUBJECT extends JFrame {
 		contentPane.add(textField_11);
 		
 		JLabel label_6 = new JLabel("");
-		label_6.setIcon(new ImageIcon(ADD_SUBJECT.class.getResource("/image/imagesAN6AYLO3.jpg")));
+		label_6.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/imagesAN6AYLO3.jpg")));
 		label_6.setBounds(28, 480, 52, 41);
 		contentPane.add(label_6);
 		
