@@ -1,6 +1,6 @@
 package se.smu;
 
-public class SubjectDTO {
+public class Subject_Dto {
 	private String subject;
 	private String professor;
 	private String dayofweek;
