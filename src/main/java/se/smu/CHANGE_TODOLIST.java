@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
+@SuppressWarnings("serial")
 public class CHANGE_TODOLIST extends JFrame {
 
 	private JPanel contentPane;
