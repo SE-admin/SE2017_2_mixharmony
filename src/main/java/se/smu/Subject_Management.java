@@ -14,20 +14,25 @@ import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.UIManager;
+import javax.swing.ListSelectionModel;
 
+@SuppressWarnings("serial")
 public class Subject_Management extends JFrame {
 
 	private JPanel contentPane;
+	@SuppressWarnings("unused")
 	private JScrollPane scrollPane;
-	private JTable table;
+	private JTable Subject_Data_Tb;
 
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			 public void run() {
 				try {
 					Subject_Management frame = new Subject_Management();
-					frame.setVisible(true);
+					frame.setVisible(true); 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,39 +45,67 @@ public class Subject_Management extends JFrame {
 		
 		setTitle("수강 과목");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 507, 566);
+		setBounds(100, 100, 745, 559);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/alarm--alarm-icon-91768.png")));
-		lblNewLabel.setBounds(392, 15, 50, 43);
-		contentPane.add(lblNewLabel);
+
+		JButton Add_Subject_Btn = new JButton("");
+		Add_Subject_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
+		Add_Subject_Btn.setBounds(51, 73, 627, 54);
+		contentPane.add(Add_Subject_Btn);
+
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
-		btnNewButton.setBounds(51, 81, 368, 54);
-		contentPane.add(btnNewButton);
+		JButton Sort_Btn = new JButton("정렬");
+		Sort_Btn.setBackground(new Color(0, 0, 128));
+		Sort_Btn.setForeground(new Color(255, 255, 255));
+		Sort_Btn.setBounds(17, 452, 102, 43);
+		contentPane.add(Sort_Btn);
 		
-		JButton btnNewButton_1 = new JButton("정렬");
-		btnNewButton_1.setBackground(new Color(0, 0, 128));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBounds(17, 428, 102, 43);
-		contentPane.add(btnNewButton_1);
+		JButton Subject_Scroll = new JButton("로그아웃");
+		Subject_Scroll.setForeground(Color.WHITE);
+		Subject_Scroll.setFont(Subject_Scroll.getFont().deriveFont(Subject_Scroll.getFont().getStyle() | Font.BOLD, Subject_Scroll.getFont().getSize() + 4f));
+		Subject_Scroll.setBackground(new Color(0, 0, 128));
+		Subject_Scroll.setBounds(562, 451, 144, 42);
+		contentPane.add(Subject_Scroll);
 		
-		JButton button = new JButton("로그아웃");
-		button.setForeground(Color.WHITE);
-		button.setFont(button.getFont().deriveFont(button.getFont().getStyle() | Font.BOLD, button.getFont().getSize() + 4f));
-		button.setBackground(new Color(0, 0, 128));
-		button.setBounds(298, 428, 144, 42);
-		contentPane.add(button);
+		JButton Alarm_Btn = new JButton("");
+		Alarm_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/alarm--alarm-icon-91768.png")));
+		Alarm_Btn.setBounds(655, 15, 50, 43);
+		contentPane.add(Alarm_Btn);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(462, 0, 23, 510);
-		contentPane.add(scrollPane);
+		JButton New_Alarm_Btn = new JButton("");
+		New_Alarm_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/%C0̹%CC%C1%F6_007-iloveimg-resized.png")));
+		New_Alarm_Btn.setBounds(588, 15, 50, 43);
+		contentPane.add(New_Alarm_Btn);
+		
+		JScrollPane Subject_Data_Scroll = new JScrollPane();
+		Subject_Data_Scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		Subject_Data_Scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		Subject_Data_Scroll.setBounds(17, 142, 688, 294);
+		contentPane.add(Subject_Data_Scroll);
+		
+		Subject_Data_Tb = new JTable();
+		Subject_Data_Tb.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		Subject_Data_Tb.setFillsViewportHeight(true);
+		Subject_Data_Tb.setFont(Subject_Data_Tb.getFont().deriveFont(Subject_Data_Tb.getFont().getStyle() | Font.BOLD, Subject_Data_Tb.getFont().getSize() + 2f));
+		Subject_Data_Tb.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+					"수강 과목", "TODO수", "년도", "학기", "시간" , "요일", "분반"
+			}
+		));
+		Subject_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(100);
+		Subject_Data_Tb.getColumnModel().getColumn(3).setPreferredWidth(51);
+		Subject_Data_Tb.getColumnModel().getColumn(5).setPreferredWidth(51);
+		Subject_Data_Tb.setBorder(UIManager.getBorder("Table.scrollPaneBorder"));
+		Subject_Data_Tb.setSurrendersFocusOnKeystroke(true);
+		Subject_Data_Tb.setCellSelectionEnabled(true);
+		Subject_Data_Tb.setColumnSelectionAllowed(true);
+		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
+
 	}
 }
