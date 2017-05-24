@@ -46,6 +46,11 @@ public class Subject_Management extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/alarm--alarm-icon-91768.png")));
+		lblNewLabel.setBounds(392, 15, 50, 43);
+		contentPane.add(lblNewLabel);
+		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
 		btnNewButton.setBounds(51, 81, 368, 54);
@@ -69,15 +74,5 @@ public class Subject_Management extends JFrame {
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(462, 0, 23, 510);
 		contentPane.add(scrollPane);
-		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/alarm--alarm-icon-91768.png")));
-		btnNewButton_2.setBounds(403, 15, 50, 43);
-		contentPane.add(btnNewButton_2);
-		
-		JButton button_1 = new JButton("");
-		button_1.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/%C0̹%CC%C1%F6_007.png")));
-		button_1.setBounds(343, 15, 50, 43);
-		contentPane.add(button_1);
 	}
 }
