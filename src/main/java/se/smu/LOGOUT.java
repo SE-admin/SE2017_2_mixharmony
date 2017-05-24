@@ -55,6 +55,7 @@ public class LOGOUT extends JFrame {
 		Cancel_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				dispose();
 			}
 		});
 		Cancel_Btn.setFont(Cancel_Btn.getFont().deriveFont(Cancel_Btn.getFont().getStyle() | Font.BOLD, Cancel_Btn.getFont().getSize() + 2f));
@@ -67,6 +68,9 @@ public class LOGOUT extends JFrame {
 		Check_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Subject_Management Info = new Subject_Management();
+				Info.setVisible(true);
+				dispose();
 			}
 		});
 		Check_Btn.setForeground(Color.WHITE);
