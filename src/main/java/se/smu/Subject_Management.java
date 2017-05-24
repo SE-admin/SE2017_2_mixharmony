@@ -11,6 +11,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
@@ -55,6 +58,40 @@ public class Subject_Management extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
 		btnNewButton.setBounds(51, 81, 368, 54);
 		contentPane.add(btnNewButton);
+		btnNewButton.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				Add_Subject Info = new Add_Subject(); //act class define
+				Info.setVisible(true); //class act
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		
 		JButton btnNewButton_1 = new JButton("정렬");
 		btnNewButton_1.setBackground(new Color(0, 0, 128));
