@@ -17,6 +17,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.UIManager;
 import javax.swing.ListSelectionModel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 @SuppressWarnings("serial")
 public class Subject_Management extends JFrame {
@@ -56,13 +58,6 @@ public class Subject_Management extends JFrame {
 		Add_Subject_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
 		Add_Subject_Btn.setBounds(51, 73, 627, 54);
 		contentPane.add(Add_Subject_Btn);
-
-		
-		JButton Sort_Btn = new JButton("정렬");
-		Sort_Btn.setBackground(new Color(0, 0, 128));
-		Sort_Btn.setForeground(new Color(255, 255, 255));
-		Sort_Btn.setBounds(17, 452, 102, 43);
-		contentPane.add(Sort_Btn);
 		
 		JButton Subject_Scroll = new JButton("로그아웃");
 		Subject_Scroll.setForeground(Color.WHITE);
@@ -106,6 +101,14 @@ public class Subject_Management extends JFrame {
 		Subject_Data_Tb.setCellSelectionEnabled(true);
 		Subject_Data_Tb.setColumnSelectionAllowed(true);
 		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "시간순", "요일순", "분반순"}));
+		comboBox.setForeground(Color.WHITE);
+		comboBox.setFont(comboBox.getFont().deriveFont(comboBox.getFont().getStyle() | Font.BOLD, comboBox.getFont().getSize() + 4f));
+		comboBox.setBackground(new Color(0, 0, 128));
+		comboBox.setBounds(17, 451, 144, 42);
+		contentPane.add(comboBox);
 
 	}
 }
