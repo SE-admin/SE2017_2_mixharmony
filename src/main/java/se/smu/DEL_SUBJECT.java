@@ -43,7 +43,7 @@ public class DEL_SUBJECT extends JFrame {
 		
 		JTextArea Warning_Out = new JTextArea();
 		Warning_Out.setBackground(new Color(255, 255, 255));
-		Warning_Out.setText("                                              * 경 고 *\r\n\r\n                          해당 수강 과목을 삭제 하시겠습니까?");
+		Warning_Out.setText("                                              * 경 고 *\r\n\r\n                        해당 수강 과목을 삭제 하시겠습니까?");
 		Warning_Out.setToolTipText("");
 		Warning_Out.setFont(Warning_Out.getFont().deriveFont(Warning_Out.getFont().getStyle() | Font.BOLD, Warning_Out.getFont().getSize() + 6f));
 		Warning_Out.setForeground(new Color(0, 0, 0));

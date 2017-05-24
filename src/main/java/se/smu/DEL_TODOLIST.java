@@ -1,8 +1,6 @@
 package se.smu;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -44,7 +42,7 @@ public class DEL_TODOLIST extends JFrame {
 		JTextArea Warning_Out = new JTextArea();
 		Warning_Out.setWrapStyleWord(true);
 		Warning_Out.setToolTipText("");
-		Warning_Out.setText("                                            * 경 고 *\r\n\r\n                           TO DO 항목을 삭제 하시겠습니까?");
+		Warning_Out.setText("                                            * 경 고 *\r\n\r\n                         TO DO 항목을 삭제 하시겠습니까?");
 		Warning_Out.setLineWrap(true);
 		Warning_Out.setForeground(Color.BLACK);
 		Warning_Out.setFont(Warning_Out.getFont().deriveFont(Warning_Out.getFont().getStyle() | Font.BOLD, Warning_Out.getFont().getSize() + 6f));
