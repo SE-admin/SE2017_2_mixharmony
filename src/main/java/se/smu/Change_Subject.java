@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class CHANGE_SUBJECT extends JFrame {
+public class Change_Subject extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField Subject_Tf;
@@ -36,7 +36,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CHANGE_SUBJECT frame = new CHANGE_SUBJECT();
+					Change_Subject frame = new Change_Subject();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +46,7 @@ public class CHANGE_SUBJECT extends JFrame {
 	}
 
 
-	public CHANGE_SUBJECT() {
+	public Change_Subject() {
 		setTitle("수강 과목 편집");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 551, 649);
@@ -62,7 +62,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		contentPane.add(panel);
 		
 		JLabel Subject_Img = new JLabel("");
-		Subject_Img.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/untitled.png")));
+		Subject_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/untitled.png")));
 		Subject_Img.setBounds(28, 15, 52, 41);
 		panel.add(Subject_Img);
 		
@@ -83,7 +83,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(Subject_In);
 		
 		JLabel Professor_Img = new JLabel("");
-		Professor_Img.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/imagesASJC4VFF.jpg")));
+		Professor_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/imagesASJC4VFF.jpg")));
 		Professor_Img.setBounds(28, 137, 52, 41);
 		panel.add(Professor_Img);
 		
@@ -106,7 +106,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(Professor_In);
 		
 		JLabel Dayofweek_Img = new JLabel("");
-		Dayofweek_Img.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/imagesL3LZX0G1.jpg")));
+		Dayofweek_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/imagesL3LZX0G1.jpg")));
 		Dayofweek_Img.setBounds(28, 251, 52, 41);
 		panel.add(Dayofweek_Img);
 		
@@ -121,7 +121,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(Dayofweek_Tf);
 		
 		JLabel Period_Img = new JLabel("");
-		Period_Img.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/imagesL3LZX0G1.jpg")));
+		Period_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/imagesL3LZX0G1.jpg")));
 		Period_Img.setBounds(287, 251, 52, 41);
 		panel.add(Period_Img);
 		
@@ -152,7 +152,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(Period_In);
 		
 		JLabel Year_Img = new JLabel("");
-		Year_Img.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/calendar-page-en.jpg")));
+		Year_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/calendar-page-en.jpg")));
 		Year_Img.setBounds(28, 368, 52, 41);
 		panel.add(Year_Img);
 		
@@ -167,7 +167,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(Year_Tf);
 		
 		JLabel Semester_Img = new JLabel("");
-		Semester_Img.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/calendar-page-en.jpg")));
+		Semester_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/calendar-page-en.jpg")));
 		Semester_Img.setBounds(287, 363, 52, 41);
 		panel.add(Semester_Img);
 		
@@ -198,7 +198,7 @@ public class CHANGE_SUBJECT extends JFrame {
 		panel.add(Semester_In);
 		
 		JLabel Divclass_Img = new JLabel("");
-		Divclass_Img.setIcon(new ImageIcon(CHANGE_SUBJECT.class.getResource("/image/imagesAN6AYLO3.jpg")));
+		Divclass_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/imagesAN6AYLO3.jpg")));
 		Divclass_Img.setBounds(28, 480, 52, 41);
 		panel.add(Divclass_Img);
 		

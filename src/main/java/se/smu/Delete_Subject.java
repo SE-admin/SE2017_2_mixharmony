@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.DropMode;
 
-public class DEL_SUBJECT extends JFrame {
+public class Delete_Subject extends JFrame {
 
 	private JPanel contentPane;
 
@@ -23,7 +23,7 @@ public class DEL_SUBJECT extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DEL_SUBJECT frame = new DEL_SUBJECT();
+					Delete_Subject frame = new Delete_Subject();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,7 +32,7 @@ public class DEL_SUBJECT extends JFrame {
 		});
 	}
 
-	public DEL_SUBJECT() {
+	public Delete_Subject() {
 		setTitle("수강 과목 삭제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 328);

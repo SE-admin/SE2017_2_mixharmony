@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DEL_TODOLIST extends JFrame {
+public class Delete_Todolist extends JFrame {
 
 	private JPanel contentPane;
 
@@ -20,7 +20,7 @@ public class DEL_TODOLIST extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DEL_TODOLIST frame = new DEL_TODOLIST();
+					Delete_Todolist frame = new Delete_Todolist();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class DEL_TODOLIST extends JFrame {
 	}
 
 
-	public DEL_TODOLIST() {
+	public Delete_Todolist() {
 		setTitle("TO DO 항목 삭제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 328);
