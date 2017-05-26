@@ -11,6 +11,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -57,10 +59,10 @@ public class Subject_Management extends JFrame {
 		setContentPane(contentPane);
 		
 
-		JButton Add_Subject_Btn = new JButton("");
-		Add_Subject_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
-		Add_Subject_Btn.setBounds(51, 73, 627, 54);
-		contentPane.add(Add_Subject_Btn);
+//		JButton Add_Subject_Btn = new JButton("");
+//		Add_Subject_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
+//		Add_Subject_Btn.setBounds(51, 73, 627, 54);
+//		contentPane.add(Add_Subject_Btn);
 		
 		JButton Subject_Scroll = new JButton("로그아웃");
 		Subject_Scroll.setForeground(Color.WHITE);
@@ -72,40 +74,21 @@ public class Subject_Management extends JFrame {
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
-		btnNewButton.setBounds(51, 81, 368, 54);
+		btnNewButton.setBounds(51, 73, 627, 54);
 		contentPane.add(btnNewButton);
-		btnNewButton.addMouseListener(new MouseListener(){
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				// TODO Auto-generated method stub
+		btnNewButton.addActionListener(new ActionListener() {
+	
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Add_Subject frame = new Add_Subject();
+					frame.setVisible(true); 
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 				
 			}
 
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				Add_Subject Info = new Add_Subject(); //act class define
-				Info.setVisible(true); //class act
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
+		
 			
 		});
 
@@ -147,7 +130,7 @@ public class Subject_Management extends JFrame {
 		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "시간순", "요일순", "분반순"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "요일순"}));
 		comboBox.setForeground(Color.WHITE);
 		comboBox.setFont(comboBox.getFont().deriveFont(comboBox.getFont().getStyle() | Font.BOLD, comboBox.getFont().getSize() + 4f));
 		comboBox.setBackground(new Color(0, 0, 128));
