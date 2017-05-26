@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.util.HashMap;
-
+import javax.swing.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -20,14 +20,46 @@ import javax.swing.table.TableRowSorter;
 @SuppressWarnings({ "unused", "serial" })
 
 
-public class SORT_TODO extends JFrame {
+public class Sort_Todo extends JFrame {
+	
+	//public Todo_Management Todo_Management_Class;
+	//public  Add_Todolist Add_Todolist_Class;
+
+	
+	JButton ImportanceBtn;
+	JButton DeadlineBtn;
+	JButton RDeadlineBtn;
+	JButton StartdateBtn;
+
+	//private Database database;
+
 
 	public static void main (String[] args){
 	
 		
 	}
-
-	public SORT_TODO () {	
+	
+	public class getInfo_print {
+		
+	}
+	
+	class Importance_sort {
+		
+	}
+	
+	class Deadline_sort {
+		
+	}
+	
+	class RDeadline_sort {
+		
+	}
+	
+	class Startdate_sort {
+		
+	}
+	
+	public Sort_Todo () {	
 		
 		
 		
