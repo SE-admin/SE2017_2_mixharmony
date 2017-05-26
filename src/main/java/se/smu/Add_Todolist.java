@@ -17,7 +17,7 @@ import java.sql.*;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
-public class ADD_TODOLIST extends JFrame {
+public class Add_Todolist extends JFrame {
 
 	private final JPanel contentPane;
 	private JTextField Itemname_Tf;
@@ -47,7 +47,7 @@ public class ADD_TODOLIST extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ADD_TODOLIST frame = new ADD_TODOLIST();
+					Add_Todolist frame = new Add_Todolist();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class ADD_TODOLIST extends JFrame {
 	}
 
 
-	public ADD_TODOLIST() {
+	public Add_Todolist() {
 		setTitle("TO DO 항목 등록");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 528, 551);
@@ -83,12 +83,12 @@ public class ADD_TODOLIST extends JFrame {
 		contentPane.add(Itemname_In);
 		
 		JLabel Itemname_Img = new JLabel("");
-		Itemname_Img.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/imagesK5B499QW.jpg")));
+		Itemname_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/imagesK5B499QW.jpg")));
 		Itemname_Img.setBounds(17, 15, 52, 41);
 		contentPane.add(Itemname_Img);
 		
 		JLabel Deadline_Img = new JLabel("");
-		Deadline_Img.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/Deadline-Clock.jpg")));
+		Deadline_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/Deadline-Clock.jpg")));
 		Deadline_Img.setBounds(17, 132, 52, 41);
 		contentPane.add(Deadline_Img);
 		
@@ -138,7 +138,7 @@ public class ADD_TODOLIST extends JFrame {
 	
 		
 		JLabel Rdeadline_Img = new JLabel("");
-		Rdeadline_Img.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/submitalisting.jpg")));
+		Rdeadline_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/submitalisting.jpg")));
 		Rdeadline_Img.setBounds(17, 244, 52, 41);
 		contentPane.add(Rdeadline_Img);
 		
@@ -186,7 +186,7 @@ public class ADD_TODOLIST extends JFrame {
 		contentPane.add(Rdeadline_Time_Lb);
 		
 		JLabel Importance_Img = new JLabel("");
-		Importance_Img.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		Importance_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
 		Importance_Img.setBounds(17, 360, 52, 41);
 		contentPane.add(Importance_Img);
 		
@@ -201,27 +201,27 @@ public class ADD_TODOLIST extends JFrame {
 		contentPane.add(Importance_Tf);
 		
 		JButton Importance_Star_Btn1 = new JButton("");
-		Importance_Star_Btn1.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn1.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
 		Importance_Star_Btn1.setBounds(251, 360, 44, 41);
 		contentPane.add(Importance_Star_Btn1);
 		
 		JButton Importance_Star_Btn2 = new JButton("");
-		Importance_Star_Btn2.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn2.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
 		Importance_Star_Btn2.setBounds(301, 360, 44, 41);
 		contentPane.add(Importance_Star_Btn2);
 		
 		JButton Importance_Star_Btn3 = new JButton("");
-		Importance_Star_Btn3.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn3.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
 		Importance_Star_Btn3.setBounds(351, 360, 44, 41);
 		contentPane.add(Importance_Star_Btn3);
 		
 		JButton Importance_Star_Btn4 = new JButton("");
-		Importance_Star_Btn4.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn4.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
 		Importance_Star_Btn4.setBounds(398, 360, 44, 41);
 		contentPane.add(Importance_Star_Btn4);
 		
 		JButton Importance_Star_Btn5 = new JButton("");
-		Importance_Star_Btn5.setIcon(new ImageIcon(ADD_TODOLIST.class.getResource("/image/star.png")));
+		Importance_Star_Btn5.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
 		Importance_Star_Btn5.setBounds(446, 360, 44, 41);
 		contentPane.add(Importance_Star_Btn5);
 		

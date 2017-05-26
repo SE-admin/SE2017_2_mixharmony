@@ -24,7 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 
-public class TODO_MANAGEMNET extends JFrame {
+public class Todo_Management extends JFrame {
 
 	private JPanel contentPane;
 	private JTable Todo_Data_Tb;
@@ -34,7 +34,7 @@ public class TODO_MANAGEMNET extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TODO_MANAGEMNET frame = new TODO_MANAGEMNET();
+					Todo_Management frame = new Todo_Management();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +44,7 @@ public class TODO_MANAGEMNET extends JFrame {
 	}
 
 
-	public TODO_MANAGEMNET() {
+	public Todo_Management() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 763, 566);
 		contentPane = new JPanel();
@@ -53,7 +53,7 @@ public class TODO_MANAGEMNET extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton Add_Todo_Btn = new JButton("");
-		Add_Todo_Btn.setIcon(new ImageIcon(TODO_MANAGEMNET.class.getResource("/image/add.png")));
+		Add_Todo_Btn.setIcon(new ImageIcon(Todo_Management.class.getResource("/image/add.png")));
 		Add_Todo_Btn.setBounds(59, 73, 636, 54);
 		contentPane.add(Add_Todo_Btn);
 		
@@ -98,7 +98,7 @@ public class TODO_MANAGEMNET extends JFrame {
 		Todo_Scroll.setViewportView(Todo_Data_Tb);
 		
 		JButton Importance_Btn = new JButton("");
-		Importance_Btn.setIcon(new ImageIcon(TODO_MANAGEMNET.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		Importance_Btn.setIcon(new ImageIcon(Todo_Management.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
 		Importance_Btn.setBounds(674, 15, 50, 43);
 		contentPane.add(Importance_Btn);
 		
