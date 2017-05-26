@@ -70,27 +70,6 @@ public class Subject_Management extends JFrame {
 		Subject_Scroll.setBackground(new Color(0, 0, 128));
 		Subject_Scroll.setBounds(562, 451, 144, 42);
 		contentPane.add(Subject_Scroll);
-		
-
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
-		btnNewButton.setBounds(51, 73, 627, 54);
-		contentPane.add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-	
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Add_Subject frame = new Add_Subject();
-					frame.setVisible(true); 
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-				
-			}
-
-		
-			
-		});
 
 		JButton Alarm_Btn = new JButton("");
 		Alarm_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/alarm--alarm-icon-91768.png")));
@@ -106,7 +85,7 @@ public class Subject_Management extends JFrame {
 		JScrollPane Subject_Data_Scroll = new JScrollPane();
 		Subject_Data_Scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		Subject_Data_Scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		Subject_Data_Scroll.setBounds(17, 142, 688, 294);
+		Subject_Data_Scroll.setBounds(17, 90, 688, 346);
 		contentPane.add(Subject_Data_Scroll);
 		
 		Subject_Data_Tb = new JTable();
@@ -129,13 +108,33 @@ public class Subject_Management extends JFrame {
 		Subject_Data_Tb.setColumnSelectionAllowed(true);
 		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "요일순"}));
-		comboBox.setForeground(Color.WHITE);
-		comboBox.setFont(comboBox.getFont().deriveFont(comboBox.getFont().getStyle() | Font.BOLD, comboBox.getFont().getSize() + 4f));
-		comboBox.setBackground(new Color(0, 0, 128));
-		comboBox.setBounds(17, 451, 144, 42);
-		contentPane.add(comboBox);
+
+		JButton Add_Subject_Btn = new JButton("");
+		Subject_Data_Scroll.setRowHeaderView(Add_Subject_Btn);
+		Add_Subject_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
+		Add_Subject_Btn.addActionListener(new ActionListener() {
+	
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Add_Subject frame = new Add_Subject();
+					frame.setVisible(true); 
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+
+		
+			
+		});
+		
+		JComboBox Sort_Subject_Btn = new JComboBox();
+		Sort_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "요일순"}));
+		Sort_Subject_Btn.setForeground(Color.WHITE);
+		Sort_Subject_Btn.setFont(Sort_Subject_Btn.getFont().deriveFont(Sort_Subject_Btn.getFont().getStyle() | Font.BOLD, Sort_Subject_Btn.getFont().getSize() + 4f));
+		Sort_Subject_Btn.setBackground(new Color(0, 0, 128));
+		Sort_Subject_Btn.setBounds(17, 451, 144, 42);
+		contentPane.add(Sort_Subject_Btn);
 
 	}
 }
