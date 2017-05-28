@@ -82,6 +82,17 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		Subject_Scroll.setFont(Subject_Scroll.getFont().deriveFont(Subject_Scroll.getFont().getStyle() | Font.BOLD, Subject_Scroll.getFont().getSize() + 4f));
 		Subject_Scroll.setBackground(new Color(0, 0, 128));
 		Subject_Scroll.setBounds(562, 451, 144, 42);
+		Subject_Scroll.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//
+				LOGOUT Info = new LOGOUT();
+				Info.setVisible(true);
+				//
+			}
+		}
+	    );
 		contentPane.add(Subject_Scroll);
 
 		JButton Alarm_Btn = new JButton("");

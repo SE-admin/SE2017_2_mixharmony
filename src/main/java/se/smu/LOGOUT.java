@@ -68,7 +68,7 @@ public class LOGOUT extends JFrame {
 		Check_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Subject_Management Info = new Subject_Management();
+				LOGIN Info = new LOGIN();
 				Info.setVisible(true);
 				dispose();
 			}
