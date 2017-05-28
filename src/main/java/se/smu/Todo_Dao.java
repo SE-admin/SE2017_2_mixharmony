@@ -186,31 +186,32 @@ public boolean Change_Todo(Todo_Dto vTo){
     return ok;
 }
 
-/**회원정보 삭제 :
- *tip: 실무에서는 회원정보를 Delete 하지 않고 탈퇴여부만 체크한다.
-public boolean Delete_Todo(String itemname, String pwd){
-   
-    boolean ok =false ;
-    Connection con =null;
-    PreparedStatement ps =null;
-   
-    try {
-        con = getConn();
-        String sql = "delete from tb_member where itemname=? and pwd=?";
-       
-        ps = con.prepareStatement(sql);
-        ps.setString(1, itemname);
-        ps.setString(2, pwd);
-        int r = ps.executeUpdate(); // 실행 -> 삭제
-       
-        if (r>0) ok=true; //삭제됨;
-       
-    } catch (Exception e) {
-        System.out.println(e + "-> 오류발생");
-    }      
-    return ok;
-}
-*/
+/////////////////삭제 :
+//public boolean Delete_Todo(String itemname, String deadline, String rdeadline, String importance){
+//   
+//    boolean ok = false ;
+//    Connection con = null;
+//    PreparedStatement ps = null;
+//   
+//    try {
+//        con = getConn();
+//        String sql = "delete from tododb where itemname=? and deadline=? and rdeadline=? and importance=?";
+//       
+//        ps = con.prepareStatement(sql);
+//        ps.setString(1, itemname);
+//        ps.setString(2, deadline);
+//        ps.setString(3, rdeadline);
+//        ps.setString(4, importance);
+//        int r = ps.executeUpdate(); // 실행 -> 삭제
+//       
+//        if (r>0) ok=true; //삭제됨;
+//       
+//    } catch (Exception e) {
+//        System.out.println(e + "-> 오류발생");
+//    }      
+//    return ok;
+//}
+//////////////////
 
 /**DB데이터 다시 불러오기*/   
 public void userSelectAll(DefaultTableModel model) {

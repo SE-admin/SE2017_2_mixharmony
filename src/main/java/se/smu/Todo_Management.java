@@ -176,8 +176,9 @@ public class Todo_Management extends JFrame {
 	      ChangeMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
-						Change_Todolist frame = new Change_Todolist();
-						frame.setVisible(true); 
+							Change_Todolist frame = new Change_Todolist();
+							frame.setVisible(true); 
+							
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
@@ -217,4 +218,14 @@ public class Todo_Management extends JFrame {
 		Todo_Dao dao = new Todo_Dao();
 		dao.userSelectAll(model);
 	}
+	
+	//////////////////추가
+//	public void mouseClicked(MouseEvent e){
+//		int r = Todo_Data_Tb.getSelectedRow();
+//		String itemname = (String)Todo_Data_Tb.getValueAt(r, 0);
+//		String deadline = (String)Todo_Data_Tb.getValueAt(r, 1);
+//		String rdeadline = (String)Todo_Data_Tb.getValueAt(r, 2);
+//		String importance = (String)Todo_Data_Tb.getValueAt(r, 3);
+//		Add_Todolist chg = new Add_Todolist(itemname, deadline, rdeadline, importance);
+//	}
 }
