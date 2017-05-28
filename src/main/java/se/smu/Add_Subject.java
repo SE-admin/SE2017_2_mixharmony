@@ -254,7 +254,7 @@ public class Add_Subject extends JFrame {
 					
 					public void mousePressed(MouseEvent arg0) {
 						Insert_Subject();
-						System.exit(0);
+						dispose();
 						Subject_Management frame = new Subject_Management();
 						frame.setVisible(true); 
 						

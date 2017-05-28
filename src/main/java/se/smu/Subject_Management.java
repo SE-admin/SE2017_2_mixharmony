@@ -203,6 +203,10 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	      if(e.getButton() == 3){
 	         popup.show((Component)e.getSource(), e.getX(), e.getY());
 	      }
+	      else{
+	    	  Todo_Management Info = new Todo_Management(); //act class define
+	  		  Info.setVisible(true); //class act
+	      }
 	   }
 
 	   public void actionPerformed(ActionEvent e) {
@@ -219,7 +223,8 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+
+		
 		
 	}
 
