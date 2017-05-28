@@ -58,11 +58,27 @@ public class Todo_Management extends JFrame {
 		Logout_Btn.setFont(Logout_Btn.getFont().deriveFont(Logout_Btn.getFont().getStyle() | Font.BOLD, Logout_Btn.getFont().getSize() + 4f));
 		Logout_Btn.setBackground(new Color(0, 0, 128));
 		Logout_Btn.setBounds(580, 381, 144, 42);
+		Logout_Btn.addActionListener(new ActionListener()
+				{
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						//
+						LOGOUT Info = new LOGOUT();
+						Info.setVisible(true);
+						//
+					}
+				}
+			    );
 		contentPane.add(Logout_Btn);
 		
 		JButton Subject_Btn = new JButton("수강 과목");
 		Subject_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//
+				Subject_Management Info = new Subject_Management();
+				Info.setVisible(true);
+				dispose();
+				//
 			}
 		});
 		Subject_Btn.setForeground(Color.WHITE);
@@ -95,12 +111,21 @@ public class Todo_Management extends JFrame {
 		Todo_Data_Tb.setColumnSelectionAllowed(true);
 		Todo_Data_Tb.setCellSelectionEnabled(true);
 		Todo_Data_Tb.setBorder(UIManager.getBorder("Table.scrollPaneBorder"));
+		//
+		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
+		Todo_Dao dao = new Todo_Dao();
+		dao.userSelectAll(model);
+		//
 		Todo_Scroll.setViewportView(Todo_Data_Tb);
 		
 		JButton Add_Todo_Btn = new JButton("");
 		Todo_Scroll.setRowHeaderView(Add_Todo_Btn);
 		Add_Todo_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//
+				Add_Todolist Info = new Add_Todolist();
+				Info.setVisible(true);
+				//
 			}
 		});
 		Add_Todo_Btn.setIcon(new ImageIcon(Todo_Management.class.getResource("/image/add.png")));
