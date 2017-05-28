@@ -27,11 +27,8 @@ import javax.swing.AbstractListModel;
 import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-=======
->>>>>>> f030e727324616adc042c051e4c9a5915ebd2f3c
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
@@ -40,15 +37,10 @@ import java.sql.*;
 public class Todo_Management extends JFrame {
 
 	private JPanel contentPane;
-<<<<<<< HEAD
 	private JTable Todo_Data_Tb;
 	private JPopupMenu popup = new JPopupMenu();
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
-=======
-	public static JTable Todo_Data_Tb;
->>>>>>> f030e727324616adc042c051e4c9a5915ebd2f3c
-
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -160,7 +152,6 @@ public class Todo_Management extends JFrame {
 		Sort_Btn.setBackground(new Color(0, 0, 128));
 		Sort_Btn.setBounds(28, 381, 144, 42);
 		contentPane.add(Sort_Btn);
-<<<<<<< HEAD
 		
 		Todo_Data_Tb.addMouseListener(new Mouseclick());
 	}
@@ -219,16 +210,11 @@ public class Todo_Management extends JFrame {
 	   }
 	}
 
-=======
 
-	}
 
 	public void jTableRefresh() {
 		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
 		Todo_Dao dao = new Todo_Dao();
 		dao.userSelectAll(model);
 	}
-	
-	
->>>>>>> f030e727324616adc042c051e4c9a5915ebd2f3c
 }
