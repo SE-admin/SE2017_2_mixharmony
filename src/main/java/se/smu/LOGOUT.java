@@ -33,7 +33,6 @@ public class LOGOUT extends JFrame {
 
 	public LOGOUT() {
 		setTitle("로그아웃");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 581, 309);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -51,10 +50,12 @@ public class LOGOUT extends JFrame {
 		Warning_Out.setBounds(17, 28, 525, 141);
 		contentPane.add(Warning_Out);
 		
-		JButton Cancel_Btn = new JButton("취소");
+		JButton Cancel_Btn = new JButton("확인");
 		Cancel_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				LOGIN Info = new LOGIN();
+				Info.setVisible(true);
 				dispose();
 			}
 		});
@@ -64,12 +65,10 @@ public class LOGOUT extends JFrame {
 		Cancel_Btn.setBounds(221, 198, 136, 33);
 		contentPane.add(Cancel_Btn);
 		
-		JButton Check_Btn = new JButton("확인");
+		JButton Check_Btn = new JButton("취소");
 		Check_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				LOGIN Info = new LOGIN();
-				Info.setVisible(true);
 				dispose();
 			}
 		});

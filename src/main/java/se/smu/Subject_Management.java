@@ -38,10 +38,11 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	private JPanel contentPane;
 	@SuppressWarnings("unused")
 	private JScrollPane scrollPane;
-	private JTable Subject_Data_Tb;
+	public static JTable Subject_Data_Tb;
 	private JPopupMenu popup = new JPopupMenu();
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
+
 
 
 
@@ -51,7 +52,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				try {
 					Subject_Management frame = new Subject_Management();
 					frame.setVisible(true); 
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -173,8 +173,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		DefaultTableModel model = new DefaultTableModel(dao.getSubject_List(), getColumn());
 		Subject_Data_Tb.setModel(model);
 	}
-
-
+	
 	public class Mouseclick extends MouseAdapter implements ActionListener
 	{   
 	   public Mouseclick(){
