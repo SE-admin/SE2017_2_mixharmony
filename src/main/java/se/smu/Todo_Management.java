@@ -4,23 +4,32 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+
+import se.smu.Subject_Management.Mouseclick;
+
 import javax.swing.JList;
+import javax.swing.JMenuItem;
 import javax.swing.AbstractListModel;
 import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 
@@ -28,6 +37,9 @@ public class Todo_Management extends JFrame {
 
 	private JPanel contentPane;
 	private JTable Todo_Data_Tb;
+	private JPopupMenu popup = new JPopupMenu();
+	private JMenuItem ChangeMenu = new JMenuItem("변경");
+	private JMenuItem DeleteMenu = new JMenuItem("제거");
 
 	
 	public static void main(String[] args) {
@@ -137,5 +149,62 @@ public class Todo_Management extends JFrame {
 		Sort_Btn.setBackground(new Color(0, 0, 128));
 		Sort_Btn.setBounds(28, 381, 144, 42);
 		contentPane.add(Sort_Btn);
+		
+		Todo_Data_Tb.addMouseListener(new Mouseclick());
 	}
+	
+/*
+	public void jTableRefresh(){
+		Todo_Dao dao = new Todo_Dao();
+		DefaultTableModel model = new DefaultTableModel(dao.getTodo_List(), getColumn());
+		Todo_Data_Tb.setModel(model);
+	}
+*/
+
+	public class Mouseclick extends MouseAdapter implements ActionListener
+	{
+	   public Mouseclick(){
+	      popup.add(ChangeMenu);
+	      popup.add(DeleteMenu);
+	      
+	      ChangeMenu.addActionListener(this);
+	      DeleteMenu.addActionListener(this); 
+	    
+	      ChangeMenu.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e) {
+					try {
+						Change_Todolist frame = new Change_Todolist();
+						frame.setVisible(true); 
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}			
+			});
+	      
+	      DeleteMenu.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e) {
+					try {
+						Delete_Todolist frame = new Delete_Todolist();
+						frame.setVisible(true); 
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}			
+			});
+	   }
+
+	   public void mouseClicked(MouseEvent e){
+	      if(e.getButton() == 3){
+	         popup.show((Component)e.getSource(), e.getX(), e.getY());
+	      }
+	      else{
+
+	      }
+	   }
+
+	   public void actionPerformed(ActionEvent e) {
+		   // TODO Auto-generated method stub
+	   }
+	}
+
 }

@@ -4,6 +4,8 @@ package se.smu;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -48,7 +50,7 @@ public class Change_Subject extends JFrame {
 
 	public Change_Subject() {
 		setTitle("수강 과목 편집");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 551, 649);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -227,6 +229,5 @@ public class Change_Subject extends JFrame {
 		Check_Btn.setBounds(357, 536, 144, 42);
 		panel.add(Check_Btn);
 		
-		
-	}
+	}   
 }

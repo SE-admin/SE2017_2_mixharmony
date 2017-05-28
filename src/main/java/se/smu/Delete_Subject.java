@@ -68,6 +68,7 @@ public class Delete_Subject extends JFrame {
 		Check_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
 			}
 		});
 		Check_Btn.setForeground(Color.WHITE);

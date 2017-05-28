@@ -40,8 +40,8 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	private JScrollPane scrollPane;
 	private JTable Subject_Data_Tb;
 	private JPopupMenu popup = new JPopupMenu();
-	private JMenuItem ChangeMenu = new JMenuItem("수정");
-	private JMenuItem DeleteMenu = new JMenuItem("삭제");
+	private JMenuItem ChangeMenu = new JMenuItem("변경");
+	private JMenuItem DeleteMenu = new JMenuItem("제거");
 
 
 
@@ -154,6 +154,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 		Subject_Data_Tb.addMouseListener(new Mouseclick());
 	}
+	
 	public Vector getColumn(){
 		Vector col = new Vector();
 		col.add("수강과목");
@@ -175,11 +176,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 
 	public class Mouseclick extends MouseAdapter implements ActionListener
-	{
-	   private JPopupMenu popup = new JPopupMenu();
-	   private JMenuItem changeMenu = new JMenuItem("수정");
-	   private JMenuItem deleteMenu = new JMenuItem("삭제");
-	   
+	{   
 	   public Mouseclick(){
 	      popup.add(ChangeMenu);
 	      popup.add(DeleteMenu);
@@ -198,7 +195,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				}			
 			});
 	      
-	      deleteMenu.addActionListener(new ActionListener(){
+	      DeleteMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
 						Delete_Subject frame = new Delete_Subject();
@@ -222,8 +219,36 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 	   public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub
-	   }
 	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -234,8 +259,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-
-		
+		// TODO Auto-generated method stub
 		
 	}
 
