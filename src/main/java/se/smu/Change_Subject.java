@@ -5,12 +5,16 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -33,6 +37,8 @@ public class Change_Subject extends JFrame {
 	private JTextField Divclass_Tf;
 	private JTextField Divclass_In;
 
+	//수정//
+	Subject_Dto getSubject_DtO;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -229,5 +235,11 @@ public class Change_Subject extends JFrame {
 		Check_Btn.setBounds(357, 536, 144, 42);
 		panel.add(Check_Btn);
 		
-	}   
+		//수정//
+		Check_Btn.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+			}
+		});
+	}
 }

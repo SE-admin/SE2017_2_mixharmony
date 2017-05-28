@@ -45,7 +45,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 
 
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			 public void run() {
@@ -62,6 +61,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	
 	public Subject_Management() {
 		Subject_Dao dao  = new Subject_Dao();
+		dao = new Subject_Dao();
 		v = dao.getSubject_List();
 		System.out.println("v="+v);
 		cols = getColumn();
@@ -215,78 +215,46 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	  		  Info.setVisible(true); //class act
 	      }
 	   }
-
 	   public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub
+
+	   }
+	}
+	 public void actionPerformed(ActionEvent e) {
+		   // TODO Auto-generated method stub
+
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
+	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
+	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
+	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-}
-
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 }

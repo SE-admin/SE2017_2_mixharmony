@@ -4,20 +4,26 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+//수정//
+import javax.swing.table.DefaultTableModel;
 import javax.swing.DropMode;
 
 public class Delete_Subject extends JFrame {
 
 	private JPanel contentPane;
-
+	//수정//
+	public static JTable Subject_Data_Tb;
+	DefaultTableModel model;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -56,6 +62,8 @@ public class Delete_Subject extends JFrame {
 		Cancel_Btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				dispose();
+				 
 			}
 		});
 		Cancel_Btn.setFont(Cancel_Btn.getFont().deriveFont(Cancel_Btn.getFont().getStyle() | Font.BOLD, Cancel_Btn.getFont().getSize() + 2f));
@@ -66,9 +74,9 @@ public class Delete_Subject extends JFrame {
 		
 		JButton Check_Btn = new JButton("확인");
 		Check_Btn.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				//수정//
+				dispose();
 			}
 		});
 		Check_Btn.setForeground(Color.WHITE);
@@ -77,5 +85,4 @@ public class Delete_Subject extends JFrame {
 		Check_Btn.setBounds(406, 198, 136, 33);
 		contentPane.add(Check_Btn);
 	}
-
 }
