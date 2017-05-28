@@ -1,4 +1,4 @@
-package se.smu;
+﻿package se.smu;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
