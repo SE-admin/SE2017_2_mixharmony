@@ -4,7 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 //import se.smu.Add_Todolist;
 //import se.smu.Add_Todolist.Star_Listener;
@@ -38,6 +40,7 @@ public class Add_Todolist extends JFrame {
 	private JTextField Importance_Tf;
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
+	Todo_Management slist;
 	
     private void ViewData(Todo_Dto vTo){
         
@@ -81,12 +84,12 @@ public class Add_Todolist extends JFrame {
 
 	public Add_Todolist() {
 		setTitle("TO DO 항목 등록");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 528, 551);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		JTable table = slist.Todo_Data_Tb;
 		
 		Itemname_Tf = new JTextField();
 		Itemname_Tf.setText("항목명");
@@ -279,16 +282,36 @@ public class Add_Todolist extends JFrame {
 				
 			}
 
+			
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				Insert_Todo();
+				/*
+				Insert_Todo();	
+				dispose();
+                Todo_Management frame = new Todo_Management();  
+                frame.setVisible(true);   
+				*/
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+		        for (int i = 0; i < model.getRowCount();) {
+		            model.removeRow(0);
+		            }
+		        //db insert data
+		        Insert_Todo();
+		        //update table
+			    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+		        Todo_Dao dao = new Todo_Dao();
+		        dao.userSelectAll(model);
+		        //exit add_sub
+				dispose();
+				
+				
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
+				//slist.jTableRefresh();
+
 			}});
 			contentPane.add(Signup_Btn);
 	}

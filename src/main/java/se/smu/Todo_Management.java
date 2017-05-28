@@ -21,13 +21,15 @@ import javax.swing.AbstractListModel;
 import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
+import java.sql.*;
 
 public class Todo_Management extends JFrame {
 
 	private JPanel contentPane;
-	private JTable Todo_Data_Tb;
+	public static JTable Todo_Data_Tb;
 
 	
 	public static void main(String[] args) {
@@ -42,7 +44,6 @@ public class Todo_Management extends JFrame {
 			}
 		});
 	}
-
 
 	public Todo_Management() {
 		setTitle("TO DO LIST");
@@ -122,10 +123,14 @@ public class Todo_Management extends JFrame {
 		Todo_Scroll.setRowHeaderView(Add_Todo_Btn);
 		Add_Todo_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//
-				Add_Todolist Info = new Add_Todolist();
-				Info.setVisible(true);
-				//
+				try {
+					Add_Todolist Info = new Add_Todolist();
+					Info.setVisible(true); 
+
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		Add_Todo_Btn.setIcon(new ImageIcon(Todo_Management.class.getResource("/image/add.png")));
@@ -137,5 +142,14 @@ public class Todo_Management extends JFrame {
 		Sort_Btn.setBackground(new Color(0, 0, 128));
 		Sort_Btn.setBounds(28, 381, 144, 42);
 		contentPane.add(Sort_Btn);
+
 	}
+
+	public void jTableRefresh() {
+		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
+		Todo_Dao dao = new Todo_Dao();
+		dao.userSelectAll(model);
+	}
+	
+	
 }

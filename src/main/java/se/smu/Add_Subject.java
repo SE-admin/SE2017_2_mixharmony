@@ -5,7 +5,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -60,6 +62,8 @@ public class Add_Subject extends JFrame {
 
 
 	public Add_Subject() {
+		
+		
 		setTitle("수강 과목 등록");
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 551, 649);
@@ -67,6 +71,9 @@ public class Add_Subject extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		JTable table = sList.Subject_Data_Tb;
+		
+		
 		
 		JLabel Subject_Img = new JLabel("");
 		Subject_Img.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/untitled.png")));
@@ -252,19 +259,34 @@ public class Add_Subject extends JFrame {
 					}
 
 					
-					public void mousePressed(MouseEvent arg0) {
-						Insert_Subject();
+					public void mousePressed(MouseEvent arg0) {	
+						/*
+						Insert_Subject();	
 						dispose();
-						Subject_Management frame = new Subject_Management();
-						frame.setVisible(true); 
+                        Subject_Management frame = new Subject_Management();  
+                        frame.setVisible(true);   
+                        */
+						//기존 table data delete
+						DefaultTableModel model = (DefaultTableModel) table.getModel();
+				        for (int i = 0; i < model.getRowCount();) {
+				            model.removeRow(0);
+				            }
+				        //db insert data
+				        Insert_Subject();
+				        //update table
+					    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+				        Subject_Dao dao = new Subject_Dao();
+				        dao.userSelectAll(model);
+				        //exit add_sub
+						dispose();
 						
 					}
 
 					
 					public void mouseReleased(MouseEvent arg0) {
 						// TODO Auto-generated method stub
-						
-						sList.jTableRefresh();}});
+						//sList.jTableRefresh();
+						}});
 		
 		contentPane.add(Check_Btn);
 	
@@ -300,4 +322,5 @@ public class Add_Subject extends JFrame {
        
         return dto;
 	}
+	
 }
