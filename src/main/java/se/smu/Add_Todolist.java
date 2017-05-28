@@ -49,7 +49,7 @@ public class Add_Todolist extends JFrame {
         String deadline = vTo.getDeadline();
         String rdeadline = vTo.getRdeadline();
         String importance = vTo.getImportance();
-        String comment = vTo.getComment();
+        String subject = vTo.getSubject();
     }
 
 
@@ -322,14 +322,14 @@ public class Add_Todolist extends JFrame {
 		String deadline = Deadline_Mon.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
 		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
 		String importance = Integer.toString(choose_importance);
-//		String subject_name = JComboBox.getText();
+//		String subject = JComboBox.getText();
 		
 		
 		dto.setItemname(itemname);
 		dto.setDeadline(deadline);
 		dto.setRdeadline(rdeadline);
 		dto.setImportance(importance);
-//		dto.setComment(comment);
+//		dto.setSubject(subject);
 	
 	return dto;
 	}
