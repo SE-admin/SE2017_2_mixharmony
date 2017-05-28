@@ -46,7 +46,7 @@ public class Todo_Management extends JFrame {
 
 	public Todo_Management() {
 		setTitle("TO DO LIST");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 763, 490);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
