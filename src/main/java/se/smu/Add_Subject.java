@@ -34,8 +34,9 @@ public class Add_Subject extends JFrame {
 	private JTextField Divclass_Tf;
 	private JTextField Divclass_In;
 	Subject_Management sList;
+	
     private void ViewData(Subject_Dto vSub){
-        
+       
         String subject = vSub.getSubject();
         String professor = vSub.getProfessor();
         String dayofweek = vSub.getDayofweek();
@@ -252,19 +253,24 @@ public class Add_Subject extends JFrame {
 
 					
 					public void mousePressed(MouseEvent arg0) {
-						// TODO Auto-generated method stub
 						Insert_Subject();
-						sList.jTableRefresh();
+						System.exit(0);
+						Subject_Management frame = new Subject_Management();
+						frame.setVisible(true); 
+						
 					}
 
 					
 					public void mouseReleased(MouseEvent arg0) {
 						// TODO Auto-generated method stub
 						
-					}});
+						sList.jTableRefresh();}});
+		
 		contentPane.add(Check_Btn);
+	
 	}
 	//삽입
+	
 	private void Insert_Subject(){
 		 Subject_Dto dto = getViewData();
 	     Subject_Dao dao = new Subject_Dao();       

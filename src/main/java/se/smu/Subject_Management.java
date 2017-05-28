@@ -40,8 +40,8 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	private JScrollPane scrollPane;
 	private JTable Subject_Data_Tb;
 	private JPopupMenu popup = new JPopupMenu();
-	private JMenuItem changeMenu = new JMenuItem("변경");
-	private JMenuItem deleteMenu = new JMenuItem("제거");
+	private JMenuItem ChangeMenu = new JMenuItem("수정");
+	private JMenuItem DeleteMenu = new JMenuItem("삭제");
 
 
 
@@ -51,6 +51,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				try {
 					Subject_Management frame = new Subject_Management();
 					frame.setVisible(true); 
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -106,13 +107,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		Subject_Data_Tb.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		Subject_Data_Tb.setFillsViewportHeight(true);
 		Subject_Data_Tb.setFont(Subject_Data_Tb.getFont().deriveFont(Subject_Data_Tb.getFont().getStyle() | Font.BOLD, Subject_Data_Tb.getFont().getSize() + 2f));
-//		Subject_Data_Tb.setModel(new DefaultTableModel(
-//			new Object[][] {
-//			},
-//			new String[] {
-//					"수강 과목", "TODO수", "요일", "시간", "년도" , "학기", "분반"
-//			}
-//		));
+
 		Subject_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(100);
 		Subject_Data_Tb.getColumnModel().getColumn(3).setPreferredWidth(51);
 		Subject_Data_Tb.getColumnModel().getColumn(5).setPreferredWidth(51);
@@ -171,17 +166,17 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	public class Mouseclick extends MouseAdapter implements ActionListener
 	{
 	   private JPopupMenu popup = new JPopupMenu();
-	   private JMenuItem changeMenu = new JMenuItem("변경");
-	   private JMenuItem deleteMenu = new JMenuItem("제거");
+	   private JMenuItem changeMenu = new JMenuItem("수정");
+	   private JMenuItem deleteMenu = new JMenuItem("삭제");
 	   
 	   public Mouseclick(){
-	      popup.add(changeMenu);
-	      popup.add(deleteMenu);
+	      popup.add(ChangeMenu);
+	      popup.add(DeleteMenu);
 	      
-	      changeMenu.addActionListener(this);
-	      deleteMenu.addActionListener(this); 
+	      ChangeMenu.addActionListener(this);
+	      DeleteMenu.addActionListener(this); 
 	    
-	      changeMenu.addActionListener(new ActionListener(){
+	      ChangeMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
 						Change_Subject frame = new Change_Subject();
