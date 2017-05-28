@@ -5,14 +5,18 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -32,6 +36,9 @@ public class Subject_Management extends JFrame {
 	@SuppressWarnings("unused")
 	private JScrollPane scrollPane;
 	private JTable Subject_Data_Tb;
+	private JPopupMenu popup = new JPopupMenu();
+	private JMenuItem changeMenu = new JMenuItem("변경");
+	private JMenuItem deleteMenu = new JMenuItem("제거");
 
 
 	public static void main(String[] args) {
@@ -121,11 +128,7 @@ public class Subject_Management extends JFrame {
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-				
-			}
-
-		
-			
+			}			
 		});
 		
 		JComboBox Sort_Subject_Btn = new JComboBox();
@@ -136,5 +139,53 @@ public class Subject_Management extends JFrame {
 		Sort_Subject_Btn.setBounds(17, 451, 144, 42);
 		contentPane.add(Sort_Subject_Btn);
 
+		Subject_Data_Tb.addMouseListener(new Mouseclick());
+	}
+	
+	public class Mouseclick extends MouseAdapter implements ActionListener
+	{
+	   private JPopupMenu popup = new JPopupMenu();
+	   private JMenuItem changeMenu = new JMenuItem("변경");
+	   private JMenuItem deleteMenu = new JMenuItem("제거");
+	   
+	   public Mouseclick(){
+	      popup.add(changeMenu);
+	      popup.add(deleteMenu);
+	      
+	      changeMenu.addActionListener(this);
+	      deleteMenu.addActionListener(this); 
+	    
+	      changeMenu.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e) {
+					try {
+						Change_Subject frame = new Change_Subject();
+						frame.setVisible(true); 
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}			
+			});
+	      
+	      deleteMenu.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e) {
+					try {
+						Delete_Subject frame = new Delete_Subject();
+						frame.setVisible(true); 
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}			
+			});
+	   }
+
+	   public void mouseClicked(MouseEvent e){
+	      if(e.getButton() == 3){
+	         popup.show((Component)e.getSource(), e.getX(), e.getY());
+	      }
+	   }
+
+	   public void actionPerformed(ActionEvent e) {
+		   // TODO Auto-generated method stub
+	   }
 	}
 }
