@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 //import se.smu.Add_Todolist.Star_Listener;
 
 import javax.swing.JLabel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Color;
@@ -23,6 +23,7 @@ import java.sql.*;
 
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 public class Add_Todolist extends JFrame {
 
@@ -38,9 +39,9 @@ public class Add_Todolist extends JFrame {
 	private JTextField Rdeadline_Date;
 	private JTextField Rdeadline_Time;
 	private JTextField Importance_Tf;
+	private JTextField Subject_Name;
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
-	Todo_Management slist;
 	
     private void ViewData(Todo_Dto vTo){
         
@@ -84,12 +85,12 @@ public class Add_Todolist extends JFrame {
 
 	public Add_Todolist() {
 		setTitle("TO DO 항목 등록");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 528, 551);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		JTable table = slist.Todo_Data_Tb;
 		
 		Itemname_Tf = new JTextField();
 		Itemname_Tf.setText("항목명");
@@ -256,6 +257,18 @@ public class Add_Todolist extends JFrame {
 		Importance_Star_Btn[4].addMouseListener(Star_Listener);
 		contentPane.add(Importance_Star_Btn[4]);
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"소프트웨어공학,"}));
+        comboBox.setBounds(17, 455, 218, 30);
+        contentPane.add(comboBox);
+        
+        Subject_Name = new JTextField();
+        Subject_Name.setText("과목명선택");
+        Subject_Name.setBounds(17, 424, 116, 21);
+        contentPane.add(Subject_Name);
+        Subject_Name.setColumns(10);
+		
+		
 		JButton Signup_Btn = new JButton("등록");
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
@@ -282,52 +295,34 @@ public class Add_Todolist extends JFrame {
 				
 			}
 
-			
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				/*
-				Insert_Todo();	
-				dispose();
-                Todo_Management frame = new Todo_Management();  
-                frame.setVisible(true);   
-				*/
-				DefaultTableModel model = (DefaultTableModel) table.getModel();
-		        for (int i = 0; i < model.getRowCount();) {
-		            model.removeRow(0);
-		            }
-		        //db insert data
-		        Insert_Todo();
-		        //update table
-			    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
-		        Todo_Dao dao = new Todo_Dao();
-		        dao.userSelectAll(model);
-		        //exit add_sub
-				dispose();
-				
-				
+				Insert_Todo();
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				//slist.jTableRefresh();
-
+				// TODO Auto-generated method stub
+				
 			}});
 			contentPane.add(Signup_Btn);
 	}
 //삽입
 	private void Insert_Todo(){
 		 Todo_Dto dto = getViewData();
-		 Todo_Dao dao = new Todo_Dao();       
+		 Todo_Dao dao = new Todo_Dao();  
+		 Subject_Dao dao2 = new Subject_Dao();
 		 boolean ok = dao.Insert_Todo(dto);
 	}
 	public Todo_Dto getViewData() {
 		Todo_Dto dto = new Todo_Dto();
+		Subject_Dto dto1 = new Subject_Dto();
 		String itemname = Itemname_In.getText();
 		String deadline = Deadline_Mon.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
 		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
 		String importance = Integer.toString(choose_importance);
-//		String comment = textField_10.getText();
+//		String subject_name = JComboBox.getText();
 		
 		
 		dto.setItemname(itemname);

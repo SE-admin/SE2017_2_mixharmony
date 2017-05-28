@@ -71,7 +71,7 @@ public class Add_Subject extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		JTable table = sList.Subject_Data_Tb;
+		final JTable table = sList.Subject_Data_Tb;
 		
 		
 		
