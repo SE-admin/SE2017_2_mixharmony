@@ -27,7 +27,7 @@ import javax.swing.JComboBox;
 
 public class Add_Todolist extends JFrame {
 
-	private final JPanel contentPane;
+	private JPanel contentPane;
 	private JTextField Itemname_Tf;
 	private JTextField Itemname_In;
 	private JTextField Deadline_Tf;
@@ -42,6 +42,7 @@ public class Add_Todolist extends JFrame {
 	private JTextField Subject_Name;
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
+	JButton Signup_Btn; /////
 	
     private void ViewData(Todo_Dto vTo){
         
@@ -49,11 +50,19 @@ public class Add_Todolist extends JFrame {
         String deadline = vTo.getDeadline();
         String rdeadline = vTo.getRdeadline();
         String importance = vTo.getImportance();
-        String subject = vTo.getSubject();
+//      String subject = vTo.getSubject();
     }
 
-
-
+//////////////생성자
+//    public Add_Todolist(String itemname, String deadline, String rdeadline, String importance){
+//    	Signup_Btn.setEnabled(false);
+//    	Signup_Btn.setVisible(false);
+//    	
+//    	Todo_Dao dao = new Todo_Dao();
+//    	Todo_Dto vTo = dao.getTodo_DtO(itemname);
+//    	ViewData(vTo);
+//    }
+    
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -269,7 +278,7 @@ public class Add_Todolist extends JFrame {
         Subject_Name.setColumns(10);
 		
 		
-		JButton Signup_Btn = new JButton("등록");
+		Signup_Btn = new JButton("등록");
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
 		Signup_Btn.setBackground(new Color(0, 0, 128));
