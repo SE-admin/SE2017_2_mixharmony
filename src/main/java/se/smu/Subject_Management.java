@@ -184,7 +184,7 @@ public class Subject_Management extends JFrame {
 	   public void mouseClicked(MouseEvent e){
 			 int row = Subject_Data_Tb.rowAtPoint(e.getPoint());
 			 int column = Subject_Data_Tb.columnAtPoint(e.getPoint());
-		  if (row >= 0 && column >=0){
+		  if (row >= 0 && column == 0){
 			  if(e.getButton() == 3){
 				  popup.show((Component)e.getSource(), e.getX(), e.getY());
 			  }    
