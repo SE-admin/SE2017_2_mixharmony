@@ -101,7 +101,7 @@ public class Subject_Management extends JFrame {
 		Subject_Data_Tb.setFont(Subject_Data_Tb.getFont().deriveFont(Subject_Data_Tb.getFont().getStyle() | Font.BOLD, Subject_Data_Tb.getFont().getSize() + 2f));
 		Subject_Data_Tb.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"abc", 2, 2017, 1, 10, "월", 1}
+				{"소프트웨어공학", 1, 2017, 1, 14, "월", 1}
 			},
 			new String[] {
 					"수강 과목", "TODO수", "년도", "학기", "시간" , "요일", "분반"
@@ -182,9 +182,9 @@ public class Subject_Management extends JFrame {
 	   }
 
 	   public void mouseClicked(MouseEvent e){
-		  int row = Subject_Data_Tb.getSelectedRow();
-		  int column = Subject_Data_Tb.getSelectedColumn();
-		  if (row < Subject_Data_Tb.getRowCount() && column < Subject_Data_Tb.getColumnCount()){
+			 int row = Subject_Data_Tb.rowAtPoint(e.getPoint());
+			 int column = Subject_Data_Tb.columnAtPoint(e.getPoint());
+		  if (row >= 0 && column >=0){
 			  if(e.getButton() == 3){
 				  popup.show((Component)e.getSource(), e.getX(), e.getY());
 			  }    
