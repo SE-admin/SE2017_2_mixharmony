@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Vector;
 
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -30,8 +31,10 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 @SuppressWarnings("serial")
-public class Subject_Management extends JFrame {
-
+public class Subject_Management extends JFrame implements MouseListener,ActionListener{
+	Vector v;
+	Vector cols;
+	DefaultTableModel model;
 	private JPanel contentPane;
 	@SuppressWarnings("unused")
 	private JScrollPane scrollPane;
@@ -39,6 +42,7 @@ public class Subject_Management extends JFrame {
 	private JPopupMenu popup = new JPopupMenu();
 	private JMenuItem changeMenu = new JMenuItem("변경");
 	private JMenuItem deleteMenu = new JMenuItem("제거");
+
 
 
 	public static void main(String[] args) {
@@ -56,6 +60,12 @@ public class Subject_Management extends JFrame {
 
 	
 	public Subject_Management() {
+		Subject_Dao dao  = new Subject_Dao();
+		v = dao.getSubject_List();
+		System.out.println("v="+v);
+		cols = getColumn();
+		
+		model = new DefaultTableModel(v,cols);
 		
 		setTitle("수강 과목");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,11 +75,6 @@ public class Subject_Management extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-
-//		JButton Add_Subject_Btn = new JButton("");
-//		Add_Subject_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
-//		Add_Subject_Btn.setBounds(51, 73, 627, 54);
-//		contentPane.add(Add_Subject_Btn);
 		
 		JButton Subject_Scroll = new JButton("로그아웃");
 		Subject_Scroll.setForeground(Color.WHITE);
@@ -95,18 +100,19 @@ public class Subject_Management extends JFrame {
 		Subject_Data_Scroll.setBounds(17, 90, 688, 346);
 		contentPane.add(Subject_Data_Scroll);
 		
-		Subject_Data_Tb = new JTable();
+		Subject_Data_Tb = new JTable(model);
+		scrollPane = new JScrollPane(Subject_Data_Tb);
+        add(scrollPane);
 		Subject_Data_Tb.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		Subject_Data_Tb.setFillsViewportHeight(true);
 		Subject_Data_Tb.setFont(Subject_Data_Tb.getFont().deriveFont(Subject_Data_Tb.getFont().getStyle() | Font.BOLD, Subject_Data_Tb.getFont().getSize() + 2f));
-		Subject_Data_Tb.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"소프트웨어공학", 1, 2017, 1, 14, "월", 1}
-			},
-			new String[] {
-					"수강 과목", "TODO수", "년도", "학기", "시간" , "요일", "분반"
-			}
-		));
+//		Subject_Data_Tb.setModel(new DefaultTableModel(
+//			new Object[][] {
+//			},
+//			new String[] {
+//					"수강 과목", "TODO수", "요일", "시간", "년도" , "학기", "분반"
+//			}
+//		));
 		Subject_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(100);
 		Subject_Data_Tb.getColumnModel().getColumn(3).setPreferredWidth(51);
 		Subject_Data_Tb.getColumnModel().getColumn(5).setPreferredWidth(51);
@@ -115,8 +121,6 @@ public class Subject_Management extends JFrame {
 		Subject_Data_Tb.setCellSelectionEnabled(true);
 		Subject_Data_Tb.setColumnSelectionAllowed(true);
 		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
-		
-		
 		
 
 		JButton Add_Subject_Btn = new JButton("");
@@ -144,7 +148,26 @@ public class Subject_Management extends JFrame {
 
 		Subject_Data_Tb.addMouseListener(new Mouseclick());
 	}
-	
+	public Vector getColumn(){
+		Vector col = new Vector();
+		col.add("수강과목");
+		col.add("교수");
+		col.add("요일");
+		col.add("시간");
+		col.add("년도");
+		col.add("학기");
+		col.add("분반");
+		return col;
+	}
+
+
+	public void jTableRefresh(){
+		Subject_Dao dao = new Subject_Dao();
+		DefaultTableModel model = new DefaultTableModel(dao.getSubject_List(), getColumn());
+		Subject_Data_Tb.setModel(model);
+	}
+
+
 	public class Mouseclick extends MouseAdapter implements ActionListener
 	{
 	   private JPopupMenu popup = new JPopupMenu();
@@ -182,20 +205,54 @@ public class Subject_Management extends JFrame {
 	   }
 
 	   public void mouseClicked(MouseEvent e){
-			 int row = Subject_Data_Tb.rowAtPoint(e.getPoint());
-			 int column = Subject_Data_Tb.columnAtPoint(e.getPoint());
-		  if (row >= 0 && column == 0){
-			  if(e.getButton() == 3){
-				  popup.show((Component)e.getSource(), e.getX(), e.getY());
-			  }    
-		  }
+	      if(e.getButton() == 3){
+	         popup.show((Component)e.getSource(), e.getX(), e.getY());
+	      }
 	   }
 
-	   @Override
-		public void actionPerformed(ActionEvent e) {
+	   public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub
-		
-		}
+	   }
+	}
 
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
