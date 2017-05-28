@@ -101,6 +101,7 @@ public class Subject_Management extends JFrame {
 		Subject_Data_Tb.setFont(Subject_Data_Tb.getFont().deriveFont(Subject_Data_Tb.getFont().getStyle() | Font.BOLD, Subject_Data_Tb.getFont().getSize() + 2f));
 		Subject_Data_Tb.setModel(new DefaultTableModel(
 			new Object[][] {
+				{"abc", 2, 2017, 1, 10, "월", 1}
 			},
 			new String[] {
 					"수강 과목", "TODO수", "년도", "학기", "시간" , "요일", "분반"
@@ -114,6 +115,8 @@ public class Subject_Management extends JFrame {
 		Subject_Data_Tb.setCellSelectionEnabled(true);
 		Subject_Data_Tb.setColumnSelectionAllowed(true);
 		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
+		
+		
 		
 
 		JButton Add_Subject_Btn = new JButton("");
@@ -179,13 +182,20 @@ public class Subject_Management extends JFrame {
 	   }
 
 	   public void mouseClicked(MouseEvent e){
-	      if(e.getButton() == 3){
-	         popup.show((Component)e.getSource(), e.getX(), e.getY());
-	      }
+		  int row = Subject_Data_Tb.getSelectedRow();
+		  int column = Subject_Data_Tb.getSelectedColumn();
+		  if (row < Subject_Data_Tb.getRowCount() && column < Subject_Data_Tb.getColumnCount()){
+			  if(e.getButton() == 3){
+				  popup.show((Component)e.getSource(), e.getX(), e.getY());
+			  }    
+		  }
 	   }
 
-	   public void actionPerformed(ActionEvent e) {
+	   @Override
+		public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub
-	   }
+		
+		}
+
 	}
 }
