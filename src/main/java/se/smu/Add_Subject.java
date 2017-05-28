@@ -33,6 +33,7 @@ public class Add_Subject extends JFrame {
 	private JTextField Semester_In;
 	private JTextField Divclass_Tf;
 	private JTextField Divclass_In;
+	Subject_Management sList;
     private void ViewData(Subject_Dto vSub){
         
         String subject = vSub.getSubject();
@@ -59,7 +60,7 @@ public class Add_Subject extends JFrame {
 
 	public Add_Subject() {
 		setTitle("수강 과목 등록");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 551, 649);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -253,6 +254,7 @@ public class Add_Subject extends JFrame {
 					public void mousePressed(MouseEvent arg0) {
 						// TODO Auto-generated method stub
 						Insert_Subject();
+						sList.jTableRefresh();
 					}
 
 					
