@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 
 public class CHECKBOX extends JFrame {
@@ -48,22 +49,27 @@ public class CHECKBOX extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
+		JPanel Panel_Anounce = new JPanel();
+		Panel_Anounce.setBounds(17, 15, 518, 150);
+		contentPane.add(Panel_Anounce);
+		Panel_Anounce.setLayout(null);
+		
 		JTextArea Anounce_Out = new JTextArea();
+		Anounce_Out.setEditable(false);
+		Anounce_Out.setBounds(0, 0, 518, 150);
+		Panel_Anounce.add(Anounce_Out);
 		Anounce_Out.setWrapStyleWord(true);
 		Anounce_Out.setToolTipText("");
-		Anounce_Out.setText("                                           * 확 인 *\r\n\r\n                     모든 항목이 정상적으로 등록되었습니다.");
-		Anounce_Out.setLineWrap(true);
+		Anounce_Out.setText("                                            *  확 인  *                                         \r\n\r\n\r                       모든 항목이 정상적으로 등록되었습니다.");
 		Anounce_Out.setForeground(Color.BLACK);
 		Anounce_Out.setFont(Anounce_Out.getFont().deriveFont(Anounce_Out.getFont().getStyle() | Font.BOLD, Anounce_Out.getFont().getSize() + 6f));
 		Anounce_Out.setBackground(Color.WHITE);
-		Anounce_Out.setBounds(17, 15, 525, 146);
-		contentPane.add(Anounce_Out);
 		
 		JButton Check_Btn = new JButton("확인");
 		Check_Btn.setForeground(Color.WHITE);
 		Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, Check_Btn.getFont().getSize() + 2f));
 		Check_Btn.setBackground(new Color(0, 0, 128));
-		Check_Btn.setBounds(399, 188, 136, 33);
+		Check_Btn.setBounds(399, 176, 136, 45);
 		contentPane.add(Check_Btn);
 	}
 }
