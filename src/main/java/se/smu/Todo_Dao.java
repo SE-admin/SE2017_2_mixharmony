@@ -268,4 +268,73 @@ public void userSelectAll(DefaultTableModel model) {
             }
     }
 }
+//sort 메소드  
+public void userSelectAll1(DefaultTableModel model,int z) {  
+  
+	Connection con = null;  
+	PreparedStatement ps = null;  
+	ResultSet rs = null;  
+
+	try {  
+		if(z == 1) //중요도순  
+		{  
+			con = getConn();  
+			String sql = "select * from tododb order by importance desc";  
+			ps = con.prepareStatement(sql);  
+			rs = ps.executeQuery();
+			
+		}  
+		else if(z == 2) //마감기한순  
+		{  
+			con = getConn();  
+			String sql = "select * from tododb order by deadline asc";  
+			ps = con.prepareStatement(sql);  
+			rs = ps.executeQuery();  
+		}  
+		else //실제마감일순  
+		{  
+			con = getConn();  
+			String sql = "select * from tododb order by rdeadline asc";  
+			ps = con.prepareStatement(sql);  
+			rs = ps.executeQuery();  
+		}  
+
+		// DefaultTableModel에 있는 데이터 지우기  
+		for (int i = 0; i < model.getRowCount();) {  
+			model.removeRow(0);  
+		}  
+		while (rs.next()) {  
+			Object data[] = { rs.getString(1), rs.getString(2),  
+					rs.getString(3), rs.getString(4),  
+					rs.getString(5)  
+			};  
+			model.addRow(data);                  
+	}  
+		} catch (SQLException e) {  
+			System.out.println(e + "=> userSelectAll fail");  
+		} finally{  
+			
+		if(rs!=null)  
+			try {  
+				rs.close();  
+			} catch (SQLException e2) {  
+				// TODO Auto-generated catch block  
+				e2.printStackTrace();  
+			}  
+		if(ps!=null)  
+			try {  
+				ps.close();  
+			} catch (SQLException e1) {  
+				// TODO Auto-generated catch block  
+				e1.printStackTrace();  
+			}  
+		if(con!=null)  
+			try {  
+				con.close();  
+			} catch (SQLException e) {  
+				// TODO Auto-generated catch block  
+				e.printStackTrace();  
+			}  
+		}  
+	}  
 }

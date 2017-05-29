@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+//수정//
 import javax.swing.table.DefaultTableModel;
 import javax.swing.DropMode;
 
@@ -22,9 +22,8 @@ public class Delete_Subject extends JFrame {
 
 	private JPanel contentPane;
 	//수정//
+	Subject_Management sList;
 	public static JTable Subject_Data_Tb;
-	DefaultTableModel model;
-	Subject_Dao dao;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -43,9 +42,8 @@ public class Delete_Subject extends JFrame {
 			}
 		});
 	}
-//수정//
+
 	public Delete_Subject() {
-		
 		setTitle("수강 과목 삭제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 328);
@@ -53,8 +51,10 @@ public class Delete_Subject extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		final JTable table = sList.Subject_Data_Tb;
 		
 		JTextArea Warning_Out = new JTextArea();
+		Warning_Out.setEditable(false);
 		Warning_Out.setBackground(new Color(255, 255, 255));
 		Warning_Out.setText("                                              * 경 고 *\r\n\r\n                        해당 수강 과목을 삭제 하시겠습니까?");
 		Warning_Out.setToolTipText("");
@@ -80,20 +80,18 @@ public class Delete_Subject extends JFrame {
 		contentPane.add(Cancel_Btn);
 		
 		JButton Check_Btn = new JButton("확인");
+		//수정//
 		Check_Btn.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+		        for (int i = 0; i < model.getRowCount();) {
+		            model.removeRow(0);
+		            }
+				//Delete_Subject(subject);
+				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+		        Subject_Dao dao = new Subject_Dao();
+		        dao.userSelectAll(model);
 				dispose();
-				//수정//
-				/*
-				if (dao.Delete_Subject(dto.toString()))
-				 
-				{
-				dao.userSelectAll(model);
-				if (Subject_Data_Tb.getRowCount()>0)
-				{
-					Subject_Data_Tb.setRowSelectionInterval(0, 0);
-				}
-				}*/
 			}
 		});
 		Check_Btn.setForeground(Color.WHITE);
@@ -103,4 +101,12 @@ public class Delete_Subject extends JFrame {
 		contentPane.add(Check_Btn);
 	}
 
+
+	
+	//수정//
+	private void Delete_Subject(String subject)
+	{
+		Subject_Dao dao = new Subject_Dao();
+		boolean ok = dao.Delete_Subject(subject);
+	}
 }

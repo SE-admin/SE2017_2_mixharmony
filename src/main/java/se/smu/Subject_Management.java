@@ -43,11 +43,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
 
-	//수정//
-	public static int row;
-	public static String subject;
-
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			 public void run() {
@@ -179,6 +174,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	
 	public class Mouseclick extends MouseAdapter implements ActionListener
 	{   
+		
 	   public Mouseclick(){
 	      popup.add(ChangeMenu);
 	      popup.add(DeleteMenu);
@@ -189,6 +185,10 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	      ChangeMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
+						//수정//
+						Subject_Dto dto = new Subject_Dto();
+						int row = Subject_Data_Tb.getSelectedRowCount();
+						String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
 						Change_Subject frame = new Change_Subject();
 						frame.setVisible(true); 
 					} catch (Exception e1) {
@@ -200,12 +200,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	      DeleteMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
-						//수정//
-						/*
-						row = Subject_Data_Tb.getSelectedRow();
-						subject = (String) Subject_Data_Tb.getValueAt(row,  0);
-						Delete_Subject frame = new Delete_Subject(row);
-						 */
 						Delete_Subject frame = new Delete_Subject();
 						frame.setVisible(true); 
 					} catch (Exception e1) {

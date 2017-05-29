@@ -40,6 +40,7 @@ public class Delete_Todolist extends JFrame {
 		setContentPane(contentPane);
 		
 		JTextArea Warning_Out = new JTextArea();
+		Warning_Out.setEditable(false);
 		Warning_Out.setWrapStyleWord(true);
 		Warning_Out.setToolTipText("");
 		Warning_Out.setText("                                            * 경 고 *\r\n\r\n                         TO DO 항목을 삭제 하시겠습니까?");
