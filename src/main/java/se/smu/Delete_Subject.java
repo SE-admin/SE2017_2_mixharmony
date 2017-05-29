@@ -31,9 +31,9 @@ public class Delete_Subject extends JFrame {
 			public void run() {
 				try {
 					//수정//
-					int row = Subject_Data_Tb.getSelectedRow();
+					//int row = Subject_Data_Tb.getSelectedRow();
 					//String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
-					Delete_Subject frame = new Delete_Subject(row);
+					Delete_Subject frame = new Delete_Subject();
 					
 					frame.setVisible(true);
 					
@@ -44,7 +44,7 @@ public class Delete_Subject extends JFrame {
 		});
 	}
 //수정//
-	public Delete_Subject(int row) {
+	public Delete_Subject() {
 		
 		setTitle("수강 과목 삭제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

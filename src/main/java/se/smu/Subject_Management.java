@@ -201,10 +201,12 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				public void actionPerformed(ActionEvent e) {
 					try {
 						//수정//
+						/*
 						row = Subject_Data_Tb.getSelectedRow();
 						subject = (String) Subject_Data_Tb.getValueAt(row,  0);
 						Delete_Subject frame = new Delete_Subject(row);
-
+						 */
+						Delete_Subject frame = new Delete_Subject();
 						frame.setVisible(true); 
 					} catch (Exception e1) {
 						e1.printStackTrace();
