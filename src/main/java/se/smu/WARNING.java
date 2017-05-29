@@ -39,16 +39,16 @@ public class WARNING extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setWrapStyleWord(true);
-		textArea.setToolTipText("");
-		textArea.setText("                                           * 경 고 *\r\n\r\n                         모든 항목이 채워지지 않았습니다.\r\n");
-		textArea.setLineWrap(true);
-		textArea.setForeground(Color.BLACK);
-		textArea.setFont(textArea.getFont().deriveFont(textArea.getFont().getStyle() | Font.BOLD, textArea.getFont().getSize() + 6f));
-		textArea.setBackground(Color.WHITE);
-		textArea.setBounds(17, 15, 525, 146);
-		contentPane.add(textArea);
+		JTextArea Warning_Out = new JTextArea();
+		Warning_Out.setToolTipText("");
+		Warning_Out.setText("                                           * 경 고 *\r\n\r\n                         모든 항목이 채워지지 않았습니다.\r\n");
+		Warning_Out.setLineWrap(true);
+		Warning_Out.setEditable(false);
+		Warning_Out.setForeground(Color.BLACK);
+		Warning_Out.setFont(Warning_Out.getFont().deriveFont(Warning_Out.getFont().getStyle() | Font.BOLD, Warning_Out.getFont().getSize() + 6f));
+		Warning_Out.setBackground(Color.WHITE);
+		Warning_Out.setBounds(17, 15, 525, 146);
+		contentPane.add(Warning_Out);
 		
 		JButton button = new JButton("확인");
 		button.setForeground(Color.WHITE);
