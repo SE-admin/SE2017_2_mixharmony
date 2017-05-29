@@ -5,7 +5,7 @@ public class Todo_Dto {
 	private String deadline;
 	private String rdeadline;
 	private String importance;
-	private String comment;
+	private String subject;
 	
 	
 	public String getItemname() {
@@ -48,19 +48,19 @@ public class Todo_Dto {
 	}
 
 
-	public String getComment() {
-		return comment;
+	public String getSubject() {
+		return subject;
 	}
 
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 
 
 	public String toString(){
 		return "TodoDTO [itemname=" + itemname + ", deadline=" + deadline + ", rdeadline=" + rdeadline
-                + ", importance=" + importance + ", comment=" + comment + "]";
+                + ", importance=" + importance + ", subject=" + subject + "]";
 	}
 	
 	

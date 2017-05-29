@@ -38,10 +38,10 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	private JPanel contentPane;
 	@SuppressWarnings("unused")
 	private JScrollPane scrollPane;
-	private JTable Subject_Data_Tb;
+	public static JTable Subject_Data_Tb;
 	private JPopupMenu popup = new JPopupMenu();
-	private JMenuItem ChangeMenu = new JMenuItem("수정");
-	private JMenuItem DeleteMenu = new JMenuItem("삭제");
+	private JMenuItem ChangeMenu = new JMenuItem("변경");
+	private JMenuItem DeleteMenu = new JMenuItem("제거");
 
 
 
@@ -51,7 +51,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				try {
 					Subject_Management frame = new Subject_Management();
 					frame.setVisible(true); 
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,6 +61,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	
 	public Subject_Management() {
 		Subject_Dao dao  = new Subject_Dao();
+		dao = new Subject_Dao();
 		v = dao.getSubject_List();
 		System.out.println("v="+v);
 		cols = getColumn();
@@ -82,6 +82,17 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		Subject_Scroll.setFont(Subject_Scroll.getFont().deriveFont(Subject_Scroll.getFont().getStyle() | Font.BOLD, Subject_Scroll.getFont().getSize() + 4f));
 		Subject_Scroll.setBackground(new Color(0, 0, 128));
 		Subject_Scroll.setBounds(562, 451, 144, 42);
+		Subject_Scroll.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//
+				LOGOUT Info = new LOGOUT();
+				Info.setVisible(true);
+				//
+			}
+		}
+	    );
 		contentPane.add(Subject_Scroll);
 
 		JButton Alarm_Btn = new JButton("");
@@ -143,6 +154,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 		Subject_Data_Tb.addMouseListener(new Mouseclick());
 	}
+	
 	public Vector getColumn(){
 		Vector col = new Vector();
 		col.add("수강과목");
@@ -161,14 +173,9 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		DefaultTableModel model = new DefaultTableModel(dao.getSubject_List(), getColumn());
 		Subject_Data_Tb.setModel(model);
 	}
-
-
+	
 	public class Mouseclick extends MouseAdapter implements ActionListener
-	{
-	   private JPopupMenu popup = new JPopupMenu();
-	   private JMenuItem changeMenu = new JMenuItem("수정");
-	   private JMenuItem deleteMenu = new JMenuItem("삭제");
-	   
+	{   
 	   public Mouseclick(){
 	      popup.add(ChangeMenu);
 	      popup.add(DeleteMenu);
@@ -187,7 +194,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				}			
 			});
 	      
-	      deleteMenu.addActionListener(new ActionListener(){
+	      DeleteMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
 						Delete_Subject frame = new Delete_Subject();
@@ -208,51 +215,46 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	  		  Info.setVisible(true); //class act
 	      }
 	   }
-
 	   public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub
+
 	   }
 	}
+	 public void actionPerformed(ActionEvent e) {
+		   // TODO Auto-generated method stub
+
+	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-
-		
-		
-	}
-
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
+	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
+	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
+	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 }

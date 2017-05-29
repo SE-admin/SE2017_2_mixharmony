@@ -1,4 +1,4 @@
-package se.smu;
+﻿package se.smu;
 
 import java.sql.*;
 import java.util.Vector;
@@ -62,7 +62,7 @@ public class Todo_Dao {
                 dto.setDeadline(rs.getString("deadline"));
                 dto.setRdeadline(rs.getString("rdeadline"));
                 dto.setImportance(rs.getString("importance"));
-                dto.setComment(rs.getString("comment"));
+                dto.setSubject(rs.getString("subject"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,14 +93,14 @@ public class Todo_Dao {
                 String deadline = rs.getString("deadline");
                 String rdeadline = rs.getString("rdeadline");
                 String importance = rs.getString("importance");
-                String comment = rs.getString("comment");
+                String subject = rs.getString("subject");
 
                 Vector row = new Vector();
                 row.add(itemname);
                 row.add(deadline);
                 row.add(rdeadline);
                 row.add(importance);
-                row.add(comment);
+                row.add(subject);
                 data.add(row);             
             }//while
         }catch(Exception e){
@@ -123,7 +123,7 @@ public class Todo_Dao {
            
             con = getConn();
             String sql = "insert into tododb(" +
-                        "itemname,deadline,rdeadline,importance,comment)" +
+                        "itemname,deadline,rdeadline,importance,subject)" +
                         "values(?,?,?,?,?)";
            
             ps = con.prepareStatement(sql);
@@ -131,7 +131,7 @@ public class Todo_Dao {
             ps.setString(2, dto.getDeadline());
             ps.setString(3, dto.getRdeadline());
             ps.setString(4, dto.getImportance());
-            ps.setString(5, dto.getComment());  
+            ps.setString(5, dto.getSubject());  
             int r = ps.executeUpdate(); //실행 -> 저장
            
            
@@ -160,14 +160,14 @@ public boolean Change_Todo(Todo_Dto vTo){
     try{
        
         con = getConn();           
-        String sql = "update tododb set itemname=?, deadline=?, rdeadline=?, importance=?, comment=?";
+        String sql = "update tododb set itemname=?, deadline=?, rdeadline=?, importance=?, subject=?";
         ps = con.prepareStatement(sql);
        
         ps.setString(1, vTo.getItemname());
         ps.setString(2, vTo.getDeadline());
         ps.setString(3, vTo.getRdeadline());
         ps.setString(4, vTo.getImportance());
-        ps.setString(5, vTo.getComment());
+        ps.setString(5, vTo.getSubject());
        
         int r = ps.executeUpdate(); //실행 -> 수정
         if(r>0){
@@ -186,31 +186,32 @@ public boolean Change_Todo(Todo_Dto vTo){
     return ok;
 }
 
-/**회원정보 삭제 :
- *tip: 실무에서는 회원정보를 Delete 하지 않고 탈퇴여부만 체크한다.
-public boolean Delete_Todo(String itemname, String pwd){
-   
-    boolean ok =false ;
-    Connection con =null;
-    PreparedStatement ps =null;
-   
-    try {
-        con = getConn();
-        String sql = "delete from tb_member where itemname=? and pwd=?";
-       
-        ps = con.prepareStatement(sql);
-        ps.setString(1, itemname);
-        ps.setString(2, pwd);
-        int r = ps.executeUpdate(); // 실행 -> 삭제
-       
-        if (r>0) ok=true; //삭제됨;
-       
-    } catch (Exception e) {
-        System.out.println(e + "-> 오류발생");
-    }      
-    return ok;
-}
-*/
+/////////////////삭제 :
+//public boolean Delete_Todo(String itemname, String deadline, String rdeadline, String importance){
+//   
+//    boolean ok = false ;
+//    Connection con = null;
+//    PreparedStatement ps = null;
+//   
+//    try {
+//        con = getConn();
+//        String sql = "delete from tododb where itemname=? and deadline=? and rdeadline=? and importance=?";
+//       
+//        ps = con.prepareStatement(sql);
+//        ps.setString(1, itemname);
+//        ps.setString(2, deadline);
+//        ps.setString(3, rdeadline);
+//        ps.setString(4, importance);
+//        int r = ps.executeUpdate(); // 실행 -> 삭제
+//       
+//        if (r>0) ok=true; //삭제됨;
+//       
+//    } catch (Exception e) {
+//        System.out.println(e + "-> 오류발생");
+//    }      
+//    return ok;
+//}
+//////////////////
 
 /**DB데이터 다시 불러오기*/   
 public void userSelectAll(DefaultTableModel model) {

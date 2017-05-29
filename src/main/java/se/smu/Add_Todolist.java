@@ -5,11 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 //import se.smu.Add_Todolist;
 //import se.smu.Add_Todolist.Star_Listener;
 
 import javax.swing.JLabel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Color;
@@ -21,10 +23,11 @@ import java.sql.*;
 
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 public class Add_Todolist extends JFrame {
 
-	private final JPanel contentPane;
+	private JPanel contentPane;
 	private JTextField Itemname_Tf;
 	private JTextField Itemname_In;
 	private JTextField Deadline_Tf;
@@ -36,8 +39,10 @@ public class Add_Todolist extends JFrame {
 	private JTextField Rdeadline_Date;
 	private JTextField Rdeadline_Time;
 	private JTextField Importance_Tf;
+	private JTextField Subject_Name;
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
+	JButton Signup_Btn; /////
 	
     private void ViewData(Todo_Dto vTo){
         
@@ -45,11 +50,19 @@ public class Add_Todolist extends JFrame {
         String deadline = vTo.getDeadline();
         String rdeadline = vTo.getRdeadline();
         String importance = vTo.getImportance();
-        String comment = vTo.getComment();
+//      String subject = vTo.getSubject();
     }
 
-
-
+//////////////생성자
+//    public Add_Todolist(String itemname, String deadline, String rdeadline, String importance){
+//    	Signup_Btn.setEnabled(false);
+//    	Signup_Btn.setVisible(false);
+//    	
+//    	Todo_Dao dao = new Todo_Dao();
+//    	Todo_Dto vTo = dao.getTodo_DtO(itemname);
+//    	ViewData(vTo);
+//    }
+    
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -253,7 +266,19 @@ public class Add_Todolist extends JFrame {
 		Importance_Star_Btn[4].addMouseListener(Star_Listener);
 		contentPane.add(Importance_Star_Btn[4]);
 		
-		JButton Signup_Btn = new JButton("등록");
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"소프트웨어공학,"}));
+        comboBox.setBounds(17, 455, 218, 30);
+        contentPane.add(comboBox);
+        
+        Subject_Name = new JTextField();
+        Subject_Name.setText("과목명선택");
+        Subject_Name.setBounds(17, 424, 116, 21);
+        contentPane.add(Subject_Name);
+        Subject_Name.setColumns(10);
+		
+		
+		Signup_Btn = new JButton("등록");
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
 		Signup_Btn.setBackground(new Color(0, 0, 128));
@@ -295,23 +320,25 @@ public class Add_Todolist extends JFrame {
 //삽입
 	private void Insert_Todo(){
 		 Todo_Dto dto = getViewData();
-		 Todo_Dao dao = new Todo_Dao();       
+		 Todo_Dao dao = new Todo_Dao();  
+		 Subject_Dao dao2 = new Subject_Dao();
 		 boolean ok = dao.Insert_Todo(dto);
 	}
 	public Todo_Dto getViewData() {
 		Todo_Dto dto = new Todo_Dto();
+		Subject_Dto dto1 = new Subject_Dto();
 		String itemname = Itemname_In.getText();
-		String deadline = Deadline_Mon.getText();
-		String rdeadline = Rdeadline_Mon.getText();
+		String deadline = Deadline_Mon.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
+		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
 		String importance = Integer.toString(choose_importance);
-//		String comment = textField_10.getText();
+//		String subject = JComboBox.getText();
 		
 		
 		dto.setItemname(itemname);
 		dto.setDeadline(deadline);
 		dto.setRdeadline(rdeadline);
 		dto.setImportance(importance);
-//		dto.setComment(comment);
+//		dto.setSubject(subject);
 	
 	return dto;
 	}

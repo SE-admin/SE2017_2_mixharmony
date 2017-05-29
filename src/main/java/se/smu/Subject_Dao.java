@@ -200,10 +200,9 @@ public boolean Change_Subject(Subject_Dto vSub){
     return ok;
 }
 
-/**회원정보 삭제 :
- *tip: 실무에서는 회원정보를 Delete 하지 않고 탈퇴여부만 체크한다.
+//회원정보 삭제 :
+// *tip: 실무에서는 회원정보를 Delete 하지 않고 탈퇴여부만 체크한다.
 public boolean Delete_Subject(String Subject, String pwd){
-   
     boolean ok =false ;
     Connection con =null;
     PreparedStatement ps =null;
@@ -213,18 +212,24 @@ public boolean Delete_Subject(String Subject, String pwd){
         String sql = "delete from tb_member where Subject=? and pwd=?";
        
         ps = con.prepareStatement(sql);
-        ps.setString(1, Subject);
-        ps.setString(2, pwd);
+        //수정//
+        //ps.setString(1, Subject);
+        //ps.setString(2, pwd);
         int r = ps.executeUpdate(); // 실행 -> 삭제
        
-        if (r>0) ok=true; //삭제됨;
+        if (r>0)
+        	{
+        	//수정//
+        		System.out.println("삭제 성공");
+        		ok=true; //삭제됨;
+        	}
        
     } catch (Exception e) {
         System.out.println(e + "-> 오류발생");
     }      
     return ok;
 }
-*/
+
 
 /**DB데이터 다시 불러오기*/   
 public void userSelectAll(DefaultTableModel model) {
@@ -250,8 +255,7 @@ public void userSelectAll(DefaultTableModel model) {
                     rs.getString(3), rs.getString(4),
                    rs.getString(5),
                     rs.getString(6),
-                    rs.getString(7),
-                    rs.getString(8)
+                    rs.getString(7)
                     };
 
             model.addRow(data);                

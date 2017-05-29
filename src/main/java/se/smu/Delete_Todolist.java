@@ -1,4 +1,4 @@
-package se.smu;
+﻿package se.smu;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -55,11 +55,18 @@ public class Delete_Todolist extends JFrame {
 		Cancel_Btn.setFont(Cancel_Btn.getFont().deriveFont(Cancel_Btn.getFont().getStyle() | Font.BOLD, Cancel_Btn.getFont().getSize() + 2f));
 		Cancel_Btn.setBackground(new Color(0, 0, 128));
 		Cancel_Btn.setBounds(240, 196, 136, 33);
+		//취소 버튼 구현
+		Cancel_Btn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				dispose();
+			}
+		});
 		contentPane.add(Cancel_Btn);
 		
 		JButton Check_Btn = new JButton("확인");
 		Check_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+//				Delete_Todo();
 			}
 		});
 		Check_Btn.setForeground(Color.WHITE);
@@ -68,4 +75,12 @@ public class Delete_Todolist extends JFrame {
 		Check_Btn.setBounds(406, 196, 136, 33);
 		contentPane.add(Check_Btn);
 	}
+	
+	//deleteMember
+//	private void Delete_Todo(){
+//		String itemname;
+//		String deadline;
+//		String rdeadline;
+//		String importance;
+//	}
 }
