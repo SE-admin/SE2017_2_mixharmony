@@ -26,13 +26,13 @@ import se.smu.Subject_Management;
 public class LOGIN extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField School_Tf;
+	private JLabel School_Tf;
 	private JTextField Id_In;
-	private JTextField Password_Tf;
+	private JLabel Password_Tf;
 	private JComboBox Select_School_Btn;
 	private JButton Login_Btn;
 	private JCheckBox Stay_Login_Btn;
-	private JTextField Id_Tf;
+	private JLabel Id_Tf;
 	private JPasswordField Password_In;
 	private static final String DRIVER
     = "org.mariadb.jdbc.Driver";
@@ -41,6 +41,9 @@ public class LOGIN extends JFrame {
 
    private static final String USER = "user"; //DB ID
    private static final String PASS = "1234"; //DB 패스워드
+   private JPanel Panel_School;
+   private JPanel Panel_Id;
+   private JPanel Panel_Password;
 
    public Connection getConn(){
        Connection con = null;
@@ -56,9 +59,7 @@ public class LOGIN extends JFrame {
        return con;
    }
    
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -72,9 +73,8 @@ public class LOGIN extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
+	@SuppressWarnings("unchecked")
 	public LOGIN() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 529, 547);
@@ -84,32 +84,40 @@ public class LOGIN extends JFrame {
 		setContentPane(contentPane);
 		setTitle("로그인");
 		
-		School_Tf = new JTextField();
+		Panel_School = new JPanel();
+		Panel_School.setBackground(new Color(0, 0, 128));
+		Panel_School.setBounds(102, 22, 156, 46);
+		contentPane.add(Panel_School);
+		Panel_School.setLayout(null);
+		
+		School_Tf = new JLabel();
+		School_Tf.setBounds(0, 0, 156, 46);
+		Panel_School.add(School_Tf);
 		School_Tf.setFont(School_Tf.getFont().deriveFont(School_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		School_Tf.setHorizontalAlignment(SwingConstants.CENTER);
 		School_Tf.setForeground(new Color(255, 255, 255));
 		School_Tf.setBackground(new Color(0, 0, 128));
 		School_Tf.setText("학교명");
-		School_Tf.setBounds(102, 22, 156, 46);
-		contentPane.add(School_Tf);
-		School_Tf.setColumns(10);
-		
-
-		
+				
 		Id_In = new JTextField();
 		Id_In.setBounds(17, 201, 473, 41);
 		contentPane.add(Id_In);
 		Id_In.setColumns(10);
 		
-		Password_Tf = new JTextField();
+		Panel_Password = new JPanel();
+		Panel_Password.setBackground(new Color(0, 0, 128));
+		Panel_Password.setBounds(102, 257, 156, 46);
+		contentPane.add(Panel_Password);
+		Panel_Password.setLayout(null);
+		
+		Password_Tf = new JLabel();
+		Password_Tf.setBounds(0, 0, 156, 46);
+		Panel_Password.add(Password_Tf);
 		Password_Tf.setText("비밀번호");
 		Password_Tf.setHorizontalAlignment(SwingConstants.CENTER);
 		Password_Tf.setForeground(Color.WHITE);
 		Password_Tf.setFont(Password_Tf.getFont().deriveFont(Password_Tf.getFont().getStyle() | Font.BOLD, 21f));
-		Password_Tf.setBounds(102, 257, 156, 46);
 		Password_Tf.setBackground(new Color(0, 0, 128));
-		contentPane.add(Password_Tf);
-		Password_Tf.setColumns(10);
 		
 		Select_School_Btn = new JComboBox();
 		Select_School_Btn.setModel(new DefaultComboBoxModel(new String[] {"상명대학교(서울)", "상명대학교(천안)", "국민대학교", "단국대학교", "광운대학교", "홍익대학교", "경희대학교", "중앙대학교", "이화여자대학교"}));
@@ -185,15 +193,20 @@ public class LOGIN extends JFrame {
 		Password_Img.setBounds(17, 257, 52, 41);
 		contentPane.add(Password_Img);
 		
-		Id_Tf = new JTextField();
+		Panel_Id = new JPanel();
+		Panel_Id.setBackground(new Color(0, 0, 128));
+		Panel_Id.setBounds(102, 139, 156, 46);
+		contentPane.add(Panel_Id);
+		Panel_Id.setLayout(null);
+		
+		Id_Tf = new JLabel();
+		Id_Tf.setBounds(0, 0, 156, 46);
+		Panel_Id.add(Id_Tf);
 		Id_Tf.setText("학번");
 		Id_Tf.setHorizontalAlignment(SwingConstants.CENTER);
 		Id_Tf.setForeground(Color.WHITE);
 		Id_Tf.setFont(Id_In.getFont().deriveFont(Id_In.getFont().getStyle() | Font.BOLD, 21f));
 		Id_Tf.setBackground(new Color(0, 0, 128));
-		Id_Tf.setBounds(102, 139, 156, 46);
-		contentPane.add(Id_Tf);
-		Id_Tf.setColumns(10);
 		
 		Password_In = new JPasswordField();
 		Password_In.setBounds(17, 313, 473, 41);
