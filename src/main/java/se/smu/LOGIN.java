@@ -120,6 +120,7 @@ public class LOGIN extends JFrame {
 		Password_Tf.setBackground(new Color(0, 0, 128));
 		
 		Select_School_Btn = new JComboBox();
+		Select_School_Btn.setFont(Select_School_Btn.getFont().deriveFont(Select_School_Btn.getFont().getStyle() | Font.BOLD, 18f));
 		Select_School_Btn.setModel(new DefaultComboBoxModel(new String[] {"상명대학교(서울)", "상명대학교(천안)", "국민대학교", "단국대학교", "광운대학교", "홍익대학교", "경희대학교", "중앙대학교", "이화여자대학교"}));
 		Select_School_Btn.setBounds(17, 87, 473, 41);
 		contentPane.add(Select_School_Btn);
