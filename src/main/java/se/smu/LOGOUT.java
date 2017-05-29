@@ -46,7 +46,6 @@ public class LOGOUT extends JFrame {
 		Warning_Out.setFont(Warning_Out.getFont().deriveFont(Warning_Out.getFont().getStyle() | Font.BOLD, Warning_Out.getFont().getSize() + 6f));
 		Warning_Out.setForeground(new Color(0, 0, 0));
 		Warning_Out.setWrapStyleWord(true);
-		Warning_Out.setEditable(false);
 		Warning_Out.setLineWrap(true);
 		Warning_Out.setBounds(17, 28, 525, 141);
 		contentPane.add(Warning_Out);

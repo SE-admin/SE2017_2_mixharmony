@@ -24,28 +24,25 @@ import java.sql.*;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import java.awt.SystemColor;
-import javax.swing.UIManager;
 
 public class Add_Todolist extends JFrame {
 
 	private JPanel contentPane;
-	private JLabel Itemname_Tf;
+	private JTextField Itemname_Tf;
 	private JTextField Itemname_In;
-	private JLabel Deadline_Tf;
+	private JTextField Deadline_Tf;
 	private JTextField Deadline_Mon;
 	private JTextField Deadline_Date;
 	private JTextField Deadline_Time;
-	private JLabel Rdeadline_Tf;
+	private JTextField Rdeadline_Tf;
 	private JTextField Rdeadline_Mon;
 	private JTextField Rdeadline_Date;
 	private JTextField Rdeadline_Time;
-	private JLabel Importance_Tf;
+	private JTextField Importance_Tf;
+	private JTextField Subject_Name;
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
 	JButton Signup_Btn; /////
-	private JPanel Panel_For_Rdeadline;
-	private JPanel Panel_For_Importance;
 	
     private void ViewData(Todo_Dto vTo){
         
@@ -104,19 +101,15 @@ public class Add_Todolist extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JPanel Panel_For_Itemname = new JPanel();
-		Panel_For_Itemname.setBackground(new Color(0, 0, 128));
-		Panel_For_Itemname.setBounds(77, 15, 165, 41);
-		contentPane.add(Panel_For_Itemname);
-		
-		Itemname_Tf = new JLabel();
-		Panel_For_Itemname.add(Itemname_Tf);
+		Itemname_Tf = new JTextField();
 		Itemname_Tf.setText("항목명");
 		Itemname_Tf.setHorizontalAlignment(SwingConstants.CENTER);
-		Itemname_Tf.setForeground(new Color(255, 255, 255));
+		Itemname_Tf.setForeground(Color.WHITE);
 		Itemname_Tf.setFont(Itemname_Tf.getFont().deriveFont(Itemname_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Itemname_Tf.setColumns(10);
 		Itemname_Tf.setBackground(new Color(0, 0, 128));
-		Itemname_Tf.setLabelFor(Itemname_In);
+		Itemname_Tf.setBounds(86, 15, 156, 46);
+		contentPane.add(Itemname_Tf);
 		
 		Itemname_In = new JTextField();
 		Itemname_In.setText("");
@@ -134,18 +127,15 @@ public class Add_Todolist extends JFrame {
 		Deadline_Img.setBounds(17, 132, 52, 41);
 		contentPane.add(Deadline_Img);
 		
-		JPanel Panel_For_Deadline = new JPanel();
-		Panel_For_Deadline.setBackground(new Color(0, 0, 128));
-		Panel_For_Deadline.setBounds(77, 127, 165, 46);
-		contentPane.add(Panel_For_Deadline);
-		
-		Deadline_Tf = new JLabel();
-		Panel_For_Deadline.add(Deadline_Tf);
+		Deadline_Tf = new JTextField();
 		Deadline_Tf.setText("마감 기한");
 		Deadline_Tf.setHorizontalAlignment(SwingConstants.CENTER);
 		Deadline_Tf.setForeground(Color.WHITE);
 		Deadline_Tf.setFont(Deadline_Tf.getFont().deriveFont(Deadline_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Deadline_Tf.setColumns(10);
 		Deadline_Tf.setBackground(new Color(0, 0, 128));
+		Deadline_Tf.setBounds(86, 127, 156, 46);
+		contentPane.add(Deadline_Tf);
 		
 		Deadline_Mon = new JTextField();
 		Deadline_Mon.setText("");
@@ -187,18 +177,15 @@ public class Add_Todolist extends JFrame {
 		Rdeadline_Img.setBounds(17, 244, 52, 41);
 		contentPane.add(Rdeadline_Img);
 		
-		Panel_For_Rdeadline = new JPanel();
-		Panel_For_Rdeadline.setBackground(new Color(0, 0, 128));
-		Panel_For_Rdeadline.setBounds(77, 244, 165, 41);
-		contentPane.add(Panel_For_Rdeadline);
-		
-		Rdeadline_Tf = new JLabel();
-		Panel_For_Rdeadline.add(Rdeadline_Tf);
+		Rdeadline_Tf = new JTextField();
 		Rdeadline_Tf.setText("실제 마감일");
 		Rdeadline_Tf.setHorizontalAlignment(SwingConstants.CENTER);
 		Rdeadline_Tf.setForeground(Color.WHITE);
 		Rdeadline_Tf.setFont(Rdeadline_Tf.getFont().deriveFont(Rdeadline_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Rdeadline_Tf.setColumns(10);
 		Rdeadline_Tf.setBackground(new Color(0, 0, 128));
+		Rdeadline_Tf.setBounds(86, 239, 156, 46);
+		contentPane.add(Rdeadline_Tf);
 		
 		Rdeadline_Mon = new JTextField();
 		Rdeadline_Mon.setText("");
@@ -238,6 +225,16 @@ public class Add_Todolist extends JFrame {
 		Importance_Img.setBounds(17, 360, 52, 41);
 		contentPane.add(Importance_Img);
 		
+		Importance_Tf = new JTextField();
+		Importance_Tf.setText("중요도");
+		Importance_Tf.setHorizontalAlignment(SwingConstants.CENTER);
+		Importance_Tf.setForeground(Color.WHITE);
+		Importance_Tf.setFont(Importance_Tf.getFont().deriveFont(Importance_Tf.getFont().getStyle() | Font.BOLD, 21f));
+		Importance_Tf.setColumns(10);
+		Importance_Tf.setBackground(new Color(0, 0, 128));
+		Importance_Tf.setBounds(86, 355, 156, 46);
+		contentPane.add(Importance_Tf);
+		
 		Star_Listener Star_Listener = new Star_Listener();
 		Importance_Star_Btn[0] = new JButton("");
 		Importance_Star_Btn[0].setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
@@ -269,24 +266,16 @@ public class Add_Todolist extends JFrame {
 		Importance_Star_Btn[4].addMouseListener(Star_Listener);
 		contentPane.add(Importance_Star_Btn[4]);
 		
-		Panel_For_Importance = new JPanel();
-		Panel_For_Importance.setBackground(new Color(0, 0, 128));
-		Panel_For_Importance.setBounds(77, 360, 165, 41);
-		contentPane.add(Panel_For_Importance);
-		
-		Importance_Tf = new JLabel();
-		Panel_For_Importance.add(Importance_Tf);
-		Importance_Tf.setText("중요도");
-		Importance_Tf.setHorizontalAlignment(SwingConstants.CENTER);
-		Importance_Tf.setForeground(Color.WHITE);
-		Importance_Tf.setFont(Importance_Tf.getFont().deriveFont(Importance_Tf.getFont().getStyle() | Font.BOLD, 21f));
-		Importance_Tf.setBackground(new Color(0, 0, 128));
-		
-		JComboBox Select_Subject_Btn = new JComboBox();
-		Select_Subject_Btn.setFont(Select_Subject_Btn.getFont().deriveFont(Select_Subject_Btn.getFont().getStyle() | Font.BOLD, 18f));
-		Select_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"과목명 선택", "소프트웨어공학", "데이터 베이스", "알고리즘"}));
-        Select_Subject_Btn.setBounds(17, 433, 218, 37);
-        contentPane.add(Select_Subject_Btn);
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"소프트웨어공학,"}));
+        comboBox.setBounds(17, 455, 218, 30);
+        contentPane.add(comboBox);
+        
+        Subject_Name = new JTextField();
+        Subject_Name.setText("과목명선택");
+        Subject_Name.setBounds(17, 424, 116, 21);
+        contentPane.add(Subject_Name);
+        Subject_Name.setColumns(10);
 		
 		
 		Signup_Btn = new JButton("등록");

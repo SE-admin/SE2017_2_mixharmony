@@ -20,7 +20,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import se.smu.Subject_Management.Mouseclick;
-import se.smu.Todo_Dao;
 
 import javax.swing.JList;
 import javax.swing.JMenuItem;
@@ -28,8 +27,6 @@ import javax.swing.AbstractListModel;
 import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Vector;
@@ -155,54 +152,6 @@ public class Todo_Management extends JFrame {
 		Sort_Btn.setBackground(new Color(0, 0, 128));
 		Sort_Btn.setBounds(28, 381, 144, 42);
 		contentPane.add(Sort_Btn);
-		//sort 구현
-		Sort_Btn.addItemListener(new ItemListener()
-				{
-					@Override
-					public void itemStateChanged(ItemEvent e) {
-						if(Sort_Btn.getSelectedItem().toString().equals("사전식순"))
-						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll(model);
-						}
-	
-						else if(Sort_Btn.getSelectedItem().toString().equals("중요도순"))
-						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model,1);
-						}
-						else if(Sort_Btn.getSelectedItem().toString().equals("마감일순"))
-						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model,2);
-						}
-						else
-						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model,3);
-						}
-					}}
-				);
 		
 		Todo_Data_Tb.addMouseListener(new Mouseclick());
 	}

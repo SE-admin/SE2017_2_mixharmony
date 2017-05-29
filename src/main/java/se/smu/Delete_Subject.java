@@ -55,7 +55,6 @@ public class Delete_Subject extends JFrame {
 		setContentPane(contentPane);
 		
 		JTextArea Warning_Out = new JTextArea();
-		Warning_Out.setEditable(false);
 		Warning_Out.setBackground(new Color(255, 255, 255));
 		Warning_Out.setText("                                              * 경 고 *\r\n\r\n                        해당 수강 과목을 삭제 하시겠습니까?");
 		Warning_Out.setToolTipText("");
