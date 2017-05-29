@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
-//수정//
 import javax.swing.table.DefaultTableModel;
 import javax.swing.DropMode;
 
@@ -24,21 +24,28 @@ public class Delete_Subject extends JFrame {
 	//수정//
 	public static JTable Subject_Data_Tb;
 	DefaultTableModel model;
+	Subject_Dao dao;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Delete_Subject frame = new Delete_Subject();
+					//수정//
+					int row = Subject_Data_Tb.getSelectedRow();
+					//String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
+					Delete_Subject frame = new Delete_Subject(row);
+					
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-
-	public Delete_Subject() {
+//수정//
+	public Delete_Subject(int row) {
+		
 		setTitle("수강 과목 삭제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 328);
@@ -76,8 +83,18 @@ public class Delete_Subject extends JFrame {
 		JButton Check_Btn = new JButton("확인");
 		Check_Btn.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				//수정//
 				dispose();
+				//수정//
+				/*
+				if (dao.Delete_Subject(dto.toString()))
+				 
+				{
+				dao.userSelectAll(model);
+				if (Subject_Data_Tb.getRowCount()>0)
+				{
+					Subject_Data_Tb.setRowSelectionInterval(0, 0);
+				}
+				}*/
 			}
 		});
 		Check_Btn.setForeground(Color.WHITE);
@@ -86,4 +103,5 @@ public class Delete_Subject extends JFrame {
 		Check_Btn.setBounds(406, 198, 136, 33);
 		contentPane.add(Check_Btn);
 	}
+
 }

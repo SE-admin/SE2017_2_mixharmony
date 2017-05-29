@@ -40,7 +40,7 @@ public class Subject_Dao {
     }
 
     /**한사람의 회원 정보를 얻는 메소드*/
-    public Subject_Dto getSubject_DtO(String subject){
+    public Subject_Dto getSubject_Dto(String subject){
         
     	Subject_Dto dto = new Subject_Dto();
        
@@ -51,7 +51,7 @@ public class Subject_Dao {
         try {
            
             con = getConn();
-            String sql = "select * from subjectdb where subject";
+            String sql = "select * from subjectdb where subject=?";
             ps = con.prepareStatement(sql);
             ps.setString(1, subject);
            
@@ -202,19 +202,18 @@ public boolean Change_Subject(Subject_Dto vSub){
 
 //회원정보 삭제 :
 // *tip: 실무에서는 회원정보를 Delete 하지 않고 탈퇴여부만 체크한다.
-public boolean Delete_Subject(String Subject, String pwd){
+//수정//
+public boolean Delete_Subject(String Subject){
     boolean ok =false ;
     Connection con =null;
     PreparedStatement ps =null;
    
     try {
         con = getConn();
-        String sql = "delete from tb_member where Subject=? and pwd=?";
+        String sql = "delete from tb_member where Subject=?";
        
         ps = con.prepareStatement(sql);
-        //수정//
-        //ps.setString(1, Subject);
-        //ps.setString(2, pwd);
+        ps.setString(1, Subject);
         int r = ps.executeUpdate(); // 실행 -> 삭제
        
         if (r>0)
