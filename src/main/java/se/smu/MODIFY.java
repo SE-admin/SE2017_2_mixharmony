@@ -39,16 +39,17 @@ public class MODIFY extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JTextArea Check_Out = new JTextArea();
-		Check_Out.setWrapStyleWord(true);
-		Check_Out.setToolTipText("");
-		Check_Out.setText("                                              * 확 인 *\r\n\r\n                                       정보가 수정됩니다. \r\n                                       수정 하시겠습니까?");
-		Check_Out.setLineWrap(true);
-		Check_Out.setForeground(Color.BLACK);
-		Check_Out.setFont(Check_Out.getFont().deriveFont(Check_Out.getFont().getStyle() | Font.BOLD, Check_Out.getFont().getSize() + 6f));
-		Check_Out.setBackground(Color.WHITE);
-		Check_Out.setBounds(17, 15, 525, 146);
-		contentPane.add(Check_Out);
+		JTextArea Modify_Out = new JTextArea();
+		Modify_Out.setWrapStyleWord(true);
+		Modify_Out.setToolTipText("");
+		Modify_Out.setText("                                              * 확 인 *\r\n\r\n                                       정보가 수정됩니다. \r\n                                       수정 하시겠습니까?");
+		Modify_Out.setLineWrap(true);
+		Modify_Out.setEditable(false);
+		Modify_Out.setForeground(Color.BLACK);
+		Modify_Out.setFont(Modify_Out.getFont().deriveFont(Modify_Out.getFont().getStyle() | Font.BOLD, Modify_Out.getFont().getSize() + 6f));
+		Modify_Out.setBackground(Color.WHITE);
+		Modify_Out.setBounds(17, 15, 525, 146);
+		contentPane.add(Modify_Out);
 		
 		JButton Cancel_Btn = new JButton("취소");
 		Cancel_Btn.setForeground(Color.WHITE);
