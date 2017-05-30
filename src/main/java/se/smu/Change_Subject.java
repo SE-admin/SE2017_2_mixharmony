@@ -78,7 +78,7 @@ public class Change_Subject extends JFrame {
 		});
 	}
 	
-	public Change_Subject() {
+	public Change_Subject() { 
 		setTitle("수강 과목 편집");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 551, 649);
@@ -310,8 +310,8 @@ public class Change_Subject extends JFrame {
 			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				sList.jTableRefresh();
-				}});
-	}
+			}});
+		}
 	
 	//수정//
 	public Change_Subject(String subject, Subject_Management sList)
@@ -338,6 +338,7 @@ public class Change_Subject extends JFrame {
 		Subject_Dao dao = new Subject_Dao();
 		boolean ok = dao.Change_Subject(dto);
 	}
+	
 	
 	public Subject_Dto getViewData() {
 		Subject_Dto dto = new Subject_Dto();
