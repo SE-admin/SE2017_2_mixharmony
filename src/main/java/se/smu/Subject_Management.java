@@ -44,6 +44,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
 	//수정3//
 	Subject_Management sList;
+	public String Subject;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -188,8 +189,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				public void actionPerformed(ActionEvent e) {
 					try {
 						//수정//
-//						Subject_Dto dto = new Subject_Dto();
-//						int row = Subject_Data_Tb.getSelectedRowCount();
+						//Subject_Dto dto = new Subject_Dto();
 						int row = Subject_Data_Tb.getSelectedRow();
 						String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
 						Change_Subject frame = new Change_Subject(subject); //수정2
@@ -263,7 +263,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		int row = Subject_Data_Tb.getSelectedRow();
-		String id = (String) Subject_Data_Tb.getValueAt(row,  0);
-		Change_Subject ChangeSubject = new Change_Subject(id, sList);
+		String Subject = (String) Subject_Data_Tb.getValueAt(row,  0);
 	}
 }

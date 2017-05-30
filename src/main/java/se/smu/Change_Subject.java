@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -309,7 +310,7 @@ public class Change_Subject extends JFrame {
 		        for (int i = 0; i < model.getRowCount();) {
 		            model.removeRow(0);
 		            }
-				Change_Subject();
+				//Change_Subject();
 				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 		        Subject_Dao dao = new Subject_Dao();
 		        dao.userSelectAll(model);
@@ -320,7 +321,6 @@ public class Change_Subject extends JFrame {
 				sList.jTableRefresh();
 			}});
 		}
-	
 	
 	///////수정2
 	public Change_Subject(String subject){	
@@ -540,30 +540,36 @@ public class Change_Subject extends JFrame {
 	Divclass_Lb.setBounds(462, 480, 67, 41);
 	contentPane.add(Divclass_Lb);
 	
+	///수정2	
+	Subject_Dao dao = new Subject_Dao();
+	Subject_Dto vSub = dao.getSubject_Dto(subject);
+	ViewData(vSub);
+	
+	
 	Check_Btn.addMouseListener(new MouseAdapter() {
-		//수정//
 		public void mousePressed(MouseEvent arg0) {
 			DefaultTableModel model = (DefaultTableModel) table.getModel();
 	        for (int i = 0; i < model.getRowCount();) {
 	            model.removeRow(0);
+	            
 	            }
-			Change_Subject();
+	        //db change data
+			//Change_Subject(subject);
+			//update table
 			DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 	        Subject_Dao dao = new Subject_Dao();
-	        dao.userSelectAll(model);	        
+	        dao.userSelectAll(model);
+	        //exit change sub
 	        dispose();
-
 		}
 
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
 			sList.jTableRefresh();
 		}
-		});
-		///수정2	
-		Subject_Dao dao = new Subject_Dao();
-		Subject_Dto vSub = dao.getSubject_Dto(subject);
-		ViewData(vSub);
+
+	});
+
 	}
 
 	
@@ -579,7 +585,7 @@ public class Change_Subject extends JFrame {
 
 	}
 	
-	private void Change_Subject()
+	private void Change_Subject(String subject)
 	{
 		Subject_Dto dto = getViewData();
 		Subject_Dao dao = new Subject_Dao();

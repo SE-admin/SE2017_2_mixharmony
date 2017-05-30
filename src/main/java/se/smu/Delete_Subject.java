@@ -21,15 +21,13 @@ import javax.swing.DropMode;
 public class Delete_Subject extends JFrame {
 
 	private JPanel contentPane;
-	//수정//
+
 	Subject_Management sList;
 	public static JTable Subject_Data_Tb;
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					//수정//
 					//int row = Subject_Data_Tb.getSelectedRow();
 					//String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
 					Delete_Subject frame = new Delete_Subject();
@@ -80,27 +78,25 @@ public class Delete_Subject extends JFrame {
 		contentPane.add(Cancel_Btn);
 		
 		JButton Check_Btn = new JButton("확인");
-		//수정//
 		Check_Btn.addMouseListener(new MouseAdapter() {
-			
-			public void mousePressed(MouseEvent e) {
+			public void mouseClicked(MouseEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 		        model.removeRow(0);
-		        
 		        //수정3//
-				int row = (int)Subject_Data_Tb.getSelectedRow();
-				if (row >0)
-				{String id = (String) Subject_Data_Tb.getValueAt(row,  0);
-				Delete_Subject(id);}
-				
-				//Delete_Subject(subject);
-				//DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+				int row = Subject_Data_Tb.getSelectedRow();
+				String id = (String) Subject_Data_Tb.getValueAt(row, 0);
+				Delete_Subject(id);
+				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+		          
 		        Subject_Dao dao = new Subject_Dao();
+		        boolean ok = dao.Delete_Subject(id);
+		        //dao.getSubject_Dto(subject)
 		        dao.userSelectAll(model);
-				dispose();
+		        dispose();
 			}
-			
+					
 		});
+		
 		Check_Btn.setForeground(Color.WHITE);
 		Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, Check_Btn.getFont().getSize() + 2f));
 		Check_Btn.setBackground(new Color(0, 0, 128));
@@ -116,14 +112,17 @@ public class Delete_Subject extends JFrame {
 		//boolean ok = dao.Delete_Subject(dto);
 	}
 	
-
-	
 	public void actionPerformed(ActionEvent arg0)
 	{
 		int row = Subject_Data_Tb.getSelectedRow();
-		String id = (String) Subject_Data_Tb.getValueAt(row,  0);
-		Delete_Subject(id);
-		dispose();
+		if (row == -1)
+		{
+			return;
+		}
+		DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
+		model.removeRow(row);
+		//String id = (String) Subject_Data_Tb.getValueAt(row,  0);
+		//Delete_Subject(id);
+		//dispose();
 	}
-	
 }
