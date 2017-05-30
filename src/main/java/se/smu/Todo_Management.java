@@ -227,7 +227,9 @@ public class Todo_Management extends JFrame {
 	      ChangeMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
-							Change_Todolist frame = new Change_Todolist();
+							int row = Todo_Data_Tb.getSelectedRow(); //수정2
+							String itemname = (String)Todo_Data_Tb.getValueAt(row,  0);
+							Change_Todolist frame = new Change_Todolist(itemname);
 							frame.setVisible(true); 
 							
 					} catch (Exception e1) {

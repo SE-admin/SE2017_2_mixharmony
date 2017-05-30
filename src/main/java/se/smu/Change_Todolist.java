@@ -6,9 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import se.smu.Add_Todolist.Star_Listener;
+
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -28,23 +35,81 @@ public class Change_Todolist extends JFrame {
 	private JTextField Rdeadline_Mon;
 	private JTextField Rdeadline_Date;
 	private JTextField Rdeadline_Time;
+	private int choose_importance = 0;
+	private JButton Importance_Star_Btn[] = new JButton[5];
+	
+    private void ViewData(Todo_Dto vTo){
+        
+        String itemname = vTo.getItemname();
+        String deadline = vTo.getDeadline();
+        String rdeadline = vTo.getRdeadline();
+        String importance = vTo.getImportance();
+        String subject = vTo.getSubject();
+        
+        //수정2
+        Itemname_In.setText(itemname);
+        Deadline_Mon.setText(deadline);
+        Rdeadline_Mon.setText(rdeadline);
+        //시도만ㅜㅠ
+        Deadline_Date.setText(importance);
+        Deadline_Time.setText(subject);
+       
+        
+//        Star_Listener Star_Listener = new Star_Listener();
+//        if(Integer.parseInt(importance) == 1){
+//    		Importance_Star_Btn[0].addMouseListener(Star_Listener);
+//    		contentPane.add(Importance_Star_Btn[0]);
+//        }else if(Integer.parseInt(importance) == 2){
+//        	Importance_Star_Btn[1].addMouseListener(Star_Listener);
+//    		contentPane.add(Importance_Star_Btn[1]);
+//        }else if(Integer.parseInt(importance) == 3){
+//        	Importance_Star_Btn[2].addMouseListener(Star_Listener);
+//    		contentPane.add(Importance_Star_Btn[2]);
+//        }else if(Integer.parseInt(importance) == 4){
+//        	Importance_Star_Btn[3].addMouseListener(Star_Listener);
+//    		contentPane.add(Importance_Star_Btn[3]);
+//        }else if(Integer.parseInt(importance) == 5){
+//        	Importance_Star_Btn[4].addMouseListener(Star_Listener);
+//    		contentPane.add(Importance_Star_Btn[4]);
+//        }
+        
+    }
 
 
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Change_Todolist frame = new Change_Todolist();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Change_Todolist frame = new Change_Todolist();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+		new Change_Todolist();
+	}
+	
+	class Star_Listener extends MouseAdapter{
+		public void mousePressed(MouseEvent e) {
+			for(int i=0;i<Importance_Star_Btn.length;i++){
+				Importance_Star_Btn[i].setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
+			}
+			for(int i=0;i<Importance_Star_Btn.length;i++){
+				if(e.getSource() ==Importance_Star_Btn[i]){
+					choose_importance = i+1;
+					for(int j=0;j<=i;j++)
+						Importance_Star_Btn[j].setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
 				}
 			}
-		});
+		}
 	}
 
+	public Change_Todolist(){
+		
+	}
 
-	public Change_Todolist() {
+	public Change_Todolist(String itemname) {
 		setTitle("to do 항목 편집");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 535, 559);
@@ -62,7 +127,7 @@ public class Change_Todolist extends JFrame {
 		Panel_Itemname.add(lblNewLabel);
 		lblNewLabel.setBackground(new Color(0, 0, 128));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(lblNewLabel.getFont().deriveFont(lblNewLabel.getFont().getStyle() | Font.BOLD, lblNewLabel.getFont().getSize() + 3f));
+		lblNewLabel.setFont(lblNewLabel.getFont().deriveFont(lblNewLabel.getFont().getStyle() | Font.BOLD, 21f));
 		
 		Itemname_In = new JTextField();
 		Itemname_In.setText("");
@@ -129,41 +194,80 @@ public class Change_Todolist extends JFrame {
 		Importance_Tf.setFont(Importance_Tf.getFont().deriveFont(Importance_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Importance_Tf.setBackground(new Color(0, 0, 128));
 		
-		JButton Importance_Star_Btn1 = new JButton("");
-		Importance_Star_Btn1.setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-		Importance_Star_Btn1.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn1.setBounds(251, 360, 44, 41);
-		contentPane.add(Importance_Star_Btn1);
+		Star_Listener Star_Listener = new Star_Listener();
+		Importance_Star_Btn[0] = new JButton("");
+		Importance_Star_Btn[0].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		Importance_Star_Btn[0].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+		Importance_Star_Btn[0].setBounds(251, 360, 44, 41);
+		Importance_Star_Btn[0].addMouseListener(Star_Listener);
+		contentPane.add(Importance_Star_Btn[0]);
 		
-		JButton Importance_Star_Btn2 = new JButton("");
-		Importance_Star_Btn2.setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-		Importance_Star_Btn2.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn2.setBounds(301, 360, 44, 41);
-		contentPane.add(Importance_Star_Btn2);
+		Importance_Star_Btn[1] = new JButton("");
+		Importance_Star_Btn[1].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		Importance_Star_Btn[1].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+		Importance_Star_Btn[1].setBounds(301, 360, 44, 41);
+		Importance_Star_Btn[1].addMouseListener(Star_Listener);
+		contentPane.add(Importance_Star_Btn[1]);
 		
-		JButton Importance_Star_Btn3 = new JButton("");
-		Importance_Star_Btn3.setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-		Importance_Star_Btn3.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn3.setBounds(351, 360, 44, 41);
-		contentPane.add(Importance_Star_Btn3);
+		Importance_Star_Btn[2] = new JButton("");
+		Importance_Star_Btn[2].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		Importance_Star_Btn[2].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+		Importance_Star_Btn[2].setBounds(351, 360, 44, 41);
+		Importance_Star_Btn[2].addMouseListener(Star_Listener);
+		contentPane.add(Importance_Star_Btn[2]);
 		
-		JButton Importance_Star_Btn4 = new JButton("");
-		Importance_Star_Btn4.setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-		Importance_Star_Btn4.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn4.setBounds(398, 360, 44, 41);
-		contentPane.add(Importance_Star_Btn4);
+		Importance_Star_Btn[3] = new JButton("");
+		Importance_Star_Btn[3].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		Importance_Star_Btn[3].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+		Importance_Star_Btn[3].setBounds(398, 360, 44, 41);
+		Importance_Star_Btn[3].addMouseListener(Star_Listener);
+		contentPane.add(Importance_Star_Btn[3]);
 		
-		JButton Importance_Star_Btn5 = new JButton("");
-		Importance_Star_Btn5.setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-		Importance_Star_Btn5.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn5.setBounds(446, 360, 44, 41);
-		contentPane.add(Importance_Star_Btn5);
+		Importance_Star_Btn[4] = new JButton("");
+		Importance_Star_Btn[4].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		Importance_Star_Btn[4].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+		Importance_Star_Btn[4].setBounds(446, 360, 44, 41);
+		Importance_Star_Btn[4].addMouseListener(Star_Listener);
+		contentPane.add(Importance_Star_Btn[4]);
 		
 		JButton Signup_Btn = new JButton("편집 등록");
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
 		Signup_Btn.setBackground(new Color(0, 0, 128));
 		Signup_Btn.setBounds(351, 433, 139, 42);
+		Signup_Btn.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				Change_Todo();
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}});
+			
+		
 		contentPane.add(Signup_Btn);
 		
 		Deadline_Mon = new JTextField();
@@ -231,6 +335,37 @@ public class Change_Todolist extends JFrame {
 		Rdeadline_Time_Lb.setFont(Rdeadline_Time_Lb.getFont().deriveFont(Rdeadline_Time_Lb.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Time_Lb.setBounds(473, 304, 30, 30);
 		contentPane.add(Rdeadline_Time_Lb);
+		
+		
+		//수정2
+		Todo_Dao dao = new Todo_Dao();
+		Todo_Dto vTo = dao.getTodo_DtO(itemname);
+		ViewData(vTo);
+	}
+	
+	private void Change_Todo(){
+		 Todo_Dto dto = getViewData();
+		 Todo_Dao dao = new Todo_Dao();  
+		 Subject_Dao dao2 = new Subject_Dao();
+		 boolean ok = dao.Change_Todo(dto); //전부 수정됨ㅠㅠ
+	}
+	public Todo_Dto getViewData() {
+		Todo_Dto dto = new Todo_Dto();
+		Subject_Dto dto1 = new Subject_Dto();
+		String itemname = Itemname_In.getText();
+		String deadline = Deadline_Mon.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
+		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
+		String importance = Integer.toString(choose_importance);
+//		String subject = JComboBox.getText();
+		String subject = Itemname_In.getText(); //db 실행되는지만 확인
+		
+		dto.setItemname(itemname);
+		dto.setDeadline(deadline);
+		dto.setRdeadline(rdeadline);
+		dto.setImportance(importance);
+		dto.setSubject(subject);
+	
+	return dto;
 	}
 	
 }
