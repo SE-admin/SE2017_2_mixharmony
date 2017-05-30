@@ -43,9 +43,9 @@ public class Add_Todolist extends JFrame {
 	private JLabel Importance_Tf;
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
-	JButton Signup_Btn; /////
 	private JPanel Panel_For_Rdeadline;
 	private JPanel Panel_For_Importance;
+
 	
     private void ViewData(Todo_Dto vTo){
         
@@ -289,7 +289,7 @@ public class Add_Todolist extends JFrame {
         contentPane.add(Select_Subject_Btn);
 		
 		
-		Signup_Btn = new JButton("등록");
+		JButton Signup_Btn = new JButton("등록");
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
 		Signup_Btn.setBackground(new Color(0, 0, 128));
@@ -343,13 +343,13 @@ public class Add_Todolist extends JFrame {
 		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
 		String importance = Integer.toString(choose_importance);
 //		String subject = JComboBox.getText();
-		
+		String subject = Itemname_In.getText(); //db 실행되는지만 확인
 		
 		dto.setItemname(itemname);
 		dto.setDeadline(deadline);
 		dto.setRdeadline(rdeadline);
 		dto.setImportance(importance);
-//		dto.setSubject(subject);
+		dto.setSubject(subject);
 	
 	return dto;
 	}
