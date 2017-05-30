@@ -148,7 +148,7 @@ public class Todo_Management extends JFrame {
 		});
 		Add_Todo_Btn.setIcon(new ImageIcon(Todo_Management.class.getResource("/image/add.png")));
 		
-		JComboBox Sort_Btn = new JComboBox();
+		final JComboBox Sort_Btn = new JComboBox();
 		Sort_Btn.setFont(Sort_Btn.getFont().deriveFont(Sort_Btn.getFont().getStyle() | Font.BOLD, Sort_Btn.getFont().getSize() + 4f));
 		Sort_Btn.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "중요도순", "마감일순", "실제마감일순"}));
 		Sort_Btn.setForeground(new Color(255, 255, 255));
