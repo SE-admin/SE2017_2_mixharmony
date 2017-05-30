@@ -186,10 +186,11 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				public void actionPerformed(ActionEvent e) {
 					try {
 						//수정//
-						Subject_Dto dto = new Subject_Dto();
-						int row = Subject_Data_Tb.getSelectedRowCount();
+//						Subject_Dto dto = new Subject_Dto();
+//						int row = Subject_Data_Tb.getSelectedRowCount();
+						int row = Subject_Data_Tb.getSelectedRow();
 						String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
-						Change_Subject frame = new Change_Subject();
+						Change_Subject frame = new Change_Subject(subject); //수정2
 						frame.setVisible(true); 
 					} catch (Exception e1) {
 						e1.printStackTrace();
