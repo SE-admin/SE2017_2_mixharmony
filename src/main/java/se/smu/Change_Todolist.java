@@ -232,4 +232,5 @@ public class Change_Todolist extends JFrame {
 		Rdeadline_Time_Lb.setBounds(473, 304, 30, 30);
 		contentPane.add(Rdeadline_Time_Lb);
 	}
+	
 }
