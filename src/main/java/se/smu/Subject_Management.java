@@ -262,7 +262,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		int row = Subject_Data_Tb.getSelectedRow();
-		String Subject = (String) Subject_Data_Tb.getValueAt(row,  0);
+		//int row = Subject_Data_Tb.getSelectedRow();
+		//String Subject = (String) Subject_Data_Tb.getValueAt(row,  0);
 	}
 }
