@@ -85,7 +85,7 @@ public class Change_Subject extends JFrame {
 			}
 		});
 	}
-	
+
 	public Change_Subject() { 
 		setTitle("수강 과목 편집");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -502,7 +502,8 @@ public class Change_Subject extends JFrame {
 	Divclass_In.setBounds(287, 480, 173, 41);
 	contentPane.add(Divclass_In);
 	
-	JButton Check_Btn = new JButton("편집 등록");
+	//수정3//
+	final JButton Check_Btn = new JButton("편집 등록");
 	Check_Btn.setForeground(Color.WHITE);
 	Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, 22f));
 	Check_Btn.setBackground(new Color(0, 0, 128));
@@ -549,14 +550,15 @@ public class Change_Subject extends JFrame {
 			Change_Subject();
 			DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 	        Subject_Dao dao = new Subject_Dao();
-	        dao.userSelectAll(model);
+	        dao.userSelectAll(model);	        
 	        dispose();
 
 		}
-//		public void mouseReleased(MouseEvent arg0) {
-//			// TODO Auto-generated method stub
-//			sList.jTableRefresh();
-//		}
+
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			sList.jTableRefresh();
+		}
 		});
 		///수정2	
 		Subject_Dao dao = new Subject_Dao();
@@ -570,20 +572,13 @@ public class Change_Subject extends JFrame {
 	{
 		this.sList = sList;
 		System.out.println("subject="+subject);
+		Subject_Dto dto = getViewData();
 		Subject_Dao dao = new Subject_Dao();
 		Subject_Dto vSubject = dao.getSubject_Dto(subject);
 		ViewData(vSubject);
 
 	}
 	
-	//수정//
-	/*
-	private void Change_Subject(Subject_Dto vSub){
-		 Subject_Dao dao = new Subject_Dao();
-		 Subject_Dto vSubject = dao.getSubject_Dto(subject);
-		 ViewData(vSubject);
-	}
-	*/
 	private void Change_Subject()
 	{
 		Subject_Dto dto = getViewData();

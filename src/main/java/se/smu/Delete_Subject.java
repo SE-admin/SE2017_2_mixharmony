@@ -82,17 +82,24 @@ public class Delete_Subject extends JFrame {
 		JButton Check_Btn = new JButton("확인");
 		//수정//
 		Check_Btn.addMouseListener(new MouseAdapter() {
+			
 			public void mousePressed(MouseEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
-		        for (int i = 0; i < model.getRowCount();) {
-		            model.removeRow(0);
-		            }
+		        model.removeRow(0);
+		        
+		        //수정3//
+				int row = (int)Subject_Data_Tb.getSelectedRow();
+				if (row >0)
+				{String id = (String) Subject_Data_Tb.getValueAt(row,  0);
+				Delete_Subject(id);}
+				
 				//Delete_Subject(subject);
-				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+				//DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 		        Subject_Dao dao = new Subject_Dao();
 		        dao.userSelectAll(model);
 				dispose();
 			}
+			
 		});
 		Check_Btn.setForeground(Color.WHITE);
 		Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, Check_Btn.getFont().getSize() + 2f));
@@ -101,12 +108,22 @@ public class Delete_Subject extends JFrame {
 		contentPane.add(Check_Btn);
 	}
 
-
-	
 	//수정//
 	private void Delete_Subject(String subject)
 	{
-		Subject_Dao dao = new Subject_Dao();
-		boolean ok = dao.Delete_Subject(subject);
+		//Subject_Dto dto = getViewData();
+		//Subject_Dao dao = new Subject_Dao();
+		//boolean ok = dao.Delete_Subject(dto);
 	}
+	
+
+	
+	public void actionPerformed(ActionEvent arg0)
+	{
+		int row = Subject_Data_Tb.getSelectedRow();
+		String id = (String) Subject_Data_Tb.getValueAt(row,  0);
+		Delete_Subject(id);
+		dispose();
+	}
+	
 }
