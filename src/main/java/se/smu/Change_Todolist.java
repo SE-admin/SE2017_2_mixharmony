@@ -78,6 +78,9 @@ public class Change_Todolist extends JFrame {
 //        	Importance_Star_Btn[4].addMouseListener(Star_Listener);
 //    		contentPane.add(Importance_Star_Btn[4]);
 //        }
+        for(int i = 0; i < Integer.parseInt(importance); i++){
+        	Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+        }
         
     }
 
