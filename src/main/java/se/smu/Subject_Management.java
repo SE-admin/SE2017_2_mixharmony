@@ -136,7 +136,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
 		
         //combobox 텍스트 전달을 위해서 combobox선언위치를 이곳으로 변경
-		JComboBox Sort_Subject_Btn = new JComboBox();
+		final JComboBox Sort_Subject_Btn = new JComboBox();
 		//
 		JButton Add_Subject_Btn = new JButton("");
 		Subject_Data_Scroll.setRowHeaderView(Add_Subject_Btn);

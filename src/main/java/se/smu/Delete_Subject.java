@@ -45,7 +45,7 @@ public class Delete_Subject extends JFrame {
 		
 	}
 	
-	public Delete_Subject(String subject, int row) { //
+	public Delete_Subject(final String subject, int row) { //
 		setTitle("수강 과목 삭제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 328);
