@@ -370,7 +370,7 @@ public class Add_Todolist extends JFrame {
 			        //exit add_sub
 					dispose();
 				}
-				else
+				else if(tdm.cob1.equals("실제마감일순"))
 				{
 					//기존 table data delete
 					DefaultTableModel model = (DefaultTableModel) table1.getModel();
@@ -382,6 +382,21 @@ public class Add_Todolist extends JFrame {
 				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
 			        Todo_Dao dao = new Todo_Dao();
 			        dao.userSelectAll1(model,3);
+			        //exit add_sub
+					dispose();
+				}
+				else
+				{
+					//기존 table data delete
+					DefaultTableModel model = (DefaultTableModel) table1.getModel();
+			        for (int i = 0; i < model.getRowCount();) {
+			            model.removeRow(0);
+			            }
+			        Insert_Todo();
+			        //update table
+				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
+			        Todo_Dao dao = new Todo_Dao();
+			        dao.userSelectAll1(model,4);
 			        //exit add_sub
 					dispose();
 				}

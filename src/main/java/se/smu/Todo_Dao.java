@@ -292,13 +292,20 @@ public void userSelectAll1(DefaultTableModel model,int z) {
 			ps = con.prepareStatement(sql);  
 			rs = ps.executeQuery();  
 		}  
-		else //실제마감일순  
+		else if(z == 3 ) //실제마감일순  
 		{  
 			con = getConn();  
 			String sql = "select * from tododb order by rdeadline asc";  
 			ps = con.prepareStatement(sql);  
 			rs = ps.executeQuery();  
-		}  
+		}
+		else
+		{
+			con = getConn();  
+			String sql = "select * from tododb order by complete asc";  
+			ps = con.prepareStatement(sql);  
+			rs = ps.executeQuery();
+		}
 
 		// DefaultTableModel에 있는 데이터 지우기  
 		for (int i = 0; i < model.getRowCount();) {  

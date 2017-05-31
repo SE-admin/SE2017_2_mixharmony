@@ -199,7 +199,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 					        Todo_Dao dao = new Todo_Dao();
 					        dao.userSelectAll1(model,2);
 						}
-						else
+						else if(Sort_Btn.getSelectedItem().toString().equals("실제마감일순"))
 						{
 							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
 					        for (int i = 0; i < model.getRowCount();) {
@@ -208,6 +208,16 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
 					        Todo_Dao dao = new Todo_Dao();
 					        dao.userSelectAll1(model,3);
+						}
+						else
+						{
+							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
+					        for (int i = 0; i < model.getRowCount();) {
+					            model.removeRow(0);
+					            }
+						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
+					        Todo_Dao dao = new Todo_Dao();
+					        dao.userSelectAll1(model,4);
 						}
 					}}
 				);
