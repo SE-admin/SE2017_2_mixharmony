@@ -32,15 +32,17 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import java.sql.*;
 
-public class Todo_Management extends JFrame {
+public class Todo_Management extends JFrame implements MouseListener,ActionListener{
 
 	private JPanel contentPane;
-	private JTable Todo_Data_Tb;
+	//수정//
+	public static JTable Todo_Data_Tb;
 	private JPopupMenu popup = new JPopupMenu();
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
@@ -136,6 +138,7 @@ public class Todo_Management extends JFrame {
 		Todo_Scroll.setRowHeaderView(Add_Todo_Btn);
 		Add_Todo_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//수정//
 				try {
 					Add_Todolist Info = new Add_Todolist();
 					Info.setVisible(true); 
@@ -270,6 +273,42 @@ public class Todo_Management extends JFrame {
 		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
 		Todo_Dao dao = new Todo_Dao();
 		dao.userSelectAll(model);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	//////////////////추가

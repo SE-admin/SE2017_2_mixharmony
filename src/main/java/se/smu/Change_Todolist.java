@@ -5,7 +5,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import se.smu.Add_Todolist.Star_Listener;
 
@@ -38,6 +40,9 @@ public class Change_Todolist extends JFrame {
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
 	
+	Todo_Management tList;
+	
+	
     private void ViewData(Todo_Dto vTo){
         
         String itemname = vTo.getItemname();
@@ -49,12 +54,10 @@ public class Change_Todolist extends JFrame {
         //수정2
         Itemname_In.setText(itemname);
         Deadline_Mon.setText(deadline);
-        Rdeadline_Mon.setText(rdeadline);
-        //시도만ㅜㅠ
         Deadline_Date.setText(importance);
         Deadline_Time.setText(subject);
-       
-        
+        Rdeadline_Mon.setText(rdeadline);
+
 //        Star_Listener Star_Listener = new Star_Listener();
 //        if(Integer.parseInt(importance) == 1){
 //    		Importance_Star_Btn[0].addMouseListener(Star_Listener);
@@ -87,7 +90,7 @@ public class Change_Todolist extends JFrame {
 //				}
 //			}
 //		});
-		new Change_Todolist();
+		//new Change_Todolist();
 	}
 	
 	class Star_Listener extends MouseAdapter{
@@ -105,9 +108,9 @@ public class Change_Todolist extends JFrame {
 		}
 	}
 
-	public Change_Todolist(){
-		
-	}
+	//public Change_Todolist(){
+	//	
+	//}
 
 	public Change_Todolist(String itemname) {
 		setTitle("to do 항목 편집");
@@ -117,6 +120,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		final JTable table = tList.Todo_Data_Tb;
 		
 		JPanel Panel_Itemname = new JPanel();
 		Panel_Itemname.setBackground(new Color(0, 0, 128));
@@ -230,6 +234,11 @@ public class Change_Todolist extends JFrame {
 		Importance_Star_Btn[4].addMouseListener(Star_Listener);
 		contentPane.add(Importance_Star_Btn[4]);
 		
+		//수정//
+		Todo_Dao dao = new Todo_Dao();
+		Todo_Dto vTo = dao.getTodo_Dto(itemname);
+		ViewData(vTo);
+		
 		JButton Signup_Btn = new JButton("편집 등록");
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
@@ -256,15 +265,23 @@ public class Change_Todolist extends JFrame {
 			}
 
 			@Override
-			public void mousePressed(MouseEvent e) {
+			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				Change_Todo();
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+				for (int i = 0; i < model.getRowCount();) {
+		            model.removeRow(0);
+		        }
+				Change_Todolist();
+				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+				Todo_Dao dao = new Todo_Dao();
+		        dao.userSelectAll(model);
+				dispose();
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				tList.jTableRefresh();
 			}});
 			
 		
@@ -336,22 +353,29 @@ public class Change_Todolist extends JFrame {
 		Rdeadline_Time_Lb.setBounds(473, 304, 30, 30);
 		contentPane.add(Rdeadline_Time_Lb);
 		
-		
-		//수정2
-		Todo_Dao dao = new Todo_Dao();
-		Todo_Dto vTo = dao.getTodo_DtO(itemname);
-		ViewData(vTo);
 	}
 	
-	private void Change_Todo(){
-		 Todo_Dto dto = getViewData();
-		 Todo_Dao dao = new Todo_Dao();  
-		 Subject_Dao dao2 = new Subject_Dao();
-		 boolean ok = dao.Change_Todo(dto); //전부 수정됨ㅠㅠ
+	//수정//
+	public Change_Todolist(String itemname, Todo_Management tList)
+	{
+		this.tList = tList;
+		System.out.println("itemname="+itemname);
+		Todo_Dto dto = getViewData();
+		Todo_Dao dao = new Todo_Dao();
+		Todo_Dto vTodolist = dao.getTodo_Dto(itemname);
+		ViewData(vTodolist);
+		
 	}
+	
+	private void Change_Todolist(){
+		Todo_Dto dto = getViewData();
+		Todo_Dao dao = new Todo_Dao();
+		boolean ok = dao.Change_Todo(dto);
+	}
+	
+	
 	public Todo_Dto getViewData() {
 		Todo_Dto dto = new Todo_Dto();
-		Subject_Dto dto1 = new Subject_Dto();
 		String itemname = Itemname_In.getText();
 		String deadline = Deadline_Mon.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
 		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";

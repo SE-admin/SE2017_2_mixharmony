@@ -40,7 +40,7 @@ public class Todo_Dao {
     }
 
     /**한사람의 회원 정보를 얻는 메소드*/
-    public Todo_Dto getTodo_DtO(String itemname){
+    public Todo_Dto getTodo_Dto(String itemname){
         
     	Todo_Dto dto = new Todo_Dto();
        
@@ -51,7 +51,7 @@ public class Todo_Dao {
         try {
            
             con = getConn();
-            String sql = "select * from tododb where itemname";
+            String sql = "select * from tododb where itemname=?";
             ps = con.prepareStatement(sql);
             ps.setString(1, itemname);
            
@@ -160,7 +160,8 @@ public boolean Change_Todo(Todo_Dto vTo){
     try{
        
         con = getConn();           
-        String sql = "update tododb set itemname=?, deadline=?, rdeadline=?, importance=?, subject=?";
+        //where문 추가//
+        String sql = "update tododb set deadline=?, rdeadline=?, importance=?, subject=? where itemname=?";
         ps = con.prepareStatement(sql);
        
         ps.setString(1, vTo.getItemname());
