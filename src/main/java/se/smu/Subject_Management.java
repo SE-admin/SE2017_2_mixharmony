@@ -17,6 +17,8 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -46,6 +48,8 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	//수정3//
 	Subject_Management sList;
 	public String Subject;
+	//combobox text send value
+	public static String cob;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -61,6 +65,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	public Subject_Management() {
 		Subject_Dao dao  = new Subject_Dao();
 		dao = new Subject_Dao();
@@ -130,7 +135,9 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		Subject_Data_Tb.setColumnSelectionAllowed(true);
 		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
 		
-
+        //combobox 텍스트 전달을 위해서 combobox선언위치를 이곳으로 변경
+		JComboBox Sort_Subject_Btn = new JComboBox();
+		//
 		JButton Add_Subject_Btn = new JButton("");
 		Subject_Data_Scroll.setRowHeaderView(Add_Subject_Btn);
 		Add_Subject_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/add.png")));
@@ -138,6 +145,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	
 			public void actionPerformed(ActionEvent e) {
 				try {
+					cob = Sort_Subject_Btn.getSelectedItem().toString();
 					Add_Subject frame = new Add_Subject();
 					frame.setVisible(true); 
 				} catch (Exception e1) {
@@ -146,7 +154,47 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 			}			
 		});
 		
-		JComboBox Sort_Subject_Btn = new JComboBox();
+		
+		//comboBox event
+		Sort_Subject_Btn.addItemListener(new ItemListener()
+				{
+					@Override
+					public void itemStateChanged(ItemEvent arg0) {
+						//사전식 order
+						if(Sort_Subject_Btn.getSelectedItem().toString().equals("사전식순"))
+						{
+							//delete
+							DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
+					        for (int i = 0; i < model.getRowCount();) {
+					            model.removeRow(0);
+					            }
+						    model = (DefaultTableModel) Subject_Data_Tb.getModel();
+					        Subject_Dao dao = new Subject_Dao();
+					        dao.userSelectAll(model);
+						}
+					    //dayofweek order
+						else
+						{
+							//delete
+							DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
+					        for (int i = 0; i < model.getRowCount();) {
+					            model.removeRow(0);
+					            }
+					        
+						    model = (DefaultTableModel) Subject_Data_Tb.getModel();
+					        Subject_Dao dao = new Subject_Dao();
+					        dao.userSelectAll2(model, 1); //monday
+					        dao.userSelectAll2(model, 2); //tuesday
+					        dao.userSelectAll2(model, 3); //wednesday
+					        dao.userSelectAll2(model, 4); //thursday
+					        dao.userSelectAll2(model, 5); //friday
+					        dao.userSelectAll2(model, 6); //saturday
+					        dao.userSelectAll2(model, 7); //etc day
+					        
+						}
+					}}
+				);
+		//
 		Sort_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "요일순"}));
 		Sort_Subject_Btn.setForeground(Color.WHITE);
 		Sort_Subject_Btn.setFont(Sort_Subject_Btn.getFont().deriveFont(Sort_Subject_Btn.getFont().getStyle() | Font.BOLD, Sort_Subject_Btn.getFont().getSize() + 4f));
