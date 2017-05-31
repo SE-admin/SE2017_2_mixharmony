@@ -286,7 +286,7 @@ public class Add_Todolist extends JFrame {
 		Importance_Tf.setFont(Importance_Tf.getFont().deriveFont(Importance_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Importance_Tf.setBackground(new Color(0, 0, 128));
 		
-		JComboBox Select_Subject_Btn = new JComboBox();
+		final JComboBox Select_Subject_Btn = new JComboBox();
 		Select_Subject_Btn.setFont(Select_Subject_Btn.getFont().deriveFont(Select_Subject_Btn.getFont().getStyle() | Font.BOLD, 18f));
 		Select_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"과목명 선택", "소프트웨어공학", "데이터 베이스", "알고리즘"}));
         Select_Subject_Btn.setBounds(17, 433, 218, 37);

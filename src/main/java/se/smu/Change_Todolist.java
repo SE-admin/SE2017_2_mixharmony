@@ -54,9 +54,9 @@ public class Change_Todolist extends JFrame {
         //수정2
         Itemname_In.setText(itemname);
         Deadline_Mon.setText(deadline);
+        Rdeadline_Mon.setText(rdeadline);
         Deadline_Date.setText(importance);
         Deadline_Time.setText(subject);
-        Rdeadline_Mon.setText(rdeadline);
 
 //        Star_Listener Star_Listener = new Star_Listener();
 //        if(Integer.parseInt(importance) == 1){
@@ -237,7 +237,7 @@ public class Change_Todolist extends JFrame {
 		//수정//
 		Todo_Dao dao = new Todo_Dao();
 		Todo_Dto vTo = dao.getTodo_Dto(itemname);
-		ViewData(vTo);
+		//ViewData(vTo);
 		
 		JButton Signup_Btn = new JButton("편집 등록");
 		Signup_Btn.setForeground(Color.WHITE);
