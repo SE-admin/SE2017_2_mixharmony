@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,6 +46,7 @@ public class Add_Todolist extends JFrame {
 	private JButton Importance_Star_Btn[] = new JButton[5];
 	private JPanel Panel_For_Rdeadline;
 	private JPanel Panel_For_Importance;
+	Todo_Management tdm;
 
 	
     private void ViewData(Todo_Dto vTo){
@@ -103,6 +105,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		JTable table1 = tdm.Todo_Data_Tb;
 		
 		JPanel Panel_For_Itemname = new JPanel();
 		Panel_For_Itemname.setBackground(new Color(0, 0, 128));
@@ -319,6 +322,70 @@ public class Add_Todolist extends JFrame {
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				Insert_Todo();
+				/* add+sort
+				if(tdm.cob1.equals("사전식순"))
+				{
+					//기존 table data delete
+					DefaultTableModel model = (DefaultTableModel) table1.getModel();
+			        for (int i = 0; i < model.getRowCount();) {
+			            model.removeRow(0);
+			            }
+			        Insert_Todo();
+			        //update table
+				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
+			        Todo_Dao dao = new Todo_Dao();
+			        dao.userSelectAll(model);
+			        //exit add_sub
+					dispose();
+			        
+					
+				}
+				else if(tdm.cob1.equals("중요도순"))
+				{
+					//기존 table data delete
+					DefaultTableModel model = (DefaultTableModel) table1.getModel();
+			        for (int i = 0; i < model.getRowCount();) {
+			            model.removeRow(0);
+			            }
+			        Insert_Todo();
+			        //update table
+				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
+			        Todo_Dao dao = new Todo_Dao();
+			        dao.userSelectAll1(model,1);
+			        //exit add_sub
+					dispose();
+				}
+				else if(tdm.cob1.equals("마감일순"))
+				{
+					//기존 table data delete
+					DefaultTableModel model = (DefaultTableModel) table1.getModel();
+			        for (int i = 0; i < model.getRowCount();) {
+			            model.removeRow(0);
+			            }
+			        Insert_Todo();
+			        //update table
+				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
+			        Todo_Dao dao = new Todo_Dao();
+			        dao.userSelectAll1(model,2);
+			        //exit add_sub
+					dispose();
+				}
+				else
+				{
+					//기존 table data delete
+					DefaultTableModel model = (DefaultTableModel) table1.getModel();
+			        for (int i = 0; i < model.getRowCount();) {
+			            model.removeRow(0);
+			            }
+			        Insert_Todo();
+			        //update table
+				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
+			        Todo_Dao dao = new Todo_Dao();
+			        dao.userSelectAll1(model,3);
+			        //exit add_sub
+					dispose();
+				}
+				*/
 			}
 
 			@Override

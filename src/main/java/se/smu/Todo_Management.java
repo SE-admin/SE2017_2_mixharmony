@@ -46,6 +46,8 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	private JPopupMenu popup = new JPopupMenu();
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
+	//combobox text send value
+	public static String cob1;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -133,13 +135,16 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		dao.userSelectAll(model);
 		//
 		Todo_Scroll.setViewportView(Todo_Data_Tb);
-		
+		//combobox 텍스트 전달을 위해서 combobox선언위치를 이곳으로 변경
+		final JComboBox Sort_Btn = new JComboBox();
+		//
 		JButton Add_Todo_Btn = new JButton("");
 		Todo_Scroll.setRowHeaderView(Add_Todo_Btn);
 		Add_Todo_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//수정//
 				try {
+					cob1 = Sort_Btn.getSelectedItem().toString();//send value
 					Add_Todolist Info = new Add_Todolist();
 					Info.setVisible(true); 
 
@@ -151,7 +156,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		});
 		Add_Todo_Btn.setIcon(new ImageIcon(Todo_Management.class.getResource("/image/add.png")));
 		
-		final JComboBox Sort_Btn = new JComboBox();
+		
 		Sort_Btn.setFont(Sort_Btn.getFont().deriveFont(Sort_Btn.getFont().getStyle() | Font.BOLD, Sort_Btn.getFont().getSize() + 4f));
 		Sort_Btn.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "중요도순", "마감일순", "실제마감일순"}));
 		Sort_Btn.setForeground(new Color(255, 255, 255));
