@@ -32,7 +32,6 @@ public class Warning extends JFrame {
 
 	public Warning() {
 		setTitle("경고");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 574, 292);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

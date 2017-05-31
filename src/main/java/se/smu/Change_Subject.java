@@ -94,7 +94,6 @@ public class Change_Subject extends JFrame {
 	///////수정2
 	public Change_Subject(String subject){	
 	setTitle("수강 과목 편집");
-	//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 551, 649);
 	contentPane = new JPanel();
 	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

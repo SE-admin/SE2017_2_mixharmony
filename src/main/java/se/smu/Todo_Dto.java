@@ -5,7 +5,9 @@ public class Todo_Dto {
 	private String deadline;
 	private String rdeadline;
 	private String importance;
+	private String complete;
 	private String subject;
+	
 	
 	
 	public String getItemname() {
@@ -46,7 +48,15 @@ public class Todo_Dto {
 	public void setImportance(String importance) {
 		this.importance = importance;
 	}
+	
+	public String getcomplete() {
+		return complete;
+	}
 
+
+	public void setcomplete(String complete) {
+		this.complete = complete;
+	}
 
 	public String getSubject() {
 		return subject;
