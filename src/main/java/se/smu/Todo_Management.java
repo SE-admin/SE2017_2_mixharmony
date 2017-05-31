@@ -24,6 +24,7 @@ import se.smu.Todo_Dao;
 
 import javax.swing.JList;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
@@ -259,8 +260,27 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	      DeleteMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
-						Delete_Todolist frame = new Delete_Todolist();
-						frame.setVisible(true); 
+//						Delete_Todolist frame = new Delete_Todolist();
+//						frame.setVisible(true); 
+						int row = Todo_Data_Tb.getSelectedRow();
+						String itemname = (String) Todo_Data_Tb.getValueAt(row, 0);
+						int del = JOptionPane.showConfirmDialog(null, "해당 To do 항목을 삭제하시겠습니까?", "*경고*", JOptionPane.YES_NO_OPTION);
+						if(del == JOptionPane.YES_OPTION){
+							
+							Todo_Dao dao = new Todo_Dao();
+							dao.Delete_Todo(itemname);
+							
+							if (row == -1)
+							{
+								return;
+							}
+							
+							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
+							model.removeRow(row);
+							
+						}else{
+							return;
+						}
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
@@ -269,12 +289,16 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	   }
 
 	   public void mouseClicked(MouseEvent e){
-	      if(e.getButton() == 3){
-	         popup.show((Component)e.getSource(), e.getX(), e.getY());
-	      }
-	      else{
+		   int row = Todo_Data_Tb.rowAtPoint(e.getPoint());
+		   int column = Todo_Data_Tb.columnAtPoint(e.getPoint());
+		   if (row >= 0 && column == 0)
+		   {
+			   if(e.getButton() == 3){
+			         popup.show((Component)e.getSource(), e.getX(), e.getY());
+			      }
 
-	      }
+		   }      
+	      
 	   }
 
 	   public void actionPerformed(ActionEvent e) {
