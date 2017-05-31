@@ -287,4 +287,96 @@ public void userSelectAll(DefaultTableModel model) {
             }
     }
 }
+
+//dayofweek sort
+public void userSelectAll2(DefaultTableModel model,int k) {
+	   
+	   
+  Connection con = null;
+  PreparedStatement ps = null;
+  ResultSet rs = null;
+ 
+  try {
+      con = getConn();
+      if(k == 1)
+      {
+      	String sql = "select * from subjectdb where dayofweek like '%월%'";
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+      }
+      else if(k == 2)
+      {
+      	String sql = "select * from subjectdb where dayofweek like '%화%'";
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+      }
+      else if(k == 3)
+      {
+      	String sql = "select * from subjectdb where dayofweek like '%수%'";
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+      }
+      else if(k == 4)
+      {
+      	String sql = "select * from subjectdb where dayofweek like '%목%'";
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+      }
+      else if(k == 5)
+      {
+      	String sql = "select * from subjectdb where dayofweek like '%금%'";
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+      }
+      else if(k == 6)
+      {
+      	String sql = "select * from subjectdb where dayofweek like '%토%'";
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+      }
+      else
+      {
+      	String sql = "select * from subjectdb where (dayofweek not like '%월%' and dayofweek not like '%화%' and dayofweek not like '%수%' and dayofweek not like '%목%' and dayofweek not like '%금%' and dayofweek not like '%토%')";
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+      }
+      
+      while (rs.next()) {
+          Object data[] = { rs.getString(1), rs.getString(2),
+                  rs.getString(3), rs.getString(4),
+                 rs.getString(5),
+                  rs.getString(6),
+                  rs.getString(7)
+                  };
+
+          model.addRow(data);                
+      }
+
+  } catch (SQLException e) {
+      System.out.println(e + "=> userSelectAll fail");
+  } finally{
+     
+      if(rs!=null)
+          try {
+              rs.close();
+          } catch (SQLException e2) {
+              // TODO Auto-generated catch block
+              e2.printStackTrace();
+          }
+      if(ps!=null)
+          try {
+              ps.close();
+          } catch (SQLException e1) {
+              // TODO Auto-generated catch block
+              e1.printStackTrace();
+          }
+      if(con!=null)
+          try {
+              con.close();
+          } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+          }
+  }
+}
 }

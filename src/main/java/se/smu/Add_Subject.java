@@ -44,6 +44,7 @@ public class Add_Subject extends JFrame {
 	private JPanel Panel_Year;
 	private JPanel Panel_Semester;
 	private JPanel Panel_Divclass;
+	Subject_Management sbm;
 	
     private void ViewData(Subject_Dto vSub){
        
@@ -273,25 +274,52 @@ public class Add_Subject extends JFrame {
 
 					
 					public void mousePressed(MouseEvent arg0) {	
-						
-//						Insert_Subject();	
-//						dispose();
-//                        Subject_Management frame = new Subject_Management();  
-//                        frame.setVisible(true);   
-                        
+						/*
+						Insert_Subject();	
+						dispose();
+                        Subject_Management frame = new Subject_Management();  
+                        frame.setVisible(true);   
+                        */
+						//combobox가 사전식순일떄 table 추가방식
+						if(sbm.cob.equals("사전식순"))
+						{	
 						//기존 table data delete
 						DefaultTableModel model = (DefaultTableModel) table.getModel();
 				        for (int i = 0; i < model.getRowCount();) {
 				            model.removeRow(0);
 				            }
-//				        //db insert data
+				        //db insert data
 				        Insert_Subject();
-//				        //update table
+				        //update table
 					    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 				        Subject_Dao dao = new Subject_Dao();
 				        dao.userSelectAll(model);
-//				        //exit add_sub
+				        //exit add_sub
 						dispose();
+						}
+						//combobox가 요일별일때 table 추가방식
+						else
+						{
+							//기존 table data delete
+							DefaultTableModel model = (DefaultTableModel) table.getModel();
+					        for (int i = 0; i < model.getRowCount();) {
+					            model.removeRow(0);
+					            }
+					        //db insert data
+					        Insert_Subject();
+					        //update table(요일)
+						    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+					        Subject_Dao dao = new Subject_Dao();
+					        dao.userSelectAll2(model, 1);
+					        dao.userSelectAll2(model, 2);
+					        dao.userSelectAll2(model, 3);
+					        dao.userSelectAll2(model, 4);
+					        dao.userSelectAll2(model, 5);
+					        dao.userSelectAll2(model, 6);
+					        dao.userSelectAll2(model, 7);
+					        //exit add_sub
+							dispose();
+						}
 						
 					}
 
