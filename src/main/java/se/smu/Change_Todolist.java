@@ -54,11 +54,11 @@ public class Change_Todolist extends JFrame {
         //수정//
         Itemname_In.setText(itemname);
         Deadline_Mon.setText(deadline);
-        Deadline_Date.setText(deadline);
-        Deadline_Time.setText(deadline);
+//        Deadline_Date.setText(deadline);
+//        Deadline_Time.setText(deadline);
         Rdeadline_Mon.setText(rdeadline);
-        Rdeadline_Date.setText(rdeadline);
-        Rdeadline_Time.setText(rdeadline);
+//        Rdeadline_Date.setText(rdeadline);
+//        Rdeadline_Time.setText(rdeadline);
         
         
 //        Star_Listener Star_Listener = new Star_Listener();
@@ -237,10 +237,6 @@ public class Change_Todolist extends JFrame {
 		Importance_Star_Btn[4].addMouseListener(Star_Listener);
 		contentPane.add(Importance_Star_Btn[4]);
 		
-		Todo_Dao dao = new Todo_Dao();
-		Todo_Dto vTo = dao.getTodo_Dto(itemname);
-		//ViewData(vTo);
-		
 		JButton Signup_Btn = new JButton("편집 등록");
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
@@ -355,19 +351,13 @@ public class Change_Todolist extends JFrame {
 		Rdeadline_Time_Lb.setBounds(473, 304, 30, 30);
 		contentPane.add(Rdeadline_Time_Lb);
 		
+		//수정!
+		Todo_Dao dao = new Todo_Dao();
+		Todo_Dto vTo = dao.getTodo_Dto(itemname);
+		ViewData(vTo);
 	}
 	
 	//수정//
-	public Change_Todolist(String itemname, Todo_Management tList)
-	{
-		this.tList = tList;
-		System.out.println("itemname="+itemname);
-		Todo_Dto dto = getViewData();
-		Todo_Dao dao = new Todo_Dao();
-		Todo_Dto vTodolist = dao.getTodo_Dto(itemname);
-		ViewData(vTodolist);
-		
-	}
 	
 	private void Change_Todolist(){
 		Todo_Dto dto = getViewData();

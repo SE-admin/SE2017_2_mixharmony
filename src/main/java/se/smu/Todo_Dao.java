@@ -164,11 +164,11 @@ public boolean Change_Todo(Todo_Dto vTo){
         String sql = "update tododb set deadline=?, rdeadline=?, importance=?, subject=? where itemname=?";
         ps = con.prepareStatement(sql);
        
-        ps.setString(1, vTo.getItemname());
-        ps.setString(2, vTo.getDeadline());
-        ps.setString(3, vTo.getRdeadline());
-        ps.setString(4, vTo.getImportance());
-        ps.setString(5, vTo.getSubject());
+        ps.setString(5, vTo.getItemname());
+        ps.setString(1, vTo.getDeadline());
+        ps.setString(2, vTo.getRdeadline());
+        ps.setString(3, vTo.getImportance());
+        ps.setString(4, vTo.getSubject());
        
         int r = ps.executeUpdate(); //실행 -> 수정
         if(r>0){
