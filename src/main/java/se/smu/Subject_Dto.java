@@ -59,5 +59,3 @@ public class Subject_Dto {
 	
 	
 }
-
-
