@@ -79,6 +79,7 @@ public class Delete_Subject extends JFrame {
 		
 		JButton Check_Btn = new JButton("확인");
 		Check_Btn.addMouseListener(new MouseAdapter() {
+			
 			public void mouseClicked(MouseEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 		        model.removeRow(0);
@@ -92,9 +93,10 @@ public class Delete_Subject extends JFrame {
 		        boolean ok = dao.Delete_Subject(id);
 		        //dao.getSubject_Dto(subject)
 		        dao.userSelectAll(model);
+		        
 		        dispose();
 			}
-					
+				
 		});
 		
 		Check_Btn.setForeground(Color.WHITE);

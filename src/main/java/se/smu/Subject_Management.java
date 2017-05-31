@@ -213,13 +213,19 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	   }
 
 	   public void mouseClicked(MouseEvent e){
-	      if(e.getButton() == 3){
-	         popup.show((Component)e.getSource(), e.getX(), e.getY());
-	      }
-	      else{
-	    	  Todo_Management Info = new Todo_Management(); //act class define
-	  		  Info.setVisible(true); //class act
-	      }
+		   
+		   int row = Subject_Data_Tb.rowAtPoint(e.getPoint());
+		   int column = Subject_Data_Tb.columnAtPoint(e.getPoint());
+		   if (row >= 0 && column == 0)
+		   {
+			   if(e.getButton() == 3){
+			         popup.show((Component)e.getSource(), e.getX(), e.getY());
+			      }
+			   else{
+			    	  Todo_Management Info = new Todo_Management(); //act class define
+			  		  Info.setVisible(true); //class act
+			      }
+		   }            
 	   }
 	   public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub
@@ -258,11 +264,9 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		
 	}
 
-	//수정3//
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		//int row = Subject_Data_Tb.getSelectedRow();
-		//String Subject = (String) Subject_Data_Tb.getValueAt(row,  0);
+		
 	}
 }

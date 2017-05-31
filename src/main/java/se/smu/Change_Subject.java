@@ -323,13 +323,14 @@ public class Change_Subject extends JFrame {
 	            
 	            }
 	        Change_Subject(); //전부 수정됨..
-	        //db change data
+	        /*db change data*/
 			//Change_Subject(subject);
-			//update table
+			/*update table*/
 			DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+			//model1.fireTableDataChanged();
 	        Subject_Dao dao = new Subject_Dao();
 	        dao.userSelectAll(model);
-	        //exit change sub
+	        /*exit change sub*/
 	        dispose();
 		}
 
