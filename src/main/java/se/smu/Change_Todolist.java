@@ -50,14 +50,17 @@ public class Change_Todolist extends JFrame {
         String rdeadline = vTo.getRdeadline();
         String importance = vTo.getImportance();
         String subject = vTo.getSubject();
-        
-        //수정2
+
+        //수정//
         Itemname_In.setText(itemname);
         Deadline_Mon.setText(deadline);
+        Deadline_Date.setText(deadline);
+        Deadline_Time.setText(deadline);
         Rdeadline_Mon.setText(rdeadline);
-        Deadline_Date.setText(importance);
-        Deadline_Time.setText(subject);
-
+        Rdeadline_Date.setText(rdeadline);
+        Rdeadline_Time.setText(rdeadline);
+        
+        
 //        Star_Listener Star_Listener = new Star_Listener();
 //        if(Integer.parseInt(importance) == 1){
 //    		Importance_Star_Btn[0].addMouseListener(Star_Listener);
@@ -234,7 +237,6 @@ public class Change_Todolist extends JFrame {
 		Importance_Star_Btn[4].addMouseListener(Star_Listener);
 		contentPane.add(Importance_Star_Btn[4]);
 		
-		//수정//
 		Todo_Dao dao = new Todo_Dao();
 		Todo_Dto vTo = dao.getTodo_Dto(itemname);
 		//ViewData(vTo);
@@ -244,6 +246,7 @@ public class Change_Todolist extends JFrame {
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
 		Signup_Btn.setBackground(new Color(0, 0, 128));
 		Signup_Btn.setBounds(351, 433, 139, 42);
+
 		Signup_Btn.addMouseListener(new MouseListener(){
 
 			@Override
@@ -283,7 +286,6 @@ public class Change_Todolist extends JFrame {
 				// TODO Auto-generated method stub
 				tList.jTableRefresh();
 			}});
-			
 		
 		contentPane.add(Signup_Btn);
 		
