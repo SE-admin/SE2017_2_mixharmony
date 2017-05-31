@@ -111,7 +111,7 @@ public class Change_Subject extends JFrame {
 	Panel_Subject.setBackground(new Color(0, 0, 128));
 	Panel_Subject.setBounds(97, 15, 165, 41);
 	contentPane.add(Panel_Subject);
-	
+
 	Subject_Tf = new JLabel();
 	Panel_Subject.add(Subject_Tf);
 	Subject_Tf.setText("과목명");
@@ -125,6 +125,7 @@ public class Change_Subject extends JFrame {
 	Subject_In.setColumns(10);
 	Subject_In.setBounds(28, 76, 473, 41);
 	contentPane.add(Subject_In);
+	Subject_In.setEnabled(false);
 	
 	JLabel Professor_Img = new JLabel("");
 	Professor_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/imagesASJC4VFF.jpg")));
