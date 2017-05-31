@@ -47,6 +47,7 @@ public class Add_Todolist extends JFrame {
 	private JPanel Panel_For_Rdeadline;
 	private JPanel Panel_For_Importance;
 	Todo_Management tdm;
+	public static String cob;
 
 	
     private void ViewData(Todo_Dto vTo){
@@ -321,6 +322,7 @@ public class Add_Todolist extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
+				cob = Select_Subject_Btn.getSelectedItem().toString();
 				Insert_Todo();
 				/* add+sort
 				if(tdm.cob1.equals("사전식순"))
@@ -424,8 +426,7 @@ public class Add_Todolist extends JFrame {
 		String deadline = Deadline_Mon.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
 		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
 		String importance = Integer.toString(choose_importance);
-//		String subject = JComboBox.getText();
-		String subject = Itemname_In.getText(); //db 실행되는지만 확인
+		String subject = cob;
 		
 		dto.setItemname(itemname);
 		dto.setDeadline(deadline);
