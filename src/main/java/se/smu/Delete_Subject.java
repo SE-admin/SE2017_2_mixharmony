@@ -41,7 +41,11 @@ public class Delete_Subject extends JFrame {
 		});
 	}
 
-	public Delete_Subject() {
+	public Delete_Subject(){
+		
+	}
+	
+	public Delete_Subject(String subject, int row) { //
 		setTitle("수강 과목 삭제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 328);
@@ -81,20 +85,26 @@ public class Delete_Subject extends JFrame {
 		Check_Btn.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent e) {
-				DefaultTableModel model = (DefaultTableModel) table.getModel();
-		        model.removeRow(0);
+//				DefaultTableModel model = (DefaultTableModel) table.getModel();
+//		        model.removeRow(0);
 		        //수정3//
-				int row = Subject_Data_Tb.getSelectedRow();
-				String id = (String) Subject_Data_Tb.getValueAt(row, 0);
-				Delete_Subject(id);
-				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
-		          
-		        Subject_Dao dao = new Subject_Dao();
-		        boolean ok = dao.Delete_Subject(id);
-		        //dao.getSubject_Dto(subject)
-		        dao.userSelectAll(model);
-		        
-		        dispose();
+//				int row = Subject_Data_Tb.getSelectedRow();
+//				String id = (String) Subject_Data_Tb.getValueAt(row, 0);
+//				Delete_Subject(id);
+//				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+//		          
+//		        Subject_Dao dao = new Subject_Dao();
+//		        boolean ok = dao.Delete_Subject(id);
+//		        //dao.getSubject_Dto(subject)
+//		        dao.userSelectAll(model);
+//		        
+//		        dispose();
+
+				
+				Subject_Dao dao = new Subject_Dao();
+				boolean ok = dao.Delete_Subject(subject); //수정 4
+				dispose();
+				
 			}
 				
 		});
@@ -107,24 +117,26 @@ public class Delete_Subject extends JFrame {
 	}
 
 	//수정//
-	private void Delete_Subject(String subject)
-	{
-		//Subject_Dto dto = getViewData();
-		//Subject_Dao dao = new Subject_Dao();
-		//boolean ok = dao.Delete_Subject(dto);
-	}
+//	private void Delete_Subject(String subject)
+//	{
+//		//Subject_Dto dto = getViewData();
+//		//Subject_Dao dao = new Subject_Dao();
+//		//boolean ok = dao.Delete_Subject(dto);
+//	}
 	
-	public void actionPerformed(ActionEvent arg0)
-	{
-		int row = Subject_Data_Tb.getSelectedRow();
-		if (row == -1)
-		{
-			return;
-		}
-		DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
-		model.removeRow(row);
-		//String id = (String) Subject_Data_Tb.getValueAt(row,  0);
-		//Delete_Subject(id);
-		//dispose();
-	}
+//	public void actionPerformed(ActionEvent arg0)
+//	{
+//		
+//
+//		int row = Subject_Data_Tb.getSelectedRow();
+//		if (row == -1)
+//		{
+//			return;
+//		}
+//		DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
+//		model.removeRow(row);
+//		//String id = (String) Subject_Data_Tb.getValueAt(row,  0);
+//		//Delete_Subject(id);
+//		//dispose();
+//	}
 }

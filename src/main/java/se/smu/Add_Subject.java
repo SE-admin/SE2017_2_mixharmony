@@ -273,24 +273,24 @@ public class Add_Subject extends JFrame {
 
 					
 					public void mousePressed(MouseEvent arg0) {	
-						/*
-						Insert_Subject();	
-						dispose();
-                        Subject_Management frame = new Subject_Management();  
-                        frame.setVisible(true);   
-                        */
+						
+//						Insert_Subject();	
+//						dispose();
+//                        Subject_Management frame = new Subject_Management();  
+//                        frame.setVisible(true);   
+                        
 						//기존 table data delete
 						DefaultTableModel model = (DefaultTableModel) table.getModel();
 				        for (int i = 0; i < model.getRowCount();) {
 				            model.removeRow(0);
 				            }
-				        //db insert data
+//				        //db insert data
 				        Insert_Subject();
-				        //update table
+//				        //update table
 					    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 				        Subject_Dao dao = new Subject_Dao();
 				        dao.userSelectAll(model);
-				        //exit add_sub
+//				        //exit add_sub
 						dispose();
 						
 					}

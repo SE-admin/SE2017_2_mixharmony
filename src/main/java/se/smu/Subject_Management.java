@@ -9,6 +9,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -203,8 +204,42 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	      DeleteMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
-						Delete_Subject frame = new Delete_Subject();
-						frame.setVisible(true); 
+						
+						int row = Subject_Data_Tb.getSelectedRow();
+						String subject = (String) Subject_Data_Tb.getValueAt(row, 0);
+//						Delete_Subject frame = new Delete_Subject(subject, row);
+//						frame.setVisible(true); 
+					
+//						int row = Subject_Data_Tb.getSelectedRow();
+//						String subject = (String) Subject_Data_Tb.getValueAt(row, 0);
+//						
+//						Subject_Dao dao = new Subject_Dao();
+////						Subject_Dto dto = getViewData();
+//						boolean ok = dao.Delete_Subject(subject); //수정 4
+////						frame.setVisible(true); 
+//						
+						//수정4 (Delete_Subject 클래스 안쓰고 한 것)
+						int del = JOptionPane.showConfirmDialog(null, "해당 수강 과목을 삭제하시겠습니까?", "*경고*", JOptionPane.YES_NO_OPTION);
+						if(del == JOptionPane.YES_OPTION){
+							
+							Subject_Dao dao = new Subject_Dao();
+							dao.Delete_Subject(subject);
+							
+							if (row == -1)
+							{
+								return;
+							}
+							
+							DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
+							model.removeRow(row);
+							
+						}else{
+							return;
+						}
+						
+						
+					
+						
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}

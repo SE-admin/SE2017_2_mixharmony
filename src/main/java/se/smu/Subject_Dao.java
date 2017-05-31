@@ -203,17 +203,17 @@ public boolean Change_Subject(Subject_Dto vSub){
 //회원정보 삭제 :
 // *tip: 실무에서는 회원정보를 Delete 하지 않고 탈퇴여부만 체크한다.
 //수정//
-public boolean Delete_Subject(String Subject){
+public boolean Delete_Subject(String subject){
     boolean ok =false ;
     Connection con =null;
     PreparedStatement ps =null;
    
     try {
         con = getConn();
-        String sql = "delete from tb_member where Subject=?";
+        String sql = "delete from subjectdb where subject=?"; //수정4
        
         ps = con.prepareStatement(sql);
-        ps.setString(1, Subject);
+        ps.setString(1, subject);
         int r = ps.executeUpdate(); // 실행 -> 삭제
        
         if (r>0)
