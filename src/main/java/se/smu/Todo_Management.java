@@ -276,7 +276,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 							}
 							
 							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-							model.removeRow(row);
+							model.removeRow(row); //삭제 추가
 							
 						}else{
 							return;

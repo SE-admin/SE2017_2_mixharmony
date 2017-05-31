@@ -187,7 +187,7 @@ public boolean Change_Todo(Todo_Dto vTo){
     return ok;
 }
 
-///////////////삭제 :
+///////////////삭제 추가
 public boolean Delete_Todo(String itemname){
    
     boolean ok = false ;
