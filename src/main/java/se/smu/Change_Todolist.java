@@ -108,9 +108,9 @@ public class Change_Todolist extends JFrame {
 		}
 	}
 
-	//public Change_Todolist(){
-	//	
-	//}
+	public Change_Todolist(){
+		
+	}
 
 	public Change_Todolist(String itemname) {
 		setTitle("to do 항목 편집");
