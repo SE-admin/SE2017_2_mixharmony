@@ -172,16 +172,16 @@ public boolean Change_Subject(Subject_Dto vSub){
     try{
        
         con = getConn();           
-        String sql = "update subjectdb set subject=?, professor=?, dayofweek=?, period=?, year=?, semester=?,divclass=?";
+        String sql = "update subjectdb set professor=?, dayofweek=?, period=?, year=?, semester=?,divclass=? where subject=?";
         ps = con.prepareStatement(sql);
        
-        ps.setString(1, vSub.getSubject());
-        ps.setString(2, vSub.getProfessor());
-        ps.setString(3, vSub.getDayofweek());
-        ps.setString(4, vSub.getPeriod());
-        ps.setString(5, vSub.getYear());
-        ps.setString(6, vSub.getSemester());
-        ps.setString(7, vSub.getDivclass());
+        ps.setString(7, vSub.getSubject());
+        ps.setString(1, vSub.getProfessor());
+        ps.setString(2, vSub.getDayofweek());
+        ps.setString(3, vSub.getPeriod());
+        ps.setString(4, vSub.getYear());
+        ps.setString(5, vSub.getSemester());
+        ps.setString(6, vSub.getDivclass());
        
         int r = ps.executeUpdate(); //실행 -> 수정
         if(r>0){
