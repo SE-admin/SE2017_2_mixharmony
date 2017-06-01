@@ -167,12 +167,12 @@ public class Add_Todolist extends JFrame {
 		Deadline_Date = new JComboBox();
 		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		Deadline_Date.setFont(Deadline_Date.getFont().deriveFont(Deadline_Date.getFont().getStyle() | Font.BOLD, 18f));
-		Deadline_Date.setBounds(215, 183, 68, 41);
+		Deadline_Date.setBounds(220, 183, 68, 41);
 		contentPane.add(Deadline_Date);
 		
 		JLabel Deadline_Date_Lb = new JLabel("일");
 		Deadline_Date_Lb.setFont(Deadline_Date_Lb.getFont().deriveFont(Deadline_Date_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Deadline_Date_Lb.setBounds(286, 188, 30, 30);
+		Deadline_Date_Lb.setBounds(290, 188, 30, 30);
 		contentPane.add(Deadline_Date_Lb);
 		
 		Deadline_Time = new JComboBox();
@@ -209,23 +209,23 @@ public class Add_Todolist extends JFrame {
 		Rdeadline_Mon = new JComboBox();
 		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"}));
 		Rdeadline_Mon.setFont(Rdeadline_Mon.getFont().deriveFont(Rdeadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Mon.setBounds(120, 300, 65, 41);
+		Rdeadline_Mon.setBounds(120, 300, 68, 41);
 		contentPane.add(Rdeadline_Mon);
 		
 		JLabel Rdeadline_Mon_Lb = new JLabel("월");
 		Rdeadline_Mon_Lb.setFont(Rdeadline_Mon_Lb.getFont().deriveFont(Rdeadline_Mon_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Mon_Lb.setBounds(188, 305, 30, 30);
+		Rdeadline_Mon_Lb.setBounds(190, 305, 30, 30);
 		contentPane.add(Rdeadline_Mon_Lb);
 		
 		Rdeadline_Date = new JComboBox();
 		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		Rdeadline_Date.setFont(Rdeadline_Date.getFont().deriveFont(Rdeadline_Date.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Date.setBounds(214, 300, 68, 41);
+		Rdeadline_Date.setBounds(220, 300, 68, 41);
 		contentPane.add(Rdeadline_Date);
 		
 		JLabel Rdeadline_Date_Lb = new JLabel("일");
 		Rdeadline_Date_Lb.setFont(Rdeadline_Date_Lb.getFont().deriveFont(Rdeadline_Date_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Date_Lb.setBounds(286, 305, 30, 30);
+		Rdeadline_Date_Lb.setBounds(290, 305, 30, 30);
 		contentPane.add(Rdeadline_Date_Lb);
 
 		Rdeadline_Time = new JComboBox();
@@ -422,7 +422,7 @@ public class Add_Todolist extends JFrame {
 			
 			JLabel Deadline_Mon_Lb = new JLabel("월");
 			Deadline_Mon_Lb.setFont(Deadline_Mon_Lb.getFont().deriveFont(Deadline_Mon_Lb.getFont().getStyle() | Font.BOLD, 18f));
-			Deadline_Mon_Lb.setBounds(188, 183, 30, 41);
+			Deadline_Mon_Lb.setBounds(190, 183, 30, 41);
 			contentPane.add(Deadline_Mon_Lb);
 			
 			JComboBox Select_Time = new JComboBox();
