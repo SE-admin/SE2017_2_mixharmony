@@ -73,7 +73,13 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		System.out.println("v="+v);
 		cols = getColumn();
 		
-		model = new DefaultTableModel(v,cols);
+		model = new DefaultTableModel(v,cols)
+				{
+					public boolean isCellEditable(int i,int j)
+					{
+						return false;
+					}
+				};
 		
 		setTitle("수강 과목");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
