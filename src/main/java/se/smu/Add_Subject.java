@@ -18,33 +18,44 @@ import javax.swing.JButton;
 import java.sql.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.JSpinner;
+import javax.swing.JFormattedTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingWorker.StateValue;
+import javax.swing.UIManager;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JCheckBoxMenuItem;
 public class Add_Subject extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel Subject_Tf;
-	private JTextField Subject_In;
+	private JComboBox Subject_In;
 	private JLabel Professor_Tf;
 	private JTextField Professor_In;
 	private JLabel Dayofweek_Tf;
 	private JLabel Period_Tf;
-	private JTextField Dayofweek_In;
-	private JTextField Period_In;
+	private JComboBox Period_In;
 	private JLabel Year_Tf;
 	private JLabel Semester_Tf;
-	private JTextField Year_In;
-	private JTextField Semester_In;
+	private JComboBox Year_In;
+	private JComboBox Semester_In;
 	private JLabel Divclass_Tf;
-	private JTextField Divclass_In;
+	private JComboBox Divclass_In;
 	Subject_Management sList;
 	private JPanel Panel_Subject;
 	private JPanel Panel_Professor;
-	private JLabel label;
 	private JPanel Panel_Dayofweek;
 	private JPanel Panel_Period;
 	private JPanel Panel_Year;
 	private JPanel Panel_Semester;
 	private JPanel Panel_Divclass;
 	Subject_Management sbm;
+	private JScrollPane scrollPane;
 	
     private void ViewData(Subject_Dto vSub){
        
@@ -98,9 +109,9 @@ public class Add_Subject extends JFrame {
 		Subject_Tf.setFont(Subject_Tf.getFont().deriveFont(Subject_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Subject_Tf.setBackground(new Color(0, 0, 128));
 		
-		Subject_In = new JTextField();
-		Subject_In.setText("");
-		Subject_In.setColumns(10);
+		Subject_In = new JComboBox();
+		Subject_In.setFont(Subject_In.getFont().deriveFont(Subject_In.getFont().getStyle() | Font.BOLD, 18f));
+		Subject_In.setModel(new DefaultComboBoxModel(new String[] {"수강 과목 선택", "소프트웨어 공학", "데이터 베이스", "알고리즘", "공학 설계", "프로그래밍1", "프로그래밍2", "컴퓨터와 소프트웨어의 이해", "이산 수학", "컴퓨터 네트워크", "소프트웨어 개발", "인문학 특강", "융복합과 이해", "성공학 특강", "결혼과 사회", "한국 현대 문학 산책", "자연과학세계"}));
 		Subject_In.setBounds(28, 76, 473, 41);
 		contentPane.add(Subject_In);
 		
@@ -164,15 +175,7 @@ public class Add_Subject extends JFrame {
 		Period_Tf.setFont(Period_Tf.getFont().deriveFont(Period_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Period_Tf.setBackground(new Color(0, 0, 128));
 		
-		Dayofweek_In = new JTextField();
-		Dayofweek_In.setFont(Dayofweek_In.getFont().deriveFont(Dayofweek_In.getFont().getStyle() | Font.BOLD, Dayofweek_In.getFont().getSize() + 2f));
-		Dayofweek_In.setColumns(10);
-		Dayofweek_In.setBounds(28, 307, 181, 41);
-		contentPane.add(Dayofweek_In);
-		
-		Period_In = new JTextField();
-		Period_In.setFont(Period_In.getFont().deriveFont(Period_In.getFont().getStyle() | Font.BOLD, Period_In.getFont().getSize() + 2f));
-		Period_In.setColumns(10);
+		Period_In = new JComboBox();
 		Period_In.setBounds(287, 307, 181, 41);
 		contentPane.add(Period_In);
 		
@@ -212,15 +215,13 @@ public class Add_Subject extends JFrame {
 		Semester_Tf.setFont(Semester_Tf.getFont().deriveFont(Semester_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Semester_Tf.setBackground(new Color(0, 0, 128));
 		
-		Year_In = new JTextField();
-		Year_In.setFont(Year_In.getFont().deriveFont(Year_In.getFont().getStyle() | Font.BOLD, Year_In.getFont().getSize() + 2f));
-		Year_In.setColumns(10);
+		Year_In = new JComboBox();
+		Year_In.setModel(new DefaultComboBoxModel(new String[] {"년도 선택", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"}));
 		Year_In.setBounds(28, 424, 181, 41);
 		contentPane.add(Year_In);
 		
-		Semester_In = new JTextField();
-		Semester_In.setFont(Semester_In.getFont().deriveFont(Semester_In.getFont().getStyle() | Font.BOLD, Semester_In.getFont().getSize() + 2f));
-		Semester_In.setColumns(10);
+		Semester_In = new JComboBox();
+		Semester_In.setModel(new DefaultComboBoxModel(new String[] {"학기 선택", "1학기", "2학기"}));
 		Semester_In.setBounds(287, 424, 181, 41);
 		contentPane.add(Semester_In);
 		
@@ -242,9 +243,8 @@ public class Add_Subject extends JFrame {
 		Divclass_Tf.setFont(Divclass_Tf.getFont().deriveFont(Divclass_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Divclass_Tf.setBackground(new Color(0, 0, 128));
 		
-		Divclass_In = new JTextField();
-		Divclass_In.setFont(Divclass_In.getFont().deriveFont(Divclass_In.getFont().getStyle() | Font.BOLD, Divclass_In.getFont().getSize() + 2f));
-		Divclass_In.setColumns(10);
+		Divclass_In = new JComboBox();
+		Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1분반", "2분반", "3분반", "4분반", "5분반"}));
 		Divclass_In.setBounds(287, 480, 181, 41);
 		contentPane.add(Divclass_In);
 		
@@ -361,14 +361,21 @@ public class Add_Subject extends JFrame {
 		Divclass_Lb.setBounds(482, 480, 47, 41);
 		contentPane.add(Divclass_Lb);
 		
-		label = new JLabel();
-		label.setBounds(105, 155, 63, 25);
-		contentPane.add(label);
-		label.setText("과목명");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setForeground(Color.WHITE);
-		label.setFont(label.getFont().deriveFont(label.getFont().getStyle() | Font.BOLD, 21f));
-		label.setBackground(new Color(0, 0, 128));
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(28, 307, 181, 41);
+		contentPane.add(scrollPane);
+		
+		JList Dayofweek_In = new JList();
+		scrollPane.setViewportView(Dayofweek_In);
+		Dayofweek_In.setModel(new AbstractListModel() {
+			String[] values = new String[] {"월", "화", "수", "목", "금", "토"};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
 	
 	}
 	//삽입
