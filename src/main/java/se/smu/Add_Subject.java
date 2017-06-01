@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -30,6 +32,8 @@ import javax.swing.UIManager;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JCheckBoxMenuItem;
+import javax.swing.ListSelectionModel;
+import javax.swing.JCheckBox;
 public class Add_Subject extends JFrame {
 
 	private JPanel contentPane;
@@ -39,7 +43,7 @@ public class Add_Subject extends JFrame {
 	private JTextField Professor_In;
 	private JLabel Dayofweek_Tf;
 	private JLabel Period_Tf;
-	private JComboBox Period_In;
+	private JTextField Period_In;
 	private JLabel Year_Tf;
 	private JLabel Semester_Tf;
 	private JComboBox Year_In;
@@ -55,10 +59,10 @@ public class Add_Subject extends JFrame {
 	private JPanel Panel_Semester;
 	private JPanel Panel_Divclass;
 	Subject_Management sbm;
-	private JScrollPane scrollPane;
-	
+	private JTextField Dayofweek_In;
     private void ViewData(Subject_Dto vSub){
-       
+    private JScrollPane Dayofweek_Scoll;  
+    
         String subject = vSub.getSubject();
         String professor = vSub.getProfessor();
         String dayofweek = vSub.getDayofweek();
@@ -84,7 +88,7 @@ public class Add_Subject extends JFrame {
 	public Add_Subject() {
 		setTitle("수강 과목 등록");
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 551, 649);
+		setBounds(100, 100, 551, 640);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -156,7 +160,6 @@ public class Add_Subject extends JFrame {
 		Dayofweek_Tf.setForeground(Color.WHITE);
 		Dayofweek_Tf.setFont(Dayofweek_Tf.getFont().deriveFont(Dayofweek_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Dayofweek_Tf.setBackground(new Color(0, 0, 128));
-		
 		JLabel Period_Img = new JLabel("");
 		Period_Img.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/imagesL3LZX0G1.jpg")));
 		Period_Img.setBounds(287, 251, 52, 41);
@@ -175,7 +178,7 @@ public class Add_Subject extends JFrame {
 		Period_Tf.setFont(Period_Tf.getFont().deriveFont(Period_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Period_Tf.setBackground(new Color(0, 0, 128));
 		
-		Period_In = new JComboBox();
+		Period_In = new JTextField();
 		Period_In.setBounds(287, 307, 181, 41);
 		contentPane.add(Period_In);
 		
@@ -216,11 +219,13 @@ public class Add_Subject extends JFrame {
 		Semester_Tf.setBackground(new Color(0, 0, 128));
 		
 		Year_In = new JComboBox();
+		Year_In.setFont(Year_In.getFont().deriveFont(Year_In.getFont().getStyle() | Font.BOLD, 18f));
 		Year_In.setModel(new DefaultComboBoxModel(new String[] {"년도 선택", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"}));
 		Year_In.setBounds(28, 424, 181, 41);
 		contentPane.add(Year_In);
 		
 		Semester_In = new JComboBox();
+		Semester_In.setFont(Semester_In.getFont().deriveFont(Semester_In.getFont().getStyle() | Font.BOLD, 18f));
 		Semester_In.setModel(new DefaultComboBoxModel(new String[] {"학기 선택", "1학기", "2학기"}));
 		Semester_In.setBounds(287, 424, 181, 41);
 		contentPane.add(Semester_In);
@@ -244,6 +249,7 @@ public class Add_Subject extends JFrame {
 		Divclass_Tf.setBackground(new Color(0, 0, 128));
 		
 		Divclass_In = new JComboBox();
+		Divclass_In.setFont(Divclass_In.getFont().deriveFont(Divclass_In.getFont().getStyle() | Font.BOLD, 18f));
 		Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1분반", "2분반", "3분반", "4분반", "5분반"}));
 		Divclass_In.setBounds(287, 480, 181, 41);
 		contentPane.add(Divclass_In);
@@ -361,21 +367,11 @@ public class Add_Subject extends JFrame {
 		Divclass_Lb.setBounds(482, 480, 47, 41);
 		contentPane.add(Divclass_Lb);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(28, 307, 181, 41);
-		contentPane.add(scrollPane);
-		
-		JList Dayofweek_In = new JList();
-		scrollPane.setViewportView(Dayofweek_In);
-		Dayofweek_In.setModel(new AbstractListModel() {
-			String[] values = new String[] {"월", "화", "수", "목", "금", "토"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
+		Dayofweek_In = new JTextField();
+		Dayofweek_In.setFont(Dayofweek_In.getFont().deriveFont(Dayofweek_In.getFont().getStyle() | Font.BOLD, Dayofweek_In.getFont().getSize() + 2f));
+		Dayofweek_In.setColumns(10);
+		Dayofweek_In.setBounds(28, 307, 181, 41);
+		contentPane.add(Dayofweek_In);
 	
 	}
 	//삽입
@@ -388,23 +384,23 @@ public class Add_Subject extends JFrame {
 	}
 	public Subject_Dto getViewData() {
 		Subject_Dto dto = new Subject_Dto();
-        String subject = Subject_In.getText();
+//        String subject = Subject_In.getText();
         String professor = Professor_In.getText();
-        String dayofweek = Dayofweek_In.getText();
-        String period = Period_In.getText();
-        String year = Year_In.getText();
-        String semester = Semester_In.getText();
-        String divclass = Divclass_In.getText();
+//        String dayofweek = Dayofweek_In.getText();
+//        String period = Period_In.getText();
+//        String year = Year_In.getText();
+//        String semester = Semester_In.getText();
+//        String divclass = Divclass_In.getText();
         
         
         
-        dto.setSubject(subject);
+//        dto.setSubject(subject);
         dto.setProfessor(professor);
-        dto.setDayofweek(dayofweek);
-        dto.setPeriod(period);
-        dto.setYear(year);
-        dto.setSemester(semester);
-        dto.setDivclass(divclass);
+//        dto.setDayofweek(dayofweek);
+//        dto.setPeriod(period);
+//        dto.setYear(year);
+//        dto.setSemester(semester);
+//        dto.setDivclass(divclass);
 
        
         return dto;
