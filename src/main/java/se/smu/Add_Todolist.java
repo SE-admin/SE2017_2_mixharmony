@@ -290,7 +290,7 @@ public class Add_Todolist extends JFrame {
 		final JComboBox Select_Subject_Btn = new JComboBox();
 		Select_Subject_Btn.setFont(Select_Subject_Btn.getFont().deriveFont(Select_Subject_Btn.getFont().getStyle() | Font.BOLD, 18f));
 		Select_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"과목 선택", "소프트웨어 공학", "데이터 베이스", "알고리즘", "공학 설계", "프로그래밍1", "프로그래밍2", "컴퓨터와 소프트웨어의 이해", "이산 수학", "컴퓨터 네트워크", "소프트웨어 개발", "인문학 특강", "융복합과 이해", "성공학 특강", "결혼과 사회", "한국 현대 문학 산책", "자연과학세계"}));
-        Select_Subject_Btn.setBounds(17, 482, 218, 37);
+        Select_Subject_Btn.setBounds(17, 482, 201, 37);
         contentPane.add(Select_Subject_Btn);
 		
 		
@@ -471,6 +471,12 @@ public class Add_Todolist extends JFrame {
 			Comment_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
 			Comment_Img.setBounds(17, 426, 52, 41);
 			contentPane.add(Comment_Img);
+			
+			JComboBox Complete_Select = new JComboBox();
+			Complete_Select.setModel(new DefaultComboBoxModel(new String[] {"완료여부", "O", "X"}));
+			Complete_Select.setFont(Complete_Select.getFont().deriveFont(Complete_Select.getFont().getStyle() | Font.BOLD, 18f));
+			Complete_Select.setBounds(235, 482, 109, 39);
+			contentPane.add(Complete_Select);
 	}
 //삽입
 	private void Insert_Todo(){
