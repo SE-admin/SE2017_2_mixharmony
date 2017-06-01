@@ -28,6 +28,7 @@ import javax.swing.JComboBox;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
 
+@SuppressWarnings("serial")
 public class Add_Todolist extends JFrame {
 
 	private JPanel contentPane;
