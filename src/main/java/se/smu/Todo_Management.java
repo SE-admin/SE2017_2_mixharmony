@@ -117,12 +117,14 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 			new Object[][] {
 			},
 			new String[] {
-				"TODO명", "마감 기한", "실제 마감일", "중요도"
+				"TODO\uBA85", "\uB9C8\uAC10 \uAE30\uD55C", "\uC2E4\uC81C \uB9C8\uAC10\uC77C", "\uC911\uC694\uB3C4", "\uCF54\uBA58\uD2B8", "\uC644\uB8CC\uC5EC\uBD80"
 			}
 		));
 		Todo_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(135);
 		Todo_Data_Tb.getColumnModel().getColumn(1).setPreferredWidth(135);
 		Todo_Data_Tb.getColumnModel().getColumn(2).setPreferredWidth(135);
+		Todo_Data_Tb.getColumnModel().getColumn(4).setPreferredWidth(170);
+		Todo_Data_Tb.getColumnModel().getColumn(5).setPreferredWidth(85);
 		Todo_Data_Tb.setSurrendersFocusOnKeystroke(true);
 		Todo_Data_Tb.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		Todo_Data_Tb.setFont(Todo_Data_Tb.getFont().deriveFont(Todo_Data_Tb.getFont().getStyle() | Font.BOLD, 18f));
