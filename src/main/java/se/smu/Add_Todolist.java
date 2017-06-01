@@ -34,13 +34,13 @@ public class Add_Todolist extends JFrame {
 	private JLabel Itemname_Tf;
 	private JTextField Itemname_In;
 	private JLabel Deadline_Tf;
-	private JTextField Deadline_Mon;
-	private JTextField Deadline_Date;
-	private JTextField Deadline_Time;
+	private JComboBox Deadline_Year;
+	private JComboBox Deadline_Date;
+	private JComboBox Deadline_Time;
 	private JLabel Rdeadline_Tf;
-	private JTextField Rdeadline_Mon;
-	private JTextField Rdeadline_Date;
-	private JTextField Rdeadline_Time;
+	private JComboBox Rdeadline_Mon;
+	private JComboBox Rdeadline_Date;
+	private JComboBox Rdeadline_Time;
 	private JLabel Importance_Tf;
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
@@ -48,6 +48,7 @@ public class Add_Todolist extends JFrame {
 	private JPanel Panel_For_Importance;
 	Todo_Management tdm;
 	public static String cob;
+	private JTextField Comment_In;
 
 	
     private void ViewData(Todo_Dto vTo){
@@ -101,7 +102,7 @@ public class Add_Todolist extends JFrame {
 	public Add_Todolist() {
 		setTitle("TO DO 항목 등록");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 528, 551);
+		setBounds(100, 100, 528, 596);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -151,32 +152,32 @@ public class Add_Todolist extends JFrame {
 		Deadline_Tf.setFont(Deadline_Tf.getFont().deriveFont(Deadline_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Deadline_Tf.setBackground(new Color(0, 0, 128));
 		
-		Deadline_Mon = new JTextField();
-		Deadline_Mon.setText("");
-		Deadline_Mon.setColumns(10);
-		Deadline_Mon.setBounds(17, 183, 135, 41);
-		contentPane.add(Deadline_Mon);
+		Deadline_Year = new JComboBox();
+		Deadline_Year.setFont(Deadline_Year.getFont().deriveFont(Deadline_Year.getFont().getStyle() | Font.BOLD, 18f));
+		Deadline_Year.setModel(new DefaultComboBoxModel(new String[] {"년도", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"}));
+		Deadline_Year.setBounds(17, 183, 68, 41);
+		contentPane.add(Deadline_Year);
 		
-		JLabel Deadline_Mon_Lb = new JLabel("월");
-		Deadline_Mon_Lb.setFont(Deadline_Mon_Lb.getFont().deriveFont(Deadline_Mon_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Deadline_Mon_Lb.setBounds(155, 183, 30, 41);
-		contentPane.add(Deadline_Mon_Lb);
+		JLabel Deadline_Year_Lb = new JLabel("년");
+		Deadline_Year_Lb.setFont(Deadline_Year_Lb.getFont().deriveFont(Deadline_Year_Lb.getFont().getStyle() | Font.BOLD, 18f));
+		Deadline_Year_Lb.setBounds(87, 183, 30, 41);
+		contentPane.add(Deadline_Year_Lb);
 		
-		Deadline_Date = new JTextField();
-		Deadline_Date.setText("");
-		Deadline_Date.setColumns(10);
-		Deadline_Date.setBounds(180, 183, 135, 41);
+		Deadline_Date = new JComboBox();
+		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		Deadline_Date.setFont(Deadline_Date.getFont().deriveFont(Deadline_Date.getFont().getStyle() | Font.BOLD, 18f));
+		Deadline_Date.setBounds(215, 183, 68, 41);
 		contentPane.add(Deadline_Date);
 		
 		JLabel Deadline_Date_Lb = new JLabel("일");
 		Deadline_Date_Lb.setFont(Deadline_Date_Lb.getFont().deriveFont(Deadline_Date_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Deadline_Date_Lb.setBounds(318, 188, 30, 30);
+		Deadline_Date_Lb.setBounds(286, 188, 30, 30);
 		contentPane.add(Deadline_Date_Lb);
 		
-		Deadline_Time = new JTextField();
-		Deadline_Time.setText("");
-		Deadline_Time.setColumns(10);
-		Deadline_Time.setBounds(343, 183, 135, 41);
+		Deadline_Time = new JComboBox();
+		Deadline_Time.setFont(Deadline_Time.getFont().deriveFont(Deadline_Time.getFont().getStyle() | Font.BOLD, 18f));
+		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1시", "2시", "3시", "4시", "5시", "6시", "7시", "8시", "9시", "10시", "11시", "12시"}));
+		Deadline_Time.setBounds(410, 183, 68, 41);
 		contentPane.add(Deadline_Time);
 		
 		JLabel Deadline_Time_Lb = new JLabel("시");
@@ -204,32 +205,32 @@ public class Add_Todolist extends JFrame {
 		Rdeadline_Tf.setFont(Rdeadline_Tf.getFont().deriveFont(Rdeadline_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Rdeadline_Tf.setBackground(new Color(0, 0, 128));
 		
-		Rdeadline_Mon = new JTextField();
-		Rdeadline_Mon.setText("");
-		Rdeadline_Mon.setColumns(10);
-		Rdeadline_Mon.setBounds(17, 299, 135, 41);
+		Rdeadline_Mon = new JComboBox();
+		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"}));
+		Rdeadline_Mon.setFont(Rdeadline_Mon.getFont().deriveFont(Rdeadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
+		Rdeadline_Mon.setBounds(120, 300, 65, 41);
 		contentPane.add(Rdeadline_Mon);
 		
 		JLabel Rdeadline_Mon_Lb = new JLabel("월");
 		Rdeadline_Mon_Lb.setFont(Rdeadline_Mon_Lb.getFont().deriveFont(Rdeadline_Mon_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Mon_Lb.setBounds(155, 304, 30, 30);
+		Rdeadline_Mon_Lb.setBounds(188, 305, 30, 30);
 		contentPane.add(Rdeadline_Mon_Lb);
 		
-		Rdeadline_Date = new JTextField();
-		Rdeadline_Date.setText("");
-		Rdeadline_Date.setColumns(10);
-		Rdeadline_Date.setBounds(180, 299, 135, 41);
+		Rdeadline_Date = new JComboBox();
+		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		Rdeadline_Date.setFont(Rdeadline_Date.getFont().deriveFont(Rdeadline_Date.getFont().getStyle() | Font.BOLD, 18f));
+		Rdeadline_Date.setBounds(214, 300, 68, 41);
 		contentPane.add(Rdeadline_Date);
 		
 		JLabel Rdeadline_Date_Lb = new JLabel("일");
 		Rdeadline_Date_Lb.setFont(Rdeadline_Date_Lb.getFont().deriveFont(Rdeadline_Date_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Date_Lb.setBounds(318, 304, 30, 30);
+		Rdeadline_Date_Lb.setBounds(286, 305, 30, 30);
 		contentPane.add(Rdeadline_Date_Lb);
 
-		Rdeadline_Time = new JTextField();
-		Rdeadline_Time.setText("");
-		Rdeadline_Time.setColumns(10);
-		Rdeadline_Time.setBounds(343, 299, 135, 41);
+		Rdeadline_Time = new JComboBox();
+		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1시", "2시", "3시", "4시", "5시", "6시", "7시", "8시", "9시", "10시", "11시", "12시"}));
+		Rdeadline_Time.setFont(Rdeadline_Time.getFont().deriveFont(Rdeadline_Time.getFont().getStyle() | Font.BOLD, 18f));
+		Rdeadline_Time.setBounds(410, 299, 68, 41);
 		contentPane.add(Rdeadline_Time);
 		
 		JLabel Rdeadline_Time_Lb = new JLabel("시");
@@ -288,8 +289,8 @@ public class Add_Todolist extends JFrame {
 		
 		final JComboBox Select_Subject_Btn = new JComboBox();
 		Select_Subject_Btn.setFont(Select_Subject_Btn.getFont().deriveFont(Select_Subject_Btn.getFont().getStyle() | Font.BOLD, 18f));
-		Select_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"과목명 선택", "소프트웨어공학", "데이터 베이스", "알고리즘"}));
-        Select_Subject_Btn.setBounds(17, 433, 218, 37);
+		Select_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"과목 선택", "소프트웨어 공학", "데이터 베이스", "알고리즘", "공학 설계", "프로그래밍1", "프로그래밍2", "컴퓨터와 소프트웨어의 이해", "이산 수학", "컴퓨터 네트워크", "소프트웨어 개발", "인문학 특강", "융복합과 이해", "성공학 특강", "결혼과 사회", "한국 현대 문학 산책", "자연과학세계"}));
+        Select_Subject_Btn.setBounds(17, 482, 218, 37);
         contentPane.add(Select_Subject_Btn);
 		
 		
@@ -297,7 +298,7 @@ public class Add_Todolist extends JFrame {
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
 		Signup_Btn.setBackground(new Color(0, 0, 128));
-		Signup_Btn.setBounds(372, 433, 118, 42);
+		Signup_Btn.setBounds(371, 478, 118, 42);
 		Signup_Btn.addMouseListener(new MouseListener()
 		{
 
@@ -411,6 +412,65 @@ public class Add_Todolist extends JFrame {
 				
 			}});
 			contentPane.add(Signup_Btn);
+			
+			JComboBox Deadline_Mon = new JComboBox();
+			Deadline_Mon.setFont(Deadline_Mon.getFont().deriveFont(Deadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
+			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"}));
+			Deadline_Mon.setBounds(117, 183, 68, 41);
+			contentPane.add(Deadline_Mon);
+			
+			JLabel Deadline_Mon_Lb = new JLabel("월");
+			Deadline_Mon_Lb.setFont(Deadline_Mon_Lb.getFont().deriveFont(Deadline_Mon_Lb.getFont().getStyle() | Font.BOLD, 18f));
+			Deadline_Mon_Lb.setBounds(188, 183, 30, 41);
+			contentPane.add(Deadline_Mon_Lb);
+			
+			JComboBox Select_Time = new JComboBox();
+			Select_Time.setModel(new DefaultComboBoxModel(new String[] {"선택", "오전", "오후"}));
+			Select_Time.setFont(Select_Time.getFont().deriveFont(Select_Time.getFont().getStyle() | Font.BOLD, 18f));
+			Select_Time.setBounds(325, 183, 68, 41);
+			contentPane.add(Select_Time);
+			
+			JComboBox Rdeadline_Year = new JComboBox();
+			Rdeadline_Year.setModel(new DefaultComboBoxModel(new String[] {"년도", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"}));
+			Rdeadline_Year.setFont(Rdeadline_Year.getFont().deriveFont(Rdeadline_Year.getFont().getStyle() | Font.BOLD, 18f));
+			Rdeadline_Year.setBounds(17, 300, 68, 41);
+			contentPane.add(Rdeadline_Year);
+			
+			JLabel Rdeadline_Year_Lb = new JLabel("년");
+			Rdeadline_Year_Lb.setFont(Rdeadline_Year_Lb.getFont().deriveFont(Rdeadline_Year_Lb.getFont().getStyle() | Font.BOLD, 18f));
+			Rdeadline_Year_Lb.setBounds(87, 300, 30, 41);
+			contentPane.add(Rdeadline_Year_Lb);
+			
+			JComboBox Rselect_Time = new JComboBox();
+			Rselect_Time.setModel(new DefaultComboBoxModel(new String[] {"선택", "오전", "오후"}));
+			Rselect_Time.setFont(Rselect_Time.getFont().deriveFont(Rselect_Time.getFont().getStyle() | Font.BOLD, 18f));
+			Rselect_Time.setBounds(325, 300, 68, 41);
+			contentPane.add(Rselect_Time);
+			
+			JPanel Panel_For_Comment = new JPanel();
+			Panel_For_Comment.setBackground(new Color(0, 0, 128));
+			Panel_For_Comment.setBounds(77, 426, 103, 41);
+			contentPane.add(Panel_For_Comment);
+			Panel_For_Comment.setLayout(null);
+			
+			JLabel Comment_Lb = new JLabel("Comment");
+			Comment_Lb.setBounds(0, 0, 103, 41);
+			Panel_For_Comment.add(Comment_Lb);
+			Comment_Lb.setForeground(new Color(255, 255, 255));
+			Comment_Lb.setFont(Comment_Lb.getFont().deriveFont(Comment_Lb.getFont().getStyle() | Font.BOLD, 18f));
+			Comment_Lb.setHorizontalAlignment(SwingConstants.CENTER);
+			Comment_Lb.setBackground(new Color(0, 0, 128));
+			
+			Comment_In = new JTextField();
+			Comment_In.setText("");
+			Comment_In.setColumns(10);
+			Comment_In.setBounds(188, 426, 308, 41);
+			contentPane.add(Comment_In);
+			
+			JLabel Comment_Img = new JLabel("");
+			Comment_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
+			Comment_Img.setBounds(17, 426, 52, 41);
+			contentPane.add(Comment_Img);
 	}
 //삽입
 	private void Insert_Todo(){
@@ -423,7 +483,7 @@ public class Add_Todolist extends JFrame {
 		Todo_Dto dto = new Todo_Dto();
 		Subject_Dto dto1 = new Subject_Dto();
 		String itemname = Itemname_In.getText();
-		String deadline = Deadline_Mon.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
+		String deadline = Deadline_Year.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
 		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
 		String importance = Integer.toString(choose_importance);
 		String subject = cob;
