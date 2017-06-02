@@ -371,13 +371,13 @@ public class Change_Subject extends JFrame {
 	
 	public Subject_Dto getViewData() {
 		Subject_Dto dto = new Subject_Dto();
-       String subject = Subject_In.getText();
+       String subject = Subject_In.getToolTipText();
        String professor = Professor_In.getText();
        String dayofweek = Dayofweek_In.getText();
        String period = Period_In.getText();
-       String year = Year_In.getText();
-       String semester = Semester_In.getText();
-       String divclass = Divclass_In.getText();
+       String year = Year_In.getToolTipText();
+       String semester = Semester_In.getToolTipText();
+       String divclass = Divclass_In.getToolTipText();
        
        dto.setSubject(subject);
        dto.setProfessor(professor);

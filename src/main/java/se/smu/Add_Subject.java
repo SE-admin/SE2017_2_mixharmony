@@ -61,7 +61,7 @@ public class Add_Subject extends JFrame {
 	Subject_Management sbm;
 	private JTextField Dayofweek_In;
     private void ViewData(Subject_Dto vSub){
-    private JScrollPane Dayofweek_Scoll;  
+    JScrollPane Dayofweek_Scoll;  
     
         String subject = vSub.getSubject();
         String professor = vSub.getProfessor();

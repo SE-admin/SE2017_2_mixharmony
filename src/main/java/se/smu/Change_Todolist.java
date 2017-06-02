@@ -438,8 +438,8 @@ public class Change_Todolist extends JFrame {
 	public Todo_Dto getViewData() {
 		Todo_Dto dto = new Todo_Dto();
 		String itemname = Itemname_In.getText();
-		String deadline = Deadline_Mon.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
-		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
+		String deadline = Deadline_Mon.getToolTipText() +"월"+ Deadline_Date.getToolTipText()+"일" + Deadline_Time.getToolTipText() +"시";
+		String rdeadline = Rdeadline_Mon.getToolTipText() +"월"+ Rdeadline_Date.getToolTipText()+"일" + Rdeadline_Time.getToolTipText() +"시";
 		String importance = Integer.toString(choose_importance);
 //		String subject = JComboBox.getText();
 		String subject = Itemname_In.getText(); //db 실행되는지만 확인

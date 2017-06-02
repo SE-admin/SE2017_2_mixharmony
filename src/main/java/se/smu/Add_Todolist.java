@@ -490,8 +490,8 @@ public class Add_Todolist extends JFrame {
 		Todo_Dto dto = new Todo_Dto();
 		Subject_Dto dto1 = new Subject_Dto();
 		String itemname = Itemname_In.getText();
-		String deadline = Deadline_Year.getText() +"월"+ Deadline_Date.getText()+"일" + Deadline_Time.getText() +"시";
-		String rdeadline = Rdeadline_Mon.getText() +"월"+ Rdeadline_Date.getText()+"일" + Rdeadline_Time.getText() +"시";
+		String deadline = Deadline_Year.getToolTipText() +"월"+ Deadline_Date.getToolTipText()+"일" + Deadline_Time.getToolTipText() +"시";
+		String rdeadline = Rdeadline_Mon.getToolTipText() +"월"+ Rdeadline_Date.getToolTipText()+"일" + Rdeadline_Time.getToolTipText() +"시";
 		String importance = Integer.toString(choose_importance);
 		String subject = cob;
 		
