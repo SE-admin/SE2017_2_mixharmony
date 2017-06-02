@@ -64,6 +64,13 @@ public class Change_Subject extends JFrame {
 	Subject_Management sList;
 	private JPanel Panel_Dayofweek;
 	private JTextField Dayofweek_In;
+	
+	public static String Subjectcob; //수강과목 box값 받기
+//	public static String Dayofweekcob;//요일 box값 받기
+	public static String Yearcob;//년도 box값 받기
+	public static String Semestercob;//학기 box값 받기
+	public static String Divclasscob;//분반 box값 받기
+	
     private void ViewData(Subject_Dto vSub){
         
         String subject = vSub.getSubject();
@@ -324,10 +331,15 @@ public class Change_Subject extends JFrame {
 		public void mousePressed(MouseEvent arg0) {
 			DefaultTableModel model = (DefaultTableModel) table.getModel();
 	        for (int i = 0; i < model.getRowCount();) {
-	            model.removeRow(0);
-	            
+	            model.removeRow(0);	       
 	            }
-	        Change_Subject(); //전부 수정됨..
+			Subjectcob = Subject_In.getSelectedItem().toString();
+//			Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
+			Yearcob =Year_In.getSelectedItem().toString();
+			Divclasscob =Divclass_In.getSelectedItem().toString();
+			Semestercob =Semester_In.getSelectedItem().toString();
+			
+	        Change_Subject(); 
 	        /*db change data*/
 			//Change_Subject(subject);
 			/*update table*/
@@ -370,14 +382,18 @@ public class Change_Subject extends JFrame {
 	
 	
 	public Subject_Dto getViewData() {
-		Subject_Dto dto = new Subject_Dto();
-       String subject = Subject_In.getToolTipText();
+	   Subject_Dto dto = new Subject_Dto();
+//       String subject = Subject_In.getToolTipText();
+	   String subject = Subjectcob;
        String professor = Professor_In.getText();
        String dayofweek = Dayofweek_In.getText();
        String period = Period_In.getText();
-       String year = Year_In.getToolTipText();
-       String semester = Semester_In.getToolTipText();
-       String divclass = Divclass_In.getToolTipText();
+//       String year = Year_In.getToolTipText();
+//       String semester = Semester_In.getToolTipText();
+//       String divclass = Divclass_In.getToolTipText();
+       String year = Yearcob;
+       String semester = Semestercob;
+       String divclass = Divclasscob;
        
        dto.setSubject(subject);
        dto.setProfessor(professor);
