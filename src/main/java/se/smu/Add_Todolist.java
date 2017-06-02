@@ -33,38 +33,70 @@ public class Add_Todolist extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel Itemname_Tf;
-	private JTextField Itemname_In;
 	private JLabel Deadline_Tf;
-	private JComboBox Deadline_Year;
-	private JComboBox Deadline_Date;
-	private JComboBox Deadline_Time;
 	private JLabel Rdeadline_Tf;
+	private JLabel Importance_Tf;
+	
+	private JTextField Itemname_In;
+	private JTextField Comment_In;
+
+	private JComboBox Deadline_Year;
+	private JComboBox Deadline_Mon;
+	private JComboBox Deadline_Date;
+	private JComboBox Deadline_AmPm;
+	private JComboBox Deadline_Time;
+
+	private JComboBox Rdeadline_Year;
 	private JComboBox Rdeadline_Mon;
 	private JComboBox Rdeadline_Date;
+	private JComboBox Rdeadline_AmPm;
 	private JComboBox Rdeadline_Time;
-	private JLabel Importance_Tf;
+	
+	private JComboBox Subject;
+	private JComboBox Complete;
+
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
 	private JPanel Panel_For_Rdeadline;
 	private JPanel Panel_For_Importance;
 	Todo_Management tdm;
+	
 	public static String cob;
-	private JTextField Comment_In;
+	public static String DeadlineYear_cob;
+	public static String DeadlineMon_cob;
+	public static String DeadlineDate_cob;
+	public static String DeadlineAmPm_cob;
+	public static String DeadlineTime_cob;
+	public static String RdeadlineYear_cob;
+	public static String RdeadlineMon_cob;
+	public static String RdeadlineDate_cob;
+	public static String RdeadlineAmpm_cob;
+	public static String RdeadlineTime_cob;
+	
+	public static String Subjectcob;//수강과목 box값 받기
+	public static String Completecob;//완료여부 box값 받기
+
 
 	
     private void ViewData(Todo_Dto vTo){
         
         String itemname = vTo.getItemname();
         //String deadline = vTo.getDeadline();
+        String deadliney = vTo.getDeadliney();
         String deadlinem = vTo.getDeadlinem();
         String deadlined = vTo.getDeadlined();
+        String deadline_ampm = vTo.getDeadline_ampm();
         String deadlinet = vTo.getDeadlinet();
         //String rdeadline = vTo.getRdeadline();
+        String rdeadliney = vTo.getRdeadliney();
         String rdeadlinem = vTo.getRdeadlinem();
         String rdeadlined = vTo.getRdeadlined();
+        String rdeadline_ampm = vTo.getRdeadline_ampm();
         String rdeadlinet = vTo.getRdeadlinet();
         String importance = vTo.getImportance();
-//      String subject = vTo.getSubject();
+        String comment = vTo.getComment();
+        String subject = vTo.getSubject();
+        String complete = vTo.getComplete();
     }
 
 //////////////생성자
@@ -493,32 +525,45 @@ public class Add_Todolist extends JFrame {
 		 Subject_Dao dao2 = new Subject_Dao();
 		 boolean ok = dao.Insert_Todo(dto);
 	}
+	
 	public Todo_Dto getViewData() {
 		Todo_Dto dto = new Todo_Dto();
 		Subject_Dto dto1 = new Subject_Dto();
 		String itemname = Itemname_In.getText();
 		//String deadline = Deadline_Year.getToolTipText() +"월"+ Deadline_Date.getToolTipText()+"일" + Deadline_Time.getToolTipText() +"시";
-		String deadlinem = Deadline_Year.getToolTipText() + "월";
-		String deadlined = Deadline_Date.getToolTipText() + "일";
-		String deadlinet = Deadline_Time.getToolTipText() + "시";
+		String deadliney = DeadlineYear_cob;
+		String deadlinem = DeadlineMon_cob;
+		String deadlined = DeadlineDate_cob;
+		String deadline_ampm = DeadlineAmPm_cob;
+		String deadlinet = DeadlineTime_cob;
 		//String rdeadline = Rdeadline_Mon.getToolTipText() +"월"+ Rdeadline_Date.getToolTipText()+"일" + Rdeadline_Time.getToolTipText() +"시";
-		String rdeadlinem = Rdeadline_Mon.getToolTipText() +"월";
-		String rdeadlined = Rdeadline_Date.getToolTipText() +"일";
-		String rdeadlinet = Rdeadline_Time.getToolTipText() +"시";
+		String rdeadliney = RdeadlineYear_cob;
+		String rdeadlinem = RdeadlineMon_cob;
+		String rdeadlined = RdeadlineDate_cob;
+		String rdeadline_ampm = RdeadlineAmpm_cob;
+		String rdeadlinet = RdeadlineTime_cob;
 		String importance = Integer.toString(choose_importance);
-		String subject = cob;
+		String comment = Comment_In.getText();
+		String subject = Subjectcob;
+		String complete = Completecob;
 		
 		dto.setItemname(itemname);
 		//dto.setDeadline(deadline);
+		dto.setDeadliney(deadliney);
 		dto.setDeadlinem(deadlinem);
 		dto.setDeadlined(deadlined);
+		dto.setDeadline_ampm(deadline_ampm);
 		dto.setDeadlinet(deadlinet);
 		//dto.setRdeadline(rdeadline);
+		dto.setRdeadliney(rdeadliney);
 		dto.setRdeadlinem(rdeadlinem);
 		dto.setRdeadlined(rdeadlined);
+		dto.setRdeadline_ampm(rdeadline_ampm);
 		dto.setRdeadlinet(rdeadlinet);
 		dto.setImportance(importance);
+		dto.setComment(comment);
 		dto.setSubject(subject);
+		dto.setComplete(complete);
 	
 	return dto;
 	}
