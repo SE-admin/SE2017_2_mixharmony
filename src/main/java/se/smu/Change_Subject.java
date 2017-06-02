@@ -80,8 +80,14 @@ public class Change_Subject extends JFrame {
         String year = vSub.getYear();
         String semester = vSub.getSemester();
         String divclass = vSub.getDivclass();
+        
+        Subject_In.setSelectedItem(subject);
         Professor_In.setText(professor);
+        Dayofweek_In.setText(dayofweek);
         Period_In.setText(period);
+        Year_In.setSelectedItem(year);
+        Semester_In.setSelectedItem(semester);
+        Divclass_In.setSelectedItem(divclass); 
     }
 
 	public static void main(String[] args) {
@@ -137,6 +143,7 @@ public class Change_Subject extends JFrame {
 	Subject_In.setModel(new DefaultComboBoxModel(new String[] {"수강 과목 선택", "소프트웨어 공학", "데이터 베이스", "알고리즘", "공학 설계", "프로그래밍1", "프로그래밍2", "컴퓨터와 소프트웨어의 이해", "이산 수학", "컴퓨터 네트워크", "소프트웨어 개발", "인문학 특강", "융복합과 이해", "성공학 특강", "결혼과 사회", "한국 현대 문학 산책", "자연과학세계"}));
 	Subject_In.setBounds(28, 76, 473, 41);
 	contentPane.add(Subject_In);
+	Subject_In.setEnabled(false); 
 	
 	JLabel Professor_Img = new JLabel("");
 	Professor_Img.setIcon(new ImageIcon(Change_Subject.class.getResource("/image/imagesASJC4VFF.jpg")));
@@ -248,7 +255,7 @@ public class Change_Subject extends JFrame {
 	
 	Semester_In = new JComboBox();
 	Semester_In.setFont(Semester_In.getFont().deriveFont(Semester_In.getFont().getStyle() | Font.BOLD, 18f));
-	Semester_In.setModel(new DefaultComboBoxModel(new String[] {"학기 선택", "1학기", "2학기"}));
+	Semester_In.setModel(new DefaultComboBoxModel(new String[] {"학기 선택", "1", "2"}));
 	Semester_In.setBounds(287, 424, 173, 41);
 	contentPane.add(Semester_In);
 	
@@ -272,7 +279,7 @@ public class Change_Subject extends JFrame {
 	
 	Divclass_In = new JComboBox();
 	Divclass_In.setFont(Divclass_In.getFont().deriveFont(Divclass_In.getFont().getStyle() | Font.BOLD, 18f));
-	Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1분반", "2분반", "3분반", "4분반", "5분반"}));
+	Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1", "2", "3", "4", "5"}));
 	Divclass_In.setBounds(287, 480, 173, 41);
 	contentPane.add(Divclass_In);
 	
