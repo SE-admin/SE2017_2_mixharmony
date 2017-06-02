@@ -168,7 +168,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Sort_Btn.setBounds(28, 381, 144, 42);
 		contentPane.add(Sort_Btn);
 		
-		JCheckBox Hide_Select = new JCheckBox("숨긴 목록 다시 보이기");
+		final JCheckBox Hide_Select = new JCheckBox("숨긴 목록 다시 보이기");
 		//checkbox event add
 		Hide_Select.addItemListener(new ItemListener()
 				{

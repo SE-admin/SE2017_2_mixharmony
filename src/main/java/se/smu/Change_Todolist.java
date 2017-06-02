@@ -49,8 +49,14 @@ public class Change_Todolist extends JFrame {
     private void ViewData(Todo_Dto vTo){
         
         String itemname = vTo.getItemname();
-        String deadline = vTo.getDeadline();
-        String rdeadline = vTo.getRdeadline();
+        //String deadline = vTo.getDeadline();
+        String deadlinem = vTo.getDeadlinem();
+        String deadlined = vTo.getDeadlined();
+        String deadlinet = vTo.getDeadlinet();
+        //String rdeadline = vTo.getRdeadline();
+        String rdeadlinem = vTo.getRdeadlinem();
+        String rdeadlined = vTo.getRdeadlined();
+        String rdeadlinet = vTo.getRdeadlinet();
         String importance = vTo.getImportance();
         String subject = vTo.getSubject();
 
@@ -384,7 +390,8 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Rselect_Time);
 		
 		JLabel Comment_Img = new JLabel("");
-		Comment_Img.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
+		//잠시 주석처리//
+		//Comment_Img.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
 		Comment_Img.setBounds(17, 416, 52, 41);
 		contentPane.add(Comment_Img);
 		
@@ -438,15 +445,27 @@ public class Change_Todolist extends JFrame {
 	public Todo_Dto getViewData() {
 		Todo_Dto dto = new Todo_Dto();
 		String itemname = Itemname_In.getText();
-		String deadline = Deadline_Mon.getToolTipText() +"월"+ Deadline_Date.getToolTipText()+"일" + Deadline_Time.getToolTipText() +"시";
-		String rdeadline = Rdeadline_Mon.getToolTipText() +"월"+ Rdeadline_Date.getToolTipText()+"일" + Rdeadline_Time.getToolTipText() +"시";
+		//String deadline = Deadline_Mon.getToolTipText() +"월"+ Deadline_Date.getToolTipText()+"일" + Deadline_Time.getToolTipText() +"시";
+		String deadlinem = Deadline_Mon.getToolTipText() +"월";
+		String deadlined = Deadline_Date.getToolTipText() +"일";
+		String deadlinet = Deadline_Time.getToolTipText() +"시";
+		//String rdeadline = Rdeadline_Mon.getToolTipText() +"월"+ Rdeadline_Date.getToolTipText()+"일" + Rdeadline_Time.getToolTipText() +"시";
+		String rdeadlinem = Rdeadline_Mon.getToolTipText() +"월";
+		String rdeadlined = Rdeadline_Mon.getToolTipText() +"일";
+		String rdeadlinet = Rdeadline_Mon.getToolTipText() +"시";
 		String importance = Integer.toString(choose_importance);
-//		String subject = JComboBox.getText();
+		//String subject = JComboBox.getText();
 		String subject = Itemname_In.getText(); //db 실행되는지만 확인
 		
 		dto.setItemname(itemname);
-		dto.setDeadline(deadline);
-		dto.setRdeadline(rdeadline);
+		//dto.setDeadline(deadline);
+		dto.setDeadlinem(deadlinem);
+		dto.setDeadlined(deadlined);
+		dto.setDeadlinet(deadlinet);
+		//dto.setRdeadline(rdeadline);
+		dto.setRdeadlinem(rdeadlinem);
+		dto.setRdeadlined(rdeadlined);
+		dto.setRdeadlinet(rdeadlinet);
 		dto.setImportance(importance);
 		dto.setSubject(subject);
 	
