@@ -6,7 +6,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class Todo_Dao {
 	 
-	 
     private static final String DRIVER
         = "org.mariadb.jdbc.Driver";
     private static final String URL
@@ -343,7 +342,7 @@ public void userSelectAll(DefaultTableModel model) {
     }
 }
 //sort 메소드  
-//deadline, rdeadline 정렬 기준 정해야 함!
+//정렬 기준? deadline, rdeadline 수정 필요
 public void userSelectAll1(DefaultTableModel model,int z) {  
   
 	Connection con = null;  
