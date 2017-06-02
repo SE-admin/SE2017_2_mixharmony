@@ -22,6 +22,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 import java.util.Vector;
 
 import javax.swing.JTable;
@@ -45,11 +46,17 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	private JPopupMenu popup = new JPopupMenu();
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
-	//수정3//
+	
 	Subject_Management sList;
 	public String Subject;
 	//combobox text send value
-	public static String cob;
+	public static String sortcob;
+	public static String subjectcob;
+	public static String dayofweekcob;
+	public static String yearcob;
+	public static String semestercob;
+	public static String divclasscob;
+	
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -151,7 +158,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	
 			public void actionPerformed(ActionEvent e) {
 				try {
-					cob = Sort_Subject_Btn.getSelectedItem().toString();
+					sortcob = Sort_Subject_Btn.getSelectedItem().toString();
 					Add_Subject frame = new Add_Subject();
 					frame.setVisible(true); 
 				} catch (Exception e1) {
@@ -233,6 +240,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	public class Mouseclick extends MouseAdapter implements ActionListener
 	{   
 		
+		
 	   public Mouseclick(){
 	      popup.add(ChangeMenu);
 	      popup.add(DeleteMenu);
@@ -248,6 +256,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 						int row = Subject_Data_Tb.getSelectedRow();
 						String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
 						Change_Subject frame = new Change_Subject(subject); //수정2
+					
 						frame.setVisible(true); 
 					} catch (Exception e1) {
 						e1.printStackTrace();
@@ -257,6 +266,8 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	      
 	      DeleteMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
+					
+		
 					try {
 						
 						int row = Subject_Data_Tb.getSelectedRow();
@@ -310,12 +321,16 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 			   if(e.getButton() == 3){
 			         popup.show((Component)e.getSource(), e.getX(), e.getY());
 			      }
-
+			   else{
+				   	  
+				  	  Todo_Management Info = new Todo_Management(); //act class define
+					  Info.setVisible(true); //class act
+			   }
 		   }            
 	   }
 	   public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub
-		  
+
 
 	   }
 	}
@@ -327,7 +342,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
@@ -353,8 +368,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-  	  Todo_Management Info = new Todo_Management(); //act class define
-		  Info.setVisible(true); //class act
+
 		// TODO Auto-generated method stub
 		
 	}

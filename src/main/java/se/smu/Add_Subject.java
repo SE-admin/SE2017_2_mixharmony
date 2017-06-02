@@ -250,7 +250,7 @@ public class Add_Subject extends JFrame {
 		
 		Divclass_In = new JComboBox();
 		Divclass_In.setFont(Divclass_In.getFont().deriveFont(Divclass_In.getFont().getStyle() | Font.BOLD, 18f));
-		Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1분반", "2분반", "3분반", "4분반", "5분반"}));
+		Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1분반", "2분반", "3분반"}));
 		Divclass_In.setBounds(287, 480, 181, 41);
 		contentPane.add(Divclass_In);
 		
