@@ -169,6 +169,36 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		contentPane.add(Sort_Btn);
 		
 		JCheckBox Hide_Select = new JCheckBox("숨긴 목록 다시 보이기");
+		//checkbox event add
+		Hide_Select.addItemListener(new ItemListener()
+				{
+					@Override
+					public void itemStateChanged(ItemEvent arg0) {
+						if(Hide_Select.isSelected()) //선택된 경우 o표시 제외
+						{
+							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
+					        for (int i = 0; i < model.getRowCount();) {
+					            model.removeRow(0);
+					            }
+					        model = (DefaultTableModel) Todo_Data_Tb.getModel();
+					        Todo_Dao dao = new Todo_Dao();
+					        dao.userSelectAll1(model, 5);
+					        
+						}
+						else //해제시 모든 table표시
+						{
+							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
+					        for (int i = 0; i < model.getRowCount();) {
+					            model.removeRow(0);
+					            }
+							DefaultTableModel model1 = (DefaultTableModel) Todo_Data_Tb.getModel();
+							Todo_Dao dao = new Todo_Dao();
+							dao.userSelectAll(model1);
+					        
+							
+						}
+					}});
+		//
 		Hide_Select.setFont(Hide_Select.getFont().deriveFont(Hide_Select.getFont().getStyle() | Font.BOLD, 18f));
 		Hide_Select.setBounds(28, 341, 225, 29);
 		contentPane.add(Hide_Select);

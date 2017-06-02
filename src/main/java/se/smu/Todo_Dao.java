@@ -301,10 +301,17 @@ public void userSelectAll1(DefaultTableModel model,int z) {
 			ps = con.prepareStatement(sql);  
 			rs = ps.executeQuery();  
 		}
-		else
+		else if(z == 4)
 		{
 			con = getConn();  
 			String sql = "select * from tododb order by complete asc";  
+			ps = con.prepareStatement(sql);  
+			rs = ps.executeQuery();
+		}
+		else //X만 출력
+		{
+			con = getConn();  
+			String sql = "select * from tododb where (complete not like '%O%')";  
 			ps = con.prepareStatement(sql);  
 			rs = ps.executeQuery();
 		}
