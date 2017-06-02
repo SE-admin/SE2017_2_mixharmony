@@ -38,6 +38,7 @@ import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import java.sql.*;
+import javax.swing.JCheckBox;
 
 public class Todo_Management extends JFrame implements MouseListener,ActionListener{
 
@@ -109,7 +110,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		JScrollPane Todo_Scroll = new JScrollPane();
 		Todo_Scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		Todo_Scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		Todo_Scroll.setBounds(28, 39, 688, 294);
+		Todo_Scroll.setBounds(28, 34, 688, 294);
 		contentPane.add(Todo_Scroll);
 		
 		Todo_Data_Tb = new JTable();
@@ -166,6 +167,11 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Sort_Btn.setBackground(new Color(0, 0, 128));
 		Sort_Btn.setBounds(28, 381, 144, 42);
 		contentPane.add(Sort_Btn);
+		
+		JCheckBox Hide_Select = new JCheckBox("숨긴 목록 다시 보이기");
+		Hide_Select.setFont(Hide_Select.getFont().deriveFont(Hide_Select.getFont().getStyle() | Font.BOLD, 18f));
+		Hide_Select.setBounds(28, 341, 225, 29);
+		contentPane.add(Hide_Select);
 		//sort 구현
 		Sort_Btn.addItemListener(new ItemListener()
 				{
@@ -351,14 +357,4 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		// TODO Auto-generated method stub
 		
 	}
-	
-	//////////////////추가
-//	public void mouseClicked(MouseEvent e){
-//		int r = Todo_Data_Tb.getSelectedRow();
-//		String itemname = (String)Todo_Data_Tb.getValueAt(r, 0);
-//		String deadline = (String)Todo_Data_Tb.getValueAt(r, 1);
-//		String rdeadline = (String)Todo_Data_Tb.getValueAt(r, 2);
-//		String importance = (String)Todo_Data_Tb.getValueAt(r, 3);
-//		Add_Todolist chg = new Add_Todolist(itemname, deadline, rdeadline, importance);
-//	}
 }
