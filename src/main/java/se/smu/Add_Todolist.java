@@ -146,7 +146,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		JTable table1 = tdm.Todo_Data_Tb;
+		final JTable table1 = tdm.Todo_Data_Tb;
 		
 		JPanel Panel_For_Itemname = new JPanel();
 		Panel_For_Itemname.setBackground(new Color(0, 0, 128));
