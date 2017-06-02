@@ -30,59 +30,98 @@ public class Change_Todolist extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField Itemname_In;
+	private JTextField Comment_In;
 	private JLabel Deadline_Tf;
 	private JLabel Rdeadline_Tf;
 	private JLabel Importance_Tf;
+	private JComboBox Deadline_Year;
 	private JComboBox Deadline_Mon;
 	private JComboBox Deadline_Date;
+	private JComboBox Select_Time;
 	private JComboBox Deadline_Time;
+	private JComboBox Rdeadline_Year;
 	private JComboBox Rdeadline_Mon;
 	private JComboBox Rdeadline_Date;
+	private JComboBox Rselect_Time;
 	private JComboBox Rdeadline_Time;
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
+	private JComboBox Complete_Select;
+	private JComboBox Select_Subject_Btn;
+	
+	public static String cob;
+	public static String DeadlineYear_cob;
+	public static String DeadlineMon_cob;
+	public static String DeadlineDate_cob;
+	public static String DeadlineAmPm_cob;
+	public static String DeadlineTime_cob;
+	public static String RdeadlineYear_cob;
+	public static String RdeadlineMon_cob;
+	public static String RdeadlineDate_cob;
+	public static String RdeadlineAmpm_cob;
+	public static String RdeadlineTime_cob;
+	
+	public static String Subjectcob;//수강과목 box값 받기
+	public static String Completecob;//완료여부 box값 받기
 	
 	Todo_Management tList;
-	private JTextField Comment_In;
 	
 	
     private void ViewData(Todo_Dto vTo){
         
-        String itemname = vTo.getItemname();
+    	String itemname = vTo.getItemname();
         //String deadline = vTo.getDeadline();
+        String deadliney = vTo.getDeadliney();
         String deadlinem = vTo.getDeadlinem();
         String deadlined = vTo.getDeadlined();
+        String deadline_ampm = vTo.getDeadline_ampm();
         String deadlinet = vTo.getDeadlinet();
         //String rdeadline = vTo.getRdeadline();
+        String rdeadliney = vTo.getRdeadliney();
         String rdeadlinem = vTo.getRdeadlinem();
         String rdeadlined = vTo.getRdeadlined();
+        String rdeadline_ampm = vTo.getRdeadline_ampm();
         String rdeadlinet = vTo.getRdeadlinet();
         String importance = vTo.getImportance();
+        String comment = vTo.getComment();
         String subject = vTo.getSubject();
-
-        //수정//
+        String complete = vTo.getComplete();
+        
         Itemname_In.setText(itemname);
-//        Rdeadline_Date.setText(rdeadline);
-//        Rdeadline_Time.setText(rdeadline);
+        Deadline_Year.setSelectedItem(deadliney);
+        Deadline_Mon.setSelectedItem(deadlinem);
+        Deadline_Date.setSelectedItem(deadlined);
+        Select_Time.setSelectedItem(deadline_ampm);
+        Deadline_Time.setSelectedItem(deadlinet);
         
+        Rdeadline_Year.setSelectedItem(rdeadliney);
+        Rdeadline_Mon.setSelectedItem(rdeadlinem);
+        Rdeadline_Date.setSelectedItem(rdeadlined);
+        Rselect_Time.setSelectedItem(rdeadline_ampm);
+        Rdeadline_Time.setSelectedItem(rdeadlinet);
+             
+        Comment_In.setText(comment);
+        Select_Subject_Btn.setSelectedItem(subject);
+        Complete_Select.setSelectedItem(complete);
+
         
-//        Star_Listener Star_Listener = new Star_Listener();
-//        if(Integer.parseInt(importance) == 1){
-//    		Importance_Star_Btn[0].addMouseListener(Star_Listener);
-//    		contentPane.add(Importance_Star_Btn[0]);
-//        }else if(Integer.parseInt(importance) == 2){
-//        	Importance_Star_Btn[1].addMouseListener(Star_Listener);
-//    		contentPane.add(Importance_Star_Btn[1]);
-//        }else if(Integer.parseInt(importance) == 3){
-//        	Importance_Star_Btn[2].addMouseListener(Star_Listener);
-//    		contentPane.add(Importance_Star_Btn[2]);
-//        }else if(Integer.parseInt(importance) == 4){
-//        	Importance_Star_Btn[3].addMouseListener(Star_Listener);
-//    		contentPane.add(Importance_Star_Btn[3]);
-//        }else if(Integer.parseInt(importance) == 5){
-//        	Importance_Star_Btn[4].addMouseListener(Star_Listener);
-//    		contentPane.add(Importance_Star_Btn[4]);
-//        }
+        Star_Listener Star_Listener = new Star_Listener();
+        if(Integer.parseInt(importance) == 1){
+    		Importance_Star_Btn[0].addMouseListener(Star_Listener);
+    		contentPane.add(Importance_Star_Btn[0]);
+        }else if(Integer.parseInt(importance) == 2){
+        	Importance_Star_Btn[1].addMouseListener(Star_Listener);
+    		contentPane.add(Importance_Star_Btn[1]);
+        }else if(Integer.parseInt(importance) == 3){
+        	Importance_Star_Btn[2].addMouseListener(Star_Listener);
+    		contentPane.add(Importance_Star_Btn[2]);
+        }else if(Integer.parseInt(importance) == 4){
+        	Importance_Star_Btn[3].addMouseListener(Star_Listener);
+    		contentPane.add(Importance_Star_Btn[3]);
+        }else if(Integer.parseInt(importance) == 5){
+        	Importance_Star_Btn[4].addMouseListener(Star_Listener);
+    		contentPane.add(Importance_Star_Btn[4]);
+        }
         for(int i = 0; i < Integer.parseInt(importance); i++){
         	Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
         }
@@ -323,7 +362,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Deadline_Time_Lb);
 		
 		Rdeadline_Mon = new JComboBox();
-		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"}));
+		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Rdeadline_Mon.setFont(Rdeadline_Mon.getFont().deriveFont(Rdeadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Mon.setBounds(120, 300, 68, 41);
 		contentPane.add(Rdeadline_Mon);
@@ -346,7 +385,7 @@ public class Change_Todolist extends JFrame {
 		
 		Rdeadline_Time = new JComboBox();
 		Rdeadline_Time.setFont(Rdeadline_Time.getFont().deriveFont(Rdeadline_Time.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1시", "2시", "3시", "4시", "5시", "6시", "7시", "8시", "9시", "10시", "11시", "12시"}));
+		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Rdeadline_Time.setBounds(396, 300, 68, 41);
 		contentPane.add(Rdeadline_Time);
 		
@@ -355,7 +394,7 @@ public class Change_Todolist extends JFrame {
 		Rdeadline_Time_Lb.setBounds(473, 304, 30, 30);
 		contentPane.add(Rdeadline_Time_Lb);
 		
-		JComboBox Deadline_Year = new JComboBox();
+		Deadline_Year = new JComboBox();
 		Deadline_Year.setModel(new DefaultComboBoxModel(new String[] {"년도", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"}));
 		Deadline_Year.setFont(Deadline_Year.getFont().deriveFont(Deadline_Year.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Year.setBounds(17, 188, 68, 41);
@@ -366,13 +405,13 @@ public class Change_Todolist extends JFrame {
 		Deadline_Year_Lb.setBounds(90, 188, 30, 41);
 		contentPane.add(Deadline_Year_Lb);
 		
-		JComboBox Select_Time = new JComboBox();
+		Select_Time = new JComboBox();
 		Select_Time.setModel(new DefaultComboBoxModel(new String[] {"선택", "오전", "오후"}));
 		Select_Time.setFont(Select_Time.getFont().deriveFont(Select_Time.getFont().getStyle() | Font.BOLD, 18f));
 		Select_Time.setBounds(322, 188, 68, 41);
 		contentPane.add(Select_Time);
 		
-		JComboBox Rdeadline_Year = new JComboBox();
+		Rdeadline_Year = new JComboBox();
 		Rdeadline_Year.setModel(new DefaultComboBoxModel(new String[] {"년도", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"}));
 		Rdeadline_Year.setFont(Rdeadline_Year.getFont().deriveFont(Rdeadline_Year.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Year.setBounds(17, 300, 68, 41);
@@ -383,14 +422,13 @@ public class Change_Todolist extends JFrame {
 		Rdeadline_Year_Lb.setBounds(90, 300, 30, 41);
 		contentPane.add(Rdeadline_Year_Lb);
 		
-		JComboBox Rselect_Time = new JComboBox();
+		Rselect_Time = new JComboBox();
 		Rselect_Time.setModel(new DefaultComboBoxModel(new String[] {"선택", "오전", "오후"}));
 		Rselect_Time.setFont(Rselect_Time.getFont().deriveFont(Rselect_Time.getFont().getStyle() | Font.BOLD, 18f));
 		Rselect_Time.setBounds(322, 299, 68, 41);
 		contentPane.add(Rselect_Time);
 		
 		JLabel Comment_Img = new JLabel("");
-		//잠시 주석처리//
 		//Comment_Img.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
 		Comment_Img.setBounds(17, 416, 52, 41);
 		contentPane.add(Comment_Img);
@@ -415,13 +453,13 @@ public class Change_Todolist extends JFrame {
 		Comment_In.setBounds(195, 416, 308, 41);
 		contentPane.add(Comment_In);
 		
-		JComboBox Select_Subject_Btn = new JComboBox();
+		Select_Subject_Btn = new JComboBox();
 		Select_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"과목 선택", "소프트웨어 공학", "데이터 베이스", "알고리즘", "공학 설계", "프로그래밍1", "프로그래밍2", "컴퓨터와 소프트웨어의 이해", "이산 수학", "컴퓨터 네트워크", "소프트웨어 개발", "인문학 특강", "융복합과 이해", "성공학 특강", "결혼과 사회", "한국 현대 문학 산책", "자연과학세계"}));
 		Select_Subject_Btn.setFont(Select_Subject_Btn.getFont().deriveFont(Select_Subject_Btn.getFont().getStyle() | Font.BOLD, 18f));
 		Select_Subject_Btn.setBounds(11, 478, 201, 37);
 		contentPane.add(Select_Subject_Btn);
 		
-		JComboBox Complete_Select = new JComboBox();
+		Complete_Select = new JComboBox();
 		Complete_Select.setModel(new DefaultComboBoxModel(new String[] {"완료여부", "O", "X"}));
 		Complete_Select.setFont(Complete_Select.getFont().deriveFont(Complete_Select.getFont().getStyle() | Font.BOLD, 18f));
 		Complete_Select.setBounds(238, 475, 109, 39);
@@ -433,7 +471,18 @@ public class Change_Todolist extends JFrame {
 		ViewData(vTo);
 	}
 	
-	//수정//
+	
+	public Change_Todolist(String itemname, Todo_Management tList)
+	{
+		this.tList = tList;
+		System.out.println("itemname="+itemname);
+		Todo_Dto dto = getViewData();
+		Todo_Dao dao = new Todo_Dao();
+		Todo_Dto vTodolist = dao.getTodo_Dto(itemname);
+		ViewData(vTodolist);
+
+	}
+	
 	
 	private void Change_Todolist(){
 		Todo_Dto dto = getViewData();
@@ -444,30 +493,40 @@ public class Change_Todolist extends JFrame {
 	
 	public Todo_Dto getViewData() {
 		Todo_Dto dto = new Todo_Dto();
+		Subject_Dto dto1 = new Subject_Dto();
 		String itemname = Itemname_In.getText();
-		//String deadline = Deadline_Mon.getToolTipText() +"월"+ Deadline_Date.getToolTipText()+"일" + Deadline_Time.getToolTipText() +"시";
-		String deadlinem = Deadline_Mon.getToolTipText() +"월";
-		String deadlined = Deadline_Date.getToolTipText() +"일";
-		String deadlinet = Deadline_Time.getToolTipText() +"시";
-		//String rdeadline = Rdeadline_Mon.getToolTipText() +"월"+ Rdeadline_Date.getToolTipText()+"일" + Rdeadline_Time.getToolTipText() +"시";
-		String rdeadlinem = Rdeadline_Mon.getToolTipText() +"월";
-		String rdeadlined = Rdeadline_Mon.getToolTipText() +"일";
-		String rdeadlinet = Rdeadline_Mon.getToolTipText() +"시";
+		String deadliney = DeadlineYear_cob + "년";
+		String deadlinem = DeadlineMon_cob + "월";
+		String deadlined = DeadlineDate_cob + "일";
+		String deadline_ampm = DeadlineAmPm_cob;
+		String deadlinet = DeadlineTime_cob + "시";
+		String rdeadliney = RdeadlineYear_cob + "년";
+		String rdeadlinem = RdeadlineMon_cob + "월";
+		String rdeadlined = RdeadlineDate_cob + "일";
+		String rdeadline_ampm = RdeadlineAmpm_cob + "";
+		String rdeadlinet = RdeadlineTime_cob + "시";
 		String importance = Integer.toString(choose_importance);
-		//String subject = JComboBox.getText();
-		String subject = Itemname_In.getText(); //db 실행되는지만 확인
+		String comment = Comment_In.getText();
+		String subject = Subjectcob;
+		String complete = Completecob;
 		
 		dto.setItemname(itemname);
 		//dto.setDeadline(deadline);
+		dto.setDeadliney(deadliney);
 		dto.setDeadlinem(deadlinem);
 		dto.setDeadlined(deadlined);
+		dto.setDeadline_ampm(deadline_ampm);
 		dto.setDeadlinet(deadlinet);
 		//dto.setRdeadline(rdeadline);
+		dto.setRdeadliney(rdeadliney);
 		dto.setRdeadlinem(rdeadlinem);
 		dto.setRdeadlined(rdeadlined);
+		dto.setRdeadline_ampm(rdeadline_ampm);
 		dto.setRdeadlinet(rdeadlinet);
 		dto.setImportance(importance);
+		dto.setComment(comment);
 		dto.setSubject(subject);
+		dto.setComplete(complete);
 	
 	return dto;
 	}
