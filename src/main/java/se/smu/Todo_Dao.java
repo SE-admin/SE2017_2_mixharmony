@@ -161,7 +161,7 @@ public class Todo_Dao {
             		+ "deadliney,deadlinem,deadlined,deadline_ampm,deadlinet,"
                     + "rdeadliney,rdeadlinem,rdeadlined,rdeadline_ampm,rdeadlinet,"
                     + "importance,comment,subject,complete)"
-                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
            
             ps = con.prepareStatement(sql);
             ps.setString(1, dto.getItemname());
@@ -340,6 +340,7 @@ public void userSelectAll(DefaultTableModel model) {
     }
 }
 //sort 메소드  
+//deadline, rdeadline 정렬 기준 정해야 함!
 public void userSelectAll1(DefaultTableModel model,int z) {  
   
 	Connection con = null;  

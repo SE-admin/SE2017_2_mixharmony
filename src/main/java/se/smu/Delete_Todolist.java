@@ -3,6 +3,7 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
 import java.awt.Color;
@@ -14,7 +15,8 @@ import java.awt.event.ActionEvent;
 public class Delete_Todolist extends JFrame {
 
 	private JPanel contentPane;
-
+	Todo_Management tList;
+	public static JTable Todo_Data_Tb;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -29,8 +31,12 @@ public class Delete_Todolist extends JFrame {
 		});
 	}
 
+	public Delete_Todolist()
+	{
+		
+	}
 
-	public Delete_Todolist() {
+	public Delete_Todolist(final String itemname, int row) {
 		setTitle("TO DO 항목 삭제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 328);
@@ -38,6 +44,7 @@ public class Delete_Todolist extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		final JTable table = tList.Todo_Data_Tb;
 		
 		JTextArea Warning_Out = new JTextArea();
 		Warning_Out.setEditable(false);
@@ -67,7 +74,9 @@ public class Delete_Todolist extends JFrame {
 		JButton Check_Btn = new JButton("확인");
 		Check_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				Delete_Todo();
+				Todo_Dao dao = new Todo_Dao();
+				boolean ok = dao.Delete_Todo(itemname);
+				dispose();
 			}
 		});
 		Check_Btn.setForeground(Color.WHITE);
