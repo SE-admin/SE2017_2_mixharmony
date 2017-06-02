@@ -49,7 +49,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
 	//combobox text send value
-	public static String cob1;
+	public static String Sortcob;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -148,7 +148,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 			public void actionPerformed(ActionEvent e) {
 				//수정//
 				try {
-					cob1 = Sort_Btn.getSelectedItem().toString();//send value
+					Sortcob = Sort_Btn.getSelectedItem().toString();//send value
 					Add_Todolist Info = new Add_Todolist();
 					Info.setVisible(true); 
 
@@ -162,13 +162,13 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		
 		
 		Sort_Btn.setFont(Sort_Btn.getFont().deriveFont(Sort_Btn.getFont().getStyle() | Font.BOLD, Sort_Btn.getFont().getSize() + 4f));
-		Sort_Btn.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "중요도순", "마감일순", "실제마감일순"}));
+		Sort_Btn.setModel(new DefaultComboBoxModel(new String[] {"사전식순", "중요도순", "마감일순", "실제마감일순","완료여부"}));
 		Sort_Btn.setForeground(new Color(255, 255, 255));
 		Sort_Btn.setBackground(new Color(0, 0, 128));
 		Sort_Btn.setBounds(28, 381, 144, 42);
 		contentPane.add(Sort_Btn);
 		
-		final JCheckBox Hide_Select = new JCheckBox("숨긴 목록 다시 보이기");
+		final JCheckBox Hide_Select = new JCheckBox("전체 항목 보기(완료항목)");
 		//checkbox event add
 		Hide_Select.addItemListener(new ItemListener()
 				{
@@ -199,7 +199,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 						}
 					}});
 		//
-		Hide_Select.setFont(Hide_Select.getFont().deriveFont(Hide_Select.getFont().getStyle() | Font.BOLD, 18f));
+		Hide_Select.setFont(Hide_Select.getFont().deriveFont(Hide_Select.getFont().getStyle() | Font.BOLD, 17f));
 		Hide_Select.setBounds(28, 341, 225, 29);
 		contentPane.add(Hide_Select);
 		//sort 구현
@@ -218,7 +218,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 					        dao.userSelectAll(model);
 						}
 	
-						else if(Sort_Btn.getSelectedItem().toString().equals("중요도순"))
+						else if(Sort_Btn.getSelectedItem().toString().equals("완료여부"))
 						{
 							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
 					        for (int i = 0; i < model.getRowCount();) {
@@ -247,6 +247,16 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
 					        Todo_Dao dao = new Todo_Dao();
 					        dao.userSelectAll1(model,3);
+						}
+						else if(Sort_Btn.getSelectedItem().toString().equals("중요도순"))
+						{
+							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
+					        for (int i = 0; i < model.getRowCount();) {
+					            model.removeRow(0);
+					            }
+						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
+					        Todo_Dao dao = new Todo_Dao();
+					        dao.userSelectAll1(model,4);
 						}
 						else
 						{

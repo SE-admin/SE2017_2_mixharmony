@@ -6,6 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Todo_Dao {
 	 
+	 
     private static final String DRIVER
         = "org.mariadb.jdbc.Driver";
     private static final String URL
@@ -13,16 +14,11 @@ public class Todo_Dao {
    
     private static final String USER = "user"; //DB ID
     private static final String PASS = "1234"; //DB 패스워드
-//    Todo_List TList;
-//   
-//    public Todo_Dao() {
-//   
-//    }
+    Subject_Management sList;
+    String Clickdata =sList.Clickdata;
+    
    
-//    public Todo_Dao(Todo_List TList){
-//        this.TList = TList;
-//        System.out.println("DAO=>"+TList);
-//    }
+
    
     /**DB연결 메소드*/
     public Connection getConn(){
@@ -51,7 +47,7 @@ public class Todo_Dao {
         try {
            
             con = getConn();
-            String sql = "select * from tododb where itemname=?";
+            String sql = "select * from tododb";
             ps = con.prepareStatement(sql);
             ps.setString(1, itemname);
            
@@ -84,6 +80,7 @@ public class Todo_Dao {
    
     /**멤버리스트 출력*/
     public Vector getTodo_List(){
+
        
         Vector data = new Vector();  //Jtable에 값을 쉽게 넣는 방법 1. 2차원배열   2. Vector 에 vector추가
        
@@ -95,9 +92,12 @@ public class Todo_Dao {
         try{
            
             con = getConn();
-            String sql = "select * from tododb order by itemname asc";
+            String sql = "select * from tododb where subject=?" + "order by itemname asc";
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
+
+            
+            
            
             while(rs.next()){
                 String itemname = rs.getString("itemname");
@@ -292,9 +292,12 @@ public void userSelectAll(DefaultTableModel model) {
    
     try {
         con = getConn();
-        String sql = "select * from tododb order by itemname asc";
+        System.out.println(Clickdata);
+        String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by itemname asc";
         ps = con.prepareStatement(sql);
+        ps.setString(1, Clickdata);
         rs = ps.executeQuery();
+        
        
         // DefaultTableModel에 있는 데이터 지우기
         for (int i = 0; i < model.getRowCount();) {
@@ -348,40 +351,45 @@ public void userSelectAll1(DefaultTableModel model,int z) {
 	ResultSet rs = null;  
 
 	try {  
-		if(z == 1) //중요도순  
+		if(z == 1) //완료여부순
 		{  
 			con = getConn();  
-			String sql = "select * from tododb order by importance desc";  
+			String sql = "select * from tododb where subject=? order by complete asc";  
 			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();
 			
 		}  
 		else if(z == 2) //마감기한순  
 		{  
 			con = getConn();  
-			String sql = "select * from tododb order by deadline asc";  
+			String sql = "select * from tododb where subject = ?order by deadline asc";  
 			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();  
 		}  
 		else if(z == 3 ) //실제마감일순  
 		{  
 			con = getConn();  
-			String sql = "select * from tododb order by rdeadline asc";  
+			String sql = "select * from tododb where subject=? order by rdeadline asc";  
 			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();  
 		}
-		else if(z == 4)
+		else if(z == 4) //중요도순
 		{
 			con = getConn();  
-			String sql = "select * from tododb order by complete asc";  
+			String sql = "select * from tododb where subject=?order by importance desc";  
 			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();
 		}
-		else //X만 출력
+		else //전체출력
 		{
 			con = getConn();  
-			String sql = "select * from tododb where (complete not like '%O%')";  
+			String sql = "select * from tododb where subject =?";  
 			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();
 		}
 
