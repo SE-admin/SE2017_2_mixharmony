@@ -50,7 +50,8 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	Subject_Management sList;
 	public String Subject;
 	//combobox text send value
-	public static String sortcob;
+	public static String Sortcob; //sort를 위한 combobox
+	public static String Clickdata; // Click 한 데이터 저장
 
 	
 
@@ -154,7 +155,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	
 			public void actionPerformed(ActionEvent e) {
 				try {
-					sortcob = Sort_Subject_Btn.getSelectedItem().toString();
+					Sortcob = Sort_Subject_Btn.getSelectedItem().toString();
 					Add_Subject frame = new Add_Subject();
 					frame.setVisible(true); 
 				} catch (Exception e1) {
@@ -309,7 +310,9 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	   }
 
 	   public void mouseClicked(MouseEvent e){
-		   
+			int rowclickdata = Subject_Data_Tb.getSelectedRow();
+			Clickdata = (String) Subject_Data_Tb.getValueAt(rowclickdata, 0);
+			System.out.println(Clickdata);
 		   int row = Subject_Data_Tb.rowAtPoint(e.getPoint());
 		   int column = Subject_Data_Tb.columnAtPoint(e.getPoint());
 		   if (row >= 0 && column == 0)

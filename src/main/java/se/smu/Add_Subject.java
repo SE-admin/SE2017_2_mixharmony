@@ -290,7 +290,7 @@ public class Add_Subject extends JFrame {
 					
 					public void mousePressed(MouseEvent arg0) {	
 						//combobox가 사전식순일떄 table 추가방식
-						if(sList.sortcob.equals("사전식순"))
+						if(sList.Sortcob.equals("사전식순"))
 						{	
 						//기존 table data delete
 						DefaultTableModel model = (DefaultTableModel) table.getModel();
