@@ -13,16 +13,16 @@ public class Todo_Dao {
    
     private static final String USER = "user"; //DB ID
     private static final String PASS = "1234"; //DB 패스워드
-    Todo_List TList;
+//    Todo_List TList;
+//   
+//    public Todo_Dao() {
+//   
+//    }
    
-    public Todo_Dao() {
-   
-    }
-   
-    public Todo_Dao(Todo_List TList){
-        this.TList = TList;
-        System.out.println("DAO=>"+TList);
-    }
+//    public Todo_Dao(Todo_List TList){
+//        this.TList = TList;
+//        System.out.println("DAO=>"+TList);
+//    }
    
     /**DB연결 메소드*/
     public Connection getConn(){

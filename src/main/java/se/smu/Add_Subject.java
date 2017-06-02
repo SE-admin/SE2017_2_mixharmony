@@ -1,6 +1,5 @@
 package se.smu;
 
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -36,21 +35,26 @@ import javax.swing.ListSelectionModel;
 import javax.swing.JCheckBox;
 public class Add_Subject extends JFrame {
 
-	private JPanel contentPane;
-	private JLabel Subject_Tf;
-	private JComboBox Subject_In;
+
+	private JLabel Subject_Tf; // 
 	private JLabel Professor_Tf;
-	private JTextField Professor_In;
-	private JLabel Dayofweek_Tf;
-	private JLabel Period_Tf;
-	private JTextField Period_In;
 	private JLabel Year_Tf;
 	private JLabel Semester_Tf;
+	private JLabel Dayofweek_Tf;
+	private JLabel Period_Tf;
+	private JLabel Divclass_Tf;
+	
+	private JComboBox Subject_In;
+	private JComboBox Dayodweek_In;
 	private JComboBox Year_In;
 	private JComboBox Semester_In;
-	private JLabel Divclass_Tf;
 	private JComboBox Divclass_In;
-	Subject_Management sList;
+	
+	private JTextField Professor_In;
+	private JTextField Period_In;
+	private JTextField Dayofweek_In;
+	
+	private JPanel contentPane; //내용 패널
 	private JPanel Panel_Subject;
 	private JPanel Panel_Professor;
 	private JPanel Panel_Dayofweek;
@@ -58,8 +62,15 @@ public class Add_Subject extends JFrame {
 	private JPanel Panel_Year;
 	private JPanel Panel_Semester;
 	private JPanel Panel_Divclass;
-	Subject_Management sbm;
-	private JTextField Dayofweek_In;
+
+	public static String Subjectcob; //수강과목 box값 받기
+	public static String Dayofweekcob;//요일 box값 받기
+	public static String Yearcob;//년도 box값 받기
+	public static String Semestercob;//학기 box값 받기
+	public static String Divclasscob;//분반 box값 받기
+	
+	Subject_Management sList;
+
     private void ViewData(Subject_Dto vSub){
     JScrollPane Dayofweek_Scoll;  
     
@@ -87,7 +98,6 @@ public class Add_Subject extends JFrame {
 
 	public Add_Subject() {
 		setTitle("수강 과목 등록");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 551, 640);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -226,7 +236,7 @@ public class Add_Subject extends JFrame {
 		
 		Semester_In = new JComboBox();
 		Semester_In.setFont(Semester_In.getFont().deriveFont(Semester_In.getFont().getStyle() | Font.BOLD, 18f));
-		Semester_In.setModel(new DefaultComboBoxModel(new String[] {"학기 선택", "1학기", "2학기"}));
+		Semester_In.setModel(new DefaultComboBoxModel(new String[] {"학기 선택", "1", "2"}));
 		Semester_In.setBounds(287, 424, 181, 41);
 		contentPane.add(Semester_In);
 		
@@ -250,7 +260,7 @@ public class Add_Subject extends JFrame {
 		
 		Divclass_In = new JComboBox();
 		Divclass_In.setFont(Divclass_In.getFont().deriveFont(Divclass_In.getFont().getStyle() | Font.BOLD, 18f));
-		Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1분반", "2분반", "3분반"}));
+		Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1", "2", "3"}));
 		Divclass_In.setBounds(287, 480, 181, 41);
 		contentPane.add(Divclass_In);
 		
@@ -263,8 +273,7 @@ public class Add_Subject extends JFrame {
 				{
 
 					public void mouseClicked(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
+
 					}
 
 					public void mouseEntered(MouseEvent arg0) {
@@ -280,14 +289,8 @@ public class Add_Subject extends JFrame {
 
 					
 					public void mousePressed(MouseEvent arg0) {	
-						/*
-						Insert_Subject();	
-						dispose();
-                        Subject_Management frame = new Subject_Management();  
-                        frame.setVisible(true);   
-                        */
 						//combobox가 사전식순일떄 table 추가방식
-						if(sbm.cob.equals("사전식순"))
+						if(sList.sortcob.equals("사전식순"))
 						{	
 						//기존 table data delete
 						DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -295,6 +298,11 @@ public class Add_Subject extends JFrame {
 				            model.removeRow(0);
 				            }
 				        //db insert data
+						Subjectcob = Subject_In.getSelectedItem().toString();
+//						Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
+						Yearcob =Year_In.getSelectedItem().toString();
+						Divclasscob =Divclass_In.getSelectedItem().toString();
+						Semestercob =Semester_In.getSelectedItem().toString();
 				        Insert_Subject();
 				        //update table
 					    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
@@ -384,23 +392,23 @@ public class Add_Subject extends JFrame {
 	}
 	public Subject_Dto getViewData() {
 		Subject_Dto dto = new Subject_Dto();
-//        String subject = Subject_In.getText();
+        String subject = Subjectcob;
         String professor = Professor_In.getText();
-//        String dayofweek = Dayofweek_In.getText();
-//        String period = Period_In.getText();
-//        String year = Year_In.getText();
-//        String semester = Semester_In.getText();
-//        String divclass = Divclass_In.getText();
+        String dayofweek = Dayofweek_In.getText();
+        String period = Period_In.getText();
+        String year = Yearcob + "년";
+        String semester = Semestercob + "학기";
+        String divclass = Divclasscob+ "분반";
         
         
         
-//        dto.setSubject(subject);
+        dto.setSubject(subject);
         dto.setProfessor(professor);
-//        dto.setDayofweek(dayofweek);
-//        dto.setPeriod(period);
-//        dto.setYear(year);
-//        dto.setSemester(semester);
-//        dto.setDivclass(divclass);
+        dto.setDayofweek(dayofweek);
+        dto.setPeriod(period);
+        dto.setYear(year);
+        dto.setSemester(semester);
+        dto.setDivclass(divclass);
 
        
         return dto;

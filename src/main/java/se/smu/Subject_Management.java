@@ -51,11 +51,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	public String Subject;
 	//combobox text send value
 	public static String sortcob;
-	public static String subjectcob;
-	public static String dayofweekcob;
-	public static String yearcob;
-	public static String semestercob;
-	public static String divclasscob;
+
 	
 
 	public static void main(String[] args) {
@@ -252,7 +248,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				public void actionPerformed(ActionEvent e) {
 					try {
 						//수정//
-						//Subject_Dto dto = new Subject_Dto();
+						Subject_Dto dto = new Subject_Dto();
 						int row = Subject_Data_Tb.getSelectedRow();
 						String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
 						Change_Subject frame = new Change_Subject(subject); //수정2
