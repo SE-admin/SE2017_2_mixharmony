@@ -534,8 +534,7 @@ public class Add_Todolist extends JFrame {
 			contentPane.add(Comment_In);
 			
 			JLabel Comment_Img = new JLabel("");
-			//잠시 주석처리//
-			//Comment_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
+			Comment_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
 			Comment_Img.setBounds(17, 426, 52, 41);
 			contentPane.add(Comment_Img);
 			
