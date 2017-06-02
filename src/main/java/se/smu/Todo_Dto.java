@@ -3,17 +3,21 @@ package se.smu;
 public class Todo_Dto {
 	private String itemname;
 	//private String deadline;
+	private String deadliney;
 	private String deadlinem;
 	private String deadlined;
+	private String deadline_ampm;
 	private String deadlinet;
 	//private String rdeadline;
+	private String rdeadliney;
 	private String rdeadlinem;
 	private String rdeadlined;
+	private String rdeadline_ampm;
 	private String rdeadlinet;
 	private String importance;
-	private String complete;
+	private String comment;
 	private String subject;
-	
+	private String complete;
 	
 	
 	public String getItemname() {
@@ -35,6 +39,14 @@ public class Todo_Dto {
 	//	this.deadline = deadline;
 	//}
 
+	public String getDeadliney() {
+		return deadlinem;
+	}
+
+
+	public void setDeadliney(String deadliney) {
+		this.deadliney = deadliney;
+	}
 	
 	public String getDeadlinem() {
 		return deadlinem;
@@ -53,6 +65,15 @@ public class Todo_Dto {
 
 	public void setDeadlined(String deadlined) {
 		this.deadlined = deadlined;
+	}
+	
+	public String getDeadline_ampm() {
+		return deadline_ampm;
+	}
+
+
+	public void setDeadline_ampm(String deadline_ampm) {
+		this.deadline_ampm = deadline_ampm;
 	}
 	
 	public String getDeadlinet() {
@@ -75,6 +96,16 @@ public class Todo_Dto {
 	//}
 
 	
+	public String getRdeadliney() {
+		return deadlinem;
+	}
+
+
+	public void setRdeadliney(String rdeadliney) {
+		this.rdeadliney = rdeadliney;
+	}
+	
+	
 	public String getRdeadlinem() {
 		return rdeadlinem;
 	}
@@ -84,6 +115,14 @@ public class Todo_Dto {
 		this.rdeadlinem = rdeadlinem;
 	}
 	
+	public String getRdeadline_ampm() {
+		return rdeadline_ampm;
+	}
+
+
+	public void setRdeadline_ampm(String rdeadline_ampm) {
+		this.rdeadline_ampm = rdeadline_ampm;
+	}
 	
 	public String getRdeadlined() {
 		return rdeadlined;
@@ -113,15 +152,16 @@ public class Todo_Dto {
 		this.importance = importance;
 	}
 	
-	public String getcomplete() {
-		return complete;
+
+	public String getComment() {
+		return itemname;
 	}
 
 
-	public void setcomplete(String complete) {
-		this.complete = complete;
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
-
+	
 	public String getSubject() {
 		return subject;
 	}
@@ -131,12 +171,22 @@ public class Todo_Dto {
 		this.subject = subject;
 	}
 
+	public String getComplete() {
+		return complete;
+	}
+
+
+	public void setComplete(String complete) {
+		this.complete = complete;
+	}
 
 	public String toString(){
 		return "TodoDTO [itemname=" + itemname
-				+ ", deadlinem=" + deadlinem + ", deadlined=" + deadlined + ", deadlinet=" + deadlinet
-				+ ", rdeadlinem=" + rdeadlinem + ", rdeadlined=" + rdeadlined + ", rdeadlinet=" + rdeadlinet
-                + ", importance=" + importance + ", subject=" + subject + "]";
+				+ ", deadliney=" + deadliney + ", deadlinem=" + deadlinem + ", deadlined=" + deadlined
+				+ "deadline_ampm=" + deadline_ampm + ", deadlinet=" + deadlinet
+				+ ", rdeadliney=" + rdeadliney + ", rdeadlinem=" + rdeadlinem + ", rdeadlined=" + rdeadlined
+				+ "rdeadline_ampm=" + rdeadline_ampm + ", rdeadlinet=" + rdeadlinet
+                + ", importance=" + importance + ", subject=" + subject + ", complete=" + complete + "]";
 	}
 	
 	
