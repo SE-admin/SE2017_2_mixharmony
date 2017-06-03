@@ -107,7 +107,7 @@ public class Add_Subject extends JFrame {
 		setContentPane(contentPane);
 		final JTable table = sList.Subject_Data_Tb;
 		//sort class 선언
-		Sort_Subject ssb = new Sort_Subject();
+		final Sort_Subject ssb = new Sort_Subject();
 		
 		JLabel Subject_Img = new JLabel("");
 		Subject_Img.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/untitled.png")));
