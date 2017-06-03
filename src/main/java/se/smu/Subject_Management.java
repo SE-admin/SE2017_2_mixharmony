@@ -80,7 +80,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		System.out.println("v="+v);
 		cols = getColumn();
 		//sort class 선언
-		Sort_Subject ssb = new Sort_Subject();
+		final Sort_Subject ssb = new Sort_Subject();
 		
 		model = new DefaultTableModel(v,cols)
 				{
