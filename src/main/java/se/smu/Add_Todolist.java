@@ -77,6 +77,7 @@ public class Add_Todolist extends JFrame {
 	public static String Subjectcob;//수강과목 box값 받기
 	public static String Completecob;//완료여부 box값 받기
 	
+	Todo_Management tList;
 	
     private void ViewData(Todo_Dto vTo){
         
@@ -475,7 +476,7 @@ public class Add_Todolist extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				tList.jTableRefresh();
 			}});
 			contentPane.add(Signup_Btn);
 			

@@ -105,23 +105,24 @@ public class Change_Todolist extends JFrame {
         Complete_Select.setSelectedItem(complete);
 
         
-        Star_Listener Star_Listener = new Star_Listener();
-        if(Integer.parseInt(importance) == 1){
-    		Importance_Star_Btn[0].addMouseListener(Star_Listener);
-    		contentPane.add(Importance_Star_Btn[0]);
-        }else if(Integer.parseInt(importance) == 2){
-        	Importance_Star_Btn[1].addMouseListener(Star_Listener);
-    		contentPane.add(Importance_Star_Btn[1]);
-        }else if(Integer.parseInt(importance) == 3){
-        	Importance_Star_Btn[2].addMouseListener(Star_Listener);
-    		contentPane.add(Importance_Star_Btn[2]);
-        }else if(Integer.parseInt(importance) == 4){
-        	Importance_Star_Btn[3].addMouseListener(Star_Listener);
-    		contentPane.add(Importance_Star_Btn[3]);
-        }else if(Integer.parseInt(importance) == 5){
-        	Importance_Star_Btn[4].addMouseListener(Star_Listener);
-    		contentPane.add(Importance_Star_Btn[4]);
-        }
+        //Star_Listener Star_Listener = new Star_Listener();
+        //if(Integer.parseInt(importance) == 1){
+    	//	Importance_Star_Btn[0].addMouseListener(Star_Listener);
+    	//	contentPane.add(Importance_Star_Btn[0]);
+        //}else if(Integer.parseInt(importance) == 2){
+        //	Importance_Star_Btn[1].addMouseListener(Star_Listener);
+    	//	contentPane.add(Importance_Star_Btn[1]);
+        //}else if(Integer.parseInt(importance) == 3){
+        //	Importance_Star_Btn[2].addMouseListener(Star_Listener);
+    	//	contentPane.add(Importance_Star_Btn[2]);
+        //}else if(Integer.parseInt(importance) == 4){
+        //	Importance_Star_Btn[3].addMouseListener(Star_Listener);
+    	//	contentPane.add(Importance_Star_Btn[3]);
+        //}else if(Integer.parseInt(importance) == 5){
+        //	Importance_Star_Btn[4].addMouseListener(Star_Listener);
+    	//	contentPane.add(Importance_Star_Btn[4]);
+        //}
+        
         for(int i = 0; i < Integer.parseInt(importance); i++){
         	Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
         }
@@ -313,6 +314,21 @@ public class Change_Todolist extends JFrame {
 				for (int i = 0; i < model.getRowCount();) {
 		            model.removeRow(0);
 		        }
+				DeadlineYear_cob = Deadline_Year.getSelectedItem().toString();
+				DeadlineMon_cob = Deadline_Mon.getSelectedItem().toString();
+				DeadlineDate_cob = Deadline_Mon.getSelectedItem().toString();
+				DeadlineAmPm_cob = Select_Time.getSelectedItem().toString();
+				DeadlineTime_cob = Deadline_Time.getSelectedItem().toString();
+				
+				RdeadlineYear_cob = Rdeadline_Year.getSelectedItem().toString();
+				RdeadlineMon_cob = Rdeadline_Mon.getSelectedItem().toString();
+				RdeadlineDate_cob = Rdeadline_Mon.getSelectedItem().toString();
+				RdeadlineAmpm_cob = Rselect_Time.getSelectedItem().toString();
+				RdeadlineTime_cob = Deadline_Time.getSelectedItem().toString();
+				
+				Subjectcob = Select_Subject_Btn.getSelectedItem().toString();
+				Completecob = Complete_Select.getSelectedItem().toString();
+				
 				Change_Todolist();
 				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 				Todo_Dao dao = new Todo_Dao();

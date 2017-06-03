@@ -42,8 +42,8 @@ import javax.swing.JCheckBox;
 
 public class Todo_Management extends JFrame implements MouseListener,ActionListener{
 
+	DefaultTableModel model;
 	private JPanel contentPane;
-	//수정//
 	public static JTable Todo_Data_Tb;
 	private JPopupMenu popup = new JPopupMenu();
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
@@ -274,14 +274,24 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Data_Tb.addMouseListener(new Mouseclick());
 	}
 	
-/*
+	public Vector getColumn(){
+		Vector col = new Vector();
+		col.add("TODO명");
+		col.add("마감 기한");
+		col.add("실제 마감일");
+		col.add("중요도");
+		col.add("코멘트");
+		col.add("완료여부");
+		return col;
+	}
+	
+
 	public void jTableRefresh(){
 		Todo_Dao dao = new Todo_Dao();
 		DefaultTableModel model = new DefaultTableModel(dao.getTodo_List(), getColumn());
 		Todo_Data_Tb.setModel(model);
 	}
-*/
-
+	
 	public class Mouseclick extends MouseAdapter implements ActionListener
 	{
 	   public Mouseclick(){
@@ -352,14 +362,6 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	   public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub
 	   }
-	}
-
-
-
-	public void jTableRefresh() {
-		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-		Todo_Dao dao = new Todo_Dao();
-		dao.userSelectAll(model);
 	}
 
 	@Override
