@@ -70,7 +70,7 @@ public class Add_Subject extends JFrame {
 	public static String Divclasscob;//분반 box값 받기
 	
 	//class value
-	Sort_Subject ssb;
+	
 	Subject_Management sList;
 
     private void ViewData(Subject_Dto vSub){
@@ -106,6 +106,8 @@ public class Add_Subject extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		final JTable table = sList.Subject_Data_Tb;
+		//sort class 선언
+		Sort_Subject ssb = new Sort_Subject();
 		
 		JLabel Subject_Img = new JLabel("");
 		Subject_Img.setIcon(new ImageIcon(Add_Subject.class.getResource("/image/untitled.png")));

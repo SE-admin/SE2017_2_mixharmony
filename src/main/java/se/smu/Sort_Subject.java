@@ -25,20 +25,18 @@ public class Sort_Subject extends JFrame {
 	
 	public Add_Subject Add_Subject_Class;
 	
-	public Subject_Management Subject_Management_Class;
+	Subject_Management Subject_Management_Class;
 
 	JButton DayofweekBtn; //어떤 기능?
 
 
 	
 	//private Database database;
-	
-	 
-	public static void main (String[] args){
-	
-		new Sort_Subject();
+
+	public static void main(String[] args) {
+		
+		
 	}
-	
 	
 	
 	
@@ -79,12 +77,16 @@ public class Sort_Subject extends JFrame {
 
 	public void Dayofweek_Sort() //dayofweek asc
 	{
+		
 		//delete
+		
 		DefaultTableModel model = (DefaultTableModel) Subject_Management_Class.Subject_Data_Tb.getModel();
         for (int i = 0; i < model.getRowCount();) {
             model.removeRow(0);
             }
+            
         //insert
+        
 	    model = (DefaultTableModel) Subject_Management_Class.Subject_Data_Tb.getModel();
         Subject_Dao dao = new Subject_Dao();
         dao.userSelectAll2(model, 1); //monday
@@ -94,6 +96,7 @@ public class Sort_Subject extends JFrame {
         dao.userSelectAll2(model, 5); //friday
         dao.userSelectAll2(model, 6); //saturday
         dao.userSelectAll2(model, 7); //etc day
+        
 	}
 	
 	public void Subject_Sort()//subject asc
@@ -109,11 +112,12 @@ public class Sort_Subject extends JFrame {
         dao.userSelectAll(model);
 	}
 	
+	/*
 	//사용여부??
 	public Sort_Subject() 
 	{ 
 		
 	 }
-	 
+	 */
 
 }

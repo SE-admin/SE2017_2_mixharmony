@@ -49,7 +49,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	
 	//class value
 	Subject_Management sList;
-	Sort_Subject ssb;
+	
 	//
 	public String Subject;
 	//combobox text send value
@@ -79,6 +79,8 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		v = dao.getSubject_List();
 		System.out.println("v="+v);
 		cols = getColumn();
+		//sort class 선언
+		Sort_Subject ssb = new Sort_Subject();
 		
 		model = new DefaultTableModel(v,cols)
 				{
@@ -176,7 +178,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 						//사전식 order
 						if(Sort_Subject_Btn.getSelectedItem().toString().equals("사전식순"))
 						{
-							ssb.Subject_Sort(); //sort class call,subject asc
+							ssb.Subject_Sort();//sort class call,subject asc
 						}
 					    //dayofweek order
 						else
