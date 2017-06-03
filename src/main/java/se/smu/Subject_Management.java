@@ -47,7 +47,10 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	private JMenuItem ChangeMenu = new JMenuItem("변경");
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
 	
+	//class value
 	Subject_Management sList;
+	Sort_Subject ssb;
+	//
 	public String Subject;
 	//combobox text send value
 	public static String Sortcob; //sort를 위한 combobox
@@ -173,34 +176,12 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 						//사전식 order
 						if(Sort_Subject_Btn.getSelectedItem().toString().equals("사전식순"))
 						{
-							//delete
-							DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Subject_Data_Tb.getModel();
-					        Subject_Dao dao = new Subject_Dao();
-					        dao.userSelectAll(model);
+							ssb.Subject_Sort(); //sort class call,subject asc
 						}
 					    //dayofweek order
 						else
 						{
-							//delete
-							DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-					        
-						    model = (DefaultTableModel) Subject_Data_Tb.getModel();
-					        Subject_Dao dao = new Subject_Dao();
-					        dao.userSelectAll2(model, 1); //monday
-					        dao.userSelectAll2(model, 2); //tuesday
-					        dao.userSelectAll2(model, 3); //wednesday
-					        dao.userSelectAll2(model, 4); //thursday
-					        dao.userSelectAll2(model, 5); //friday
-					        dao.userSelectAll2(model, 6); //saturday
-					        dao.userSelectAll2(model, 7); //etc day
-					        
+							ssb.Dayofweek_Sort(); //sort class call,day order
 						}
 					}}
 				);

@@ -69,6 +69,8 @@ public class Add_Subject extends JFrame {
 	public static String Semestercob;//학기 box값 받기
 	public static String Divclasscob;//분반 box값 받기
 	
+	//class value
+	Sort_Subject ssb;
 	Subject_Management sList;
 
     private void ViewData(Subject_Dto vSub){
@@ -292,11 +294,6 @@ public class Add_Subject extends JFrame {
 						//combobox가 사전식순일떄 table 추가방식
 						if(sList.Sortcob.equals("사전식순"))
 						{	
-						//기존 table data delete
-						DefaultTableModel model = (DefaultTableModel) table.getModel();
-				        for (int i = 0; i < model.getRowCount();) {
-				            model.removeRow(0);
-				            }
 				        //db insert data
 						Subjectcob = Subject_In.getSelectedItem().toString();
 //						Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
@@ -305,32 +302,17 @@ public class Add_Subject extends JFrame {
 						Semestercob =Semester_In.getSelectedItem().toString();
 				        Insert_Subject();
 				        //update table
-					    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
-				        Subject_Dao dao = new Subject_Dao();
-				        dao.userSelectAll(model);
+					    ssb.Subject_Sort();
 				        //exit add_sub
 						dispose();
 						}
 						//combobox가 요일별일때 table 추가방식
 						else
 						{
-							//기존 table data delete
-							DefaultTableModel model = (DefaultTableModel) table.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
 					        //db insert data
 					        Insert_Subject();
 					        //update table(요일)
-						    DefaultTableModel model1 = (DefaultTableModel) table.getModel();
-					        Subject_Dao dao = new Subject_Dao();
-					        dao.userSelectAll2(model, 1);
-					        dao.userSelectAll2(model, 2);
-					        dao.userSelectAll2(model, 3);
-					        dao.userSelectAll2(model, 4);
-					        dao.userSelectAll2(model, 5);
-					        dao.userSelectAll2(model, 6);
-					        dao.userSelectAll2(model, 7);
+						   ssb.Dayofweek_Sort();
 					        //exit add_sub
 							dispose();
 						}
