@@ -105,24 +105,6 @@ public class Change_Todolist extends JFrame {
         Complete_Select.setSelectedItem(complete);
 
         
-        //Star_Listener Star_Listener = new Star_Listener();
-        //if(Integer.parseInt(importance) == 1){
-    	//	Importance_Star_Btn[0].addMouseListener(Star_Listener);
-    	//	contentPane.add(Importance_Star_Btn[0]);
-        //}else if(Integer.parseInt(importance) == 2){
-        //	Importance_Star_Btn[1].addMouseListener(Star_Listener);
-    	//	contentPane.add(Importance_Star_Btn[1]);
-        //}else if(Integer.parseInt(importance) == 3){
-        //	Importance_Star_Btn[2].addMouseListener(Star_Listener);
-    	//	contentPane.add(Importance_Star_Btn[2]);
-        //}else if(Integer.parseInt(importance) == 4){
-        //	Importance_Star_Btn[3].addMouseListener(Star_Listener);
-    	//	contentPane.add(Importance_Star_Btn[3]);
-        //}else if(Integer.parseInt(importance) == 5){
-        //	Importance_Star_Btn[4].addMouseListener(Star_Listener);
-    	//	contentPane.add(Importance_Star_Btn[4]);
-        //}
-        
         for(int i = 0; i < Integer.parseInt(importance); i++){
         	Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
         }
@@ -339,7 +321,7 @@ public class Change_Todolist extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				tList.jTableRefresh();
+				//tList.jTableRefresh();
 			}});
 		
 		contentPane.add(Signup_Btn);
