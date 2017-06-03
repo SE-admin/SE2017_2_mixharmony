@@ -76,7 +76,8 @@ public class Add_Todolist extends JFrame {
 	
 	public static String Subjectcob;//수강과목 box값 받기
 	public static String Completecob;//완료여부 box값 받기
-	
+    Subject_Management sList;
+    String Clickdata =sList.Clickdata;
 	Todo_Management tList;
 	
     private void ViewData(Todo_Dto vTo){
@@ -140,8 +141,7 @@ public class Add_Todolist extends JFrame {
 	}
 
 	public Add_Todolist() {
-		setTitle("TO DO 항목 등록");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle(Clickdata+" TO DO 항목 등록");
 		setBounds(100, 100, 528, 596);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -246,7 +246,7 @@ public class Add_Todolist extends JFrame {
 		Rdeadline_Tf.setBackground(new Color(0, 0, 128));
 		
 		Rdeadline_Mon = new JComboBox();
-		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"}));
+		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Rdeadline_Mon.setFont(Rdeadline_Mon.getFont().deriveFont(Rdeadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Mon.setBounds(120, 300, 68, 41);
 		contentPane.add(Rdeadline_Mon);
@@ -268,7 +268,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.add(Rdeadline_Date_Lb);
 
 		Rdeadline_Time = new JComboBox();
-		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1시", "2시", "3시", "4시", "5시", "6시", "7시", "8시", "9시", "10시", "11시", "12시"}));
+		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Rdeadline_Time.setFont(Rdeadline_Time.getFont().deriveFont(Rdeadline_Time.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Time.setBounds(410, 299, 68, 41);
 		contentPane.add(Rdeadline_Time);
@@ -329,7 +329,7 @@ public class Add_Todolist extends JFrame {
 		
 		Subject = new JComboBox();
 		Subject.setFont(Subject.getFont().deriveFont(Subject.getFont().getStyle() | Font.BOLD, 18f));
-		Subject.setModel(new DefaultComboBoxModel(new String[] {"과목 선택", "소프트웨어 공학", "데이터 베이스", "알고리즘", "공학 설계", "프로그래밍1", "프로그래밍2", "컴퓨터와 소프트웨어의 이해", "이산 수학", "컴퓨터 네트워크", "소프트웨어 개발", "인문학 특강", "융복합과 이해", "성공학 특강", "결혼과 사회", "한국 현대 문학 산책", "자연과학세계"}));
+		Subject.setModel(new DefaultComboBoxModel(new String[] {Clickdata}));
         Subject.setBounds(17, 482, 201, 37);
         contentPane.add(Subject);
 		

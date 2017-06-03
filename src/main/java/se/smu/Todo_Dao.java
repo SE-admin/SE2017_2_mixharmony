@@ -53,22 +53,22 @@ public class Todo_Dao {
             rs = ps.executeQuery();
            
             if(rs.next()){
-                dto.setItemname(rs.getString("itemname"));
+                dto.setItemname(rs.getString("itemname")); // 항목명
                 //dto.setDeadline(rs.getString(deadline));
-                dto.setDeadliney(rs.getString("deadliney"));
-                dto.setDeadlinem(rs.getString("deadlinem"));
-                dto.setDeadlined(rs.getString("deadlined"));
-                dto.setDeadline_ampm(rs.getString("deadline_ampm"));
-                dto.setDeadlinet(rs.getString("deadlinet"));
+                dto.setDeadliney(rs.getString("deadliney")); // deadline 년
+                dto.setDeadlinem(rs.getString("deadlinem")); // deadline 월
+                dto.setDeadlined(rs.getString("deadlined")); // deadline 일
+                dto.setDeadline_ampm(rs.getString("deadline_ampm")); //오전 오후
+                dto.setDeadlinet(rs.getString("deadlinet")); // deadline 시
                 //dto.setRdeadline(rs.getString("rdeadline"));
-                dto.setRdeadliney(rs.getString("rdeadliney"));
-                dto.setRdeadlinem(rs.getString("rdeadlinem"));
-                dto.setRdeadlined(rs.getString("rdeadlined"));
-                dto.setRdeadline_ampm(rs.getString("rdeadline_ampm"));
-                dto.setRdeadlinet(rs.getString("rdeadlinet"));
-                dto.setImportance(rs.getString("importance"));
-                dto.setComment(rs.getString("comment"));
-                dto.setSubject(rs.getString("subject"));
+                dto.setRdeadliney(rs.getString("rdeadliney")); // rdeadline 년
+                dto.setRdeadlinem(rs.getString("rdeadlinem")); // rdeadline 월
+                dto.setRdeadlined(rs.getString("rdeadlined")); // redadline 일
+                dto.setRdeadline_ampm(rs.getString("rdeadline_ampm")); //오전 오후
+                dto.setRdeadlinet(rs.getString("rdeadlinet")); // deadline 시
+                dto.setImportance(rs.getString("importance")); // 중요도
+                dto.setComment(rs.getString("comment")); // 코멘트
+                dto.setSubject(rs.getString("subject")); // sujbect저장소
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -100,13 +100,11 @@ public class Todo_Dao {
            
             while(rs.next()){
                 String itemname = rs.getString("itemname");
-                //String deadline = rs.getString("deadline");
                 String deadliney = rs.getString("deadliney");
                 String deadlinem = rs.getString("deadlinem");
                 String deadlined = rs.getString("deadlined");
                 String deadline_ampm = rs.getString("deadline_ampm");
                 String deadlinet = rs.getString("deadlinet");
-                //String rdeadline = rs.getString("rdeadline");
                 String rdeadliney = rs.getString("rdeadliney");
                 String rdeadlinem = rs.getString("rdeadlinem");
                 String rdeadlined = rs.getString("rdeadlined");
@@ -119,13 +117,11 @@ public class Todo_Dao {
 
                 Vector row = new Vector();
                 row.add(itemname);
-                //row.add(deadline);
                 row.add(deadliney);
                 row.add(deadlinem);
                 row.add(deadlined);
                 row.add(deadline_ampm);
                 row.add(deadlinet);
-                //row.add(rdeadline);
                 row.add(rdeadliney);
                 row.add(rdeadlinem);
                 row.add(rdeadlined);
