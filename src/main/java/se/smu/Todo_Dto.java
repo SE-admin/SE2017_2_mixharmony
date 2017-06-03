@@ -76,7 +76,7 @@ public class Todo_Dto {
 	
 
 	public String getRdeadliney() {
-		return rdeadlinem;
+		return rdeadliney;
 	}
 
 	public void setRdeadliney(String rdeadliney) {

@@ -50,9 +50,6 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
 	//combobox text send value
 	public static String Sortcob;
-	Subject_Management sList;
-	String Clickdata = sList.Clickdata;	
-	public String Itemname;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -68,7 +65,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	}
 
 	public Todo_Management() {
-		setTitle(Clickdata +" TO DO LIST");
+		setTitle("TO DO LIST");
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 763, 490);
 		contentPane = new JPanel();
@@ -307,8 +304,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	      ChangeMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
-							Todo_Dto dto = new Todo_Dto();
-							int row = Todo_Data_Tb.getSelectedRow();
+							int row = Todo_Data_Tb.getSelectedRow(); //수정2
 							String itemname = (String)Todo_Data_Tb.getValueAt(row,  0);
 							Change_Todolist frame = new Change_Todolist(itemname);
 							frame.setVisible(true); 

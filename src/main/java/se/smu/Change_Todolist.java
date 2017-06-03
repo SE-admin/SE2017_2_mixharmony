@@ -58,7 +58,7 @@ public class Change_Todolist extends JFrame {
 	public static String RdeadlineYear_cob;
 	public static String RdeadlineMon_cob;
 	public static String RdeadlineDate_cob;
-	public static String RdeadlineAmpm_cob;
+	public static String RdeadlineAmPm_cob;
 	public static String RdeadlineTime_cob;
 	
 	public static String Subjectcob;//수강과목 box값 받기
@@ -305,7 +305,7 @@ public class Change_Todolist extends JFrame {
 				RdeadlineYear_cob = Rdeadline_Year.getSelectedItem().toString();
 				RdeadlineMon_cob = Rdeadline_Mon.getSelectedItem().toString();
 				RdeadlineDate_cob = Rdeadline_Mon.getSelectedItem().toString();
-				RdeadlineAmpm_cob = Rselect_Time.getSelectedItem().toString();
+				RdeadlineAmPm_cob = Rselect_Time.getSelectedItem().toString();
 				RdeadlineTime_cob = Deadline_Time.getSelectedItem().toString();
 				
 				Subjectcob = Select_Subject_Btn.getSelectedItem().toString();
@@ -493,16 +493,16 @@ public class Change_Todolist extends JFrame {
 		Todo_Dto dto = new Todo_Dto();
 		Subject_Dto dto1 = new Subject_Dto();
 		String itemname = Itemname_In.getText();
-		String deadliney = DeadlineYear_cob + "년";
-		String deadlinem = DeadlineMon_cob + "월";
-		String deadlined = DeadlineDate_cob + "일";
+		String deadliney = DeadlineYear_cob;
+		String deadlinem = DeadlineMon_cob;
+		String deadlined = DeadlineDate_cob;
 		String deadline_ampm = DeadlineAmPm_cob;
-		String deadlinet = DeadlineTime_cob + "시";
-		String rdeadliney = RdeadlineYear_cob + "년";
-		String rdeadlinem = RdeadlineMon_cob + "월";
-		String rdeadlined = RdeadlineDate_cob + "일";
-		String rdeadline_ampm = RdeadlineAmpm_cob + "";
-		String rdeadlinet = RdeadlineTime_cob + "시";
+		String deadlinet = DeadlineTime_cob;
+	    String rdeadliney = RdeadlineYear_cob;
+		String rdeadlinem = RdeadlineMon_cob;
+		String rdeadlined = RdeadlineDate_cob;
+		String rdeadline_ampm = RdeadlineAmPm_cob;
+		String rdeadlinet = RdeadlineTime_cob;
 		String importance = Integer.toString(choose_importance);
 		String comment = Comment_In.getText();
 		String subject = Subjectcob;
@@ -525,6 +525,8 @@ public class Change_Todolist extends JFrame {
 		dto.setComment(comment);
 		dto.setSubject(subject);
 		dto.setComplete(complete);
+		dto.setDeadline(deadliney, deadlinem, deadlined, deadline_ampm, deadlinet);//
+		dto.setRdeadline(rdeadliney, rdeadlinem, rdeadlined, rdeadline_ampm, rdeadlinet);
 	
 	return dto;
 	}

@@ -67,6 +67,7 @@ public class Todo_Dao {
                 dto.setImportance(rs.getString("importance")); // 중요도
                 dto.setComment(rs.getString("comment")); // 코멘트
                 dto.setSubject(rs.getString("subject")); // sujbect저장소
+                dto.setComplete(rs.getString("complete"));//완료여부
                 
                 //추가
                 dto.setDeadline(rs.getString("deadliney"), rs.getString("deadlinem"), rs.getString("deadlined"), rs.getString("deadline_ampm"), rs.getString("deadlinet"));
@@ -151,34 +152,41 @@ public class Todo_Dao {
            
             con = getConn();
             
-            String sql = "insert into tododb(itemname,deadline,rdeadline,importance,comment,subject,complete)"
-                    + "values(?,?,?,?,?,?)";
-            /*
+//            String sql = "insert into tododb(itemname,deadline,rdeadline,importance,comment,complete)"
+//                    + "values(?,?,?,?,?,?)";
+            
             String sql = "insert into tododb(" +"itemname,"
             		+ "deadliney,deadlinem,deadlined,deadline_ampm,deadlinet,"
                     + "rdeadliney,rdeadlinem,rdeadlined,rdeadline_ampm,rdeadlinet,"
-                    + "importance,comment,subject,complete)"
-                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            */
+                    + "importance,comment,subject,complete,deadline,rdeadline)"
+                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            
            
             ps = con.prepareStatement(sql);
             ps.setString(1, dto.getItemname());
-            ps.setString(2, dto.getDeadline());
-            //ps.setString(2, dto.getDeadliney());
-            //ps.setString(3, dto.getDeadlinem());
-            //ps.setString(4, dto.getDeadlined());
-            //ps.setString(5, dto.getDeadline_ampm());
-            //ps.setString(6, dto.getDeadlinet());           
-            ps.setString(3, dto.getRdeadline());
-            //ps.setString(7, dto.getRdeadliney());
-            //ps.setString(8, dto.getRdeadlinem());
-            //ps.setString(9, dto.getRdeadlined());
-            //ps.setString(10, dto.getRdeadline_ampm());
-            //ps.setString(11, dto.getRdeadlinet());
-            ps.setString(4, dto.getImportance());
-            ps.setString(5, dto.getComment());
+//            ps.setString(2, dto.getDeadline());
+            ps.setString(2, dto.getDeadliney());
+            ps.setString(3, dto.getDeadlinem());
+            ps.setString(4, dto.getDeadlined());
+            ps.setString(5, dto.getDeadline_ampm());
+            ps.setString(6, dto.getDeadlinet());           
+//            ps.setString(3, dto.getRdeadline());
+            ps.setString(7, dto.getRdeadliney());
+            ps.setString(8, dto.getRdeadlinem());
+            ps.setString(9, dto.getRdeadlined());
+            ps.setString(10, dto.getRdeadline_ampm());
+            ps.setString(11, dto.getRdeadlinet());
+//            ps.setString(4, dto.getImportance());
+//            ps.setString(5, dto.getComment());
             //ps.setString(6, dto.getSubject());
-            ps.setString(6, dto.getComplete());
+            ps.setString(12, dto.getImportance());
+            ps.setString(13, dto.getComment());
+            ps.setString(14, dto.getSubject());
+            ps.setString(15, dto.getComplete());
+            ps.setString(16, dto.getDeadline());
+            ps.setString(17, dto.getRdeadline());
+            
+
             
             int r = ps.executeUpdate(); //실행 -> 저장
            
@@ -209,28 +217,33 @@ public boolean Change_Todo(Todo_Dto vTo){
        
         con = getConn();           
         //where문 추가//
-        String sql = "update tododb set"
-        		+ "deadline=?, rdeadline=?, importance=?, comment=?, subject=?, complete=? where itemname=?";
+        String sql = "update tododb set "
+        		+ "deadliney=?, deadlinem=?, deadlined=?, deadline_ampm=?, deadlinet=?, "
+        		+ "rdeadliney=?, rdeadlinem=?, rdeadlined=?, rdeadline_ampm=?, rdeadlinet=?,"
+        		+ "importance=?, comment=?, subject=?, complete=?, deadline=?, rdeadline=? where itemname=?";
         ps = con.prepareStatement(sql);
        
-
+        ps.setString(17, vTo.getItemname());
         ps.setString(1, vTo.getDeadliney());
-        ps.setString(2, vTo.getDeadline());
-        //ps.setString(2, vTo.getDeadlinem());
-        //ps.setString(3, vTo.getDeadlined());
-        //ps.setString(4, vTo.getDeadline_ampm());
-        //ps.setString(5, vTo.getDeadlinet());
-        ps.setString(3, vTo.getRdeadline());
-        //ps.setString(6, vTo.getRdeadliney());
-        //ps.setString(7, vTo.getRdeadlinem());
-        //ps.setString(8, vTo.getRdeadlined());
-        //ps.setString(9, vTo.getRdeadline_ampm());
-        //ps.setString(10, vTo.getRdeadlinet());
-        ps.setString(4, vTo.getImportance());
-        ps.setString(5, vTo.getComment());
-        ps.setString(6, vTo.getSubject());
-        ps.setString(7, vTo.getComplete());
-        ps.setString(8, vTo.getItemname());
+//        ps.setString(2, vTo.getDeadline());
+        ps.setString(2, vTo.getDeadlinem());
+        ps.setString(3, vTo.getDeadlined());
+        ps.setString(4, vTo.getDeadline_ampm());
+        ps.setString(5, vTo.getDeadlinet());
+//        ps.setString(3, vTo.getRdeadline());
+        ps.setString(6, vTo.getRdeadliney());
+        ps.setString(7, vTo.getRdeadlinem());
+        ps.setString(8, vTo.getRdeadlined());
+        ps.setString(9, vTo.getRdeadline_ampm());
+        ps.setString(10, vTo.getRdeadlinet());
+        ps.setString(11, vTo.getImportance());
+        ps.setString(12, vTo.getComment());
+        ps.setString(13, vTo.getSubject());
+        ps.setString(14, vTo.getComplete());
+        ps.setString(15, vTo.getDeadline());
+        ps.setString(16, vTo.getRdeadline());
+      
+        
        
         int r = ps.executeUpdate(); //실행 -> 수정
         if(r>0){
@@ -301,10 +314,10 @@ public void userSelectAll(DefaultTableModel model) {
         }
 
         while (rs.next()) {
-            Object data[] = { rs.getString(1), rs.getString(2), rs.getString(3), 
-            		rs.getString(4), rs.getString(5), rs.getString(6), 
+            Object data[] = { rs.getString(1), rs.getString(2), rs.getString(8), 
+            		rs.getString(14), rs.getString(15), rs.getString(17), 
             		//rs.getString(7)
-                    };
+                    };//db위치에 맞게 수정
 
             model.addRow(data);                
         }
@@ -392,8 +405,8 @@ public void userSelectAll1(DefaultTableModel model,int z) {
 			model.removeRow(0);  
 		}  
 		while (rs.next()) {  
-            Object data[] = { rs.getString(1), rs.getString(2), rs.getString(3), 
-            		rs.getString(4), rs.getString(5), rs.getString(6), 
+            Object data[] = { rs.getString(1), rs.getString(2), rs.getString(8), 
+            		rs.getString(14), rs.getString(15), rs.getString(17), 
             		//rs.getString(7)
                     }; 
 			model.addRow(data);                  

@@ -216,7 +216,7 @@ public class Add_Todolist extends JFrame {
 		
 		Deadline_Time = new JComboBox();
 		Deadline_Time.setFont(Deadline_Time.getFont().deriveFont(Deadline_Time.getFont().getStyle() | Font.BOLD, 18f));
-		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1시", "2시", "3시", "4시", "5시", "6시", "7시", "8시", "9시", "10시", "11시", "12시"}));
+		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Deadline_Time.setBounds(410, 183, 68, 41);
 		contentPane.add(Deadline_Time);
 		
@@ -482,7 +482,7 @@ public class Add_Todolist extends JFrame {
 			
 			Deadline_Mon = new JComboBox();
 			Deadline_Mon.setFont(Deadline_Mon.getFont().deriveFont(Deadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
-			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"}));
+			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 			Deadline_Mon.setBounds(117, 183, 68, 41);
 			contentPane.add(Deadline_Mon);
 			
@@ -591,6 +591,8 @@ public class Add_Todolist extends JFrame {
 		dto.setComment(comment);
 		dto.setSubject(subject);
 		dto.setComplete(complete);
+		dto.setDeadline(deadliney, deadlinem, deadlined, deadline_ampm, deadlinet);//
+		dto.setRdeadline(rdeadliney, rdeadlinem, rdeadlined, rdeadline_ampm, rdeadlinet);
 	
 	return dto;
 	}
