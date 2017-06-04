@@ -139,7 +139,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
         add(scrollPane);
 		Subject_Data_Tb.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		Subject_Data_Tb.setFillsViewportHeight(true);
-		Subject_Data_Tb.setFont(Subject_Data_Tb.getFont().deriveFont(Subject_Data_Tb.getFont().getStyle() | Font.BOLD, Subject_Data_Tb.getFont().getSize() + 2f));
+		Subject_Data_Tb.setFont(new Font("굴림", Font.PLAIN, 12));
 
 		Subject_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(100);
 		Subject_Data_Tb.getColumnModel().getColumn(3).setPreferredWidth(51);

@@ -128,7 +128,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Data_Tb.getColumnModel().getColumn(5).setPreferredWidth(85);
 		Todo_Data_Tb.setSurrendersFocusOnKeystroke(true);
 		Todo_Data_Tb.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		Todo_Data_Tb.setFont(new Font("굴림", Font.BOLD, 16));
+		Todo_Data_Tb.setFont(new Font("굴림", Font.PLAIN, 12));
 		Todo_Data_Tb.setFillsViewportHeight(true);
 		Todo_Data_Tb.setColumnSelectionAllowed(true);
 		Todo_Data_Tb.setCellSelectionEnabled(true);
