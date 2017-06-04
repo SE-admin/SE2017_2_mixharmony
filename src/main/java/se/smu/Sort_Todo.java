@@ -57,7 +57,9 @@ public class Sort_Todo extends JFrame {
 	public Sort_Todo () {		
 	 }
 	//구현된 메소드
-	public void itemname_asc() //subject로 변경요망
+
+	//no complete
+	public void nocom_itemname_asc()
 	{
 		DefaultTableModel model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
         for (int i = 0; i < model.getRowCount();) {
@@ -67,7 +69,39 @@ public class Sort_Todo extends JFrame {
         Todo_Dao dao = new Todo_Dao();
         dao.userSelectAll(model);
 	}
-	public void importance_desc()
+	public void nocom_deadline_asc()
+	{
+		DefaultTableModel model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
+        for (int i = 0; i < model.getRowCount();) {
+            model.removeRow(0);
+            }
+	    model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
+        Todo_Dao dao = new Todo_Dao();
+        dao.userSelectAll3(model,1);
+	}
+	public void nocom_rdeadline_asc()
+	{
+		DefaultTableModel model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
+        for (int i = 0; i < model.getRowCount();) {
+            model.removeRow(0);
+            }
+	    model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
+        Todo_Dao dao = new Todo_Dao();
+        dao.userSelectAll3(model,2);
+	}
+	public void nocom_importance_desc()
+	{
+		DefaultTableModel model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
+        for (int i = 0; i < model.getRowCount();) {
+            model.removeRow(0);
+            }
+	    model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
+        Todo_Dao dao = new Todo_Dao();
+        dao.userSelectAll3(model,3);
+	}
+	
+	//all
+	public void itemname_asc()
 	{
 		DefaultTableModel model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
         for (int i = 0; i < model.getRowCount();) {
@@ -97,7 +131,7 @@ public class Sort_Todo extends JFrame {
         Todo_Dao dao = new Todo_Dao();
         dao.userSelectAll1(model,3);
 	}
-	public void complete_asc()
+	public void importance_desc()
 	{
 		DefaultTableModel model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
         for (int i = 0; i < model.getRowCount();) {
@@ -107,24 +141,16 @@ public class Sort_Todo extends JFrame {
         Todo_Dao dao = new Todo_Dao();
         dao.userSelectAll1(model,4);
 	}
-	public void only_nocomplete()
+	public void complete_asc()
 	{
 		DefaultTableModel model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
         for (int i = 0; i < model.getRowCount();) {
             model.removeRow(0);
             }
-        model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
+	    model = (DefaultTableModel) Todo_Management_Class.Todo_Data_Tb.getModel();
         Todo_Dao dao = new Todo_Dao();
-        dao.userSelectAll1(model, 5);
+        dao.userSelectAll1(model,5);
 	}
-	public void nocom_importance()
-	{}
-	public void nocom_deadline()
-	{}
-	public void nocom_rdeadline()
-	{}
-	public void nocom_subject()
-	{}	
 }
 
 

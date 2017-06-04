@@ -358,10 +358,10 @@ public void userSelectAll1(DefaultTableModel model,int z) {
 	ResultSet rs = null;  
 
 	try {  
-		if(z == 1) //완료여부순
+		if(z == 1) //all Item name
 		{  
 			con = getConn();  
-			String sql = "select * from tododb where subject=? order by complete asc";  
+			String sql = "select * from tododb where subject=? order by itemname asc";  
 			ps = con.prepareStatement(sql);  
 			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();
@@ -391,10 +391,10 @@ public void userSelectAll1(DefaultTableModel model,int z) {
 			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();
 		}
-		else //전체출력
+		else //완료여부
 		{
 			con = getConn();  
-			String sql = "select * from tododb where subject =?";  
+			String sql = "select * from tododb where subject=?order by complete asc";  
 			ps = con.prepareStatement(sql);  
 			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();
@@ -408,6 +408,90 @@ public void userSelectAll1(DefaultTableModel model,int z) {
             Object data[] = { rs.getString(1), rs.getString(2), rs.getString(8), 
             		rs.getString(14), rs.getString(15), rs.getString(17), 
             		//rs.getString(7)
+                    }; 
+			model.addRow(data);                  
+	}  
+		} catch (SQLException e) {  
+			System.out.println(e + "=> userSelectAll fail");  
+		} finally{  
+			
+		if(rs!=null)  
+			try {  
+				rs.close();  
+			} catch (SQLException e2) {  
+				// TODO Auto-generated catch block  
+				e2.printStackTrace();  
+			}  
+		if(ps!=null)  
+			try {  
+				ps.close();  
+			} catch (SQLException e1) {  
+				// TODO Auto-generated catch block  
+				e1.printStackTrace();  
+			}  
+		if(con!=null)  
+			try {  
+				con.close();  
+			} catch (SQLException e) {  
+				// TODO Auto-generated catch block  
+				e.printStackTrace();  
+			}  
+		}  
+	}  
+
+// no complete
+public void userSelectAll3(DefaultTableModel model,int z) {  
+	  
+	Connection con = null;  
+	PreparedStatement ps = null;  
+	ResultSet rs = null;  
+
+	try {  
+		if(z == 1) //x,deadline
+		{  
+			con = getConn();  
+			String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by deadline asc";  
+//String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by itemname asc";
+			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
+			rs = ps.executeQuery();
+			
+		}  
+		else if(z == 2) //x,rdeadline  
+		{  
+			con = getConn();  
+			String sql = "select * from tododb where subject = ? and complete not like '%O%'"+"order by rdeadline asc";  
+			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
+			rs = ps.executeQuery();  
+		}  
+		else if(z == 3)//x,importance  
+		{  
+			con = getConn();  
+			String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by importance desc";  
+			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
+			rs = ps.executeQuery();  
+		}
+		else 
+		{
+			con = getConn();  
+			String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by complete asc";  
+			ps = con.prepareStatement(sql);  
+			ps.setString(1, Clickdata);
+			rs = ps.executeQuery();
+		}
+
+		// DefaultTableModel에 있는 데이터 지우기  
+		for (int i = 0; i < model.getRowCount();) {  
+			model.removeRow(0);  
+		}  
+		while (rs.next()) {  
+            Object data[] = { rs.getString(1), rs.getString(2), rs.getString(3), 
+            		rs.getString(4), rs.getString(5), rs.getString(6), 
+            		rs.getString(7), rs.getString(8), rs.getString(9), 
+            		rs.getString(10), rs.getString(11), rs.getString(12), 
+            		rs.getString(13), rs.getString(14), rs.getString(15)
                     }; 
 			model.addRow(data);                  
 	}  

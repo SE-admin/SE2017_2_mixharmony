@@ -144,6 +144,8 @@ public class Add_Todolist extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		final JTable table1 = tdm.Todo_Data_Tb;
+		//sort class define
+		Sort_Todo std1 = new Sort_Todo();
 		
 		JPanel Panel_For_Itemname = new JPanel();
 		Panel_For_Itemname.setBackground(new Color(0, 0, 128));
@@ -280,11 +282,12 @@ public class Add_Todolist extends JFrame {
 				// TODO Auto-generated method stub
 //				cob = Subject.getSelectedItem().toString();
 				
+				//delete
 				DefaultTableModel model = (DefaultTableModel) table1.getModel();
 		        for (int i = 0; i < model.getRowCount();) {
 		            model.removeRow(0);
 		            }
-				
+				//insert
 				DeadlineYear_cob = Deadline_Year.getSelectedItem().toString();
 				DeadlineMon_cob = Deadline_Mon.getSelectedItem().toString();
 				DeadlineDate_cob = Deadline_Date.getSelectedItem().toString();
@@ -300,90 +303,81 @@ public class Add_Todolist extends JFrame {
 				
 				Insert_Todo();
 				
+				
 				//update table
 			    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
 		        Todo_Dao dao = new Todo_Dao();
-		        dao.userSelectAll(model);
-		        //exit add_sub
+		        dao.userSelectAll(model1);
+		        //exit add_sub		
 				dispose();
 				
-				/* add+sort
-				if(tdm.cob1.equals("사전식순"))
+				//SORT 구현
+				/*
+				//update table & exit Add_Todolist
+				if(tList.Sortcob.equals("사전식순"))
 				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll(model);
-			        //exit add_sub
-					dispose();
-			        
-					
+					if(tList.Checkbox_State == true) //all
+					{
+						std1.itemname_asc();
+						dispose();
+					}
+					else//no complete
+					{
+						std1.nocom_itemname_asc();
+						dispose();
+					}
 				}
-				else if(tdm.cob1.equals("중요도순"))
+				else if(tList.Sortcob.equals("중요도순"))
 				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll1(model,1);
-			        //exit add_sub
-					dispose();
+					if(tList.Checkbox_State == true) //all
+					{
+						std1.importance_desc();
+						dispose();
+					}
+					else//no complete
+					{
+						std1.nocom_importance_desc();
+						dispose();
+					}
 				}
-				else if(tdm.cob1.equals("마감일순"))
+				else if(tList.Sortcob.equals("마감일순"))
 				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll1(model,2);
-			        //exit add_sub
-					dispose();
+					if(tList.Checkbox_State == true)
+					{
+						std1.deadline_asc();
+						dispose();
+					}
+					else
+					{
+						std1.nocom_deadline_asc();
+						dispose();
+					}
 				}
-				else if(tdm.cob1.equals("실제마감일순"))
+				else if(tList.Sortcob.equals("실제마감일순"))
 				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll1(model,3);
-			        //exit add_sub
-					dispose();
+					if(tList.Checkbox_State == true) //all
+					{
+						std1.rdeadline_asc();
+						dispose();
+					}
+					else//no complete
+					{
+						std1.nocom_rdeadline_asc();
+						dispose();
+					}
 				}
-				else
+				else //"완료여부"일 경우
 				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll1(model,4);
-			        //exit add_sub
-					dispose();
+					if(tList.Checkbox_State == true) //all
+					{
+						std1.complete_asc();
+						dispose();
+					}
+					else//no complete
+					{
+						std1.nocom_itemname_asc();
+						dispose();
+					}
 				}
 				*/
 			}

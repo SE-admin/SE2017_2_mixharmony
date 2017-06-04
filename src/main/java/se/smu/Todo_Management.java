@@ -50,6 +50,8 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	private JMenuItem DeleteMenu = new JMenuItem("제거");
 	//combobox text send value
 	public static String Sortcob;
+	//checkbox state value
+	public static boolean Checkbox_State;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -72,6 +74,8 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		//sort class define
+		final Sort_Todo std = new Sort_Todo();
 		
 		JButton Logout_Btn = new JButton("로그아웃");
 		Logout_Btn.setForeground(Color.WHITE);
@@ -141,6 +145,8 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Scroll.setViewportView(Todo_Data_Tb);
 		//combobox 텍스트 전달을 위해서 combobox선언위치를 이곳으로 변경
 		final JComboBox Sort_Btn = new JComboBox();
+		//check box 텍스트 전달을 위해서 check box 선언위치를 이곳으로 변경
+		final JCheckBox Hide_Select = new JCheckBox("전체 항목 보기(완료항목)");
 		//
 		JButton Add_Todo_Btn = new JButton("");
 		Todo_Scroll.setRowHeaderView(Add_Todo_Btn);
@@ -148,6 +154,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 			public void actionPerformed(ActionEvent e) {
 				//수정//
 				try {
+					Checkbox_State = Hide_Select.isSelected();
 					Sortcob = Sort_Btn.getSelectedItem().toString();//send value
 					Add_Todolist Info = new Add_Todolist();
 					Info.setVisible(true); 
@@ -168,7 +175,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Sort_Btn.setBounds(28, 381, 144, 42);
 		contentPane.add(Sort_Btn);
 		
-		final JCheckBox Hide_Select = new JCheckBox("전체 항목 보기(완료항목)");
+		
 		//checkbox event add
 		Hide_Select.addItemListener(new ItemListener()
 				{
@@ -176,26 +183,11 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 					public void itemStateChanged(ItemEvent arg0) {
 						if(Hide_Select.isSelected()) //선택된 경우 o표시 제외
 						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-					        model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model, 5);
-					        
+							std.itemname_asc(); //all
 						}
-						else //해제시 모든 table표시
+						else 
 						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-							DefaultTableModel model1 = (DefaultTableModel) Todo_Data_Tb.getModel();
-							Todo_Dao dao = new Todo_Dao();
-							dao.userSelectAll(model1);
-					        
-							
+							std.nocom_itemname_asc();//no comlete
 						}
 					}});
 		//
@@ -209,64 +201,61 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 					public void itemStateChanged(ItemEvent e) {
 						if(Sort_Btn.getSelectedItem().toString().equals("사전식순"))
 						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll(model);
+							
+							if(Hide_Select.isSelected()) //all,check box select
+							{
+								std.itemname_asc();
+							}
+							else //no complete
+							{
+								std.nocom_itemname_asc();
+							}
 						}
 	
 						else if(Sort_Btn.getSelectedItem().toString().equals("완료여부"))
 						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model,1);
+							if(Hide_Select.isSelected()) //all,check box select
+							{
+								std.complete_asc();
+							}
+							else //no complete
+							{
+								std.nocom_itemname_asc();
+							}
 						}
 						else if(Sort_Btn.getSelectedItem().toString().equals("마감일순"))
 						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model,2);
+							if(Hide_Select.isSelected()) //all,check box select
+							{
+								std.deadline_asc();
+							}
+							else //no complete
+							{
+								std.nocom_deadline_asc();
+							}
 						}
 						else if(Sort_Btn.getSelectedItem().toString().equals("실제마감일순"))
 						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model,3);
+							if(Hide_Select.isSelected()) //all,check box select
+							{
+								std.rdeadline_asc();
+							}
+							else
+							{
+								std.nocom_rdeadline_asc();
+							}
 						}
-						else if(Sort_Btn.getSelectedItem().toString().equals("중요도순"))
-						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model,4);
-						}
+						// if(Sort_Btn.getSelectedItem().toString().equals("중요도순"))
 						else
 						{
-							DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        for (int i = 0; i < model.getRowCount();) {
-					            model.removeRow(0);
-					            }
-						    model = (DefaultTableModel) Todo_Data_Tb.getModel();
-					        Todo_Dao dao = new Todo_Dao();
-					        dao.userSelectAll1(model,4);
+							if(Hide_Select.isSelected()) //all,check box select
+							{
+								std.importance_desc();
+							}
+							else
+							{
+								std.nocom_importance_desc();
+							}
 						}
 					}}
 				);
