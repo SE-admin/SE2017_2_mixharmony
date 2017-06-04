@@ -27,6 +27,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
 public class Add_Todolist extends JFrame {
@@ -34,7 +38,6 @@ public class Add_Todolist extends JFrame {
 	private JPanel contentPane;
 	private JLabel Itemname_Tf;
 	private JLabel Deadline_Tf;
-	private JLabel Rdeadline_Tf;
 	private JLabel Importance_Tf;
 	
 	private JTextField Itemname_In;
@@ -45,12 +48,6 @@ public class Add_Todolist extends JFrame {
 	private JComboBox Deadline_Date;
 	private JComboBox Deadline_AmPm;
 	private JComboBox Deadline_Time;
-
-	private JComboBox Rdeadline_Year;
-	private JComboBox Rdeadline_Mon;
-	private JComboBox Rdeadline_Date;
-	private JComboBox Rdeadline_AmPm;
-	private JComboBox Rdeadline_Time;
 	
 //	private JComboBox Subject;
 	private JComboBox Subject;
@@ -58,7 +55,6 @@ public class Add_Todolist extends JFrame {
 
 	private int choose_importance = 0;
 	private JButton Importance_Star_Btn[] = new JButton[5];
-	private JPanel Panel_For_Rdeadline;
 	private JPanel Panel_For_Importance;
 	Todo_Management tdm;
 	
@@ -141,8 +137,8 @@ public class Add_Todolist extends JFrame {
 	}
 
 	public Add_Todolist() {
-		setTitle(Clickdata+" TO DO 항목 등록");
-		setBounds(100, 100, 528, 596);
+		setTitle("TO DO 항목 등록");
+		setBounds(100, 100, 528, 548);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -164,6 +160,7 @@ public class Add_Todolist extends JFrame {
 		Itemname_Tf.setLabelFor(Itemname_In);
 		
 		Itemname_In = new JTextField();
+		Itemname_In.setHorizontalAlignment(SwingConstants.RIGHT);
 		Itemname_In.setText("");
 		Itemname_In.setColumns(10);
 		Itemname_In.setBounds(17, 71, 473, 41);
@@ -204,7 +201,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.add(Deadline_Year_Lb);
 		
 		Deadline_Date = new JComboBox();
-		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"  일", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12", "  13", "  14", "  15", "  16", "  17", "  18", "  19", "  20", "  21", "  22", "  23", "  24", "  25", "  26", "  27", "  28", "  29", "  30", "  31"}));
 		Deadline_Date.setFont(Deadline_Date.getFont().deriveFont(Deadline_Date.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Date.setBounds(220, 183, 68, 41);
 		contentPane.add(Deadline_Date);
@@ -216,7 +213,7 @@ public class Add_Todolist extends JFrame {
 		
 		Deadline_Time = new JComboBox();
 		Deadline_Time.setFont(Deadline_Time.getFont().deriveFont(Deadline_Time.getFont().getStyle() | Font.BOLD, 18f));
-		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12"}));
 		Deadline_Time.setBounds(410, 183, 68, 41);
 		contentPane.add(Deadline_Time);
 		
@@ -224,99 +221,16 @@ public class Add_Todolist extends JFrame {
 		Deadline_Time_Lb.setFont(Deadline_Time_Lb.getFont().deriveFont(Deadline_Time_Lb.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Time_Lb.setBounds(481, 188, 30, 30);
 		contentPane.add(Deadline_Time_Lb);
-	
-	
-		
-		JLabel Rdeadline_Img = new JLabel("");
-		Rdeadline_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/submitalisting.jpg")));
-		Rdeadline_Img.setBounds(17, 244, 52, 41);
-		contentPane.add(Rdeadline_Img);
-		
-		Panel_For_Rdeadline = new JPanel();
-		Panel_For_Rdeadline.setBackground(new Color(0, 0, 128));
-		Panel_For_Rdeadline.setBounds(77, 244, 165, 41);
-		contentPane.add(Panel_For_Rdeadline);
-		
-		Rdeadline_Tf = new JLabel();
-		Panel_For_Rdeadline.add(Rdeadline_Tf);
-		Rdeadline_Tf.setText("실제 마감일");
-		Rdeadline_Tf.setHorizontalAlignment(SwingConstants.CENTER);
-		Rdeadline_Tf.setForeground(Color.WHITE);
-		Rdeadline_Tf.setFont(Rdeadline_Tf.getFont().deriveFont(Rdeadline_Tf.getFont().getStyle() | Font.BOLD, 21f));
-		Rdeadline_Tf.setBackground(new Color(0, 0, 128));
-		
-		Rdeadline_Mon = new JComboBox();
-		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-		Rdeadline_Mon.setFont(Rdeadline_Mon.getFont().deriveFont(Rdeadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Mon.setBounds(120, 300, 68, 41);
-		contentPane.add(Rdeadline_Mon);
-		
-		JLabel Rdeadline_Mon_Lb = new JLabel("월");
-		Rdeadline_Mon_Lb.setFont(Rdeadline_Mon_Lb.getFont().deriveFont(Rdeadline_Mon_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Mon_Lb.setBounds(190, 305, 30, 30);
-		contentPane.add(Rdeadline_Mon_Lb);
-		
-		Rdeadline_Date = new JComboBox();
-		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		Rdeadline_Date.setFont(Rdeadline_Date.getFont().deriveFont(Rdeadline_Date.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Date.setBounds(220, 300, 68, 41);
-		contentPane.add(Rdeadline_Date);
-		
-		JLabel Rdeadline_Date_Lb = new JLabel("일");
-		Rdeadline_Date_Lb.setFont(Rdeadline_Date_Lb.getFont().deriveFont(Rdeadline_Date_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Date_Lb.setBounds(290, 305, 30, 30);
-		contentPane.add(Rdeadline_Date_Lb);
-
-		Rdeadline_Time = new JComboBox();
-		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-		Rdeadline_Time.setFont(Rdeadline_Time.getFont().deriveFont(Rdeadline_Time.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Time.setBounds(410, 299, 68, 41);
-		contentPane.add(Rdeadline_Time);
-		
-		JLabel Rdeadline_Time_Lb = new JLabel("시");
-		Rdeadline_Time_Lb.setFont(Rdeadline_Time_Lb.getFont().deriveFont(Rdeadline_Time_Lb.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Time_Lb.setBounds(481, 304, 30, 30);
-		contentPane.add(Rdeadline_Time_Lb);
 		
 		JLabel Importance_Img = new JLabel("");
 		Importance_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-		Importance_Img.setBounds(17, 360, 52, 41);
+		Importance_Img.setBounds(17, 316, 52, 41);
 		contentPane.add(Importance_Img);
 		
-		Star_Listener Star_Listener = new Star_Listener();
-		Importance_Star_Btn[0] = new JButton("");
-		Importance_Star_Btn[0].setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn[0].setBounds(251, 360, 44, 41);
-		Importance_Star_Btn[0].addMouseListener(Star_Listener);
-		contentPane.add(Importance_Star_Btn[0]);
-		
-		Importance_Star_Btn[1] = new JButton("");
-		Importance_Star_Btn[1].setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn[1].setBounds(301, 360, 44, 41);
-		Importance_Star_Btn[1].addMouseListener(Star_Listener);
-		contentPane.add(Importance_Star_Btn[1]);
-		
-		Importance_Star_Btn[2] = new JButton("");
-		Importance_Star_Btn[2].setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn[2].setBounds(351, 360, 44, 41);
-		Importance_Star_Btn[2].addMouseListener(Star_Listener);
-		contentPane.add(Importance_Star_Btn[2]);
-		
-		Importance_Star_Btn[3] = new JButton("");
-		Importance_Star_Btn[3].setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn[3].setBounds(398, 360, 44, 41);
-		Importance_Star_Btn[3].addMouseListener(Star_Listener);
-		contentPane.add(Importance_Star_Btn[3]);
-		
-		Importance_Star_Btn[4] = new JButton("");
-		Importance_Star_Btn[4].setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/star.png")));
-		Importance_Star_Btn[4].setBounds(446, 360, 44, 41);
-		Importance_Star_Btn[4].addMouseListener(Star_Listener);
-		contentPane.add(Importance_Star_Btn[4]);
 		
 		Panel_For_Importance = new JPanel();
 		Panel_For_Importance.setBackground(new Color(0, 0, 128));
-		Panel_For_Importance.setBounds(77, 360, 165, 41);
+		Panel_For_Importance.setBounds(77, 316, 146, 41);
 		contentPane.add(Panel_For_Importance);
 		
 		Importance_Tf = new JLabel();
@@ -327,10 +241,11 @@ public class Add_Todolist extends JFrame {
 		Importance_Tf.setFont(Importance_Tf.getFont().deriveFont(Importance_Tf.getFont().getStyle() | Font.BOLD, 21f));
 		Importance_Tf.setBackground(new Color(0, 0, 128));
 		
+		
 		Subject = new JComboBox();
 		Subject.setFont(Subject.getFont().deriveFont(Subject.getFont().getStyle() | Font.BOLD, 18f));
-		Subject.setModel(new DefaultComboBoxModel(new String[] {Clickdata}));
-        Subject.setBounds(17, 482, 201, 37);
+		Subject.setModel(new DefaultComboBoxModel(new String[] {"       수강 과목 선택", "      소프트웨어 공학", "        데이터 베이스", "           알고리즘", "           공학 설계", "          프로그래밍1", "          프로그래밍2", "           이산 수학", "        컴퓨터 네트워크", "        소프트웨어 개발", "          인문학 특강", "         융복합과 이해", "          성공학 특강", "          결혼과 사회", "  한국 현대 문학 산책", "          자연과학세계"}));
+        Subject.setBounds(17, 416, 201, 37);
         contentPane.add(Subject);
 		
 		
@@ -338,7 +253,7 @@ public class Add_Todolist extends JFrame {
 		Signup_Btn.setForeground(Color.WHITE);
 		Signup_Btn.setFont(Signup_Btn.getFont().deriveFont(Signup_Btn.getFont().getStyle() | Font.BOLD, Signup_Btn.getFont().getSize() + 4f));
 		Signup_Btn.setBackground(new Color(0, 0, 128));
-		Signup_Btn.setBounds(371, 478, 118, 42);
+		Signup_Btn.setBounds(372, 411, 118, 42);
 		Signup_Btn.addMouseListener(new MouseListener()
 		{
 
@@ -375,11 +290,11 @@ public class Add_Todolist extends JFrame {
 				DeadlineDate_cob = Deadline_Date.getSelectedItem().toString();
 				DeadlineAmPm_cob = Deadline_AmPm.getSelectedItem().toString();
 				DeadlineTime_cob = Deadline_Time.getSelectedItem().toString();
-				RdeadlineYear_cob = Rdeadline_Year.getSelectedItem().toString();
-				RdeadlineMon_cob = Rdeadline_Mon.getSelectedItem().toString();
-				RdeadlineDate_cob = Rdeadline_Date.getSelectedItem().toString();
-				RdeadlineAmPm_cob = Rdeadline_AmPm.getSelectedItem().toString();
-				RdeadlineTime_cob = Rdeadline_Time.getSelectedItem().toString();
+				//RdeadlineYear_cob = Rdeadline_Year.getSelectedItem().toString();
+				//RdeadlineMon_cob = Rdeadline_Mon.getSelectedItem().toString();
+				//RdeadlineDate_cob = Rdeadline_Date.getSelectedItem().toString();
+				//RdeadlineAmPm_cob = Rdeadline_AmPm.getSelectedItem().toString();
+				//RdeadlineTime_cob = Rdeadline_Time.getSelectedItem().toString();
 				Subjectcob = Subject.getSelectedItem().toString();
 				Completecob = Complete.getSelectedItem().toString();
 				
@@ -482,7 +397,7 @@ public class Add_Todolist extends JFrame {
 			
 			Deadline_Mon = new JComboBox();
 			Deadline_Mon.setFont(Deadline_Mon.getFont().deriveFont(Deadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
-			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"  월", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12"}));
 			Deadline_Mon.setBounds(117, 183, 68, 41);
 			contentPane.add(Deadline_Mon);
 			
@@ -497,26 +412,9 @@ public class Add_Todolist extends JFrame {
 			Deadline_AmPm.setBounds(325, 183, 68, 41);
 			contentPane.add(Deadline_AmPm);
 			
-			Rdeadline_Year = new JComboBox();
-			Rdeadline_Year.setModel(new DefaultComboBoxModel(new String[] {"년도", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"}));
-			Rdeadline_Year.setFont(Rdeadline_Year.getFont().deriveFont(Rdeadline_Year.getFont().getStyle() | Font.BOLD, 18f));
-			Rdeadline_Year.setBounds(17, 300, 68, 41);
-			contentPane.add(Rdeadline_Year);
-			
-			JLabel Rdeadline_Year_Lb = new JLabel("년");
-			Rdeadline_Year_Lb.setFont(Rdeadline_Year_Lb.getFont().deriveFont(Rdeadline_Year_Lb.getFont().getStyle() | Font.BOLD, 18f));
-			Rdeadline_Year_Lb.setBounds(87, 300, 30, 41);
-			contentPane.add(Rdeadline_Year_Lb);
-			
-			Rdeadline_AmPm = new JComboBox();
-			Rdeadline_AmPm.setModel(new DefaultComboBoxModel(new String[] {"선택", "오전", "오후"}));
-			Rdeadline_AmPm.setFont(Rdeadline_AmPm.getFont().deriveFont(Rdeadline_AmPm.getFont().getStyle() | Font.BOLD, 18f));
-			Rdeadline_AmPm.setBounds(325, 300, 68, 41);
-			contentPane.add(Rdeadline_AmPm);
-			
 			JPanel Panel_For_Comment = new JPanel();
 			Panel_For_Comment.setBackground(new Color(0, 0, 128));
-			Panel_For_Comment.setBounds(77, 426, 103, 41);
+			Panel_For_Comment.setBounds(77, 247, 103, 41);
 			contentPane.add(Panel_For_Comment);
 			Panel_For_Comment.setLayout(null);
 			
@@ -529,21 +427,58 @@ public class Add_Todolist extends JFrame {
 			Comment_Lb.setBackground(new Color(0, 0, 128));
 			
 			Comment_In = new JTextField();
+			Comment_In.setHorizontalAlignment(SwingConstants.RIGHT);
 			Comment_In.setText("");
 			Comment_In.setColumns(10);
-			Comment_In.setBounds(188, 426, 308, 41);
+			Comment_In.setBounds(182, 247, 308, 41);
 			contentPane.add(Comment_In);
 			
 			JLabel Comment_Img = new JLabel("");
 			Comment_Img.setIcon(new ImageIcon(Add_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
-			Comment_Img.setBounds(17, 426, 52, 41);
+			Comment_Img.setBounds(17, 247, 52, 41);
 			contentPane.add(Comment_Img);
 			
 			Complete = new JComboBox();
-			Complete.setModel(new DefaultComboBoxModel(new String[] {"완료여부", "O", "X"}));
+			Complete.setModel(new DefaultComboBoxModel(new String[] {" 완료여부", "      O", "      X"}));
 			Complete.setFont(Complete.getFont().deriveFont(Complete.getFont().getStyle() | Font.BOLD, 18f));
-			Complete.setBounds(235, 482, 109, 39);
+			Complete.setBounds(225, 414, 109, 39);
 			contentPane.add(Complete);
+			
+			Star_Listener Star_Listener = new Star_Listener();
+			Importance_Star_Btn[0] = new JButton("");
+			Importance_Star_Btn[0].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+			Importance_Star_Btn[0].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+			Importance_Star_Btn[0].setBounds(230, 316, 45, 41);
+			Importance_Star_Btn[0].addMouseListener(Star_Listener);
+			contentPane.add(Importance_Star_Btn[0]);
+			
+			Importance_Star_Btn[1] = new JButton("");
+			Importance_Star_Btn[1].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+			Importance_Star_Btn[1].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+			Importance_Star_Btn[1].setBounds(285, 316, 45, 41);
+			Importance_Star_Btn[1].addMouseListener(Star_Listener);
+			contentPane.add(Importance_Star_Btn[1]);
+			
+			Importance_Star_Btn[2] = new JButton("");
+			Importance_Star_Btn[2].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+			Importance_Star_Btn[2].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+			Importance_Star_Btn[2].setBounds(340, 316, 45, 41);
+			Importance_Star_Btn[2].addMouseListener(Star_Listener);
+			contentPane.add(Importance_Star_Btn[2]);
+			
+			Importance_Star_Btn[3] = new JButton("");
+			Importance_Star_Btn[3].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+			Importance_Star_Btn[3].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+			Importance_Star_Btn[3].setBounds(393, 316, 45, 41);
+			Importance_Star_Btn[3].addMouseListener(Star_Listener);
+			contentPane.add(Importance_Star_Btn[3]);
+			
+			Importance_Star_Btn[4] = new JButton("");
+			Importance_Star_Btn[4].setSelectedIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+			Importance_Star_Btn[4].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/star.png")));
+			Importance_Star_Btn[4].setBounds(445, 316, 45, 41);
+			Importance_Star_Btn[4].addMouseListener(Star_Listener);
+			contentPane.add(Importance_Star_Btn[4]);
 	}
 //삽입
 	private void Insert_Todo(){
