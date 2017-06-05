@@ -540,7 +540,7 @@ public class Add_Todolist extends JFrame {
 			Complete.setBounds(235, 482, 109, 39);
 			contentPane.add(Complete);
 	}
-//삽입
+	//삽입
 	private void Insert_Todo(){
 		 Todo_Dto dto = getViewData();
 		 Todo_Dao dao = new Todo_Dao();  

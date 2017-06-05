@@ -64,7 +64,7 @@ public class Change_Todolist extends JFrame {
 	public static String Subjectcob;//수강과목 box값 받기
 	public static String Completecob;//완료여부 box값 받기
 	Subject_Management sList;
-    String Clickdata =sList.Clickdata;
+    String Clickdata =sList.Clickdata;//추가
 	
 	Todo_Management tList;
 	
