@@ -128,20 +128,20 @@ public class LOGIN extends JFrame {
 		Login_Btn = new JButton("로그인");
 		Login_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+			    Connection con = null;
+			    PreparedStatement ps = null;
+			    ResultSet rs = null;
 				try
 				{
 					//db connect
-			        Connection con = null;       //연결
-			        PreparedStatement ps = null; //명령
-			        ResultSet rs = null;         //결과
-					con = getConn();
-		                String sql = "select * from userdb";
-		                ps = con.prepareStatement(sql);
-		                rs = ps.executeQuery();
-				String s1 = Id_In.getText(); //textField input value
-				String s2 = Password_In.getText(); //password field input value
-				String s3 = Select_School_Btn.getSelectedItem().toString(); //comboBox select value
-					
+			        con = getConn();
+			        String sql = "select * from userdb";
+			        ps = con.prepareStatement(sql);
+			        rs = ps.executeQuery();
+			        String s1 = Id_In.getText(); //textField input value
+			        String s2 = Password_In.getText(); //password field input value
+			        String s3 = Select_School_Btn.getSelectedItem().toString(); //comboBox select value
+			        int j = 0,i = rowcount();
 					while(rs.next())
 					{
 						if(s1.equals(rs.getString("id")) && s2.equals(rs.getString("pwd")) && s3.equals(rs.getString("sname"))) //compare value
@@ -151,11 +151,17 @@ public class LOGIN extends JFrame {
 							dispose(); //login section not see
 							break;//id,pwd,sname correct 
 						}
-						else //no correct
+						else //fail count
 						{
-							JOptionPane.showMessageDialog(null, "No Correct", "Error", JOptionPane.WARNING_MESSAGE);
-							break;
+							j++;
 						}
+					}
+				
+					if(i == j) //not correct ,clear field
+					{
+						JOptionPane.showMessageDialog(null, "No Correct", "Error", JOptionPane.WARNING_MESSAGE);
+						Id_In.setText("");
+						Password_In.setText("");
 					}
 					
 					
@@ -212,5 +218,33 @@ public class LOGIN extends JFrame {
 		Password_In = new JPasswordField();
 		Password_In.setBounds(17, 313, 473, 41);
 		contentPane.add(Password_In);
+	}
+	
+	public int rowcount()
+	{
+		int rowval = 0;
+	    Connection con = null;
+	    PreparedStatement ps = null;
+	    ResultSet rs = null;
+		try
+		{
+			//db connect
+	        con = getConn();
+	        String sql = "select * from userdb";
+	        ps = con.prepareStatement(sql);
+	        rs = ps.executeQuery();
+			//
+			while(rs.next()) //row count
+			{
+				rowval++;
+			}
+			
+		}
+		catch(Exception exc)
+		{
+			exc.printStackTrace();
+		}
+
+		return rowval;
 	}
 }
