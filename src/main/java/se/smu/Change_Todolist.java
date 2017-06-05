@@ -63,6 +63,8 @@ public class Change_Todolist extends JFrame {
 	
 	public static String Subjectcob;//수강과목 box값 받기
 	public static String Completecob;//완료여부 box값 받기
+	Subject_Management sList;
+    String Clickdata =sList.Clickdata;
 	
 	Todo_Management tList;
 	
@@ -145,7 +147,7 @@ public class Change_Todolist extends JFrame {
 	 * @wbp.parser.constructor
 	 */
 	public Change_Todolist(String itemname) {
-		setTitle("to do 항목 편집");
+		setTitle(Clickdata+" TO DO 항목 등록");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 535, 589);
 		contentPane = new JPanel();
@@ -457,7 +459,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Comment_In);
 		
 		Select_Subject_Btn = new JComboBox();
-		Select_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {"       수강 과목 선택", "      소프트웨어 공학", "        데이터 베이스", "           알고리즘", "           공학 설계", "          프로그래밍1", "          프로그래밍2", "           이산 수학", "        컴퓨터 네트워크", "        소프트웨어 개발", "          인문학 특강", "         융복합과 이해", "          성공학 특강", "          결혼과 사회", "  한국 현대 문학 산책", "          자연과학세계"}));
+		Select_Subject_Btn.setModel(new DefaultComboBoxModel(new String[] {Clickdata}));
 		Select_Subject_Btn.setFont(Select_Subject_Btn.getFont().deriveFont(Select_Subject_Btn.getFont().getStyle() | Font.BOLD, 18f));
 		Select_Subject_Btn.setBounds(11, 478, 201, 37);
 		contentPane.add(Select_Subject_Btn);

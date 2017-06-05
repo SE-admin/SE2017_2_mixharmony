@@ -149,6 +149,9 @@ public class Add_Todolist extends JFrame {
 		setContentPane(contentPane);
 		final JTable table1 = tdm.Todo_Data_Tb;
 		
+		//sort class define 
+		Sort_Todo std1 = new Sort_Todo(); 
+		
 		JPanel Panel_For_Itemname = new JPanel();
 		Panel_For_Itemname.setBackground(new Color(0, 0, 128));
 		Panel_For_Itemname.setBounds(77, 15, 165, 41);
@@ -204,7 +207,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.add(Deadline_Year_Lb);
 		
 		Deadline_Date = new JComboBox();
-		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"  일", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12", "  13", "  14", "  15", "  16", "  17", "  18", "  19", "  20", "  21", "  22", "  23", "  24", "  25", "  26", "  27", "  28", "  29", "  30", "  31"}));
 		Deadline_Date.setFont(Deadline_Date.getFont().deriveFont(Deadline_Date.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Date.setBounds(220, 183, 68, 41);
 		contentPane.add(Deadline_Date);
@@ -216,7 +219,7 @@ public class Add_Todolist extends JFrame {
 		
 		Deadline_Time = new JComboBox();
 		Deadline_Time.setFont(Deadline_Time.getFont().deriveFont(Deadline_Time.getFont().getStyle() | Font.BOLD, 18f));
-		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12"}));
 		Deadline_Time.setBounds(410, 183, 68, 41);
 		contentPane.add(Deadline_Time);
 		
@@ -246,7 +249,7 @@ public class Add_Todolist extends JFrame {
 		Rdeadline_Tf.setBackground(new Color(0, 0, 128));
 		
 		Rdeadline_Mon = new JComboBox();
-		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"  월", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12"}));
 		Rdeadline_Mon.setFont(Rdeadline_Mon.getFont().deriveFont(Rdeadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Mon.setBounds(120, 300, 68, 41);
 		contentPane.add(Rdeadline_Mon);
@@ -257,7 +260,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.add(Rdeadline_Mon_Lb);
 		
 		Rdeadline_Date = new JComboBox();
-		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"  일", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12", "  13", "  14", "  15", "  16", "  17", "  18", "  19", "  20", "  21", "  22", "  23", "  24", "  25", "  26", "  27", "  28", "  29", "  30", "  31"}));
 		Rdeadline_Date.setFont(Rdeadline_Date.getFont().deriveFont(Rdeadline_Date.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Date.setBounds(220, 300, 68, 41);
 		contentPane.add(Rdeadline_Date);
@@ -268,7 +271,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.add(Rdeadline_Date_Lb);
 
 		Rdeadline_Time = new JComboBox();
-		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12"}));
 		Rdeadline_Time.setFont(Rdeadline_Time.getFont().deriveFont(Rdeadline_Time.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Time.setBounds(410, 299, 68, 41);
 		contentPane.add(Rdeadline_Time);
@@ -365,11 +368,12 @@ public class Add_Todolist extends JFrame {
 				// TODO Auto-generated method stub
 //				cob = Subject.getSelectedItem().toString();
 				
+				//delete 
 				DefaultTableModel model = (DefaultTableModel) table1.getModel();
 		        for (int i = 0; i < model.getRowCount();) {
 		            model.removeRow(0);
 		            }
-				
+		        //insert 
 				DeadlineYear_cob = Deadline_Year.getSelectedItem().toString();
 				DeadlineMon_cob = Deadline_Mon.getSelectedItem().toString();
 				DeadlineDate_cob = Deadline_Date.getSelectedItem().toString();
@@ -388,89 +392,80 @@ public class Add_Todolist extends JFrame {
 				//update table
 			    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
 		        Todo_Dao dao = new Todo_Dao();
-		        dao.userSelectAll(model);
+		        dao.userSelectAll(model1);
 		        //exit add_sub
 				dispose();
 				
-				/* add+sort
-				if(tdm.cob1.equals("사전식순"))
-				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll(model);
-			        //exit add_sub
-					dispose();
-			        
-					
-				}
-				else if(tdm.cob1.equals("중요도순"))
-				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll1(model,1);
-			        //exit add_sub
-					dispose();
-				}
-				else if(tdm.cob1.equals("마감일순"))
-				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll1(model,2);
-			        //exit add_sub
-					dispose();
-				}
-				else if(tdm.cob1.equals("실제마감일순"))
-				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll1(model,3);
-			        //exit add_sub
-					dispose();
-				}
-				else
-				{
-					//기존 table data delete
-					DefaultTableModel model = (DefaultTableModel) table1.getModel();
-			        for (int i = 0; i < model.getRowCount();) {
-			            model.removeRow(0);
-			            }
-			        Insert_Todo();
-			        //update table
-				    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-			        Todo_Dao dao = new Todo_Dao();
-			        dao.userSelectAll1(model,4);
-			        //exit add_sub
-					dispose();
-				}
-				*/
+				//SORT 구현 
+				/* 
+				 //update table & exit Add_Todolist 
+				 if(tList.Sortcob.equals("사전식순")) 
+				 { 
+						if(tList.Checkbox_State == true) //all 
+ 				 		{ 
+				 			std1.itemname_asc(); 
+				 			dispose(); 
+				 		} 
+				 		else//no complete 
+				 		{ 
+				 			std1.nocom_itemname_asc(); 
+				 			dispose(); 
+				 		} 
+				 } 
+				 else if(tList.Sortcob.equals("중요도순")) 
+				 { 
+				 		if(tList.Checkbox_State == true) //all 
+				 		{ 
+				 			std1.importance_desc(); 
+				 			dispose(); 
+				 		} 
+				 		else//no complete 
+				 		{ 
+							std1.nocom_importance_desc(); 
+				 			dispose(); 
+				 		} 
+				 } 
+				 else if(tList.Sortcob.equals("마감일순")) 
+				 { 
+						if(tList.Checkbox_State == true) 
+				 		{ 
+				 			std1.deadline_asc(); 
+				 			dispose(); 
+				 		} 
+						else 
+				 		{ 
+							std1.nocom_deadline_asc(); 
+				 			dispose(); 
+				 		} 
+				} 
+				else if(tList.Sortcob.equals("실제마감일순")) 
+				{ 
+				 		if(tList.Checkbox_State == true) //all 
+				 		{ 
+				 			std1.rdeadline_asc(); 
+				 			dispose(); 
+						} 
+				 		else//no complete 
+				 		{ 
+				 			std1.nocom_rdeadline_asc(); 
+				 			dispose(); 
+				 		} 
+				 } 
+				 else //"완료여부"일 경우 
+				 { 
+				 		if(tList.Checkbox_State == true) //all 
+				 		{ 
+				 			std1.complete_asc(); 
+				 			dispose(); 
+				 		} 
+				 		else//no complete 
+				 		{ 
+				 			std1.nocom_itemname_asc(); 
+				 			dispose(); 
+				 		} 
+				 } 
+				 */ 
+
 			}
 
 			@Override
@@ -482,7 +477,7 @@ public class Add_Todolist extends JFrame {
 			
 			Deadline_Mon = new JComboBox();
 			Deadline_Mon.setFont(Deadline_Mon.getFont().deriveFont(Deadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
-			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"  월", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12"}));
 			Deadline_Mon.setBounds(117, 183, 68, 41);
 			contentPane.add(Deadline_Mon);
 			
@@ -540,7 +535,7 @@ public class Add_Todolist extends JFrame {
 			contentPane.add(Comment_Img);
 			
 			Complete = new JComboBox();
-			Complete.setModel(new DefaultComboBoxModel(new String[] {"완료여부", "O", "X"}));
+			Complete.setModel(new DefaultComboBoxModel(new String[] {" 완료여부", "      O", "      X"}));
 			Complete.setFont(Complete.getFont().deriveFont(Complete.getFont().getStyle() | Font.BOLD, 18f));
 			Complete.setBounds(235, 482, 109, 39);
 			contentPane.add(Complete);
