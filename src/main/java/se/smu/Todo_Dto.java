@@ -20,6 +20,8 @@ public class Todo_Dto {
 	private String deadline;//마감일
 	private String rdeadline;//실제 마감일
 	
+	private String star;//중요도 별
+	
 	
 	public String getItemname() {
 		return itemname;
@@ -173,6 +175,26 @@ public class Todo_Dto {
 	public void setRdeadline(String rdeadliney, String rdeadlinem, String rdeadlined, String rdeadline_ampm, String rdeadlinet) {
 		String rdeadline = rdeadliney+"년 "+ rdeadlinem+"월 "+ rdeadlined+"일 " + rdeadline_ampm+" " + rdeadlinet + "시";
 		this.rdeadline = rdeadline;
+	}
+	
+	public String getStar(){
+		return star;
+	}
+	
+	public void setStar(String importance){
+		if(Integer.parseInt(importance)==0){
+			this.star = "";
+		}else if(Integer.parseInt(importance)==1){
+			this.star = "★";
+		}else if(Integer.parseInt(importance)==2){
+			this.star = "★★";
+		}else if(Integer.parseInt(importance)==3){
+			this.star = "★★★";
+		}else if(Integer.parseInt(importance)==4){
+			this.star = "★★★★";
+		}else{
+			this.star = "★★★★★";
+		}
 	}
 	
 

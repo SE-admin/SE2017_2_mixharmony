@@ -534,6 +534,7 @@ public class Change_Todolist extends JFrame {
 		dto.setComplete(complete);
 		dto.setDeadline(deadliney, deadlinem, deadlined, deadline_ampm, deadlinet);//
 		dto.setRdeadline(rdeadliney, rdeadlinem, rdeadlined, rdeadline_ampm, rdeadlinet);
+		dto.setStar(importance); //중요도 별로 출력
 	
 	return dto;
 	}

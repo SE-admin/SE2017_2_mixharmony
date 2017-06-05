@@ -158,8 +158,8 @@ public class Todo_Dao {
             String sql = "insert into tododb(" +"itemname,"
             		+ "deadliney,deadlinem,deadlined,deadline_ampm,deadlinet,"
                     + "rdeadliney,rdeadlinem,rdeadlined,rdeadline_ampm,rdeadlinet,"
-                    + "importance,comment,subject,complete,deadline,rdeadline)"
-                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "importance,comment,subject,complete,deadline,rdeadline, star)"
+                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             
            
             ps = con.prepareStatement(sql);
@@ -185,7 +185,7 @@ public class Todo_Dao {
             ps.setString(15, dto.getComplete());
             ps.setString(16, dto.getDeadline());
             ps.setString(17, dto.getRdeadline());
-            
+            ps.setString(18, dto.getStar());//추가
 
             
             int r = ps.executeUpdate(); //실행 -> 저장
@@ -220,10 +220,10 @@ public boolean Change_Todo(Todo_Dto vTo){
         String sql = "update tododb set "
         		+ "deadliney=?, deadlinem=?, deadlined=?, deadline_ampm=?, deadlinet=?, "
         		+ "rdeadliney=?, rdeadlinem=?, rdeadlined=?, rdeadline_ampm=?, rdeadlinet=?,"
-        		+ "importance=?, comment=?, subject=?, complete=?, deadline=?, rdeadline=? where itemname=?";
+        		+ "importance=?, comment=?, subject=?, complete=?, deadline=?, rdeadline=?, star=? where itemname=?";
         ps = con.prepareStatement(sql);
        
-        ps.setString(17, vTo.getItemname());
+        ps.setString(18, vTo.getItemname());
         ps.setString(1, vTo.getDeadliney());
 //        ps.setString(2, vTo.getDeadline());
         ps.setString(2, vTo.getDeadlinem());
@@ -242,6 +242,7 @@ public boolean Change_Todo(Todo_Dto vTo){
         ps.setString(14, vTo.getComplete());
         ps.setString(15, vTo.getDeadline());
         ps.setString(16, vTo.getRdeadline());
+        ps.setString(17, vTo.getStar());//추가
       
         
        
@@ -315,7 +316,7 @@ public void userSelectAll(DefaultTableModel model) {
 
         while (rs.next()) {
             Object data[] = { rs.getString(1), rs.getString(2), rs.getString(8), 
-            		rs.getString(14), rs.getString(15), rs.getString(17), 
+            		rs.getString(18), rs.getString(15), rs.getString(17), 
             		//rs.getString(7)
                     };//db위치에 맞게 수정
 
@@ -406,7 +407,7 @@ public void userSelectAll1(DefaultTableModel model,int z) {
 		}  
 		while (rs.next()) {  
             Object data[] = { rs.getString(1), rs.getString(2), rs.getString(8), 
-            		rs.getString(14), rs.getString(15), rs.getString(17), 
+            		rs.getString(18), rs.getString(15), rs.getString(17), 
             		//rs.getString(7)
                     }; 
 			model.addRow(data);                  
