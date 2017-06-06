@@ -152,8 +152,6 @@ public class Todo_Dao {
            
             con = getConn();
             
-//            String sql = "insert into tododb(itemname,deadline,rdeadline,importance,comment,complete)"
-//                    + "values(?,?,?,?,?,?)";
             
             String sql = "insert into tododb(" +"itemname,"
             		+ "deadliney,deadlinem,deadlined,deadline_ampm,deadlinet,"
@@ -164,21 +162,16 @@ public class Todo_Dao {
            
             ps = con.prepareStatement(sql);
             ps.setString(1, dto.getItemname());
-//            ps.setString(2, dto.getDeadline());
             ps.setString(2, dto.getDeadliney());
             ps.setString(3, dto.getDeadlinem());
             ps.setString(4, dto.getDeadlined());
             ps.setString(5, dto.getDeadline_ampm());
             ps.setString(6, dto.getDeadlinet());           
-//            ps.setString(3, dto.getRdeadline());
             ps.setString(7, dto.getRdeadliney());
             ps.setString(8, dto.getRdeadlinem());
             ps.setString(9, dto.getRdeadlined());
             ps.setString(10, dto.getRdeadline_ampm());
             ps.setString(11, dto.getRdeadlinet());
-//            ps.setString(4, dto.getImportance());
-//            ps.setString(5, dto.getComment());
-            //ps.setString(6, dto.getSubject());
             ps.setString(12, dto.getImportance());
             ps.setString(13, dto.getComment());
             ps.setString(14, dto.getSubject());
@@ -225,12 +218,10 @@ public boolean Change_Todo(Todo_Dto vTo){
        
         ps.setString(18, vTo.getItemname());
         ps.setString(1, vTo.getDeadliney());
-//        ps.setString(2, vTo.getDeadline());
         ps.setString(2, vTo.getDeadlinem());
         ps.setString(3, vTo.getDeadlined());
         ps.setString(4, vTo.getDeadline_ampm());
         ps.setString(5, vTo.getDeadlinet());
-//        ps.setString(3, vTo.getRdeadline());
         ps.setString(6, vTo.getRdeadliney());
         ps.setString(7, vTo.getRdeadlinem());
         ps.setString(8, vTo.getRdeadlined());
@@ -242,7 +233,7 @@ public boolean Change_Todo(Todo_Dto vTo){
         ps.setString(14, vTo.getComplete());
         ps.setString(15, vTo.getDeadline());
         ps.setString(16, vTo.getRdeadline());
-        ps.setString(17, vTo.getStar());//추가
+        ps.setString(17, vTo.getStar());
       
         
        
@@ -263,7 +254,6 @@ public boolean Change_Todo(Todo_Dto vTo){
     return ok;
 }
 
-///////////////삭제 추가
 public boolean Delete_Todo(String itemname){
    
     boolean ok = false ;
@@ -290,7 +280,7 @@ public boolean Delete_Todo(String itemname){
     }      
     return ok;
 }
-////////////////
+
 
 /**DB데이터 다시 불러오기*/   
 public void userSelectAll(DefaultTableModel model) {
@@ -317,7 +307,6 @@ public void userSelectAll(DefaultTableModel model) {
         while (rs.next()) {
             Object data[] = { rs.getString(1), rs.getString(2), rs.getString(8), 
             		rs.getString(18), rs.getString(15), rs.getString(17), 
-            		//rs.getString(7)
                     };//db위치에 맞게 수정
 
             model.addRow(data);                
@@ -351,7 +340,7 @@ public void userSelectAll(DefaultTableModel model) {
     }
 }
 //sort 메소드  
-//정렬 기준? deadline, rdeadline 수정 필요
+
 public void userSelectAll1(DefaultTableModel model,int z) {  
   
 	Connection con = null;  
@@ -452,7 +441,6 @@ public void userSelectAll3(DefaultTableModel model,int z) {
 		{  
 			con = getConn();  
 			String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by deadline asc";  
-//String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by itemname asc";
 			ps = con.prepareStatement(sql);  
 			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();

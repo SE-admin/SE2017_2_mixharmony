@@ -24,23 +24,6 @@ public class Delete_Subject extends JFrame {
 
 	Subject_Management sList;
 	public static JTable Subject_Data_Tb;
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					//int row = Subject_Data_Tb.getSelectedRow();
-//					//String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
-//					Delete_Subject frame = new Delete_Subject();
-//					
-//					frame.setVisible(true);
-//					
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
 	public Delete_Subject(){
 		
 	}
@@ -85,20 +68,7 @@ public class Delete_Subject extends JFrame {
 		Check_Btn.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent e) {
-//				DefaultTableModel model = (DefaultTableModel) table.getModel();
-//		        model.removeRow(0);
-		        //수정3//
-//				int row = Subject_Data_Tb.getSelectedRow();
-//				String id = (String) Subject_Data_Tb.getValueAt(row, 0);
-//				Delete_Subject(id);
-//				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
-//		          
-//		        Subject_Dao dao = new Subject_Dao();
-//		        boolean ok = dao.Delete_Subject(id);
-//		        //dao.getSubject_Dto(subject)
-//		        dao.userSelectAll(model);
-//		        
-//		        dispose();
+
 
 				
 				Subject_Dao dao = new Subject_Dao();
@@ -116,27 +86,5 @@ public class Delete_Subject extends JFrame {
 		contentPane.add(Check_Btn);
 	}
 
-	//수정//
-//	private void Delete_Subject(String subject)
-//	{
-//		//Subject_Dto dto = getViewData();
-//		//Subject_Dao dao = new Subject_Dao();
-//		//boolean ok = dao.Delete_Subject(dto);
-//	}
-	
-//	public void actionPerformed(ActionEvent arg0)
-//	{
-//		
-//
-//		int row = Subject_Data_Tb.getSelectedRow();
-//		if (row == -1)
-//		{
-//			return;
-//		}
-//		DefaultTableModel model = (DefaultTableModel) Subject_Data_Tb.getModel();
-//		model.removeRow(row);
-//		//String id = (String) Subject_Data_Tb.getValueAt(row,  0);
-//		//Delete_Subject(id);
-//		//dispose();
-//	}
+
 }

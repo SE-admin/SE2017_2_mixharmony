@@ -72,13 +72,11 @@ public class Change_Todolist extends JFrame {
 	 private void ViewData(Todo_Dto vTo){
 	
 	 	String itemname = vTo.getItemname();
-		//String deadline = vTo.getDeadline();
 		String deadliney = vTo.getDeadliney();
 		String deadlinem = vTo.getDeadlinem();
 		String deadlined = vTo.getDeadlined();
 		String deadline_ampm = vTo.getDeadline_ampm();
 		String deadlinet = vTo.getDeadlinet();
-		//String rdeadline = vTo.getRdeadline();
 		String rdeadliney = vTo.getRdeadliney();
 		String rdeadlinem = vTo.getRdeadlinem();
 		String rdeadlined = vTo.getRdeadlined();
@@ -114,18 +112,6 @@ public class Change_Todolist extends JFrame {
 	 }
 
 
-//	public static void main(String[] args) {
-//		/*EventQueue.invokeLater(new Runnable() {
-//		public void run() {
-//			try {
-//				Change_Todolist frame = new Change_Todolist();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}		}
-//		});
-//		new Change_Todolist();*/
-//	}
 	
 	class Star_Listener extends MouseAdapter{
 		public void mousePressed(MouseEvent e) {
@@ -326,7 +312,6 @@ public class Change_Todolist extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				//tList.jTableRefresh();
 			}});
 		
 		contentPane.add(Signup_Btn);
@@ -433,7 +418,6 @@ public class Change_Todolist extends JFrame {
 		
 		JLabel Comment_Img = new JLabel("");
 		Comment_Img.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
-		//Comment_Img.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/untitled-iloveimg-resized.png")));
 		Comment_Img.setBounds(17, 416, 52, 41);
 		contentPane.add(Comment_Img);
 		
@@ -469,7 +453,6 @@ public class Change_Todolist extends JFrame {
 		Complete_Select.setBounds(238, 475, 109, 39);
 		contentPane.add(Complete_Select);
 		
-		//수정!
 		Todo_Dao dao = new Todo_Dao();
 		Todo_Dto vTo = dao.getTodo_Dto(itemname);
 		ViewData(vTo);
@@ -515,13 +498,11 @@ public class Change_Todolist extends JFrame {
 		String complete = Completecob;
 		
 		dto.setItemname(itemname);
-		//dto.setDeadline(deadline);
 		dto.setDeadliney(deadliney);
 		dto.setDeadlinem(deadlinem);
 		dto.setDeadlined(deadlined);
 		dto.setDeadline_ampm(deadline_ampm);
 		dto.setDeadlinet(deadlinet);
-		//dto.setRdeadline(rdeadline);
 		dto.setRdeadliney(rdeadliney);
 		dto.setRdeadlinem(rdeadlinem);
 		dto.setRdeadlined(rdeadlined);
@@ -531,7 +512,7 @@ public class Change_Todolist extends JFrame {
 		dto.setComment(comment);
 		dto.setSubject(subject);
 		dto.setComplete(complete);
-		dto.setDeadline(deadliney, deadlinem, deadlined, deadline_ampm, deadlinet);//
+		dto.setDeadline(deadliney, deadlinem, deadlined, deadline_ampm, deadlinet);
 		dto.setRdeadline(rdeadliney, rdeadlinem, rdeadlined, rdeadline_ampm, rdeadlinet);
 		dto.setStar(importance); //중요도 별로 출력
 	

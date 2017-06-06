@@ -102,29 +102,6 @@ public class Add_Todolist extends JFrame {
         String complete = vTo.getComplete();
     }
 
-//////////////생성자
-//    public Add_Todolist(String itemname, String deadline, String rdeadline, String importance){
-//    	Signup_Btn.setEnabled(false);
-//    	Signup_Btn.setVisible(false);
-//    	
-//    	Todo_Dao dao = new Todo_Dao();
-//    	Todo_Dto vTo = dao.getTodo_DtO(itemname);
-//    	ViewData(vTo);
-//    }
-    
-
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Add_Todolist frame = new Add_Todolist();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	class Star_Listener extends MouseAdapter{
 		public void mousePressed(MouseEvent e) {
@@ -406,18 +383,7 @@ public class Add_Todolist extends JFrame {
 				
 				Insert_Todo();
 			
-				
-				/*
-				//update table
-			    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
-		        Todo_Dao dao = new Todo_Dao();
-		        dao.userSelectAll(model1);
-		        //exit add_sub
-				dispose();
-				*/
-				//SORT 구현 
-				
-				 //update table & exit Add_Todolist 
+
 				 if(tList.Sortcob.equals("사전식순")) 
 				 { 
 						if(tList.Checkbox_State == true) //all 

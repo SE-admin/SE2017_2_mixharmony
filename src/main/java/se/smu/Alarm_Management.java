@@ -51,18 +51,7 @@ public class Alarm_Management extends JFrame {
 	    return con;
 	}
 
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Alarm_Management frame = new Alarm_Management();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+
 
 
 	public Alarm_Management() {
@@ -239,34 +228,7 @@ public class Alarm_Management extends JFrame {
 	        		}
 	        	}
 	        }
-	        /*
-	        //deadline = 2012.03.04 인 todo항목 table에 넣기,deadline에 문자열만 있으면 오류
-	        while (rs.next()) {
-	        	if(rs.getString("deadline").equals("") || rs.getString("deadline") == null)
-	        	{
-	        		//exception catch
-	        	}
-	        	else
-	        	{
-	        		int j = deint(rs.getString("deadline"));
-	        		int l = 2012030401;
-	        		if((l - j) < 100 && (l - j) > 0 )
-	        			{
-	        				Object data[] = { rs.getString("subject"), rs.getString("itemname"),
-	        						rs.getString("deadline"), rs.getString("importance")
-		                        	};
 
-	        				model.addRow(data);
-	        			}
-	        		else
-	        			{
-	        				//not alarm list(too early,too late)
-	        		
-	        			}
-	        	}
-	        }
-	        */
-	        //
 	    } catch (SQLException e) {
 	        System.out.println(e + "=> userSelectAll fail");
 	    } finally{

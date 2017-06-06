@@ -13,16 +13,7 @@ public class Subject_Dao {
    
     private static final String USER = "user"; //DB ID
     private static final String PASS = "1234"; //DB 패스워드
-//    Subject_List SList;
-   
-//    public Subject_Dao() {
-//   
-//    }
-   
-//    public Subject_Dao(Subject_List SList){
-//        this.SList = SList;
-//        System.out.println("DAO=>"+SList);
-//    }
+
    
     /**DB연결 메소드*/
     public Connection getConn(){
@@ -200,9 +191,6 @@ public boolean Change_Subject(Subject_Dto vSub){
     return ok;
 }
 
-//회원정보 삭제 :
-// *tip: 실무에서는 회원정보를 Delete 하지 않고 탈퇴여부만 체크한다.
-//수정//
 public boolean Delete_Subject(String subject){
     boolean ok =false ;
     Connection con =null;

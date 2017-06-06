@@ -34,23 +34,18 @@ import javax.swing.ListSelectionModel;
 
 public class Change_Subject extends JFrame {
 
+	private JTextField Professor_In;
+	private JTextField Period_In;
+	
 	private JPanel contentPane;
 	private JLabel Subject_Tf;
-	private JComboBox Subject_In;
 	private JLabel professor_Tf;
-	private JTextField Professor_In;
 	private JLabel Dayofweek_Tf;
 	private JLabel Period_Tf;
-	private JTextField Period_In;
 	private JLabel Year_Tf;
 	private JLabel Semester_Tf;
-	private JComboBox Year_In;
-	private JComboBox Semester_In;
 	private JLabel Divclass_Tf;
-	private JComboBox Divclass_In;
 	private JPanel Panel_Subject;
-	//수정//
-	Subject_Dto getSubject_DtO;
 	private JLabel Professor_Lb;
 	private JLabel Dayofweek_Lb;
 	private JLabel Period_Lb;
@@ -60,10 +55,18 @@ public class Change_Subject extends JFrame {
 	private JLabel Semester_Lb;
 	private JLabel Divclass_Lb;
 	private JPanel Panel_Divclass;
-	//수정//
-	Subject_Management sList;
 	private JPanel Panel_Dayofweek;
+	
+	private JComboBox Subject_In;
+	private JComboBox Year_In;
+	private JComboBox Semester_In;
+	private JComboBox Divclass_In;
 	private JComboBox Dayofweek_In;
+	
+	Subject_Dto getSubject_Dto;
+	Subject_Management sList;
+
+
 	
 	public static String Subjectcob; //수강과목 box값 받기
 	public static String Dayofweekcob;//요일 box값 받기
@@ -89,24 +92,7 @@ public class Change_Subject extends JFrame {
   Divclass_In.setSelectedItem(divclass); 
  }
 
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Change_Subject frame = new Change_Subject();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-//	public Change_Subject() { 
-//
-//	}
-	
-	///////수정2
+ 
 	/**
 	 * @wbp.parser.constructor
 	 */
@@ -283,7 +269,7 @@ public class Change_Subject extends JFrame {
 	Divclass_In.setBounds(287, 480, 173, 41);
 	contentPane.add(Divclass_In);
 	
-	//수정3//
+	
 	final JButton Check_Btn = new JButton("편집 등록");
 	Check_Btn.setForeground(Color.WHITE);
 	Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, 22f));
@@ -327,7 +313,7 @@ public class Change_Subject extends JFrame {
 	Dayofweek_In.setBounds(28, 307, 173, 41);
 	contentPane.add(Dayofweek_In);
 	
-	///수정2	
+	
 	Subject_Dao dao = new Subject_Dao();
 	Subject_Dto vSub = dao.getSubject_Dto(subject);
 	ViewData(vSub);
@@ -347,10 +333,9 @@ public class Change_Subject extends JFrame {
 			
 	  Change_Subject(); 
 	  /*db change data*/
-			//Change_Subject(subject);
+
 			/*update table*/
 			DefaultTableModel model1 = (DefaultTableModel) table.getModel();
-			//model1.fireTableDataChanged();
 	  Subject_Dao dao = new Subject_Dao();
 	  dao.userSelectAll(model);
 	  /*exit change sub*/
@@ -366,8 +351,7 @@ public class Change_Subject extends JFrame {
 
 	}
 
-	
-	//수정//
+
 	public Change_Subject(String subject, Subject_Management sList)
 	{
 		this.sList = sList;
@@ -389,14 +373,10 @@ public class Change_Subject extends JFrame {
 	
 	public Subject_Dto getViewData() {
 		Subject_Dto dto = new Subject_Dto();
-	// String subject = Subject_In.getToolTipText();
 		String subject = Subjectcob;
 	    String professor = Professor_In.getText();
 	    String dayofweek = Dayofweekcob; 
 	    String period = Period_In.getText();
-	// String year = Year_In.getToolTipText();
-	// String semester = Semester_In.getToolTipText();
-	// String divclass = Divclass_In.getToolTipText();
 	    String year = Yearcob;
 	    String semester = Semestercob;
 	    String divclass = Divclasscob;

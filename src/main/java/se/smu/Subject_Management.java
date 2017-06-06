@@ -254,12 +254,11 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	    
 	      ChangeMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
-					try {
-						//수정//
+					try {		
 						Subject_Dto dto = new Subject_Dto();
 						int row = Subject_Data_Tb.getSelectedRow();
 						String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
-						Change_Subject frame = new Change_Subject(subject); //수정2
+						Change_Subject frame = new Change_Subject(subject); 
 					
 						frame.setVisible(true); 
 					} catch (Exception e1) {
@@ -276,18 +275,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 						
 						int row = Subject_Data_Tb.getSelectedRow();
 						String subject = (String) Subject_Data_Tb.getValueAt(row, 0);
-//						Delete_Subject frame = new Delete_Subject(subject, row);
-//						frame.setVisible(true); 
-					
-//						int row = Subject_Data_Tb.getSelectedRow();
-//						String subject = (String) Subject_Data_Tb.getValueAt(row, 0);
-//						
-//						Subject_Dao dao = new Subject_Dao();
-////						Subject_Dto dto = getViewData();
-//						boolean ok = dao.Delete_Subject(subject); //수정 4
-////						frame.setVisible(true); 
-//						
-						//수정4 (Delete_Subject 클래스 안쓰고 한 것)
 						int del = JOptionPane.showConfirmDialog(null, "해당 수강 과목을 삭제하시겠습니까?", "*경고*", JOptionPane.YES_NO_OPTION);
 						if(del == JOptionPane.YES_OPTION){
 							
