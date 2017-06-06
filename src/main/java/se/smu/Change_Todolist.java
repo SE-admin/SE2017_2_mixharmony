@@ -148,7 +148,6 @@ public class Change_Todolist extends JFrame {
 	 */
 	public Change_Todolist(String itemname) {
 		setTitle(Clickdata+" TO DO 항목 편집");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 535, 589);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
