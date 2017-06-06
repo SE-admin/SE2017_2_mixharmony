@@ -64,54 +64,54 @@ public class Change_Todolist extends JFrame {
 	public static String Subjectcob;//수강과목 box값 받기
 	public static String Completecob;//완료여부 box값 받기
 	Subject_Management sList;
- String Clickdata =sList.Clickdata;//추가
+	String Clickdata =sList.Clickdata;//추가
 	
 	Todo_Management tList;
 	
 	
- private void ViewData(Todo_Dto vTo){
-
- 	String itemname = vTo.getItemname();
-//String deadline = vTo.getDeadline();
-String deadliney = vTo.getDeadliney();
-String deadlinem = vTo.getDeadlinem();
-String deadlined = vTo.getDeadlined();
-String deadline_ampm = vTo.getDeadline_ampm();
-String deadlinet = vTo.getDeadlinet();
-//String rdeadline = vTo.getRdeadline();
-String rdeadliney = vTo.getRdeadliney();
-String rdeadlinem = vTo.getRdeadlinem();
-String rdeadlined = vTo.getRdeadlined();
-String rdeadline_ampm = vTo.getRdeadline_ampm();
-String rdeadlinet = vTo.getRdeadlinet();
-String importance = vTo.getImportance();
-String comment = vTo.getComment();
-String subject = vTo.getSubject();
-String complete = vTo.getComplete();
-
-Itemname_In.setText(itemname);
-Deadline_Year.setSelectedItem(deadliney);
-Deadline_Mon.setSelectedItem(deadlinem);
-Deadline_Date.setSelectedItem(deadlined);
-Select_Time.setSelectedItem(deadline_ampm);
-Deadline_Time.setSelectedItem(deadlinet);
-
-Rdeadline_Year.setSelectedItem(rdeadliney);
-Rdeadline_Mon.setSelectedItem(rdeadlinem);
-Rdeadline_Date.setSelectedItem(rdeadlined);
-Rselect_Time.setSelectedItem(rdeadline_ampm);
-Rdeadline_Time.setSelectedItem(rdeadlinet);
- 
-Comment_In.setText(comment);
-Select_Subject_Btn.setSelectedItem(subject);
-Complete_Select.setSelectedItem(complete);
-
-
-for(int i = 0; i < Integer.parseInt(importance); i++){
-	Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-}
-
- }
+	 private void ViewData(Todo_Dto vTo){
+	
+	 	String itemname = vTo.getItemname();
+		//String deadline = vTo.getDeadline();
+		String deadliney = vTo.getDeadliney();
+		String deadlinem = vTo.getDeadlinem();
+		String deadlined = vTo.getDeadlined();
+		String deadline_ampm = vTo.getDeadline_ampm();
+		String deadlinet = vTo.getDeadlinet();
+		//String rdeadline = vTo.getRdeadline();
+		String rdeadliney = vTo.getRdeadliney();
+		String rdeadlinem = vTo.getRdeadlinem();
+		String rdeadlined = vTo.getRdeadlined();
+		String rdeadline_ampm = vTo.getRdeadline_ampm();
+		String rdeadlinet = vTo.getRdeadlinet();
+		String importance = vTo.getImportance();
+		String comment = vTo.getComment();
+		String subject = vTo.getSubject();
+		String complete = vTo.getComplete();
+		
+		Itemname_In.setText(itemname);
+		Deadline_Year.setSelectedItem(deadliney);
+		Deadline_Mon.setSelectedItem(deadlinem);
+		Deadline_Date.setSelectedItem(deadlined);
+		Select_Time.setSelectedItem(deadline_ampm);
+		Deadline_Time.setSelectedItem(deadlinet);
+		
+		Rdeadline_Year.setSelectedItem(rdeadliney);
+		Rdeadline_Mon.setSelectedItem(rdeadlinem);
+		Rdeadline_Date.setSelectedItem(rdeadlined);
+		Rselect_Time.setSelectedItem(rdeadline_ampm);
+		Rdeadline_Time.setSelectedItem(rdeadlinet);
+		 
+		Comment_In.setText(comment);
+		Select_Subject_Btn.setSelectedItem(subject);
+		Complete_Select.setSelectedItem(complete);
+		
+		
+		for(int i = 0; i < Integer.parseInt(importance); i++){
+			Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		}
+	
+	 }
 
 
 	public static void main(String[] args) {
@@ -505,7 +505,7 @@ for(int i = 0; i < Integer.parseInt(importance); i++){
 		String deadlined = DeadlineDate_cob;
 		String deadline_ampm = DeadlineAmPm_cob;
 		String deadlinet = DeadlineTime_cob;
-	 String rdeadliney = RdeadlineYear_cob;
+	    String rdeadliney = RdeadlineYear_cob;
 		String rdeadlinem = RdeadlineMon_cob;
 		String rdeadlined = RdeadlineDate_cob;
 		String rdeadline_ampm = RdeadlineAmPm_cob;
