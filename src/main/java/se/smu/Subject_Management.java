@@ -29,7 +29,10 @@ import java.util.Vector;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.UIManager;
 import javax.swing.ListSelectionModel;
 import javax.swing.JComboBox;
@@ -59,18 +62,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 
 	
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			 public void run() {
-				try {
-					Subject_Management frame = new Subject_Management();
-					frame.setVisible(true); 
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	
 	@SuppressWarnings("unchecked")
@@ -172,6 +164,22 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		Subject_Data_Tb.setSurrendersFocusOnKeystroke(true);
 		Subject_Data_Tb.setCellSelectionEnabled(true);
 		Subject_Data_Tb.setColumnSelectionAllowed(true);
+		
+		// DefaultTableCellHeaderRenderer 생성 (가운데 정렬을 위한)
+		DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
+		 
+		// DefaultTableCellHeaderRenderer의 정렬을 가운데 정렬로 지정
+		tScheduleCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+		 
+		// 정렬할 테이블의 ColumnModel을 가져옴
+		TableColumnModel tcmSchedule = Subject_Data_Tb.getColumnModel();
+		 
+		// 반복문을 이용하여 테이블을 가운데 정렬로 지정
+		for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
+		tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
+		}
+
+		
 		Subject_Data_Scroll.setViewportView(Subject_Data_Tb);
 		
         //combobox 텍스트 전달을 위해서 combobox선언위치를 이곳으로 변경

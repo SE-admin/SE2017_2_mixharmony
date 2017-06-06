@@ -14,10 +14,13 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 import se.smu.Subject_Management.Mouseclick;
 import se.smu.Todo_Dao;
@@ -137,6 +140,19 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Data_Tb.setColumnSelectionAllowed(true);
 		Todo_Data_Tb.setCellSelectionEnabled(true);
 		Todo_Data_Tb.setBorder(UIManager.getBorder("Table.scrollPaneBorder"));
+		
+		DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
+		 
+		// DefaultTableCellHeaderRenderer의 정렬을 가운데 정렬로 지정
+		tScheduleCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+		 
+		// 정렬할 테이블의 ColumnModel을 가져옴
+		TableColumnModel tcmSchedule = Todo_Data_Tb.getColumnModel();
+		 
+		// 반복문을 이용하여 테이블을 가운데 정렬로 지정
+		for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
+		tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
+		}
 
 		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
 		Todo_Dao dao = new Todo_Dao();
