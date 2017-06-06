@@ -66,7 +66,7 @@ public class Change_Subject extends JFrame {
 	private JComboBox Dayofweek_In;
 	
 	public static String Subjectcob; //수강과목 box값 받기
-//	public static String Dayofweekcob;//요일 box값 받기
+	public static String Dayofweekcob;//요일 box값 받기
 	public static String Yearcob;//년도 box값 받기
 	public static String Semestercob;//학기 box값 받기
 	public static String Divclasscob;//분반 box값 받기
@@ -340,7 +340,7 @@ public class Change_Subject extends JFrame {
 	model.removeRow(0);	 
 	}
 			Subjectcob = Subject_In.getSelectedItem().toString();
-//			Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
+			Dayofweekcob =Dayofweek_In.getSelectedItem().toString();
 			Yearcob =Year_In.getSelectedItem().toString();
 			Divclasscob =Divclass_In.getSelectedItem().toString();
 			Semestercob =Semester_In.getSelectedItem().toString();
@@ -388,28 +388,28 @@ public class Change_Subject extends JFrame {
 	
 	
 	public Subject_Dto getViewData() {
-	Subject_Dto dto = new Subject_Dto();
-// String subject = Subject_In.getToolTipText();
-	String subject = Subjectcob;
- String professor = Professor_In.getText();
- String dayofweek = Dayofweek_In.getToolTipText(); 
- String period = Period_In.getText();
-// String year = Year_In.getToolTipText();
-// String semester = Semester_In.getToolTipText();
-// String divclass = Divclass_In.getToolTipText();
- String year = Yearcob;
- String semester = Semestercob;
- String divclass = Divclasscob;
- 
- dto.setSubject(subject);
- dto.setProfessor(professor);
- dto.setDayofweek(dayofweek);
- dto.setPeriod(period);
- dto.setYear(year);
- dto.setSemester(semester);
- dto.setDivclass(divclass);
-
- return dto;
+		Subject_Dto dto = new Subject_Dto();
+	// String subject = Subject_In.getToolTipText();
+		String subject = Subjectcob;
+	    String professor = Professor_In.getText();
+	    String dayofweek = Dayofweekcob; 
+	    String period = Period_In.getText();
+	// String year = Year_In.getToolTipText();
+	// String semester = Semester_In.getToolTipText();
+	// String divclass = Divclass_In.getToolTipText();
+	    String year = Yearcob;
+	    String semester = Semestercob;
+	    String divclass = Divclasscob;
+	 
+	    dto.setSubject(subject);
+	    dto.setProfessor(professor);
+	    dto.setDayofweek(dayofweek);
+	    dto.setPeriod(period);
+	    dto.setYear(year);
+	    dto.setSemester(semester);
+	    dto.setDivclass(divclass);
+	
+	    return dto;
 	}
 	
 }
