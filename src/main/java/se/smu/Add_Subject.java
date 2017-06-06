@@ -22,6 +22,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JSpinner;
 import javax.swing.JFormattedTextField;
@@ -296,6 +297,14 @@ public class Add_Subject extends JFrame {
 
 					
 					public void mousePressed(MouseEvent arg0) {	
+						
+						if (Professor_In.getText() == null || Period_In.getText() == null)
+						{
+							int checkNull = JOptionPane.showConfirmDialog(null, "모든 항목이 채워지지 않았습니다.", "*경고*", JOptionPane.YES_OPTION);
+							if(checkNull == JOptionPane.YES_OPTION){
+								dispose();
+							}
+						}
 						//combobox가 사전식순일떄 table 추가방식
 						if(sList.Sortcob.equals("사전식순"))
 						{	
@@ -305,6 +314,7 @@ public class Add_Subject extends JFrame {
 						Yearcob =Year_In.getSelectedItem().toString();
 						Divclasscob =Divclass_In.getSelectedItem().toString();
 						Semestercob =Semester_In.getSelectedItem().toString();
+				
 				        Insert_Subject();
 				        //update table
 					    ssb.Subject_Sort();
