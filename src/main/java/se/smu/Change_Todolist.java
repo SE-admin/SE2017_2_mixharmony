@@ -147,7 +147,7 @@ public class Change_Todolist extends JFrame {
 	 * @wbp.parser.constructor
 	 */
 	public Change_Todolist(String itemname) {
-		setTitle(Clickdata+" TO DO 항목 등록");
+		setTitle(Clickdata+" TO DO 항목 편집");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 535, 589);
 		contentPane = new JPanel();
@@ -355,7 +355,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Deadline_Date_Lb);
 		
 		Deadline_Time = new JComboBox();
-		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", " 10", " 11", " 12"}));
+		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Deadline_Time.setFont(Deadline_Time.getFont().deriveFont(Deadline_Time.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Time.setBounds(396, 188, 68, 41);
 		contentPane.add(Deadline_Time);
@@ -389,7 +389,7 @@ public class Change_Todolist extends JFrame {
 		
 		Rdeadline_Time = new JComboBox();
 		Rdeadline_Time.setFont(Rdeadline_Time.getFont().deriveFont(Rdeadline_Time.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", " 10", " 11", " 12"}));
+		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Rdeadline_Time.setBounds(396, 300, 68, 41);
 		contentPane.add(Rdeadline_Time);
 		
