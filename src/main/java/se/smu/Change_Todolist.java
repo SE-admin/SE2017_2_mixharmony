@@ -64,54 +64,54 @@ public class Change_Todolist extends JFrame {
 	public static String Subjectcob;//수강과목 box값 받기
 	public static String Completecob;//완료여부 box값 받기
 	Subject_Management sList;
-    String Clickdata =sList.Clickdata;//추가
+ String Clickdata =sList.Clickdata;//추가
 	
 	Todo_Management tList;
 	
 	
-    private void ViewData(Todo_Dto vTo){
-        
-    	String itemname = vTo.getItemname();
-        //String deadline = vTo.getDeadline();
-        String deadliney = vTo.getDeadliney();
-        String deadlinem = vTo.getDeadlinem();
-        String deadlined = vTo.getDeadlined();
-        String deadline_ampm = vTo.getDeadline_ampm();
-        String deadlinet = vTo.getDeadlinet();
-        //String rdeadline = vTo.getRdeadline();
-        String rdeadliney = vTo.getRdeadliney();
-        String rdeadlinem = vTo.getRdeadlinem();
-        String rdeadlined = vTo.getRdeadlined();
-        String rdeadline_ampm = vTo.getRdeadline_ampm();
-        String rdeadlinet = vTo.getRdeadlinet();
-        String importance = vTo.getImportance();
-        String comment = vTo.getComment();
-        String subject = vTo.getSubject();
-        String complete = vTo.getComplete();
-        
-        Itemname_In.setText(itemname);
-        Deadline_Year.setSelectedItem(deadliney);
-        Deadline_Mon.setSelectedItem(deadlinem);
-        Deadline_Date.setSelectedItem(deadlined);
-        Select_Time.setSelectedItem(deadline_ampm);
-        Deadline_Time.setSelectedItem(deadlinet);
-        
-        Rdeadline_Year.setSelectedItem(rdeadliney);
-        Rdeadline_Mon.setSelectedItem(rdeadlinem);
-        Rdeadline_Date.setSelectedItem(rdeadlined);
-        Rselect_Time.setSelectedItem(rdeadline_ampm);
-        Rdeadline_Time.setSelectedItem(rdeadlinet);
-             
-        Comment_In.setText(comment);
-        Select_Subject_Btn.setSelectedItem(subject);
-        Complete_Select.setSelectedItem(complete);
+ private void ViewData(Todo_Dto vTo){
 
-        
-        for(int i = 0; i < Integer.parseInt(importance); i++){
-        	Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
-        }
-        
-    }
+ 	String itemname = vTo.getItemname();
+//String deadline = vTo.getDeadline();
+String deadliney = vTo.getDeadliney();
+String deadlinem = vTo.getDeadlinem();
+String deadlined = vTo.getDeadlined();
+String deadline_ampm = vTo.getDeadline_ampm();
+String deadlinet = vTo.getDeadlinet();
+//String rdeadline = vTo.getRdeadline();
+String rdeadliney = vTo.getRdeadliney();
+String rdeadlinem = vTo.getRdeadlinem();
+String rdeadlined = vTo.getRdeadlined();
+String rdeadline_ampm = vTo.getRdeadline_ampm();
+String rdeadlinet = vTo.getRdeadlinet();
+String importance = vTo.getImportance();
+String comment = vTo.getComment();
+String subject = vTo.getSubject();
+String complete = vTo.getComplete();
+
+Itemname_In.setText(itemname);
+Deadline_Year.setSelectedItem(deadliney);
+Deadline_Mon.setSelectedItem(deadlinem);
+Deadline_Date.setSelectedItem(deadlined);
+Select_Time.setSelectedItem(deadline_ampm);
+Deadline_Time.setSelectedItem(deadlinet);
+
+Rdeadline_Year.setSelectedItem(rdeadliney);
+Rdeadline_Mon.setSelectedItem(rdeadlinem);
+Rdeadline_Date.setSelectedItem(rdeadlined);
+Rselect_Time.setSelectedItem(rdeadline_ampm);
+Rdeadline_Time.setSelectedItem(rdeadlinet);
+ 
+Comment_In.setText(comment);
+Select_Subject_Btn.setSelectedItem(subject);
+Complete_Select.setSelectedItem(complete);
+
+
+for(int i = 0; i < Integer.parseInt(importance); i++){
+	Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+}
+
+ }
 
 
 	public static void main(String[] args) {
@@ -300,8 +300,8 @@ public class Change_Todolist extends JFrame {
 				// TODO Auto-generated method stub
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				for (int i = 0; i < model.getRowCount();) {
-		            model.removeRow(0);
-		        }
+		model.removeRow(0);
+		}
 				DeadlineYear_cob = Deadline_Year.getSelectedItem().toString();
 				DeadlineMon_cob = Deadline_Mon.getSelectedItem().toString();
 				DeadlineDate_cob = Deadline_Mon.getSelectedItem().toString();
@@ -320,7 +320,7 @@ public class Change_Todolist extends JFrame {
 				Change_Todolist();
 				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 				Todo_Dao dao = new Todo_Dao();
-		        dao.userSelectAll(model);
+		dao.userSelectAll(model);
 				dispose();
 			}
 
@@ -333,7 +333,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Signup_Btn);
 		
 		Deadline_Mon = new JComboBox();
-		Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"  월", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12"}));
+		Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Deadline_Mon.setFont(Deadline_Mon.getFont().deriveFont(Deadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Mon.setBounds(119, 188, 68, 41);
 		contentPane.add(Deadline_Mon);
@@ -344,7 +344,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Deadline_Mon_Lb);
 		
 		Deadline_Date = new JComboBox();
-		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"  일", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12", "  13", "  14", "  15", "  16", "  17", "  18", "  19", "  20", "  21", "  22", "  23", "  24", "  25", "  26", "  27", "  28", "  29", "  30", "  31"}));
+		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		Deadline_Date.setFont(Deadline_Date.getFont().deriveFont(Deadline_Date.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Date.setBounds(220, 188, 68, 41);
 		contentPane.add(Deadline_Date);
@@ -355,7 +355,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Deadline_Date_Lb);
 		
 		Deadline_Time = new JComboBox();
-		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12"}));
+		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", " 10", " 11", " 12"}));
 		Deadline_Time.setFont(Deadline_Time.getFont().deriveFont(Deadline_Time.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Time.setBounds(396, 188, 68, 41);
 		contentPane.add(Deadline_Time);
@@ -366,7 +366,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Deadline_Time_Lb);
 		
 		Rdeadline_Mon = new JComboBox();
-		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"  월", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12"}));
+		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Rdeadline_Mon.setFont(Rdeadline_Mon.getFont().deriveFont(Rdeadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Mon.setBounds(120, 300, 68, 41);
 		contentPane.add(Rdeadline_Mon);
@@ -378,7 +378,7 @@ public class Change_Todolist extends JFrame {
 		
 		Rdeadline_Date = new JComboBox();
 		Rdeadline_Date.setFont(Rdeadline_Date.getFont().deriveFont(Rdeadline_Date.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"  일", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12", "  13", "  14", "  15", "  16", "  17", "  18", "  19", "  20", "  21", "  22", "  23", "  24", "  25", "  26", "  27", "  28", "  29", "  30", "  31"}));
+		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		Rdeadline_Date.setBounds(220, 300, 68, 41);
 		contentPane.add(Rdeadline_Date);
 		
@@ -389,7 +389,7 @@ public class Change_Todolist extends JFrame {
 		
 		Rdeadline_Time = new JComboBox();
 		Rdeadline_Time.setFont(Rdeadline_Time.getFont().deriveFont(Rdeadline_Time.getFont().getStyle() | Font.BOLD, 18f));
-		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12"}));
+		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", " 10", " 11", " 12"}));
 		Rdeadline_Time.setBounds(396, 300, 68, 41);
 		contentPane.add(Rdeadline_Time);
 		
@@ -465,7 +465,7 @@ public class Change_Todolist extends JFrame {
 		contentPane.add(Select_Subject_Btn);
 		
 		Complete_Select = new JComboBox();
-		Complete_Select.setModel(new DefaultComboBoxModel(new String[] {" 완료여부", "      O", "      X"}));
+		Complete_Select.setModel(new DefaultComboBoxModel(new String[] {"완료여부", "O", "X"}));
 		Complete_Select.setFont(Complete_Select.getFont().deriveFont(Complete_Select.getFont().getStyle() | Font.BOLD, 18f));
 		Complete_Select.setBounds(238, 475, 109, 39);
 		contentPane.add(Complete_Select);
@@ -505,7 +505,7 @@ public class Change_Todolist extends JFrame {
 		String deadlined = DeadlineDate_cob;
 		String deadline_ampm = DeadlineAmPm_cob;
 		String deadlinet = DeadlineTime_cob;
-	    String rdeadliney = RdeadlineYear_cob;
+	 String rdeadliney = RdeadlineYear_cob;
 		String rdeadlinem = RdeadlineMon_cob;
 		String rdeadlined = RdeadlineDate_cob;
 		String rdeadline_ampm = RdeadlineAmPm_cob;

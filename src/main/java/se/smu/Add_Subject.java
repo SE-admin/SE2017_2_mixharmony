@@ -73,17 +73,17 @@ public class Add_Subject extends JFrame {
 	
 	Subject_Management sList;
 
-    private void ViewData(Subject_Dto vSub){
-    JScrollPane Dayofweek_Scoll;  
-    
-        String subject = vSub.getSubject();
-        String professor = vSub.getProfessor();
-        String dayofweek = vSub.getDayofweek();
-        String period = vSub.getPeriod();
-        String year = vSub.getYear();
-        String semester = vSub.getSemester();
-        String divclass = vSub.getDivclass();
-    }
+ private void ViewData(Subject_Dto vSub){
+ JScrollPane Dayofweek_Scoll;  
+ 
+  String subject = vSub.getSubject();
+  String professor = vSub.getProfessor();
+  String dayofweek = vSub.getDayofweek();
+  String period = vSub.getPeriod();
+  String year = vSub.getYear();
+  String semester = vSub.getSemester();
+  String divclass = vSub.getDivclass();
+ }
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -129,7 +129,7 @@ public class Add_Subject extends JFrame {
 		
 		Subject_In = new JComboBox();
 		Subject_In.setFont(Subject_In.getFont().deriveFont(Subject_In.getFont().getStyle() | Font.BOLD, 18f));
-		Subject_In.setModel(new DefaultComboBoxModel(new String[] {"                                 수강 과목 선택", "                                소프트웨어 공학", "                                 데이터 베이스", "                                    알고리즘", "                                   공학 설계", "                                  프로그래밍1", "                                  프로그래밍2", "                      컴퓨터와 소프트웨어의 이해", "                                   이산 수학", "                              컴퓨터 네트워크", "                              소프트웨어 개발", "                                 인문학 특강", "                               융복합과 이해", "                                 성공학 특강", "                                 결혼과 사회", "                           한국 현대 문학 산책", "                                자연과학세계"}));
+		Subject_In.setModel(new DefaultComboBoxModel(new String[] {"수강 과목 선택", "소프트웨어 공학", "데이터 베이스", "알고리즘", "공학 설계", " 프로그래밍1", " 프로그래밍2", "컴퓨터와 소프트웨어의 이해", "이산 수학", "컴퓨터 네트워크", "소프트웨어 개발", "인문학 특강", "융복합과 이해", "성공학 특강", "결혼과 사회", "자연과학세계"}));
 		Subject_In.setBounds(28, 76, 473, 41);
 		contentPane.add(Subject_In);
 		
@@ -237,13 +237,13 @@ public class Add_Subject extends JFrame {
 		
 		Year_In = new JComboBox();
 		Year_In.setFont(Year_In.getFont().deriveFont(Year_In.getFont().getStyle() | Font.BOLD, 18f));
-		Year_In.setModel(new DefaultComboBoxModel(new String[] {"         년도 선택", "            2009", "            2010", "            2011", "            2012", "            2013", "            2014", "            2015", "            2016", "            2017", "            2018", "            2019"}));
+		Year_In.setModel(new DefaultComboBoxModel(new String[] {"년도 선택", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"}));
 		Year_In.setBounds(28, 424, 181, 41);
 		contentPane.add(Year_In);
 		
 		Semester_In = new JComboBox();
 		Semester_In.setFont(Semester_In.getFont().deriveFont(Semester_In.getFont().getStyle() | Font.BOLD, 18f));
-		Semester_In.setModel(new DefaultComboBoxModel(new String[] {"        학기 선택", "             1", "             2"}));
+		Semester_In.setModel(new DefaultComboBoxModel(new String[] {"학기 선택", "1", "2"}));
 		Semester_In.setBounds(287, 424, 181, 41);
 		contentPane.add(Semester_In);
 		
@@ -267,13 +267,13 @@ public class Add_Subject extends JFrame {
 		
 		Divclass_In = new JComboBox();
 		Divclass_In.setFont(Divclass_In.getFont().deriveFont(Divclass_In.getFont().getStyle() | Font.BOLD, 18f));
-		Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"        분반 선택", "             1", "             2", "             3"}));
+		Divclass_In.setModel(new DefaultComboBoxModel(new String[] {"분반 선택", "1", "2", "3"}));
 		Divclass_In.setBounds(287, 480, 181, 41);
 		contentPane.add(Divclass_In);
 		
 		Dayofweek_In = new JComboBox();
 		Dayofweek_In.setFont(Dayofweek_In.getFont().deriveFont(Dayofweek_In.getFont().getStyle() | Font.BOLD, 18f));
-		Dayofweek_In.setModel(new DefaultComboBoxModel(new String[] {"             선택", "              월", "              화", "              수", "              목", "              금", "              토"}));
+		Dayofweek_In.setModel(new DefaultComboBoxModel(new String[] {"선택", "월", "화", "수", "목", "금", "토"}));
 		Dayofweek_In.setBounds(28, 307, 181, 41);
 		contentPane.add(Dayofweek_In);
 		
@@ -308,26 +308,26 @@ public class Add_Subject extends JFrame {
 						//combobox가 사전식순일떄 table 추가방식
 						if(sList.Sortcob.equals("사전식순"))
 						{	
-				        //db insert data
+				  //db insert data
 							Subjectcob = Subject_In.getSelectedItem().toString();
 							Dayofweekcob =Dayofweek_In.getSelectedItem().toString();
 							Yearcob =Year_In.getSelectedItem().toString();
 							Divclasscob =Divclass_In.getSelectedItem().toString();
 							Semestercob =Semester_In.getSelectedItem().toString();
-				        Insert_Subject();
-				        //update table
-					    ssb.Subject_Sort();
-				        //exit add_sub
+				  Insert_Subject();
+				  //update table
+					 ssb.Subject_Sort();
+				  //exit add_sub
 						dispose();
 						}
 						//combobox가 요일별일때 table 추가방식
 						else
 						{
-					        //db insert data
-					        Insert_Subject();
-					        //update table(요일)
-						   ssb.Dayofweek_Sort();
-					        //exit add_sub
+					  //db insert data
+					  Insert_Subject();
+					  //update table(요일)
+						ssb.Dayofweek_Sort();
+					  //exit add_sub
 							dispose();
 						}
 						
@@ -378,31 +378,31 @@ public class Add_Subject extends JFrame {
 	
 	private void Insert_Subject(){
 		 Subject_Dto dto = getViewData();
-	     Subject_Dao dao = new Subject_Dao();       
-	     boolean ok = dao.Insert_Subject(dto);
+	  Subject_Dao dao = new Subject_Dao(); 
+	  boolean ok = dao.Insert_Subject(dto);
 		
 	}
 	public Subject_Dto getViewData() {
 		Subject_Dto dto = new Subject_Dto();
-        String subject = Subjectcob;
-        String professor = Professor_In.getText();
-        String dayofweek = Dayofweekcob;
-        String period = Period_In.getText();
-        String year = Yearcob + "년";
-        String semester = Semestercob + "학기";
-        String divclass = Divclasscob+ "분반";
-        
-        
-        
-        dto.setSubject(subject);
-        dto.setProfessor(professor);
-        dto.setDayofweek(dayofweek);
-        dto.setPeriod(period);
-        dto.setYear(year);
-        dto.setSemester(semester);
-        dto.setDivclass(divclass);
+  String subject = Subjectcob;
+  String professor = Professor_In.getText();
+  String dayofweek = Dayofweekcob;
+  String period = Period_In.getText();
+  String year = Yearcob + "년";
+  String semester = Semestercob + "학기";
+  String divclass = Divclasscob+ "분반";
+  
+  
+  
+  dto.setSubject(subject);
+  dto.setProfessor(professor);
+  dto.setDayofweek(dayofweek);
+  dto.setPeriod(period);
+  dto.setYear(year);
+  dto.setSemester(semester);
+  dto.setDivclass(divclass);
 
-       
-        return dto;
+ 
+  return dto;
 	}
 }
