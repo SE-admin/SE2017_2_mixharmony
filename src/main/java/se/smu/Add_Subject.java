@@ -22,6 +22,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JSpinner;
 import javax.swing.JFormattedTextField;
@@ -305,6 +306,13 @@ public class Add_Subject extends JFrame {
 
 					
 					public void mousePressed(MouseEvent arg0) {	
+						
+						if (Professor_In.getText().equals("") || Period_In.getText().equals(""))
+						{
+							JOptionPane.showMessageDialog(null, "모든 항목이 채워지지 않았습니다.", "Error", JOptionPane.WARNING_MESSAGE);
+							return;
+
+						}
 						//combobox가 사전식순일떄 table 추가방식
 						if(sList.Sortcob.equals("사전식순"))
 						{	
@@ -312,8 +320,17 @@ public class Add_Subject extends JFrame {
 							Subjectcob = Subject_In.getSelectedItem().toString();
 							Dayofweekcob =Dayofweek_In.getSelectedItem().toString();
 							Yearcob =Year_In.getSelectedItem().toString();
-							Divclasscob =Divclass_In.getSelectedItem().toString();
 							Semestercob =Semester_In.getSelectedItem().toString();
+							Divclasscob =Divclass_In.getSelectedItem().toString();
+								
+							if (Subjectcob == "수강 과목 선택" || Dayofweekcob == "선택" || Yearcob == "년도 선택"
+									|| Semestercob == "학기 선택" || Divclasscob == "분반 선택")
+							{
+								JOptionPane.showMessageDialog(null, "모든 항목이 채워지지 않았습니다.", "Error", JOptionPane.WARNING_MESSAGE);
+								return;
+
+							}
+							
 				  Insert_Subject();
 				  //update table
 					 ssb.Subject_Sort();
