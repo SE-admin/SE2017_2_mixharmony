@@ -376,7 +376,7 @@ public void userSelectAll1(DefaultTableModel model,int z) {
 		else if(z == 4) //중요도순
 		{
 			con = getConn();  
-			String sql = "select * from tododb where subject=?order by importance desc";  
+			String sql = "select * from tododb where subject=?order by star desc";  
 			ps = con.prepareStatement(sql);  
 			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();
@@ -457,7 +457,7 @@ public void userSelectAll3(DefaultTableModel model,int z) {
 		else if(z == 3)//x,importance  
 		{  
 			con = getConn();  
-			String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by importance desc";  
+			String sql = "select * from tododb where subject=? and complete not like '%O%'"+"order by star desc";  
 			ps = con.prepareStatement(sql);  
 			ps.setString(1, Clickdata);
 			rs = ps.executeQuery();  
