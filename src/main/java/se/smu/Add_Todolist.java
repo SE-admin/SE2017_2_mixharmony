@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 //import se.smu.Add_Todolist.Star_Listener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -207,7 +208,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.add(Deadline_Year_Lb);
 		
 		Deadline_Date = new JComboBox();
-		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"  일", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12", "  13", "  14", "  15", "  16", "  17", "  18", "  19", "  20", "  21", "  22", "  23", "  24", "  25", "  26", "  27", "  28", "  29", "  30", "  31"}));
+		Deadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		Deadline_Date.setFont(Deadline_Date.getFont().deriveFont(Deadline_Date.getFont().getStyle() | Font.BOLD, 18f));
 		Deadline_Date.setBounds(220, 183, 68, 41);
 		contentPane.add(Deadline_Date);
@@ -219,7 +220,7 @@ public class Add_Todolist extends JFrame {
 		
 		Deadline_Time = new JComboBox();
 		Deadline_Time.setFont(Deadline_Time.getFont().deriveFont(Deadline_Time.getFont().getStyle() | Font.BOLD, 18f));
-		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12"}));
+		Deadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Deadline_Time.setBounds(410, 183, 68, 41);
 		contentPane.add(Deadline_Time);
 		
@@ -249,7 +250,7 @@ public class Add_Todolist extends JFrame {
 		Rdeadline_Tf.setBackground(new Color(0, 0, 128));
 		
 		Rdeadline_Mon = new JComboBox();
-		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"  월", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12"}));
+		Rdeadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", " 1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Rdeadline_Mon.setFont(Rdeadline_Mon.getFont().deriveFont(Rdeadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Mon.setBounds(120, 300, 68, 41);
 		contentPane.add(Rdeadline_Mon);
@@ -260,7 +261,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.add(Rdeadline_Mon_Lb);
 		
 		Rdeadline_Date = new JComboBox();
-		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"  일", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12", "  13", "  14", "  15", "  16", "  17", "  18", "  19", "  20", "  21", "  22", "  23", "  24", "  25", "  26", "  27", "  28", "  29", "  30", "  31"}));
+		Rdeadline_Date.setModel(new DefaultComboBoxModel(new String[] {"일", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		Rdeadline_Date.setFont(Rdeadline_Date.getFont().deriveFont(Rdeadline_Date.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Date.setBounds(220, 300, 68, 41);
 		contentPane.add(Rdeadline_Date);
@@ -271,7 +272,7 @@ public class Add_Todolist extends JFrame {
 		contentPane.add(Rdeadline_Date_Lb);
 
 		Rdeadline_Time = new JComboBox();
-		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12"}));
+		Rdeadline_Time.setModel(new DefaultComboBoxModel(new String[] {"시간", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		Rdeadline_Time.setFont(Rdeadline_Time.getFont().deriveFont(Rdeadline_Time.getFont().getStyle() | Font.BOLD, 18f));
 		Rdeadline_Time.setBounds(410, 299, 68, 41);
 		contentPane.add(Rdeadline_Time);
@@ -335,6 +336,7 @@ public class Add_Todolist extends JFrame {
 		Subject.setModel(new DefaultComboBoxModel(new String[] {Clickdata}));
         Subject.setBounds(17, 482, 201, 37);
         contentPane.add(Subject);
+        Subject.setVisible(false);
 		
 		
 		JButton Signup_Btn = new JButton("등록");
@@ -368,6 +370,14 @@ public class Add_Todolist extends JFrame {
 				// TODO Auto-generated method stub
 //				cob = Subject.getSelectedItem().toString();
 				
+				if (Itemname_In.getText() == null)
+				{
+					int checkNull = JOptionPane.showConfirmDialog(null, "모든 항목이 채워지지 않았습니다.", "*경고*", JOptionPane.YES_OPTION);
+					if(checkNull == JOptionPane.YES_OPTION){
+						dispose();
+					}
+				}
+				
 				//delete 
 				DefaultTableModel model = (DefaultTableModel) table1.getModel();
 		        for (int i = 0; i < model.getRowCount();) {
@@ -387,7 +397,19 @@ public class Add_Todolist extends JFrame {
 				Subjectcob = Subject.getSelectedItem().toString();
 				Completecob = Complete.getSelectedItem().toString();
 				
+				//if (DeadlineYear_cob)
+					
 				Insert_Todo();
+				
+				/*
+				if (Itemname_In.getText() == null || Comment_In.getText() == null)
+				{
+					int checkNull = JOptionPane.showConfirmDialog(null, "모든 항목이 채워지지 않았습니다.", "*경고*", JOptionPane.YES_OPTION);
+					if(checkNull == JOptionPane.YES_OPTION){
+						dispose();
+					}
+				}
+				*/
 				
 				/*
 				//update table
@@ -536,10 +558,11 @@ public class Add_Todolist extends JFrame {
 			contentPane.add(Comment_Img);
 			
 			Complete = new JComboBox();
-			Complete.setModel(new DefaultComboBoxModel(new String[] {" 완료여부", "      O", "      X"}));
+			Complete.setModel(new DefaultComboBoxModel(new String[] {"X"}));
 			Complete.setFont(Complete.getFont().deriveFont(Complete.getFont().getStyle() | Font.BOLD, 18f));
 			Complete.setBounds(235, 482, 109, 39);
 			contentPane.add(Complete);
+			Complete.setVisible(false);
 	}
 	//삽입
 	private void Insert_Todo(){
@@ -569,6 +592,8 @@ public class Add_Todolist extends JFrame {
 		String comment = Comment_In.getText();
 		String subject = Subjectcob;
 		String complete = Completecob;
+		
+
 		
 		dto.setItemname(itemname);
 		//dto.setDeadline(deadline);
