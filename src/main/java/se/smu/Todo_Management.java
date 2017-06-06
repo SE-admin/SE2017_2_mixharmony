@@ -62,7 +62,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 
 	public Todo_Management() {
 		setTitle(Clickdata +"TO DO LIST");
-		setBounds(100, 100, 763, 490);
+		setBounds(100, 100, 975, 490);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -74,7 +74,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Logout_Btn.setForeground(Color.WHITE);
 		Logout_Btn.setFont(Logout_Btn.getFont().deriveFont(Logout_Btn.getFont().getStyle() | Font.BOLD, Logout_Btn.getFont().getSize() + 4f));
 		Logout_Btn.setBackground(new Color(0, 0, 128));
-		Logout_Btn.setBounds(580, 381, 144, 42);
+		Logout_Btn.setBounds(780, 381, 144, 42);
 		Logout_Btn.addActionListener(new ActionListener()
 				{
 					@Override
@@ -111,13 +111,13 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Subject_Btn.setForeground(Color.WHITE);
 		Subject_Btn.setFont(Subject_Btn.getFont().deriveFont(Subject_Btn.getFont().getStyle() | Font.BOLD, Subject_Btn.getFont().getSize() + 4f));
 		Subject_Btn.setBackground(new Color(0, 0, 128));
-		Subject_Btn.setBounds(276, 381, 144, 42);
+		Subject_Btn.setBounds(400, 381, 144, 42);
 		contentPane.add(Subject_Btn);
 		
 		JScrollPane Todo_Scroll = new JScrollPane();
 		Todo_Scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		Todo_Scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		Todo_Scroll.setBounds(28, 34, 688, 294);
+		Todo_Scroll.setBounds(28, 34, 900, 294);
 		contentPane.add(Todo_Scroll);
 		
 		Todo_Data_Tb = new JTable();
@@ -129,9 +129,10 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 			}
 		));
 		Todo_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(135);
-		Todo_Data_Tb.getColumnModel().getColumn(1).setPreferredWidth(135);
-		Todo_Data_Tb.getColumnModel().getColumn(2).setPreferredWidth(135);
-		Todo_Data_Tb.getColumnModel().getColumn(4).setPreferredWidth(170);
+		Todo_Data_Tb.getColumnModel().getColumn(1).setPreferredWidth(300);
+		Todo_Data_Tb.getColumnModel().getColumn(2).setPreferredWidth(300);
+		Todo_Data_Tb.getColumnModel().getColumn(3).setPreferredWidth(110);
+		Todo_Data_Tb.getColumnModel().getColumn(4).setPreferredWidth(220);
 		Todo_Data_Tb.getColumnModel().getColumn(5).setPreferredWidth(85);
 		Todo_Data_Tb.setSurrendersFocusOnKeystroke(true);
 		Todo_Data_Tb.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
