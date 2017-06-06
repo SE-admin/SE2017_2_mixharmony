@@ -392,9 +392,9 @@ public class Add_Subject extends JFrame {
 	    String professor = Professor_In.getText();
 	    String dayofweek = Dayofweekcob;
 	    String period = Period_In.getText();
-	    String year = Yearcob + "년";
-	    String semester = Semestercob + "학기";
-	    String divclass = Divclasscob+ "분반";
+	    String year = Yearcob;
+	    String semester = Semestercob;
+	    String divclass = Divclasscob;
 	  
 	    dto.setSubject(subject);
 	    dto.setProfessor(professor);
