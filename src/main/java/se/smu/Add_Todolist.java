@@ -389,15 +389,16 @@ public class Add_Todolist extends JFrame {
 				
 				Insert_Todo();
 				
+				/*
 				//update table
 			    DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
 		        Todo_Dao dao = new Todo_Dao();
 		        dao.userSelectAll(model1);
 		        //exit add_sub
 				dispose();
-				
+				*/
 				//SORT 구현 
-				/* 
+				
 				 //update table & exit Add_Todolist 
 				 if(tList.Sortcob.equals("사전식순")) 
 				 { 
@@ -464,7 +465,7 @@ public class Add_Todolist extends JFrame {
 				 			dispose(); 
 				 		} 
 				 } 
-				 */ 
+				 
 
 			}
 
