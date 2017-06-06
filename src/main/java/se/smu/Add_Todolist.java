@@ -500,7 +500,7 @@ public class Add_Todolist extends JFrame {
 			
 			Deadline_Mon = new JComboBox();
 			Deadline_Mon.setFont(Deadline_Mon.getFont().deriveFont(Deadline_Mon.getFont().getStyle() | Font.BOLD, 18f));
-			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"  월", "   1", "   2", "   3", "   4", "   5", "   6", "   7", "   8", "   9", "  10", "  11", "  12"}));
+			Deadline_Mon.setModel(new DefaultComboBoxModel(new String[] {"월", " 1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 			Deadline_Mon.setBounds(117, 183, 68, 41);
 			contentPane.add(Deadline_Mon);
 			
