@@ -62,7 +62,7 @@ public class Add_Subject extends JFrame {
 	private JPanel Panel_Year;
 	private JPanel Panel_Semester;
 	private JPanel Panel_Divclass;
-
+	
 	public static String Subjectcob; //수강과목 box값 받기
 	public static String Dayofweekcob;//요일 box값 받기
 	public static String Yearcob;//년도 box값 받기
@@ -301,7 +301,7 @@ public class Add_Subject extends JFrame {
 						{	
 				        //db insert data
 						Subjectcob = Subject_In.getSelectedItem().toString();
-//						Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
+						Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
 						Yearcob =Year_In.getSelectedItem().toString();
 						Divclasscob =Divclass_In.getSelectedItem().toString();
 						Semestercob =Semester_In.getSelectedItem().toString();
@@ -381,7 +381,7 @@ public class Add_Subject extends JFrame {
 		Subject_Dto dto = new Subject_Dto();
         String subject = Subjectcob;
         String professor = Professor_In.getText();
-        String dayofweek = Dayofweek_In.getToolTipText();
+        String dayofweek = Dayofweekcob +"요일";
         String period = Period_In.getText();
         String year = Yearcob + "년";
         String semester = Semestercob + "학기";
