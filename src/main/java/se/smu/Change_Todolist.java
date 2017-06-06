@@ -108,7 +108,12 @@ public class Change_Todolist extends JFrame {
 		for(int i = 0; i < Integer.parseInt(importance); i++){
 			Importance_Star_Btn[i].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
 		}
-	
+		
+		if(Integer.parseInt(importance)==0){
+			Importance_Star_Btn[0].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+			Importance_Star_Btn[1].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+			Importance_Star_Btn[2].setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/565112c0bf29a_thumb900.jpg")));
+		}
 	 }
 
 

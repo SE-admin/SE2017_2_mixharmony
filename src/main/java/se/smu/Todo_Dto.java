@@ -182,8 +182,8 @@ public class Todo_Dto {
 	}
 	
 	public void setStar(String importance){
-		if(Integer.parseInt(importance)==0){
-			this.star = "";
+		if(Integer.parseInt(importance)==0){//중요도 입력 안 했을 시 3으로 출력
+			this.star = "★★★";
 		}else if(Integer.parseInt(importance)==1){
 			this.star = "★";
 		}else if(Integer.parseInt(importance)==2){
