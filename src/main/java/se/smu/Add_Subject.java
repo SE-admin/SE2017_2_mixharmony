@@ -37,7 +37,7 @@ import javax.swing.JCheckBox;
 public class Add_Subject extends JFrame {
 
 
-	private JLabel Subject_Tf; // 
+	private JLabel Subject_Tf; 
 	private JLabel Professor_Tf;
 	private JLabel Year_Tf;
 	private JLabel Semester_Tf;
@@ -407,8 +407,6 @@ public class Add_Subject extends JFrame {
 	    String year = Yearcob + "년";
 	    String semester = Semestercob + "학기";
 	    String divclass = Divclasscob+ "분반";
-	  
-	  
 	  
 	    dto.setSubject(subject);
 	    dto.setProfessor(professor);
