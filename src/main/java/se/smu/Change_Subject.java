@@ -89,7 +89,7 @@ public class Change_Subject extends JFrame {
   Divclass_In.setSelectedItem(divclass); 
  }
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
 //				try {
@@ -100,7 +100,7 @@ public class Change_Subject extends JFrame {
 //				}
 //			}
 //		});
-	}
+//	}
 
 //	public Change_Subject() { 
 //

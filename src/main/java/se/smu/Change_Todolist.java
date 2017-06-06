@@ -114,18 +114,18 @@ public class Change_Todolist extends JFrame {
 	 }
 
 
-	public static void main(String[] args) {
-		/*EventQueue.invokeLater(new Runnable() {
-		public void run() {
-			try {
-				Change_Todolist frame = new Change_Todolist();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}		}
-		});
-		new Change_Todolist();*/
-	}
+//	public static void main(String[] args) {
+//		/*EventQueue.invokeLater(new Runnable() {
+//		public void run() {
+//			try {
+//				Change_Todolist frame = new Change_Todolist();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}		}
+//		});
+//		new Change_Todolist();*/
+//	}
 	
 	class Star_Listener extends MouseAdapter{
 		public void mousePressed(MouseEvent e) {

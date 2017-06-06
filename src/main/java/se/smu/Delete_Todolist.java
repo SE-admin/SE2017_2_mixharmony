@@ -18,18 +18,18 @@ public class Delete_Todolist extends JFrame {
 	Todo_Management tList;
 	public static JTable Todo_Data_Tb;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Delete_Todolist frame = new Delete_Todolist();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Delete_Todolist frame = new Delete_Todolist();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	public Delete_Todolist()
 	{

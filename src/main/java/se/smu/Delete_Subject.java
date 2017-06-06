@@ -24,22 +24,22 @@ public class Delete_Subject extends JFrame {
 
 	Subject_Management sList;
 	public static JTable Subject_Data_Tb;
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//int row = Subject_Data_Tb.getSelectedRow();
-					//String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
-					Delete_Subject frame = new Delete_Subject();
-					
-					frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					//int row = Subject_Data_Tb.getSelectedRow();
+//					//String subject = (String) Subject_Data_Tb.getValueAt(row,  0);
+//					Delete_Subject frame = new Delete_Subject();
+//					
+//					frame.setVisible(true);
+//					
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	public Delete_Subject(){
 		

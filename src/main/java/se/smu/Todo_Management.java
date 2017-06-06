@@ -55,18 +55,18 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	  Subject_Management sList;
 	  String Clickdata =sList.Clickdata;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Todo_Management frame = new Todo_Management();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Todo_Management frame = new Todo_Management();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	public Todo_Management() {
 		setTitle(Clickdata +"TO DO LIST");

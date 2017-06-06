@@ -84,18 +84,18 @@ public class Add_Subject extends JFrame {
   String semester = vSub.getSemester();
   String divclass = vSub.getDivclass();
  }
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Add_Subject frame = new Add_Subject();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Add_Subject frame = new Add_Subject();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 
 	public Add_Subject() {

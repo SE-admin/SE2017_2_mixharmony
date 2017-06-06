@@ -36,8 +36,8 @@ public class Sort_Todo extends JFrame {
 	//private Database database;
 
 	//class 사용x,메소드로 구현
-	public static void main (String[] args){			
-	}
+//	public static void main (String[] args){			
+//	}
 	
 	public class getInfo_print {	
 	}
