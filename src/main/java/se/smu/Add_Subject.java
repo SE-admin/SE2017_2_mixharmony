@@ -22,6 +22,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JSpinner;
 import javax.swing.JFormattedTextField;
@@ -62,7 +63,7 @@ public class Add_Subject extends JFrame {
 	private JPanel Panel_Year;
 	private JPanel Panel_Semester;
 	private JPanel Panel_Divclass;
-
+	
 	public static String Subjectcob; //수강과목 box값 받기
 	public static String Dayofweekcob;//요일 box값 받기
 	public static String Yearcob;//년도 box값 받기
@@ -296,15 +297,24 @@ public class Add_Subject extends JFrame {
 
 					
 					public void mousePressed(MouseEvent arg0) {	
+						
+						if (Professor_In.getText() == null || Period_In.getText() == null)
+						{
+							int checkNull = JOptionPane.showConfirmDialog(null, "모든 항목이 채워지지 않았습니다.", "*경고*", JOptionPane.YES_OPTION);
+							if(checkNull == JOptionPane.YES_OPTION){
+								dispose();
+							}
+						}
 						//combobox가 사전식순일떄 table 추가방식
 						if(sList.Sortcob.equals("사전식순"))
 						{	
 				        //db insert data
 						Subjectcob = Subject_In.getSelectedItem().toString();
-//						Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
+						Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
 						Yearcob =Year_In.getSelectedItem().toString();
 						Divclasscob =Divclass_In.getSelectedItem().toString();
 						Semestercob =Semester_In.getSelectedItem().toString();
+				
 				        Insert_Subject();
 				        //update table
 					    ssb.Subject_Sort();
@@ -381,7 +391,7 @@ public class Add_Subject extends JFrame {
 		Subject_Dto dto = new Subject_Dto();
         String subject = Subjectcob;
         String professor = Professor_In.getText();
-        String dayofweek = Dayofweek_In.getToolTipText();
+        String dayofweek = Dayofweekcob +"요일";
         String period = Period_In.getText();
         String year = Yearcob + "년";
         String semester = Semestercob + "학기";

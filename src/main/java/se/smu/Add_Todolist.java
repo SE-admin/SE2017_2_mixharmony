@@ -150,7 +150,7 @@ public class Add_Todolist extends JFrame {
 		final JTable table1 = tdm.Todo_Data_Tb;
 		
 		//sort class define 
-		Sort_Todo std1 = new Sort_Todo(); 
+		final Sort_Todo std1 = new Sort_Todo(); 
 		
 		JPanel Panel_For_Itemname = new JPanel();
 		Panel_For_Itemname.setBackground(new Color(0, 0, 128));
