@@ -1,4 +1,4 @@
-﻿package se.smu;
+package se.smu;
 
 import java.awt.EventQueue;
 
@@ -37,7 +37,7 @@ import javax.swing.JCheckBox;
 public class Add_Subject extends JFrame {
 
 
-	private JLabel Subject_Tf; // 
+	private JLabel Subject_Tf; 
 	private JLabel Professor_Tf;
 	private JLabel Year_Tf;
 	private JLabel Semester_Tf;
@@ -85,18 +85,6 @@ public class Add_Subject extends JFrame {
   String semester = vSub.getSemester();
   String divclass = vSub.getDivclass();
  }
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Add_Subject frame = new Add_Subject();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 
 	public Add_Subject() {
@@ -392,7 +380,6 @@ public class Add_Subject extends JFrame {
 	
 	}
 	//삽입
-	
 	private void Insert_Subject(){
 		 Subject_Dto dto = getViewData();
 	  Subject_Dao dao = new Subject_Dao(); 
@@ -408,8 +395,6 @@ public class Add_Subject extends JFrame {
 	    String year = Yearcob + "년";
 	    String semester = Semestercob + "학기";
 	    String divclass = Divclasscob+ "분반";
-	  
-	  
 	  
 	    dto.setSubject(subject);
 	    dto.setProfessor(professor);

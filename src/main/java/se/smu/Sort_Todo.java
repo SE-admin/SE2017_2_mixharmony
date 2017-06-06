@@ -24,7 +24,6 @@ import se.smu.Todo_Dao;
 public class Sort_Todo extends JFrame {
 	
 	public Todo_Management Todo_Management_Class;
-	//public  Add_Todolist Add_Todolist_Class;
 
 	
 	//button 사용여부?
@@ -33,11 +32,7 @@ public class Sort_Todo extends JFrame {
 	JButton RDeadlineBtn;
 	JButton StartdateBtn;
 
-	//private Database database;
 
-	//class 사용x,메소드로 구현
-	public static void main (String[] args){			
-	}
 	
 	public class getInfo_print {	
 	}

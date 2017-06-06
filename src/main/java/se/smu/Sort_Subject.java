@@ -27,11 +27,11 @@ public class Sort_Subject extends JFrame {
 	
 	Subject_Management Subject_Management_Class;
 
-	JButton DayofweekBtn; //어떤 기능?
+	JButton DayofweekBtn;
 
 
 	
-	//private Database database;
+
 
 	public static void main(String[] args) {
 		
@@ -40,7 +40,7 @@ public class Sort_Subject extends JFrame {
 	
 	
 	
-	public class getInfo_print { //어떤 목적 클래스?
+	public class getInfo_print { 
 		
 		String name;
 		String prof; 
@@ -58,21 +58,7 @@ public class Sort_Subject extends JFrame {
 		
 	}
 	
-	/*
-	class Dayofweek_sort { //method로 정의
-		
-	}
-	
-	
-	class DayofweekBtnListener implements ActionListener {//event 사용여부?
-	
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JButton b = (JButton)e.getSource();
-			
-		  }
-		}
-	*/
+
 	
 
 	public void Dayofweek_Sort() //dayofweek asc
@@ -112,12 +98,6 @@ public class Sort_Subject extends JFrame {
         dao.userSelectAll(model);
 	}
 	
-	/*
-	//사용여부??
-	public Sort_Subject() 
-	{ 
-		
-	 }
-	 */
+
 
 }

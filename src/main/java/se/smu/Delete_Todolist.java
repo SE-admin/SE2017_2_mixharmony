@@ -1,4 +1,4 @@
-﻿package se.smu;
+package se.smu;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -17,19 +17,6 @@ public class Delete_Todolist extends JFrame {
 	private JPanel contentPane;
 	Todo_Management tList;
 	public static JTable Todo_Data_Tb;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Delete_Todolist frame = new Delete_Todolist();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public Delete_Todolist()
 	{
@@ -85,12 +72,5 @@ public class Delete_Todolist extends JFrame {
 		Check_Btn.setBounds(406, 196, 136, 33);
 		contentPane.add(Check_Btn);
 	}
-	
-	//deleteMember
-//	private void Delete_Todo(){
-//		String itemname;
-//		String deadline;
-//		String rdeadline;
-//		String importance;
-//	}
+
 }

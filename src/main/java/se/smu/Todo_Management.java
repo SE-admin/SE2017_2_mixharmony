@@ -55,22 +55,10 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	  Subject_Management sList;
 	  String Clickdata =sList.Clickdata;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Todo_Management frame = new Todo_Management();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	public Todo_Management() {
 		setTitle(Clickdata +"TO DO LIST");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 763, 490);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -110,11 +98,11 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		JButton Subject_Btn = new JButton("수강 과목");
 		Subject_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//
+
 				Subject_Management Info = new Subject_Management();
 				Info.setVisible(true);
 				dispose();
-				//
+
 			}
 		});
 		Subject_Btn.setForeground(Color.WHITE);
@@ -149,11 +137,11 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Data_Tb.setColumnSelectionAllowed(true);
 		Todo_Data_Tb.setCellSelectionEnabled(true);
 		Todo_Data_Tb.setBorder(UIManager.getBorder("Table.scrollPaneBorder"));
-		//
+
 		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
 		Todo_Dao dao = new Todo_Dao();
 		dao.userSelectAll(model);
-		//
+
 		Todo_Scroll.setViewportView(Todo_Data_Tb);
 		//combobox 텍스트 전달을 위해서 combobox선언위치를 이곳으로 변경
 		final JComboBox Sort_Btn = new JComboBox();
@@ -164,7 +152,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Scroll.setRowHeaderView(Add_Todo_Btn);
 		Add_Todo_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//수정//
+
 				try {
 					Checkbox_State = Hide_Select.isSelected();
 					Sortcob = Sort_Btn.getSelectedItem().toString();//send value
@@ -199,10 +187,10 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 						}
 						else 
 						{
-							std.nocom_itemname_asc();//no comlete
+							std.nocom_itemname_asc();//no complete
 						}
 					}});
-		//
+
 		Hide_Select.setFont(Hide_Select.getFont().deriveFont(Hide_Select.getFont().getStyle() | Font.BOLD, 17f));
 		Hide_Select.setBounds(28, 341, 225, 29);
 		contentPane.add(Hide_Select);
@@ -257,7 +245,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 								std.nocom_rdeadline_asc();
 							}
 						}
-						// if(Sort_Btn.getSelectedItem().toString().equals("중요도순"))
+//						 if(Sort_Btn.getSelectedItem().toString().equals("중요도순"))
 						else
 						{
 							if(Hide_Select.isSelected()) //all,check box select
@@ -319,8 +307,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	      DeleteMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					try {
-//						Delete_Todolist frame = new Delete_Todolist();
-//						frame.setVisible(true); 
+
 						int row = Todo_Data_Tb.getSelectedRow();
 						String itemname = (String) Todo_Data_Tb.getValueAt(row, 0);
 						int del = JOptionPane.showConfirmDialog(null, "해당 To do 항목을 삭제하시겠습니까?", "*경고*", JOptionPane.YES_NO_OPTION);

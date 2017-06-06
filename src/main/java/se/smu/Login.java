@@ -60,18 +60,7 @@ public class Login extends JFrame {
        return con;
    }
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login frame = new Login();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	@SuppressWarnings("unchecked") 
 	public Login() {
@@ -184,6 +173,7 @@ public class Login extends JFrame {
 		Stay_Login_Btn.setForeground(Color.DARK_GRAY);
 		Stay_Login_Btn.setBounds(17, 377, 241, 41);
 		contentPane.add(Stay_Login_Btn);
+		Stay_Login_Btn.setVisible(false);
 		
 		JLabel School_Img = new JLabel("");
                 School_Img.setIcon(new ImageIcon(Login.class.getResource("/image/\uD559\uAD50\uBA85.jpg")));
