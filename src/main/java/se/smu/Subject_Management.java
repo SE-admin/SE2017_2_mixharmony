@@ -91,7 +91,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				};
 		
 		setTitle("수강 과목");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 745, 559);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -132,12 +131,25 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		Alarm_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/alarm--alarm-icon-91768.png")));
 		Alarm_Btn.setBounds(655, 15, 50, 43);
 		contentPane.add(Alarm_Btn);
+		Alarm_Btn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Alarm_Management Info = new Alarm_Management(); //act class define
+				Info.setVisible(true); //class act
+			}
+			
+			
+		});
+		
 
 		
 		JButton New_Alarm_Btn = new JButton("");
 		New_Alarm_Btn.setIcon(new ImageIcon(Subject_Management.class.getResource("/image/%C0̹%CC%C1%F6_007-iloveimg-resized.png")));
 		New_Alarm_Btn.setBounds(588, 15, 50, 43);
 		contentPane.add(New_Alarm_Btn);
+		New_Alarm_Btn.setVisible(false);
+		
 		
 		JScrollPane Subject_Data_Scroll = new JScrollPane();
 		Subject_Data_Scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);

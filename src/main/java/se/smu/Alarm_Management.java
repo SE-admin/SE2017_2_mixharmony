@@ -25,7 +25,7 @@ import java.util.Calendar;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-public class ALARM_MANAGEMENT extends JFrame {
+public class Alarm_Management extends JFrame {
 
 	private JPanel contentPane;
 	private JTable Alarm_Anounce_Tb;
@@ -55,7 +55,7 @@ public class ALARM_MANAGEMENT extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ALARM_MANAGEMENT frame = new ALARM_MANAGEMENT();
+					Alarm_Management frame = new Alarm_Management();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,7 +65,7 @@ public class ALARM_MANAGEMENT extends JFrame {
 	}
 
 
-	public ALARM_MANAGEMENT() {
+	public Alarm_Management() {
 		setTitle("알람 게시판");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 593, 686);
@@ -75,7 +75,7 @@ public class ALARM_MANAGEMENT extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel Alarm_Img = new JLabel("");
-		Alarm_Img.setIcon(new ImageIcon(ALARM_MANAGEMENT.class.getResource("/image/alarm-clipart-Alarm-Clock-15-iloveimg-resized.png")));
+		Alarm_Img.setIcon(new ImageIcon(Alarm_Management.class.getResource("/image/alarm-clipart-Alarm-Clock-15-iloveimg-resized.png")));
 		Alarm_Img.setBounds(101, 15, 409, 284);
 		contentPane.add(Alarm_Img);
 		
