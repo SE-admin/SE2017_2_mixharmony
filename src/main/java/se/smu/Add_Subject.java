@@ -375,7 +375,6 @@ public class Add_Subject extends JFrame {
 	
 	}
 	//삽입
-	
 	private void Insert_Subject(){
 		 Subject_Dto dto = getViewData();
 	  Subject_Dao dao = new Subject_Dao(); 
