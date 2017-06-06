@@ -193,7 +193,7 @@ public class ALARM_MANAGEMENT extends JFrame {
 	            model.removeRow(0);
 	        }
 	        //real time part
-	        /*
+	        
 	        while(rs.next())
 	        {
 	        	if(rs.getString("deadline").equals("") || rs.getString("deadline") == null)
@@ -209,7 +209,7 @@ public class ALARM_MANAGEMENT extends JFrame {
 	        			if((l - j) < 100 && (l - j) > 0 )
 	        			{
 	        				Object data[] = { rs.getString("subject"), rs.getString("itemname"),
-	        						rs.getString("deadline"), rs.getString("importance")
+	        						rs.getString("deadline"), rs.getString("star")
 		                        	};
 
 	        				model.addRow(data);
@@ -227,7 +227,7 @@ public class ALARM_MANAGEMENT extends JFrame {
 	        			if((l-j) < 100 && (l-j) > 0 )
 	        			{
 	        				Object data[] = { rs.getString("subject"), rs.getString("itemname"),
-	        						rs.getString("deadline"), rs.getString("importance")
+	        						rs.getString("deadline"), rs.getString("star")
 		                        	};
 
 	        				model.addRow(data);
@@ -238,7 +238,8 @@ public class ALARM_MANAGEMENT extends JFrame {
 	        			}
 	        		}
 	        	}
-	         */
+	        }
+	        /*
 	        //deadline = 2012.03.04 인 todo항목 table에 넣기,deadline에 문자열만 있으면 오류
 	        while (rs.next()) {
 	        	if(rs.getString("deadline").equals("") || rs.getString("deadline") == null)
@@ -264,6 +265,7 @@ public class ALARM_MANAGEMENT extends JFrame {
 	        			}
 	        	}
 	        }
+	        */
 	        //
 	    } catch (SQLException e) {
 	        System.out.println(e + "=> userSelectAll fail");

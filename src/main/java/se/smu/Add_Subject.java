@@ -1,4 +1,4 @@
-package se.smu;
+﻿package se.smu;
 
 import java.awt.EventQueue;
 
@@ -22,7 +22,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JSpinner;
 import javax.swing.JFormattedTextField;
@@ -46,14 +45,14 @@ public class Add_Subject extends JFrame {
 	private JLabel Divclass_Tf;
 	
 	private JComboBox Subject_In;
-	private JComboBox Dayodweek_In;
 	private JComboBox Year_In;
 	private JComboBox Semester_In;
 	private JComboBox Divclass_In;
+	private JComboBox Dayofweek_In;
 	
 	private JTextField Professor_In;
 	private JTextField Period_In;
-	private JComboBox Dayofweek_In;
+
 	
 	private JPanel contentPane; //내용 패널
 	private JPanel Panel_Subject;
@@ -272,6 +271,15 @@ public class Add_Subject extends JFrame {
 		Divclass_In.setBounds(287, 480, 181, 41);
 		contentPane.add(Divclass_In);
 		
+		Dayofweek_In = new JComboBox();
+		Dayofweek_In.setFont(Dayofweek_In.getFont().deriveFont(Dayofweek_In.getFont().getStyle() | Font.BOLD, 18f));
+		Dayofweek_In.setModel(new DefaultComboBoxModel(new String[] {"             선택", "              월", "              화", "              수", "              목", "              금", "              토"}));
+		Dayofweek_In.setBounds(28, 307, 181, 41);
+		contentPane.add(Dayofweek_In);
+		
+		
+
+		
 		JButton Check_Btn = new JButton("등록 확인");
 		Check_Btn.setBackground(new Color(0, 0, 128));
 		Check_Btn.setFont(Check_Btn.getFont().deriveFont(Check_Btn.getFont().getStyle() | Font.BOLD, 22f));
@@ -297,24 +305,15 @@ public class Add_Subject extends JFrame {
 
 					
 					public void mousePressed(MouseEvent arg0) {	
-						
-						if (Professor_In.getText() == null || Period_In.getText() == null)
-						{
-							int checkNull = JOptionPane.showConfirmDialog(null, "모든 항목이 채워지지 않았습니다.", "*경고*", JOptionPane.YES_OPTION);
-							if(checkNull == JOptionPane.YES_OPTION){
-								dispose();
-							}
-						}
 						//combobox가 사전식순일떄 table 추가방식
 						if(sList.Sortcob.equals("사전식순"))
 						{	
 				        //db insert data
-						Subjectcob = Subject_In.getSelectedItem().toString();
-						Dayofweekcob =Dayodweek_In.getSelectedItem().toString();
-						Yearcob =Year_In.getSelectedItem().toString();
-						Divclasscob =Divclass_In.getSelectedItem().toString();
-						Semestercob =Semester_In.getSelectedItem().toString();
-				
+							Subjectcob = Subject_In.getSelectedItem().toString();
+							Dayofweekcob =Dayofweek_In.getSelectedItem().toString();
+							Yearcob =Year_In.getSelectedItem().toString();
+							Divclasscob =Divclass_In.getSelectedItem().toString();
+							Semestercob =Semester_In.getSelectedItem().toString();
 				        Insert_Subject();
 				        //update table
 					    ssb.Subject_Sort();
@@ -372,11 +371,7 @@ public class Add_Subject extends JFrame {
 		Divclass_Lb.setBounds(482, 480, 47, 41);
 		contentPane.add(Divclass_Lb);
 		
-		Dayofweek_In = new JComboBox();
-		Dayofweek_In.setFont(Dayofweek_In.getFont().deriveFont(Dayofweek_In.getFont().getStyle() | Font.BOLD, 18f));
-		Dayofweek_In.setModel(new DefaultComboBoxModel(new String[] {"             선택", "              월", "              화", "              수", "              목", "              금", "              토"}));
-		Dayofweek_In.setBounds(28, 307, 181, 41);
-		contentPane.add(Dayofweek_In);
+
 	
 	}
 	//삽입
@@ -391,7 +386,7 @@ public class Add_Subject extends JFrame {
 		Subject_Dto dto = new Subject_Dto();
         String subject = Subjectcob;
         String professor = Professor_In.getText();
-        String dayofweek = Dayofweekcob +"요일";
+        String dayofweek = Dayofweekcob;
         String period = Period_In.getText();
         String year = Yearcob + "년";
         String semester = Semestercob + "학기";

@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 import java.sql.*;
 import se.smu.Subject_Management;
 
-public class LOGIN extends JFrame {
+public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel School_Tf;
@@ -64,7 +64,7 @@ public class LOGIN extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LOGIN frame = new LOGIN();
+					Login frame = new Login();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -74,7 +74,7 @@ public class LOGIN extends JFrame {
 	}
 
 	@SuppressWarnings("unchecked") 
-	public LOGIN() {
+	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 529, 547);
 		contentPane = new JPanel();
@@ -148,7 +148,7 @@ public class LOGIN extends JFrame {
 						{
 							Subject_Management Info = new Subject_Management(); //act class define
 							Info.setVisible(true); //class act
-							dispose(); //login section not see
+							dispose(); //Login section not see
 							break;//id,pwd,sname correct 
 						}
 						else //fail count
@@ -186,17 +186,17 @@ public class LOGIN extends JFrame {
 		contentPane.add(Stay_Login_Btn);
 		
 		JLabel School_Img = new JLabel("");
-                School_Img.setIcon(new ImageIcon(LOGIN.class.getResource("/image/\uD559\uAD50\uBA85.jpg")));
+                School_Img.setIcon(new ImageIcon(Login.class.getResource("/image/\uD559\uAD50\uBA85.jpg")));
 		School_Img.setBounds(17, 27, 52, 41);
 		contentPane.add(School_Img);
 		
 		JLabel Id_Img = new JLabel("");
-                Id_Img.setIcon(new ImageIcon(LOGIN.class.getResource("/image/free-vector-business-people-icons-22530 - \uBCF5\uC0AC\uBCF8-iloveimg-resized.jpg")));
+                Id_Img.setIcon(new ImageIcon(Login.class.getResource("/image/free-vector-business-people-icons-22530 - \uBCF5\uC0AC\uBCF8-iloveimg-resized.jpg")));
 		Id_Img.setBounds(17, 139, 52, 41);
 		contentPane.add(Id_Img);
 		
 		JLabel Password_Img = new JLabel("");
-		Password_Img.setIcon(new ImageIcon(LOGIN.class.getResource("/image/ilovepdf_com.png")));
+		Password_Img.setIcon(new ImageIcon(Login.class.getResource("/image/ilovepdf_com.png")));
 		Password_Img.setBounds(17, 257, 52, 41);
 		contentPane.add(Password_Img);
 		

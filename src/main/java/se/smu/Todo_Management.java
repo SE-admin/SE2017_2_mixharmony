@@ -92,7 +92,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 						int logout = JOptionPane.showConfirmDialog(null, "로그아웃을 하시겠습니까??", "*경고*", JOptionPane.YES_NO_OPTION);
 						if(logout == JOptionPane.YES_OPTION){
 							
-							LOGIN Info = new LOGIN();
+							Login Info = new Login();
 							Info.setVisible(true);
 							dispose();
 							
