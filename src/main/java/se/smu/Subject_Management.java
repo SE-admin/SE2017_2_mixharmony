@@ -108,10 +108,21 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		{
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//
-				LOGOUT Info = new LOGOUT();
-				Info.setVisible(true);
-				//
+				dispose();
+				int logout = JOptionPane.showConfirmDialog(null, "로그아웃을 하시겠습니까??", "*경고*", JOptionPane.YES_NO_OPTION);
+				if(logout == JOptionPane.YES_OPTION){
+					
+					LOGIN Info = new LOGIN();
+					Info.setVisible(true);
+					dispose();
+					
+				}
+				else{
+					Subject_Management sList = new Subject_Management();
+					sList.setVisible(true);
+					dispose();
+				}
+
 			}
 		}
 	    );
@@ -307,6 +318,7 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 				   	  
 				  	  Todo_Management Info = new Todo_Management(); //act class define
 					  Info.setVisible(true); //class act
+					  dispose();
 			   }
 		   }            
 	   }

@@ -52,6 +52,8 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	public static String Sortcob;
 	//checkbox state value
 	public static boolean Checkbox_State;
+	  Subject_Management sList;
+	  String Clickdata =sList.Clickdata;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -67,7 +69,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	}
 
 	public Todo_Management() {
-		setTitle("TO DO LIST");
+		setTitle(Clickdata +"TO DO LIST");
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 763, 490);
 		contentPane = new JPanel();
@@ -86,10 +88,20 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 				{
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						//
-						LOGOUT Info = new LOGOUT();
-						Info.setVisible(true);
-						//
+						dispose();
+						int logout = JOptionPane.showConfirmDialog(null, "로그아웃을 하시겠습니까??", "*경고*", JOptionPane.YES_NO_OPTION);
+						if(logout == JOptionPane.YES_OPTION){
+							
+							LOGIN Info = new LOGIN();
+							Info.setVisible(true);
+							dispose();
+							
+						}
+						else{
+							Todo_Management tList = new Todo_Management();
+							tList.setVisible(true);
+							dispose();
+						}
 					}
 				}
 			    );
