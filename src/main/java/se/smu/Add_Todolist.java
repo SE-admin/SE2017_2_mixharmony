@@ -545,6 +545,9 @@ public class Add_Todolist extends JFrame {
 		 Todo_Dao dao = new Todo_Dao();  
 		 Subject_Dao dao2 = new Subject_Dao();
 		 boolean ok = dao.Insert_Todo(dto);
+		 if(ok == true){
+			  JOptionPane.showMessageDialog(null, "To do list가 정상적으로 등록되었습니다.", "*확인*", JOptionPane.WARNING_MESSAGE);
+		 }
 	}
 	
 	public Todo_Dto getViewData() {

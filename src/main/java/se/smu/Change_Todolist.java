@@ -499,6 +499,9 @@ public class Change_Todolist extends JFrame {
 		Todo_Dto dto = getViewData();
 		Todo_Dao dao = new Todo_Dao();
 		boolean ok = dao.Change_Todo(dto);
+		if(ok == true){
+			  JOptionPane.showMessageDialog(null, "To do list편집이 정상적으로 처리되었습니다.", "*확인*", JOptionPane.WARNING_MESSAGE);
+		}
 	}
 	
 	
