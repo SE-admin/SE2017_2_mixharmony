@@ -66,7 +66,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		System.out.println("v="+v);
 		cols = getColumn();
 		
-		model = new DefaultTableModel(v,cols)
+		model = new DefaultTableModel(v,cols)//추가
 		{
 			public boolean isCellEditable(int i,int j)
 			{
