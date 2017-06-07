@@ -120,7 +120,9 @@ public class Todo_Dao {
                 
                 //추가
                 String deadline  = deadliney+"년 "+deadlinem+"월 "+deadlined+"일 "+deadline_ampm+" "+deadlinet + "시";
+                
                 String rdeadline  = rdeadliney+"년 "+rdeadlinem+"월 "+rdeadlined+"일 "+rdeadline_ampm+" "+rdeadlinet + "시";
+
 
                 Vector row = new Vector();
                 row.add(itemname);

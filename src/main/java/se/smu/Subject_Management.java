@@ -312,11 +312,13 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	   }
 
 	   public void mouseClicked(MouseEvent e){
+		   if(e.getClickCount() == 2){
 			int rowclickdata = Subject_Data_Tb.getSelectedRow();
 			Clickdata = (String) Subject_Data_Tb.getValueAt(rowclickdata, 0);
 			System.out.println(Clickdata);
 		   int row = Subject_Data_Tb.rowAtPoint(e.getPoint());
 		   int column = Subject_Data_Tb.columnAtPoint(e.getPoint());
+		   
 		   if (row >= 0 && column == 0)
 		   {
 			   if(e.getButton() == 3){
@@ -328,7 +330,8 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 					  Info.setVisible(true); //class act
 					  dispose();
 			   }
-		   }            
+		   }
+		   }
 	   }
 	   public void actionPerformed(ActionEvent e) {
 		   // TODO Auto-generated method stub

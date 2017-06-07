@@ -57,10 +57,11 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	public static boolean Checkbox_State;
 	  Subject_Management sList;
 	  String Clickdata =sList.Clickdata;
-	
-
+	Vector cols;
+	Vector v;
 
 	public Todo_Management() {
+		
 		setTitle(Clickdata +"TO DO LIST");
 		setBounds(100, 100, 975, 490);
 		contentPane = new JPanel();
@@ -97,7 +98,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 				}
 			    );
 		contentPane.add(Logout_Btn);
-		
+
 		JButton Subject_Btn = new JButton("수강 과목");
 		Subject_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,16 +122,18 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		contentPane.add(Todo_Scroll);
 		
 		Todo_Data_Tb = new JTable();
+	
 		Todo_Data_Tb.setModel(new DefaultTableModel(
+				
 			new Object[][] {
 			},
 			new String[] {
 				"TODO\uBA85", "\uB9C8\uAC10 \uAE30\uD55C", "\uC2E4\uC81C \uB9C8\uAC10\uC77C", "\uC911\uC694\uB3C4", "\uCF54\uBA58\uD2B8", "\uC644\uB8CC\uC5EC\uBD80"
 			}
 		));
-		Todo_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(135);
-		Todo_Data_Tb.getColumnModel().getColumn(1).setPreferredWidth(300);
-		Todo_Data_Tb.getColumnModel().getColumn(2).setPreferredWidth(300);
+		Todo_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(255);
+		Todo_Data_Tb.getColumnModel().getColumn(1).setPreferredWidth(240);
+		Todo_Data_Tb.getColumnModel().getColumn(2).setPreferredWidth(240);
 		Todo_Data_Tb.getColumnModel().getColumn(3).setPreferredWidth(110);
 		Todo_Data_Tb.getColumnModel().getColumn(4).setPreferredWidth(220);
 		Todo_Data_Tb.getColumnModel().getColumn(5).setPreferredWidth(85);
@@ -141,6 +144,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Data_Tb.setColumnSelectionAllowed(true);
 		Todo_Data_Tb.setCellSelectionEnabled(true);
 		Todo_Data_Tb.setBorder(UIManager.getBorder("Table.scrollPaneBorder"));
+		
 		
 		DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
 		 
@@ -153,11 +157,16 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		// 반복문을 이용하여 테이블을 가운데 정렬로 지정
 		for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
 		tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
+		
 		}
 
 		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
+		
 		Todo_Dao dao = new Todo_Dao();
+
 		dao.userSelectAll(model);
+	
+		
 
 		Todo_Scroll.setViewportView(Todo_Data_Tb);
 		//combobox 텍스트 전달을 위해서 combobox선언위치를 이곳으로 변경
@@ -296,10 +305,12 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Dao dao = new Todo_Dao();
 		DefaultTableModel model = new DefaultTableModel(dao.getTodo_List(), getColumn());
 		Todo_Data_Tb.setModel(model);
+		
 	}
 	
 	public class Mouseclick extends MouseAdapter implements ActionListener
 	{
+		
 	   public Mouseclick(){
 	      popup.add(ChangeMenu);
 	      popup.add(DeleteMenu);
@@ -309,6 +320,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	    
 	      ChangeMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
+					
 					try {
 							int row = Todo_Data_Tb.getSelectedRow(); //수정2
 							String itemname = (String)Todo_Data_Tb.getValueAt(row,  0);
@@ -323,8 +335,9 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	      
 	      DeleteMenu.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
+					
 					try {
-
+						
 						int row = Todo_Data_Tb.getSelectedRow();
 						String itemname = (String) Todo_Data_Tb.getValueAt(row, 0);
 						int del = JOptionPane.showConfirmDialog(null, "해당 To do 항목을 삭제하시겠습니까?", "*경고*", JOptionPane.YES_NO_OPTION);
@@ -352,6 +365,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	   }
 
 	   public void mouseClicked(MouseEvent e){
+	
 		   int row = Todo_Data_Tb.rowAtPoint(e.getPoint());
 		   int column = Todo_Data_Tb.columnAtPoint(e.getPoint());
 		   if (row >= 0 && column == 0)
@@ -377,6 +391,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+
 		// TODO Auto-generated method stub
 		
 	}

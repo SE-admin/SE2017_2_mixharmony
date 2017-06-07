@@ -174,6 +174,10 @@ public class Todo_Dto {
 
 	public void setRdeadline(String rdeadliney, String rdeadlinem, String rdeadlined, String rdeadline_ampm, String rdeadlinet) {
 		String rdeadline = rdeadliney+"년 "+ rdeadlinem+"월 "+ rdeadlined+"일 " + rdeadline_ampm+" " + rdeadlinet + "시";
+        if (rdeadliney == "" || rdeadlinem == "" || rdeadlined == "" || rdeadline_ampm =="" || rdeadlinet =="")
+        {
+        	rdeadline  = rdeadliney+rdeadlinem+rdeadlined+rdeadline_ampm+rdeadlinet;
+        }
 		this.rdeadline = rdeadline;
 	}
 	
