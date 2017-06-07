@@ -68,7 +68,6 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 	@SuppressWarnings("unchecked")
 	public Subject_Management() {
 		Subject_Dao dao  = new Subject_Dao();
-		dao = new Subject_Dao();
 		v = dao.getSubject_List();
 		System.out.println("v="+v);
 		cols = getColumn();
@@ -76,12 +75,12 @@ public class Subject_Management extends JFrame implements MouseListener,ActionLi
 		final Sort_Subject ssb = new Sort_Subject();
 		
 		model = new DefaultTableModel(v,cols)
-				{
-					public boolean isCellEditable(int i,int j)
-					{
-						return false;
-					}
-				};
+		{
+			public boolean isCellEditable(int i,int j)
+			{
+				return false;
+			}
+		};
 		
 		setTitle("수강 과목");
 		setBounds(100, 100, 745, 559);

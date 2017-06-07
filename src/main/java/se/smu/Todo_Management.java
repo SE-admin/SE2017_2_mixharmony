@@ -61,7 +61,19 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 	Vector v;
 
 	public Todo_Management() {
+		Todo_Dao dao  = new Todo_Dao();
+		v = dao.getTodo_List();
+		System.out.println("v="+v);
+		cols = getColumn();
 		
+		model = new DefaultTableModel(v,cols)
+		{
+			public boolean isCellEditable(int i,int j)
+			{
+				return false;
+			}
+		};
+				
 		setTitle(Clickdata +"TO DO LIST");
 		setBounds(100, 100, 975, 490);
 		contentPane = new JPanel();
@@ -121,16 +133,16 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 		Todo_Scroll.setBounds(28, 34, 900, 294);
 		contentPane.add(Todo_Scroll);
 		
-		Todo_Data_Tb = new JTable();
+		Todo_Data_Tb = new JTable(model);
 	
-		Todo_Data_Tb.setModel(new DefaultTableModel(
-				
-			new Object[][] {
-			},
-			new String[] {
-				"TODO\uBA85", "\uB9C8\uAC10 \uAE30\uD55C", "\uC2E4\uC81C \uB9C8\uAC10\uC77C", "\uC911\uC694\uB3C4", "\uCF54\uBA58\uD2B8", "\uC644\uB8CC\uC5EC\uBD80"
-			}
-		));
+//		Todo_Data_Tb.setModel(new DefaultTableModel(
+//				
+//			new Object[][] {
+//			},
+//			new String[] {
+//				"TODO\uBA85", "\uB9C8\uAC10 \uAE30\uD55C", "\uC2E4\uC81C \uB9C8\uAC10\uC77C", "\uC911\uC694\uB3C4", "\uCF54\uBA58\uD2B8", "\uC644\uB8CC\uC5EC\uBD80"
+//			}
+//		));
 		Todo_Data_Tb.getColumnModel().getColumn(0).setPreferredWidth(255);
 		Todo_Data_Tb.getColumnModel().getColumn(1).setPreferredWidth(240);
 		Todo_Data_Tb.getColumnModel().getColumn(2).setPreferredWidth(240);
@@ -162,7 +174,7 @@ public class Todo_Management extends JFrame implements MouseListener,ActionListe
 
 		DefaultTableModel model = (DefaultTableModel) Todo_Data_Tb.getModel();
 		
-		Todo_Dao dao = new Todo_Dao();
+//		Todo_Dao dao = new Todo_Dao();
 
 		dao.userSelectAll(model);
 	

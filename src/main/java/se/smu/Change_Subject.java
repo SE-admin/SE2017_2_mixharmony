@@ -88,6 +88,7 @@ public class Change_Subject extends JFrame {
 	 Subject_In.setSelectedItem(subject);
 	 Professor_In.setText(professor);
 	 Period_In.setText(period);
+	 Dayofweek_In.setSelectedItem(dayofweek);
 	 Year_In.setSelectedItem(year);
 	 Semester_In.setSelectedItem(semester);
 	 Divclass_In.setSelectedItem(divclass); 
