@@ -304,7 +304,7 @@ public class Add_Subject extends JFrame {
 						//combobox가 사전식순일떄 table 추가방식
 						if(sList.Sortcob.equals("사전식순"))
 						{	
-				  //db insert data
+							//db insert data
 							Subjectcob = Subject_In.getSelectedItem().toString();
 							Dayofweekcob =Dayofweek_In.getSelectedItem().toString();
 							Yearcob =Year_In.getSelectedItem().toString();
@@ -319,20 +319,20 @@ public class Add_Subject extends JFrame {
 
 							}
 							
-				  Insert_Subject();
-				  //update table
-					 ssb.Subject_Sort();
-				  //exit add_sub
-						dispose();
+							Insert_Subject();
+							//update table
+							ssb.Subject_Sort();
+							//exit add_sub
+							dispose();
 						}
 						//combobox가 요일별일때 table 추가방식
 						else
 						{
-					  //db insert data
-					  Insert_Subject();
-					  //update table(요일)
-						ssb.Dayofweek_Sort();
-					  //exit add_sub
+							//db insert data
+							Insert_Subject();
+							//update table(요일)
+							ssb.Dayofweek_Sort();
+							//exit add_sub
 							dispose();
 						}
 						

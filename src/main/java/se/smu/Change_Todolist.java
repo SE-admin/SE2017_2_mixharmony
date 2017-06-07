@@ -20,6 +20,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -163,6 +164,7 @@ public class Change_Todolist extends JFrame {
 		Itemname_In.setColumns(10);
 		Itemname_In.setBounds(17, 71, 473, 41);
 		contentPane.add(Itemname_In);
+		Itemname_In.setEnabled(false); 
 		
 		JLabel Itemname_Img = new JLabel("");
 		Itemname_Img.setIcon(new ImageIcon(Change_Todolist.class.getResource("/image/imagesK5B499QW.jpg")));
@@ -288,10 +290,18 @@ public class Change_Todolist extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
+				
+				if (Itemname_In.getText().equals("") || Comment_In.getText().equals(""))
+				{
+					JOptionPane.showMessageDialog(null, "모든 항목이 채워지지 않았습니다.", "Error", JOptionPane.WARNING_MESSAGE);
+					return;
+
+				}
+				
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				for (int i = 0; i < model.getRowCount();) {
-		model.removeRow(0);
-		}
+					model.removeRow(0);
+				}
 				DeadlineYear_cob = Deadline_Year.getSelectedItem().toString();
 				DeadlineMon_cob = Deadline_Mon.getSelectedItem().toString();
 				DeadlineDate_cob = Deadline_Mon.getSelectedItem().toString();
@@ -307,10 +317,18 @@ public class Change_Todolist extends JFrame {
 				Subjectcob = Select_Subject_Btn.getSelectedItem().toString();
 				Completecob = Complete_Select.getSelectedItem().toString();
 				
+				if (DeadlineYear_cob == "년도" || DeadlineMon_cob == "월" || DeadlineDate_cob == "일"
+						|| DeadlineAmPm_cob == "선택" || DeadlineTime_cob == "시간")
+				{
+					JOptionPane.showMessageDialog(null, "모든 항목이 채워지지 않았습니다.", "Error", JOptionPane.WARNING_MESSAGE);
+					return;
+
+				}
+				
 				Change_Todolist();
 				DefaultTableModel model1 = (DefaultTableModel) table.getModel();
 				Todo_Dao dao = new Todo_Dao();
-		dao.userSelectAll(model);
+				dao.userSelectAll(model);
 				dispose();
 			}
 
@@ -441,6 +459,7 @@ public class Change_Todolist extends JFrame {
 		Panel_For_Comment.add(Comment_Lb);
 		
 		Comment_In = new JTextField();
+		Comment_In.setHorizontalAlignment(SwingConstants.RIGHT);
 		Comment_In.setText("");
 		Comment_In.setColumns(10);
 		Comment_In.setBounds(195, 416, 308, 41);

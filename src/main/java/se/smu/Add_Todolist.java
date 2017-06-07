@@ -145,6 +145,7 @@ public class Add_Todolist extends JFrame {
 		Itemname_Tf.setLabelFor(Itemname_In);
 		
 		Itemname_In = new JTextField();
+		Itemname_In.setHorizontalAlignment(SwingConstants.RIGHT);
 		Itemname_In.setText("");
 		Itemname_In.setColumns(10);
 		Itemname_In.setBounds(17, 71, 473, 41);
@@ -509,6 +510,7 @@ public class Add_Todolist extends JFrame {
 			Comment_Lb.setBackground(new Color(0, 0, 128));
 			
 			Comment_In = new JTextField();
+			Comment_In.setHorizontalAlignment(SwingConstants.RIGHT);
 			Comment_In.setText("");
 			Comment_In.setColumns(10);
 			Comment_In.setBounds(188, 426, 308, 41);

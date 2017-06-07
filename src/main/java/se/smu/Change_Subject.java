@@ -25,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
@@ -192,6 +193,7 @@ public class Change_Subject extends JFrame {
 	Period_Tf.setBackground(new Color(0, 0, 128));
 	
 	Period_In = new JTextField();
+	Period_In.setHorizontalAlignment(SwingConstants.RIGHT);
 	Period_In.setFont(Period_In.getFont().deriveFont(Period_In.getFont().getStyle() | Font.BOLD, Period_In.getFont().getSize() + 2f));
 	Period_In.setColumns(10);
 	Period_In.setBounds(287, 307, 173, 41);
@@ -321,25 +323,42 @@ public class Change_Subject extends JFrame {
 	
 	Check_Btn.addMouseListener(new MouseAdapter() {
 		public void mousePressed(MouseEvent arg0) {
+			
+			if (Professor_In.getText().equals("") || Period_In.getText().equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "모든 항목이 채워지지 않았습니다.", "Error", JOptionPane.WARNING_MESSAGE);
+				return;
+
+			}
+			
 			DefaultTableModel model = (DefaultTableModel) table.getModel();
-	  for (int i = 0; i < model.getRowCount();) {
-	model.removeRow(0);	 
-	}
+			for (int i = 0; i < model.getRowCount();) {
+				model.removeRow(0);	 
+			}
 			Subjectcob = Subject_In.getSelectedItem().toString();
 			Dayofweekcob =Dayofweek_In.getSelectedItem().toString();
 			Yearcob =Year_In.getSelectedItem().toString();
 			Divclasscob =Divclass_In.getSelectedItem().toString();
 			Semestercob =Semester_In.getSelectedItem().toString();
 			
-	  Change_Subject(); 
-	  /*db change data*/
+			
+			if (Subjectcob == "수강 과목 선택" || Dayofweekcob == "선택" || Yearcob == "년도 선택"
+					|| Semestercob == "학기 선택" || Divclasscob == "분반 선택")
+			{
+				JOptionPane.showMessageDialog(null, "모든 항목이 채워지지 않았습니다.", "Error", JOptionPane.WARNING_MESSAGE);
+				return;
+
+			}
+			
+			Change_Subject(); 
+			/*db change data*/
 
 			/*update table*/
 			DefaultTableModel model1 = (DefaultTableModel) table.getModel();
-	  Subject_Dao dao = new Subject_Dao();
-	  dao.userSelectAll(model);
-	  /*exit change sub*/
-	  dispose();
+			Subject_Dao dao = new Subject_Dao();
+			dao.userSelectAll(model);
+			/*exit change sub*/
+			dispose();
 		}
 
 		public void mouseReleased(MouseEvent arg0) {
