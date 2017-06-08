@@ -64,6 +64,7 @@ public class Login extends JFrame {
 
 	@SuppressWarnings("unchecked") 
 	public Login() {
+		JOptionPane.showMessageDialog(null, "ex)아이디/비밀번호/학교이름\n201311139/201311139/상명대학교(서울)\n201311165/wjsdmswls/상명대학교(서울)\nroot/root\nkookmin123/kook123/국민대학교", "DB에 저장된 입력 값 참고", JOptionPane.WARNING_MESSAGE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 529, 547);
 		contentPane = new JPanel();
@@ -71,6 +72,7 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		setTitle("로그인");
+		
 		
 		Panel_School = new JPanel();  
 		Panel_School.setBackground(new Color(0, 0, 128));  
@@ -148,7 +150,7 @@ public class Login extends JFrame {
 				
 					if(i == j) //not correct ,clear field
 					{
-						JOptionPane.showMessageDialog(null, "No Correct", "Error", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "아이디/비밀번호/학교명이 일치 하지 않습니다!", "Error", JOptionPane.WARNING_MESSAGE);
 						Id_In.setText("");
 						Password_In.setText("");
 					}
