@@ -194,7 +194,7 @@ public class Alarm_Management extends JFrame {
 	        		{
 	        			int l = deint(rs.getString("deadline")) + 12;
 	        			int j = calint();
-	        			if((l - j) < 100 && (l - j) > 0 )
+	        			if((l - j) <= 100 && (l - j) > 0 )
 	        			{
 	        				Object data[] = { rs.getString("subject"), rs.getString("itemname"),
 	        						rs.getString("deadline"), rs.getString("star")
@@ -212,7 +212,7 @@ public class Alarm_Management extends JFrame {
 	        			int l = deint(rs.getString("deadline"));
 	        			int j = calint();	
 
-	        			if((l-j) < 100 && (l-j) > 0 )
+	        			if((l-j) <= 100 && (l-j) > 0 )
 	        			{
 	        				Object data[] = { rs.getString("subject"), rs.getString("itemname"),
 	        						rs.getString("deadline"), rs.getString("star")
