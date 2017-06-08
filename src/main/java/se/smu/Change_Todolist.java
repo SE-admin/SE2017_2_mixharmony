@@ -291,12 +291,8 @@ public class Change_Todolist extends JFrame {
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				
-				if (Itemname_In.getText().equals("") || Comment_In.getText().equals(""))
-				{
-					JOptionPane.showMessageDialog(null, "모든 항목이 채워지지 않았습니다.", "Error", JOptionPane.WARNING_MESSAGE);
-					return;
 
-				}
+
 				
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				for (int i = 0; i < model.getRowCount();) {
@@ -304,13 +300,13 @@ public class Change_Todolist extends JFrame {
 				}
 				DeadlineYear_cob = Deadline_Year.getSelectedItem().toString();
 				DeadlineMon_cob = Deadline_Mon.getSelectedItem().toString();
-				DeadlineDate_cob = Deadline_Mon.getSelectedItem().toString();
+				DeadlineDate_cob = Deadline_Date.getSelectedItem().toString();
 				DeadlineAmPm_cob = Select_Time.getSelectedItem().toString();
 				DeadlineTime_cob = Deadline_Time.getSelectedItem().toString();
 				
 				RdeadlineYear_cob = Rdeadline_Year.getSelectedItem().toString();
 				RdeadlineMon_cob = Rdeadline_Mon.getSelectedItem().toString();
-				RdeadlineDate_cob = Rdeadline_Mon.getSelectedItem().toString();
+				RdeadlineDate_cob = Rdeadline_Date.getSelectedItem().toString();
 				RdeadlineAmPm_cob = Rselect_Time.getSelectedItem().toString();
 				RdeadlineTime_cob = Deadline_Time.getSelectedItem().toString();
 				
@@ -323,6 +319,17 @@ public class Change_Todolist extends JFrame {
 					JOptionPane.showMessageDialog(null, "모든 항목이 채워지지 않았습니다.", "Error", JOptionPane.WARNING_MESSAGE);
 					return;
 
+				}
+				else if (RdeadlineYear_cob == "년도" || RdeadlineMon_cob == "월" || RdeadlineDate_cob == "일"
+						|| RdeadlineAmPm_cob == "선택" || RdeadlineTime_cob == "시간")
+				{
+					
+					JOptionPane.showMessageDialog(null, "실제 마감일 모든 항목이 채워지지 않았습니다.\n ★실제 마감일★은 공백으로 출력됩니다.", "Error", JOptionPane.WARNING_MESSAGE);
+					RdeadlineYear_cob = "";
+					RdeadlineMon_cob = "";
+					RdeadlineDate_cob = "";
+					RdeadlineAmPm_cob = "";
+					RdeadlineTime_cob = "";
 				}
 				
 				Change_Todolist();
